@@ -29,8 +29,8 @@
             <h3 class="site-footer__heading">EXPLORAR</h3>
             <ul class="site-footer__links">
               <li><a href="${base}#inicio">Inicio</a></li>
-              <li><a href="${base}#desarrollo">Servicios</a></li>
               <li><a href="${base}#acerca">Acerca de mí</a></li>
+              <li><a href="${base}#desarrollo">Servicios</a></li>
               <li><a href="${base}#contacto">Contáctame</a></li>
             </ul>
           </nav>

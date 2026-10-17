@@ -1601,6 +1601,18 @@ cta-banner {
   opacity: 0.75;
 }
 
+#name {
+  text-transform: uppercase;
+}
+
+#name::placeholder {
+  text-transform: none;
+}
+
+#email {
+  text-transform: lowercase;
+}
+
 .form__field input:not([type="checkbox"]):not([type="file"]):focus,
 .form__field select:focus,
 .form__field textarea:focus {
@@ -1683,6 +1695,17 @@ cta-banner {
   font-size: 0.78rem;
   color: var(--color-muted);
   white-space: nowrap;
+  transition: color var(--transition);
+}
+
+.form__counter.is-near-limit {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.form__counter.is-at-limit {
+  color: var(--color-danger);
+  font-weight: 700;
 }
 
 .form__upload {
@@ -1725,6 +1748,91 @@ cta-banner {
   height: 18px;
   flex-shrink: 0;
   color: var(--color-muted);
+}
+
+.form__upload[hidden],
+.form__attachment-list[hidden] {
+  display: none;
+}
+
+.form__attachment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.form__attachment-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  padding: 0.6rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+}
+
+.form__attachment-name {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.form__attachment-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-shrink: 0;
+}
+
+.form__attachment-btn {
+  padding: 0.35rem 0.85rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity var(--transition), background-color var(--transition),
+    color var(--transition), border-color var(--transition),
+    transform var(--transition);
+}
+
+.form__attachment-btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.form__attachment-btn--add {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.form__attachment-btn--add:hover:not(:disabled) {
+  background-color: var(--color-primary-dark);
+}
+
+.form__attachment-btn--add:disabled {
+  background-color: var(--color-border);
+  border-color: var(--color-border);
+  color: var(--color-muted);
+  opacity: 0.75;
+  cursor: not-allowed;
+}
+
+.form__attachment-btn--remove {
+  background-color: var(--color-bg-alt);
+  border-color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.form__attachment-btn--remove:hover {
+  background-color: var(--color-secondary-strong);
+  border-color: var(--color-secondary-strong);
+  color: var(--color-on-primary);
 }
 
 .form__field--checkbox {
@@ -1832,6 +1940,111 @@ cta-banner {
 
 .form__feedback.is-error {
   color: var(--color-danger);
+}
+
+/* Modal de confirmación de envío */
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+}
+
+.contact-modal[hidden] {
+  display: none;
+}
+
+.contact-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 32, 0.55);
+  backdrop-filter: blur(4px);
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.contact-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 28rem);
+  padding: 2.25rem 2rem 2rem;
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  animation: modalPopIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.contact-modal__close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  width: 2.25rem;
+  height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition),
+    border-color var(--transition);
+}
+
+.contact-modal__close:hover,
+.contact-modal__close:focus-visible {
+  background: var(--color-bg-alt);
+  border-color: var(--color-border);
+  color: var(--color-heading);
+  outline: none;
+}
+
+.contact-modal__icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(47, 139, 109, 0.14);
+  color: var(--color-success);
+}
+
+.contact-modal__text {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-heading);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalPopIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 /* ==========================================================================

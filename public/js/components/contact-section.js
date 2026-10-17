@@ -9,7 +9,7 @@
       <div class="form__row">
         <div class="form__field">
           <label for="name">Nombre completo</label>
-          <input type="text" id="name" name="name" placeholder="Ej. Juan Pérez" required minlength="2" maxlength="80" autocomplete="name" />
+          <input type="text" id="name" name="name" placeholder="Ej. Juan Pérez" required minlength="2" maxlength="30" autocomplete="name" />
           <span class="form__error" data-error-for="name"></span>
         </div>
 
@@ -27,7 +27,7 @@
               </span>
               <span>+56 9</span>
             </span>
-            <input type="tel" id="phone" name="phone" placeholder="8765 4321" maxlength="20" inputmode="numeric" autocomplete="tel-local" />
+            <input type="tel" id="phone" name="phone" placeholder="8765 4321" maxlength="8" inputmode="numeric" autocomplete="tel-local" />
           </div>
           <span class="form__error" data-error-for="phone"></span>
         </div>
@@ -35,7 +35,7 @@
 
       <div class="form__field">
         <label for="email">Correo electrónico</label>
-        <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" required maxlength="120" autocomplete="email" />
+        <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" required maxlength="320" autocomplete="email" />
         <span class="form__error" data-error-for="email"></span>
       </div>
 
@@ -76,14 +76,16 @@
         </div>
       </div>
 
-      <div class="form__field">
-        <label class="form__upload" for="attachment">
-          <input type="file" id="attachment" name="attachment" class="form__upload-input" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.webp,.zip" />
+      <div class="form__field" id="attachment-field">
+        <input type="file" id="attachment" name="attachment" class="form__upload-input" accept="image/*,.pdf,.doc,.docx,.png,.jpg,.jpeg,.webp,.zip" />
+        <label class="form__upload" id="attachment-dropzone" for="attachment">
           <svg class="form__upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48" />
           </svg>
-          <span class="form__upload-text" id="attachment-label">Adjuntar brief, boceto o documento de referencia (opcional)</span>
+          <span class="form__upload-text" id="attachment-label">Adjuntar archivo o referencia (opcional)</span>
         </label>
+        <div class="form__attachment-list" id="attachment-list" hidden></div>
+        <span class="form__error" id="attachment-error" data-error-for="attachment"></span>
       </div>
 
       <div class="form__field form__field--checkbox">
@@ -218,6 +220,29 @@
     </aside>
   `;
 
+  var SUCCESS_MODAL = `
+    <div class="contact-modal" id="contact-success-modal" hidden aria-hidden="true">
+      <div class="contact-modal__backdrop" data-modal-close></div>
+      <div class="contact-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-message">
+        <button type="button" class="contact-modal__close" id="contact-modal-close" data-modal-close aria-label="Cerrar mensaje">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+        <div class="contact-modal__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+            <polyline points="22 4 12 14.01 9 11.01" />
+          </svg>
+        </div>
+        <p class="contact-modal__text" id="contact-modal-message">
+          ¡Gracias! Tu mensaje fue enviado. Te responderé muy pronto.
+        </p>
+      </div>
+    </div>
+  `;
+
   function render(host) {
     var k = window.RFKIT;
     var section = k.sectionShell(k.attr(host, "section-id", "contacto"), "section--contact section--alt");
@@ -237,8 +262,10 @@
     container.appendChild(layout);
 
     section.appendChild(container);
+    section.appendChild(k.fragment(SUCCESS_MODAL));
     host.replaceChildren(section);
   }
 
   window.RFKIT.define("contact-section", render);
 })();
+
