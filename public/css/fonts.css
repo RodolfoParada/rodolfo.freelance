@@ -1,0 +1,9 @@
+/* Tipografía propia — autoalojada (sin dependencias externas ni cambios de CSP) */
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 400 800;
+  font-display: swap;
+  src: url("../assets/fonts/plus-jakarta-sans-latin.woff2") format("woff2");
+}

@@ -1,0 +1,111 @@
+:root {
+  color-scheme: light;
+
+  /* =========================================================================
+     Paleta 60-30-10
+     =========================================================================
+     60% Base visual ....... #F2EFE7  Blanco lino / arena suave (fondo general)
+     30% Estructura/Texto .. #3368A0  Azul corporativo
+                             #66A3BF  Azul acero (secundario)
+     10% Transición ........ #C8DFDB  Menta pálido / salvia (acentos y hover)
+     ========================================================================= */
+
+  /* --- 60% : fondo y base visual --- */
+  --color-bg: #F2EFE7;
+  --color-surface: #FCFBF7;
+  --color-bg-alt: #E7F1EE;
+
+  /* --- 30% : estructura, textos y contraste --- */
+  --color-primary: #3368A0;
+  --color-primary-dark: #274E77;
+  --color-secondary: #66A3BF;
+  --color-secondary-strong: #3D7CA8;
+  --color-on-primary: #FFFFFF;
+
+  /* --- 10% : transición y equilibrio --- */
+  --color-accent: #C8DFDB;
+
+  /* --- Texto y bordes --- */
+  --color-text: #3368A0;
+  --color-heading: #3368A0;
+  --color-muted: #5B7B93;
+  --color-border: #DDE6E1;
+
+  /* --- Estados --- */
+  --color-danger: #B4443A;
+  --color-success: #2F8B6D;
+
+  /* --- Estructura (navbar y footer) --- */
+  --color-header-bg: rgba(242, 239, 231, 0.85);
+  --color-footer-bg: #274E77;
+  --color-footer-text: rgba(242, 239, 231, 0.9);
+  --color-footer-muted: rgba(200, 223, 219, 0.85);
+  --color-footer-strong: #FFFFFF;
+  --color-footer-border: rgba(200, 223, 219, 0.25);
+
+  --font-base: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 2.25rem;
+  --font-size-2xl: clamp(2.25rem, 5vw, 3.5rem);
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+  --space-xl: 4rem;
+
+  --radius: 0.625rem;
+  --radius-lg: 1rem;
+  --shadow: 0 6px 24px rgba(51, 104, 160, 0.10);
+  --shadow-lg: 0 18px 48px rgba(51, 104, 160, 0.16);
+  --container-width: 1950px;
+  --header-height: 68px;
+  --transition: 0.25s ease;
+}
+
+/* ===========================================================================
+   Modo oscuro
+   =========================================================================== */
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* --- 60% : fondo y base visual --- */
+  --color-bg: #131A23;
+  --color-surface: #1B2531;
+  --color-bg-alt: #172230;
+
+  /* --- 30% : estructura, textos y contraste --- */
+  --color-primary: #6BA6D6;
+  --color-primary-dark: #4E8FC0;
+  --color-secondary: #66A3BF;
+  --color-secondary-strong: #4E8FC0;
+  --color-on-primary: #0F1720;
+
+  /* --- 10% : transición y equilibrio --- */
+  --color-accent: #C8DFDB;
+
+  /* --- Texto y bordes --- */
+  --color-text: #D6E2EE;
+  --color-heading: #EAF2FA;
+  --color-muted: #93A6B8;
+  --color-border: #2A3646;
+
+  /* --- Estados --- */
+  --color-danger: #E08A80;
+  --color-success: #6FCBA6;
+
+  /* --- Estructura (navbar y footer) --- */
+  --color-header-bg: rgba(19, 26, 35, 0.85);
+  --color-footer-bg: #0E141B;
+  --color-footer-text: #C7D5E3;
+  --color-footer-muted: #8296A8;
+  --color-footer-strong: #EAF2FA;
+  --color-footer-border: rgba(200, 223, 219, 0.15);
+
+  --shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.55);
+}
