@@ -144,3 +144,5 @@ Se utiliza **Plus Jakarta Sans** autoalojada en `public/assets/fonts/` (woff2, p
 - Nunca subas `.env` al repositorio.
 - El envío de correo ocurre únicamente en el backend; el frontend no maneja secretos.
 - En producción usa HTTPS y define `ALLOWED_ORIGINS` con tu dominio real.
+
+V2
