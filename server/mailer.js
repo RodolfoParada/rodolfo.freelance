@@ -82,13 +82,23 @@ async function sendContactEmail(data) {
     message
   ].join("\n");
 
+  const rawAttachments = Array.isArray(data.attachments) ? data.attachments.slice(0, 3) : [];
+  const mailAttachments = rawAttachments
+    .filter((item) => item && item.filename && item.content)
+    .map((item) => ({
+      filename: sanitizeHeader(item.filename),
+      content: Buffer.from(String(item.content), "base64"),
+      contentType: item.contentType ? sanitizeHeader(item.contentType) : undefined
+    }));
+
   await transporter.sendMail({
     from: `"${sanitizeHeader(config.mail.fromName)}" <${config.mail.user}>`,
     to: config.mail.to,
     replyTo: `"${name}" <${email}>`,
     subject: `[Contacto] ${subject}`,
     text,
-    html
+    html,
+    attachments: mailAttachments
   });
 }
 

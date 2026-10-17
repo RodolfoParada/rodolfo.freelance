@@ -194,22 +194,207 @@
 
   /* -------------------------------------------------------- Formulario contacto */
 
-  const DEFAULT_UPLOAD_LABEL =
-    "Adjuntar brief, boceto o documento de referencia (opcional)";
+  const DEFAULT_UPLOAD_LABEL = "Adjuntar archivo o referencia (opcional)";
+
+  const REPEATED_DIGITS_RE = /^(.)\1{7}$/;
+
+  function isSequentialDigits(digits) {
+    if (digits.length !== 8) return false;
+    let isAscending = true;
+    let isDescending = true;
+    for (let i = 1; i < digits.length; i += 1) {
+      const prev = Number(digits[i - 1]);
+      const curr = Number(digits[i]);
+      if (curr !== prev + 1) isAscending = false;
+      if (curr !== prev - 1) isDescending = false;
+    }
+    return isAscending || isDescending;
+  }
+
+  function sanitizePhoneDigits(value, isPaste) {
+    let digits = String(value || "").replace(/\D/g, "");
+
+    if (isPaste || digits.length > 8) {
+      if (digits.startsWith("56") && (isPaste || digits.length > 8)) {
+        digits = digits.slice(2);
+      }
+      if (digits.length >= 9 && digits.startsWith("9")) {
+        digits = digits.slice(1);
+      }
+    }
+
+    return digits.slice(0, 8);
+  }
+
+  function formatPhoneMask(digits) {
+    if (digits.length <= 4) return digits;
+    return `${digits.slice(0, 4)} ${digits.slice(4, 8)}`;
+  }
+
+  function getRawPhoneDigits(input) {
+    if (!input) return "";
+    if (typeof input.dataset.rawPhone === "string") {
+      return input.dataset.rawPhone;
+    }
+    return sanitizePhoneDigits(input.value, false);
+  }
+
+  function applyPhoneState(input, digits) {
+    input.dataset.rawPhone = digits;
+    input.maxLength = digits.length >= 4 ? 9 : 8;
+    input.value = formatPhoneMask(digits);
+  }
+
+  /* ----------------------------------------- Validación y sanitización Email */
+
+  const EMAIL_LOCAL_RE = /^[a-z0-9áéíóúüñ._%+-]+$/i;
+  const EMAIL_LABEL_RE = /^[a-z0-9áéíóúüñ](?:[a-z0-9áéíóúüñ-]{0,61}[a-z0-9áéíóúüñ])?$/i;
+  const EMAIL_TLD_RE = /^(?:[a-z]{2,}|xn--[a-z0-9]{2,})$/i;
+
+  const EMAIL_DOMAIN_TYPOS = {
+    "gamil.com": "gmail.com",
+    "gmai.com": "gmail.com",
+    "gmial.com": "gmail.com",
+    "gmal.com": "gmail.com",
+    "gmail.con": "gmail.com",
+    "gmail.c": "gmail.com",
+    "hotmial.com": "hotmail.com",
+    "hotmai.com": "hotmail.com",
+    "hotmal.com": "hotmail.com",
+    "hotmail.con": "hotmail.com",
+    "hotmail.c": "hotmail.com",
+    "outlok.com": "outlook.com",
+    "outllok.com": "outlook.com",
+    "oulook.com": "outlook.com",
+    "outlook.con": "outlook.com",
+    "outlook.c": "outlook.com",
+    "outlok.cl": "outlook.cl",
+    "outllok.cl": "outlook.cl",
+    "yaho.com": "yahoo.com",
+    "yahooo.com": "yahoo.com",
+    "yhoo.com": "yahoo.com",
+    "yahoo.con": "yahoo.com",
+    "yahoo.c": "yahoo.com"
+  };
+
+  function sanitizeEmail(raw) {
+    return String(raw || "").trim().toLowerCase();
+  }
+
+  function validateEmailAddress(rawValue) {
+    const email = sanitizeEmail(rawValue);
+    if (!email) return "Ingresa tu correo electrónico.";
+    if (/\s/.test(email)) return "El correo no debe contener espacios.";
+
+    const parts = email.split("@");
+    if (parts.length !== 2) {
+      return "Ingresa un correo válido (ej. nombre@dominio.cl).";
+    }
+
+    const local = parts[0];
+    const domain = parts[1];
+
+    if (!local) return "Ingresa el usuario antes del @.";
+    if (local.length > 64) {
+      return "La parte antes del @ no puede superar los 64 caracteres.";
+    }
+    if (local.startsWith(".") || local.endsWith(".") || local.includes("..")) {
+      return "La parte antes del @ no puede iniciar, terminar ni tener puntos seguidos (..).";
+    }
+    if (!EMAIL_LOCAL_RE.test(local)) {
+      return "La parte antes del @ contiene caracteres no permitidos.";
+    }
+
+    if (!domain) return "Ingresa el dominio después del @ (ej. gmail.com o empresa.cl).";
+    if (domain.length > 255) {
+      return "El dominio no puede superar los 255 caracteres.";
+    }
+    if (!domain.includes(".")) {
+      return "El dominio debe incluir al menos un punto (ej. .cl o .com).";
+    }
+    if (domain.startsWith(".") || domain.endsWith(".") || domain.includes("..")) {
+      return "El dominio del correo tiene un formato inválido.";
+    }
+
+    if (EMAIL_DOMAIN_TYPOS[domain]) {
+      return `¿Quisiste decir ${local}@${EMAIL_DOMAIN_TYPOS[domain]}?`;
+    }
+
+    const labels = domain.split(".");
+    const tld = labels[labels.length - 1];
+    const baseDomain = labels.slice(0, -1).join(".");
+
+    if (tld === "con") {
+      return `La terminación ".con" no es válida. ¿Quisiste decir ${local}@${baseDomain}.com o .cl?`;
+    }
+    if (tld === "c") {
+      return `La terminación ".c" no es válida. ¿Quisiste decir ${local}@${baseDomain}.cl o .com?`;
+    }
+
+    for (let i = 0; i < labels.length; i += 1) {
+      if (!EMAIL_LABEL_RE.test(labels[i])) {
+        return "El dominio contiene caracteres o guiones en una posición no válida.";
+      }
+    }
+
+    if (!EMAIL_TLD_RE.test(tld)) {
+      return "La extensión del dominio no es válida (ej. .cl, .com, .gob.cl).";
+    }
+
+    return "";
+  }
+
+  function setupNameInput(nameInput) {
+    if (!nameInput) return;
+
+    const toUpperPreservingCursor = () => {
+      const start = nameInput.selectionStart;
+      const end = nameInput.selectionEnd;
+      const upper = nameInput.value.toUpperCase().slice(0, 30);
+      if (nameInput.value !== upper) {
+        nameInput.value = upper;
+        if (typeof start === "number" && typeof end === "number") {
+          nameInput.setSelectionRange(start, end);
+        }
+      }
+    };
+
+    nameInput.addEventListener("input", toUpperPreservingCursor);
+    nameInput.addEventListener("blur", () => {
+      nameInput.value = nameInput.value.trim().toUpperCase().slice(0, 30);
+    });
+  }
 
   const VALIDATORS = {
-    name: (value) =>
-      value.length >= 2 ? "" : "Ingresa tu nombre (mínimo 2 caracteres).",
-    phone: (value) =>
-      !value || /^[+\d\s()-]{6,30}$/.test(value)
-        ? ""
-        : "Ingresa un teléfono válido.",
-    email: (value) =>
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value) ? "" : "Ingresa un correo válido.",
+    name: (value) => {
+      if (!value) return "Ingresa tu nombre.";
+      if (value.length < 2) return "Ingresa tu nombre (mínimo 2 caracteres).";
+      if (value.length > 30) return "El nombre no puede superar los 30 caracteres.";
+      return "";
+    },
+    phone: (_value, input) => {
+      const digits = getRawPhoneDigits(input);
+      if (!digits) return "";
+      if (digits.length !== 8) {
+        return "Ingresa los 8 dígitos de tu teléfono.";
+      }
+      if (REPEATED_DIGITS_RE.test(digits) || isSequentialDigits(digits)) {
+        return "Ingresa un número de teléfono real (sin secuencias ni dígitos repetidos).";
+      }
+      return "";
+    },
+    email: (value) => validateEmailAddress(value),
     subject: (value) =>
       value.length >= 3 ? "" : "Selecciona un servicio.",
-    message: (value) =>
-      value.length >= 10 ? "" : "Cuéntame un poco más (mínimo 10 caracteres).",
+    message: (value) => {
+      if (value.length < 10) {
+        return "Cuéntame un poco más (mínimo 10 caracteres).";
+      }
+      if (value.length > 2000) {
+        return "Has superado el límite máximo de 2000 caracteres.";
+      }
+      return "";
+    },
     privacy: (_value, input) =>
       input && input.checked
         ? ""
@@ -246,29 +431,359 @@
     if (type) node.classList.add(type);
   }
 
+  function setupPhoneInput(phoneInput) {
+    if (!phoneInput) return;
+
+    phoneInput.dataset.rawPhone = "";
+
+    phoneInput.addEventListener("keydown", (event) => {
+      if (event.ctrlKey || event.metaKey || event.altKey) return;
+
+      const allowedKeys = [
+        "Backspace",
+        "Delete",
+        "Tab",
+        "Escape",
+        "Enter",
+        "ArrowLeft",
+        "ArrowRight",
+        "ArrowUp",
+        "ArrowDown",
+        "Home",
+        "End"
+      ];
+      if (allowedKeys.includes(event.key)) return;
+
+      if (!/^\d$/.test(event.key)) {
+        event.preventDefault();
+        return;
+      }
+
+      const currentDigits = getRawPhoneDigits(phoneInput);
+      const selectionLength =
+        (phoneInput.selectionEnd || 0) - (phoneInput.selectionStart || 0);
+
+      if (currentDigits.length >= 8 && selectionLength === 0) {
+        event.preventDefault();
+      }
+    });
+
+    phoneInput.addEventListener("paste", (event) => {
+      event.preventDefault();
+      const clipboard = event.clipboardData || window.clipboardData;
+      const pastedText = clipboard ? clipboard.getData("text") : "";
+      const digits = sanitizePhoneDigits(pastedText, true);
+      applyPhoneState(phoneInput, digits);
+      validateField(phoneInput);
+    });
+
+    const handlePhoneChange = () => {
+      const digits = sanitizePhoneDigits(phoneInput.value, false);
+      applyPhoneState(phoneInput, digits);
+    };
+
+    phoneInput.addEventListener("input", handlePhoneChange);
+    phoneInput.addEventListener("change", () => {
+      handlePhoneChange();
+      validateField(phoneInput);
+    });
+  }
+
+  function setupEmailInput(emailInput) {
+    if (!emailInput) return;
+
+    const toLowerPreservingCursor = () => {
+      const start = emailInput.selectionStart;
+      const end = emailInput.selectionEnd;
+      const lower = emailInput.value.toLowerCase();
+      if (emailInput.value !== lower) {
+        emailInput.value = lower;
+        if (typeof start === "number" && typeof end === "number") {
+          try {
+            emailInput.setSelectionRange(start, end);
+          } catch (_err) {
+            /* input[type="email"] en algunos navegadores no soporta setSelectionRange */
+          }
+        }
+      }
+    };
+
+    const normalizeField = () => {
+      const cleaned = sanitizeEmail(emailInput.value);
+      if (emailInput.value !== cleaned) {
+        emailInput.value = cleaned;
+      }
+    };
+
+    emailInput.addEventListener("input", toLowerPreservingCursor);
+    emailInput.addEventListener("blur", normalizeField);
+    emailInput.addEventListener("change", normalizeField);
+    emailInput.addEventListener("paste", (event) => {
+      event.preventDefault();
+      const clipboard = event.clipboardData || window.clipboardData;
+      const pastedText = clipboard ? clipboard.getData("text") : "";
+      emailInput.value = sanitizeEmail(pastedText);
+      validateField(emailInput);
+    });
+  }
+
+  const MESSAGE_MAX_LENGTH = 2000;
+
+  function updateMessageCounter(messageInput, counter) {
+    if (!messageInput || !counter) return;
+
+    if (messageInput.value.length > MESSAGE_MAX_LENGTH) {
+      messageInput.value = messageInput.value.slice(0, MESSAGE_MAX_LENGTH);
+    }
+
+    const len = messageInput.value.length;
+    counter.classList.remove("is-near-limit", "is-at-limit");
+
+    if (len === 0) {
+      counter.textContent = "Límite 2000 caracteres";
+    } else if (len >= MESSAGE_MAX_LENGTH) {
+      counter.textContent =
+        "2000 / 2000 — Has alcanzado el límite máximo de caracteres";
+      counter.classList.add("is-at-limit");
+    } else if (len >= MESSAGE_MAX_LENGTH - 100) {
+      counter.textContent = `${len} / 2000 caracteres (quedan ${MESSAGE_MAX_LENGTH - len})`;
+      counter.classList.add("is-near-limit");
+    } else {
+      counter.textContent = `${len} / 2000 caracteres`;
+    }
+  }
+
+  function setupSuccessModal() {
+    const modal = document.getElementById("contact-success-modal");
+    const messageNode = document.getElementById("contact-modal-message");
+    const closeBtn = document.getElementById("contact-modal-close");
+
+    function closeModal() {
+      if (!modal) return;
+      modal.hidden = true;
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    function openModal(text) {
+      if (!modal) return;
+      if (messageNode && text) {
+        messageNode.textContent = text;
+      }
+      modal.hidden = false;
+      modal.setAttribute("aria-hidden", "false");
+      if (closeBtn) closeBtn.focus();
+    }
+
+    if (modal) {
+      modal.querySelectorAll("[data-modal-close]").forEach((node) => {
+        node.addEventListener("click", closeModal);
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !modal.hidden) {
+          closeModal();
+        }
+      });
+    }
+
+    return { openModal, closeModal };
+  }
+
+  const MAX_ATTACHMENTS = 3;
+  const MAX_ATTACHMENT_BYTES = 10 * 1024 * 1024; // 10 MB
+
+  function formatFileSize(bytes) {
+    if (bytes >= 1024 * 1024) {
+      return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+    }
+    return `${Math.max(1, Math.round(bytes / 1024))} KB`;
+  }
+
+  function readFileAsBase64(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const result = String(reader.result || "");
+        const commaIdx = result.indexOf(",");
+        resolve(commaIdx !== -1 ? result.slice(commaIdx + 1) : result);
+      };
+      reader.onerror = () => reject(new Error("No se pudo leer el archivo."));
+      reader.readAsDataURL(file);
+    });
+  }
+
+  function setupAttachmentManager(attachmentInput) {
+    const dropzone = document.getElementById("attachment-dropzone");
+    const listNode = document.getElementById("attachment-list");
+    const errorNode = document.getElementById("attachment-error");
+    const fieldNode = document.getElementById("attachment-field");
+    const items = [];
+
+    function setAttachmentError(msg) {
+      if (errorNode) errorNode.textContent = msg || "";
+      if (fieldNode) fieldNode.classList.toggle("is-invalid", Boolean(msg));
+    }
+
+    function renderList() {
+      if (!dropzone || !listNode) return;
+
+      if (items.length === 0) {
+        dropzone.hidden = false;
+        listNode.hidden = true;
+        listNode.replaceChildren();
+        return;
+      }
+
+      dropzone.hidden = true;
+      listNode.hidden = false;
+      const isAtMax = items.length >= MAX_ATTACHMENTS;
+      const frag = document.createDocumentFragment();
+
+      items.forEach((item, index) => {
+        const row = el("div", "form__attachment-item");
+        const nameSpan = el(
+          "span",
+          "form__attachment-name",
+          `${item.name} (${formatFileSize(item.size)})`
+        );
+        nameSpan.title = item.name;
+
+        const actions = el("div", "form__attachment-actions");
+
+        const addBtn = el(
+          "button",
+          "form__attachment-btn form__attachment-btn--add",
+          "Agregar"
+        );
+        addBtn.type = "button";
+        addBtn.disabled = isAtMax;
+        addBtn.addEventListener("click", () => {
+          if (items.length < MAX_ATTACHMENTS && attachmentInput) {
+            attachmentInput.value = "";
+            attachmentInput.click();
+          }
+        });
+
+        const removeBtn = el(
+          "button",
+          "form__attachment-btn form__attachment-btn--remove",
+          "Eliminar"
+        );
+        removeBtn.type = "button";
+        removeBtn.addEventListener("click", () => {
+          items.splice(index, 1);
+          setAttachmentError("");
+          if (attachmentInput) attachmentInput.value = "";
+          renderList();
+        });
+
+        actions.appendChild(addBtn);
+        actions.appendChild(removeBtn);
+        row.appendChild(nameSpan);
+        row.appendChild(actions);
+        frag.appendChild(row);
+      });
+
+      listNode.replaceChildren(frag);
+    }
+
+    if (attachmentInput) {
+      attachmentInput.addEventListener("change", async () => {
+        const selectedFiles = attachmentInput.files
+          ? Array.from(attachmentInput.files)
+          : [];
+        if (selectedFiles.length === 0) return;
+
+        setAttachmentError("");
+
+        for (let i = 0; i < selectedFiles.length; i += 1) {
+          if (items.length >= MAX_ATTACHMENTS) {
+            setAttachmentError("Solo puedes adjuntar hasta 3 archivos.");
+            break;
+          }
+
+          const file = selectedFiles[i];
+          if (file.size > MAX_ATTACHMENT_BYTES) {
+            setAttachmentError(
+              `El archivo "${file.name}" supera el límite máximo de 10 MB.`
+            );
+            continue;
+          }
+
+          const currentTotal = items.reduce((acc, it) => acc + it.size, 0);
+          if (currentTotal + file.size > MAX_ATTACHMENT_BYTES) {
+            setAttachmentError(
+              "El peso total de los archivos adjuntos no puede superar los 10 MB."
+            );
+            continue;
+          }
+
+          try {
+            const base64 = await readFileAsBase64(file);
+            items.push({
+              name: file.name,
+              size: file.size,
+              type: file.type || "application/octet-stream",
+              content: base64
+            });
+          } catch (_err) {
+            setAttachmentError(`No se pudo adjuntar "${file.name}".`);
+          }
+        }
+
+        attachmentInput.value = "";
+        renderList();
+      });
+    }
+
+    function clearAttachments() {
+      items.length = 0;
+      if (attachmentInput) attachmentInput.value = "";
+      setAttachmentError("");
+      renderList();
+    }
+
+    function getAttachmentsPayload() {
+      return items.map((it) => ({
+        filename: it.name,
+        contentType: it.type,
+        size: it.size,
+        content: it.content
+      }));
+    }
+
+    function getAttachmentNames() {
+      return items.map((it) => it.name).join(", ");
+    }
+
+    return {
+      clearAttachments,
+      getAttachmentsPayload,
+      getAttachmentNames
+    };
+  }
+
   function setupForm() {
     const form = document.getElementById("contact-form");
     const feedback = document.getElementById("form-feedback");
     const submit = document.getElementById("form-submit");
     if (!form || !feedback || !submit) return;
 
+    const { openModal } = setupSuccessModal();
     const counter = document.getElementById("message-counter");
+    const nameInput = form.elements.name;
     const messageInput = form.elements.message;
+    const phoneInput = form.elements.phone;
+    const emailInput = form.elements.email;
     const attachmentInput = document.getElementById("attachment");
-    const attachmentLabel = document.getElementById("attachment-label");
+
+    setupNameInput(nameInput);
+    setupPhoneInput(phoneInput);
+    setupEmailInput(emailInput);
+    const attachmentManager = setupAttachmentManager(attachmentInput);
 
     if (messageInput && counter) {
       messageInput.addEventListener("input", () => {
-        const len = messageInput.value.length;
-        counter.textContent =
-          len > 0 ? `${len} / 2000 caracteres` : "Límite 2000 caracteres";
-      });
-    }
-
-    if (attachmentInput && attachmentLabel) {
-      attachmentInput.addEventListener("change", () => {
-        const file = attachmentInput.files && attachmentInput.files[0];
-        attachmentLabel.textContent = file ? file.name : DEFAULT_UPLOAD_LABEL;
+        updateMessageCounter(messageInput, counter);
       });
     }
 
@@ -287,27 +802,29 @@
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
+      if (nameInput) {
+        nameInput.value = nameInput.value.trim().toUpperCase().slice(0, 30);
+      }
+      if (emailInput) {
+        emailInput.value = sanitizeEmail(emailInput.value);
+      }
+
       if (!validateForm(form)) {
         setFeedback(feedback, "Revisa los campos marcados en rojo.", "is-error");
         return;
       }
 
-      const file =
-        attachmentInput && attachmentInput.files && attachmentInput.files[0];
-      const rawPhone = form.elements.phone ? form.elements.phone.value.trim() : "";
-      const fullPhone = rawPhone
-        ? rawPhone.startsWith("+")
-          ? rawPhone
-          : `+56 9 ${rawPhone}`
-        : "";
+      const rawPhoneDigits = getRawPhoneDigits(phoneInput);
+      const fullPhone = rawPhoneDigits ? `+56 9 ${rawPhoneDigits}` : "";
 
       const payload = {
-        name: form.elements.name.value.trim(),
+        name: form.elements.name.value.trim().toUpperCase(),
         phone: fullPhone,
-        email: form.elements.email.value.trim(),
+        email: sanitizeEmail(form.elements.email.value),
         subject: form.elements.subject.value.trim(),
         message: form.elements.message.value.trim(),
-        attachmentName: file ? file.name : "",
+        attachmentName: attachmentManager.getAttachmentNames(),
+        attachments: attachmentManager.getAttachmentsPayload(),
         marketingOptin: Boolean(
           form.elements.marketingOptin && form.elements.marketingOptin.checked
         ),
@@ -334,10 +851,12 @@
         const data = await response.json().catch(() => ({}));
 
         if (response.ok && data.ok) {
-          setFeedback(feedback, data.message || "¡Mensaje enviado! Gracias.", "is-success");
+          setFeedback(feedback, "", null);
+          openModal("¡Gracias! Tu mensaje fue enviado. Te responderé muy pronto.");
           form.reset();
-          if (counter) counter.textContent = "Límite 2000 caracteres";
-          if (attachmentLabel) attachmentLabel.textContent = DEFAULT_UPLOAD_LABEL;
+          if (phoneInput) applyPhoneState(phoneInput, "");
+          if (counter) updateMessageCounter(messageInput, counter);
+          attachmentManager.clearAttachments();
           csrfToken = "";
           await loadCsrfToken();
         } else {
