@@ -71,19 +71,23 @@ function createApp() {
 
   // ----- API --------------------------------------------------------------------
   const apiLimiter = generalLimiter;
+  const apiRouter = express.Router();
 
-  app.get("/api/csrf", apiLimiter, issueToken);
+  apiRouter.get("/csrf", apiLimiter, issueToken);
 
-  app.get("/api/health", (req, res) => {
+  apiRouter.get("/health", (req, res) => {
     res.json({ ok: true, status: "up" });
   });
 
-  app.use("/api", apiLimiter, contactRoute);
+  apiRouter.use(apiLimiter, contactRoute);
 
-  // ----- 404 API ----------------------------------------------------------------
-  app.use("/api", (req, res) => {
+  apiRouter.use((req, res) => {
     res.status(404).json({ ok: false, message: "Recurso no encontrado." });
   });
+
+  app.use("/api", apiRouter);
+  app.use("/.netlify/functions/server/api", apiRouter);
+  app.use("/.netlify/functions/server", apiRouter);
 
   // ----- Manejador de errores ---------------------------------------------------
   // eslint-disable-next-line no-unused-vars
@@ -101,13 +105,20 @@ function createApp() {
   return app;
 }
 
+const app = createApp();
+
 function start() {
   validateConfig();
-  const app = createApp();
 
   app.listen(config.port, () => {
     console.log(`Rodolfo-Freelance escuchando en http://localhost:${config.port} (${config.env})`);
   });
 }
 
-start();
+if (require.main === module) {
+  start();
+}
+
+module.exports = app;
+module.exports.app = app;
+module.exports.createApp = createApp;

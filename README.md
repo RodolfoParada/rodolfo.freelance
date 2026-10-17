@@ -139,6 +139,14 @@ Se utiliza **Plus Jakarta Sans** autoalojada en `public/assets/fonts/` (woff2, p
 - Respeta `prefers-color-scheme` y persiste la elección en `localStorage` (`rf-theme`).
 - `public/js/theme.js` se ejecuta de forma síncrona en `<head>` para evitar FOUC sin requerir scripts inline.
 
+## Despliegue en Netlify (Serverless)
+
+El proyecto ya incluye la configuración necesaria para desplegarse como funciones Serverless en **Netlify** sin dejar de funcionar en modo local (`npm run dev` / `npm start`):
+
+- **[netlify.toml](file:///home/trimogesimo/rodolfofreelance/netlify.toml)**: Define `publish = "public"`, `functions = "netlify/functions"` y las reglas `[[redirects]]` hacia `/.netlify/functions/server`.
+- **[netlify/functions/server.js](file:///home/trimogesimo/rodolfofreelance/netlify/functions/server.js)**: Envuelve la aplicación Express (`server/index.js`) con `serverless-http`.
+- En el panel de Netlify (**Site configuration → Environment variables**), configura `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `MAIL_FROM_NAME`, `MAIL_TO`, `NODE_ENV=production` y `ALLOWED_ORIGINS` con la URL de tu sitio en Netlify.
+
 ## Notas de seguridad
 
 - Nunca subas `.env` al repositorio.

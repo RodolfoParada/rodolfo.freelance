@@ -6,10 +6,16 @@ const REQUIRED = ["GMAIL_USER", "GMAIL_APP_PASSWORD"];
 const isProduction = process.env.NODE_ENV === "production";
 
 function parseOrigins(value) {
-  return String(value || "")
+  const manual = String(value || "")
     .split(",")
     .map((origin) => origin.trim())
     .filter(Boolean);
+
+  const auto = [process.env.URL, process.env.DEPLOY_PRIME_URL]
+    .filter(Boolean)
+    .map((origin) => origin.trim());
+
+  return Array.from(new Set([...manual, ...auto]));
 }
 
 const config = {
@@ -19,6 +25,7 @@ const config = {
 
   mail: {
     user: process.env.GMAIL_USER || "",
+    pass: process.env.GMAIL_APP_PASSWORD || "",
     appPassword: process.env.GMAIL_APP_PASSWORD || "",
     fromName: process.env.MAIL_FROM_NAME || "Rodolfo-Freelance",
     to: process.env.MAIL_TO || process.env.GMAIL_USER || ""
