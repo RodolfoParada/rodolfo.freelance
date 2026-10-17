@@ -61,8 +61,8 @@
   --radius-lg: 1rem;
   --shadow: 0 6px 24px rgba(51, 104, 160, 0.10);
   --shadow-lg: 0 18px 48px rgba(51, 104, 160, 0.16);
-  --container-width: 1950px;
-  --header-height: 68px;
+  --container-width: 103.125rem;
+  --header-height: 4.25rem;
   --transition: 0.25s ease;
 }
 

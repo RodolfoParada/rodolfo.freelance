@@ -69,6 +69,12 @@
     display: none;
   }
 
+  .container,
+  .navbar {
+    width: 100%;
+  }
+
+  .pillars,
   .grid,
   .grid[data-cards="desarrollo"],
   .grid[data-cards="marketing"] {
@@ -105,6 +111,9 @@
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
+  .pillars,
+  .grid[data-cards="desarrollo"],
+  .grid[data-cards="marketing"],
   .site-footer__grid {
     grid-template-columns: repeat(2, 1fr);
   }
