@@ -7,13 +7,19 @@ const { config } = require("./config");
  * Transporte SMTP de Gmail.
  * Usa una "contraseña de aplicación" (App Password), nunca la contraseña real.
  */
+const isServerless = Boolean(
+  process.env.NETLIFY ||
+    process.env.AWS_LAMBDA_FUNCTION_NAME ||
+    process.env.VERCEL
+);
+
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: config.mail.user,
     pass: config.mail.appPassword
   },
-  pool: true,
+  pool: !isServerless,
   maxConnections: 3,
   connectionTimeout: 10000,
   greetingTimeout: 10000,
