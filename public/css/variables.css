@@ -64,6 +64,12 @@
   --container-width: 103.125rem;
   --header-height: 4.25rem;
   --transition: 0.25s ease;
+
+  /* --- Control global de widgets externos (Netlify) --- */
+  --netlify-widget-display: none;
+  --netlify-widget-visibility: hidden;
+  --netlify-widget-opacity: 0;
+  --netlify-widget-pointer: none;
 }
 
 /* ===========================================================================
@@ -109,3 +115,16 @@
   --shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
   --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.55);
 }
+
+/* Ocultar el widget y badges inyectados por Netlify */
+div[data-netlify-drawer],
+div[class*="netlify-drawer"],
+iframe[src*="netlify"],
+netlify-drawer,
+#netlify-drawer-root {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+

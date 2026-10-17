@@ -2410,3 +2410,16 @@ cta-banner {
   opacity: 1;
   transform: none;
 }
+
+/* Ocultar el widget y badges inyectados por Netlify */
+div[data-netlify-drawer],
+div[class*="netlify-drawer"],
+iframe[src*="netlify"],
+netlify-drawer,
+#netlify-drawer-root {
+  display: var(--netlify-widget-display, none) !important;
+  visibility: var(--netlify-widget-visibility, hidden) !important;
+  opacity: var(--netlify-widget-opacity, 0) !important;
+  pointer-events: var(--netlify-widget-pointer, none) !important;
+}
+
