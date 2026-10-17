@@ -1047,7 +1047,10 @@ cta-banner {
   align-items: stretch;
 }
 
-.grid[data-cards="desarrollo"],
+.grid[data-cards="desarrollo"] {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .grid[data-cards="marketing"] {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
@@ -1055,6 +1058,7 @@ cta-banner {
 .card {
   display: flex;
   flex-direction: column;
+  width: 100%;
   min-width: 0;
   overflow-wrap: break-word;
   background-color: var(--color-surface);
@@ -2412,6 +2416,11 @@ cta-banner {
 }
 
 /* Ocultar el widget y badges inyectados por Netlify */
+#nl-badge-frame,
+iframe#nl-badge-frame,
+[id*="nl-badge"],
+[class*="nl-badge"],
+[data-netlify-badge],
 div[data-netlify-drawer],
 div[class*="netlify-drawer"],
 iframe[src*="netlify"],
@@ -2421,5 +2430,12 @@ netlify-drawer,
   visibility: var(--netlify-widget-visibility, hidden) !important;
   opacity: var(--netlify-widget-opacity, 0) !important;
   pointer-events: var(--netlify-widget-pointer, none) !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
 }
+
 

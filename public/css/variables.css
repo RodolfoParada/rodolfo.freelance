@@ -117,14 +117,26 @@
 }
 
 /* Ocultar el widget y badges inyectados por Netlify */
+#nl-badge-frame,
+iframe#nl-badge-frame,
+[id*="nl-badge"],
+[class*="nl-badge"],
+[data-netlify-badge],
 div[data-netlify-drawer],
 div[class*="netlify-drawer"],
 iframe[src*="netlify"],
 netlify-drawer,
 #netlify-drawer-root {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+  display: var(--netlify-widget-display, none) !important;
+  visibility: var(--netlify-widget-visibility, hidden) !important;
+  opacity: var(--netlify-widget-opacity, 0) !important;
+  pointer-events: var(--netlify-widget-pointer, none) !important;
+  width: 0 !important;
+  height: 0 !important;
+  max-width: 0 !important;
+  max-height: 0 !important;
+  overflow: hidden !important;
+  border: 0 !important;
 }
+
 

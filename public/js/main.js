@@ -429,9 +429,42 @@
     if (year) year.textContent = String(new Date().getFullYear());
   }
 
+  /* ---------------------------------------- Eliminar badge/drawer de Netlify */
+
+  const NETLIFY_WIDGET_SELECTOR = [
+    "#nl-badge-frame",
+    '[id*="nl-badge"]',
+    '[class*="nl-badge"]',
+    "[data-netlify-badge]",
+    "div[data-netlify-drawer]",
+    'div[class*="netlify-drawer"]',
+    'iframe[src*="netlify"]',
+    "netlify-drawer",
+    "#netlify-drawer-root"
+  ].join(",");
+
+  function purgeNetlifyWidgets() {
+    document.querySelectorAll(NETLIFY_WIDGET_SELECTOR).forEach((node) => {
+      node.remove();
+    });
+  }
+
+  function setupNetlifyBadgeRemoval() {
+    purgeNetlifyWidgets();
+    if (!("MutationObserver" in window) || !document.body) return;
+    const observer = new MutationObserver(() => {
+      purgeNetlifyWidgets();
+    });
+    observer.observe(document.documentElement, {
+      childList: true,
+      subtree: true
+    });
+  }
+
   /* ------------------------------------------------------------------ Init */
 
   function init() {
+    setupNetlifyBadgeRemoval();
     renderAllCards();
     setupMenu();
     setupScrollSpy();
@@ -448,3 +481,4 @@
     init();
   }
 })();
+
