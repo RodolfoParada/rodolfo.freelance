@@ -12,7 +12,7 @@
   "use strict";
 
   var DEFAULTS = {
-    title: "¿Hablamos de lo que tu negocio necesita para crecer?",
+    title: "¿hablamos de lo que tu negocio necesita?",
     text: "Cuéntame en qué etapa está tu proyecto. Analizamos juntos una solución técnica y práctica, con presupuesto claro y sin sorpresas.",
     primaryText: "Completar formulario de cotización →",
     primaryHref: "#contacto",

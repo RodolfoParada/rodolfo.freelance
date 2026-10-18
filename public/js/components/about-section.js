@@ -203,6 +203,11 @@
 
     var dualBlocks = k.el("div", "about-dual");
 
+    var leftColumn = k.el("div", "about-dual__column");
+    leftColumn.appendChild(k.el("cta-banner"));
+
+    var rightColumn = k.el("div", "about-dual__column about-dual__column--stack");
+
     var commit = k.el("div", "block");
     commit.appendChild(k.blockTitle("Mi Compromiso", "No Negociable"));
     commit.appendChild(buildTabs(COMMITMENTS, "commit", "Mis compromisos"));
@@ -211,14 +216,13 @@
     stack.appendChild(k.blockTitle("Cómo abordamos tu proyecto", "Stack adaptable"));
     stack.appendChild(buildTabs(STACK, "stack", "Cómo abordamos tu proyecto"));
 
-    dualBlocks.append(commit, stack);
+    rightColumn.append(commit, stack);
+    dualBlocks.append(leftColumn, rightColumn);
     container.appendChild(dualBlocks);
 
     container.appendChild(
       k.el("p", "stack__quote", "“Las herramientas se eligen en función del problema, no de la moda.”")
     );
-
-    container.appendChild(k.el("cta-banner"));
 
     section.appendChild(container);
     host.replaceChildren(section);
