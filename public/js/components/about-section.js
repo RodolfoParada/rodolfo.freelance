@@ -8,28 +8,28 @@
     {
       num: "01",
       title: "Frugalidad Tecnológica",
-      subtitle: "Simplicidad Radical",
+      subtitle: "Diseño racional de sistemas: adecuación perfecta entre escala y herramienta.",
       meaning: "Elegir siempre la solución más simple, eficiente y rentable para tu etapa actual. Si tu negocio resuelve su necesidad con WordPress bien optimizado, una landing ágil o una automatización básica, jamás te empujaré a desarrollar software a medida costoso de mantener.",
       benefit: "Cuidas tu presupuesto de inicio y lanzas al mercado rápido, sin quemar caja en herramientas que no usarás."
     },
     {
       num: "02",
-      title: "Experiencia de Usuario sin Trampas",
-      subtitle: "Cero Dark Patterns",
+      title: "Experiencia de Usuario",
+      subtitle: "Navegación limpia y flujos diseñados para humanos.",
       meaning: "Construir flujos de compra y navegación transparentes. No implemento contadores regresivos falsos, casillas de suscripción ocultas ni trabas mañosas para darse de baja.",
       benefit: "Tu marca construye reputación, credibilidad y lealtad a largo plazo. Las ventas llegan por el valor real de tu producto, no por manipulación psicológica."
     },
     {
       num: "03",
-      title: "Sostenibilidad y Código Heredable",
-      subtitle: null,
+      title: "Código Escalable",
+      subtitle: "Sistemas limpios, documentación real y cero dependencia del desarrollador.",
       meaning: "Diseño y configuro plataformas pensadas para durar. Código limpio, plugins estrictamente necesarios y documentación clara para que cualquier profesional pueda continuarlo mañana sin dolores de cabeza.",
       benefit: "Cero dependencia tóxica. Eres dueño absoluto de tu infraestructura y evitas acumular deuda técnica que detenga tu crecimiento."
     },
     {
       num: "04",
       title: "Privacidad y Datos Éticos",
-      subtitle: null,
+      subtitle: "Cumplimiento normativo integrado y tranquilidad operativa.",
       meaning: "Recolectar únicamente la información que tu servicio necesita para operar con excelencia. Flujos limpios, seguros y respetuosos con la privacidad de tus usuarios.",
       benefit: "Blindaje de reputación frente a tus clientes y cumplimiento natural con estándares digitales modernos."
     }

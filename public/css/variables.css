@@ -45,11 +45,16 @@
 
   --font-base: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-heading: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 2.25rem;
-  --font-size-2xl: clamp(2.25rem, 5vw, 3.5rem);
+
+  /* Escala tipográfica (Desktop 1rem = 16px) */
+  --font-size-xs: 0.78125rem;                      /* 12.5px — Eyebrow / Badges / Microcopia */
+  --font-size-sm: 0.875rem;                        /* 14px   — Botones, enlaces, textos secundarios */
+  --font-size-btn: 0.90625rem;                     /* 14.5px — Botones y enlaces principales */
+  --font-size-base: 0.96875rem;                    /* 15.5px — Cuerpo de texto (Cards / Párrafos) */
+  --font-size-lead: 1.1875rem;                     /* 19px   — Subtítulo Hero / Citas */
+  --font-size-lg: 1.3125rem;                       /* 21px   — H3 / Títulos de Tarjetas */
+  --font-size-xl: clamp(2rem, 3vw, 2.375rem);      /* 32–38px — H2 (Secciones) */
+  --font-size-2xl: clamp(2.75rem, 4.2vw, 3.25rem); /* 44–52px — H1 (Hero Principal) */
 
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -62,7 +67,8 @@
   --shadow: 0 6px 24px rgba(51, 104, 160, 0.10);
   --shadow-lg: 0 18px 48px rgba(51, 104, 160, 0.16);
   --container-width: 103.125rem;
-  --header-height: 4.25rem;
+  --header-height: 7.25rem;
+  --section-space: 5rem;
   --transition: 0.25s ease;
 
   /* --- Control global de widgets externos (Netlify) --- */

@@ -611,6 +611,60 @@
     });
   }
 
+  function compressImageIfNeeded(file) {
+    return readFileAsBase64(file)
+      .then((rawBase64) => {
+        const fallback = {
+          name: file.name,
+          size: file.size,
+          type: file.type || "application/octet-stream",
+          content: rawBase64
+        };
+
+        if (
+          !file.type ||
+          !/^image\/(jpeg|jpg|png|webp)$/i.test(file.type) ||
+          file.size <= 1.2 * 1024 * 1024
+        ) {
+          return fallback;
+        }
+
+        return new Promise((resolve) => {
+          const img = new Image();
+          img.onload = () => {
+            const maxDim = 1920;
+            let { width, height } = img;
+            if (width > maxDim || height > maxDim) {
+              const ratio = Math.min(maxDim / width, maxDim / height);
+              width = Math.round(width * ratio);
+              height = Math.round(height * ratio);
+            }
+            const canvas = document.createElement("canvas");
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext("2d");
+            if (!ctx) {
+              resolve(fallback);
+              return;
+            }
+            ctx.drawImage(img, 0, 0, width, height);
+            const dataUrl = canvas.toDataURL("image/jpeg", 0.82);
+            const commaIdx = dataUrl.indexOf(",");
+            const base64 = commaIdx !== -1 ? dataUrl.slice(commaIdx + 1) : dataUrl;
+            resolve({
+              name: file.name,
+              size: file.size,
+              type: "image/jpeg",
+              content: base64
+            });
+          };
+          img.onerror = () => resolve(fallback);
+          img.src = `data:${file.type};base64,${rawBase64}`;
+        });
+      })
+      .catch(() => null);
+  }
+
   function setupAttachmentManager(attachmentInput) {
     const dropzone = document.getElementById("attachment-dropzone");
     const listNode = document.getElementById("attachment-list");
@@ -717,15 +771,10 @@
             continue;
           }
 
-          try {
-            const base64 = await readFileAsBase64(file);
-            items.push({
-              name: file.name,
-              size: file.size,
-              type: file.type || "application/octet-stream",
-              content: base64
-            });
-          } catch (_err) {
+          const processed = await compressImageIfNeeded(file);
+          if (processed) {
+            items.push(processed);
+          } else {
             setAttachmentError(`No se pudo adjuntar "${file.name}".`);
           }
         }
@@ -860,9 +909,13 @@
           csrfToken = "";
           await loadCsrfToken();
         } else {
+          const firstFieldError =
+            Array.isArray(data.errors) && data.errors[0] && data.errors[0].message;
           setFeedback(
             feedback,
-            data.message || "No se pudo enviar el mensaje. Inténtalo más tarde.",
+            firstFieldError ||
+              data.message ||
+              "No se pudo enviar el mensaje. Inténtalo más tarde.",
             "is-error"
           );
           if (response.status === 403) {

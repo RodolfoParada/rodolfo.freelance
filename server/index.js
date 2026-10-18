@@ -27,7 +27,7 @@ function createApp() {
           baseUri: ["'self'"],
           scriptSrc: ["'self'"],
           styleSrc: ["'self'"],
-          imgSrc: ["'self'", "data:"],
+          imgSrc: ["'self'", "data:", "blob:"],
           fontSrc: ["'self'"],
           connectSrc: ["'self'"],
           objectSrc: ["'none'"],
@@ -54,8 +54,8 @@ function createApp() {
 
   // ----- Parsers ----------------------------------------------------------------
   app.use(cookieParser());
-  app.use(express.json({ limit: "16mb" }));
-  app.use(express.urlencoded({ extended: false, limit: "16mb" }));
+  app.use(express.json({ limit: "25mb" }));
+  app.use(express.urlencoded({ extended: false, limit: "25mb" }));
 
   // ----- Archivos estáticos (frontend) -----------------------------------------
   app.use(

@@ -25,7 +25,8 @@
     {
       badge: "Pilar 1",
       title: "Presencia & Conversión",
-      subtitle: "Web & UX",
+      subtitle: "Webs y landing pages que explican, generan confianza y convierten visitas en oportunidades",
+      variant: "primary",
       items: [
         {
           title: "Desarrollo en WordPress & E-commerce",
@@ -44,7 +45,7 @@
     {
       badge: "Pilar 2",
       title: "Soporte Operativo & Comercial",
-      subtitle: "Gestión & Crecimiento",
+      subtitle: "Ordenamos tu día para que vender y gestionar no dependa de apagar incendios.",
       items: [
         {
           title: "Prospección & Ventas (SDR)",
@@ -68,7 +69,7 @@
 
   var METRICS = [
     {
-      title: "100% Código Heredable",
+      title: "100% Código Escalable",
       text: "Sin dependencias forzadas ni sobreingeniería."
     },
     {
@@ -118,18 +119,28 @@
 
     /* 2. Sección de Dolor / Empatía con el Cliente */
     var painBlock = k.el("div", "block home-pain");
-    painBlock.appendChild(
+    var painIntro = k.el("div", "home-pain__intro");
+    painIntro.appendChild(
+      k.el("p", "home-pain__eyebrow", "El punto de partida")
+    );
+    var painHeading = k.el("h2", "home-pain__heading");
+    painHeading.appendChild(document.createTextNode("Crecer no debería "));
+    painHeading.appendChild(k.el("span", null, "sentirse tan difícil."));
+    painIntro.appendChild(painHeading);
+    painIntro.appendChild(
       k.el(
         "p",
         "home-pain__lead",
         "“Emprender y gestionar un negocio en crecimiento no debería significar ahogarte en tareas operativas.”"
       )
     );
+    painBlock.appendChild(painIntro);
+
     var painGrid = k.el("div", "home-pain__grid");
     PAINS.forEach(function (item) {
       var card = k.el("article", "home-pain__card");
       card.appendChild(k.el("span", "home-pain__num", item.num));
-      card.appendChild(k.el("h2", "home-pain__title", item.title));
+      card.appendChild(k.el("h3", "home-pain__title", item.title));
       card.appendChild(k.el("p", "home-pain__text", item.text));
       painGrid.appendChild(card);
     });
@@ -141,7 +152,8 @@
     pillarsBlock.appendChild(k.blockTitle("Servicios en 2 Pilares", "Soluciones integrales para tu negocio"));
     var pillarsGrid = k.el("div", "home-pillars");
     HOME_PILLARS.forEach(function (pillar) {
-      var col = k.el("article", "home-pillar flip");
+      var pillarClass = "home-pillar flip" + (pillar.variant ? " home-pillar--" + pillar.variant : "");
+      var col = k.el("article", pillarClass);
       col.tabIndex = 0;
       col.setAttribute(
         "aria-label",
@@ -209,10 +221,12 @@
     );
     bridgeLink.href = "#acerca";
     bridge.appendChild(bridgeLink);
-    container.appendChild(bridge);
 
-    /* 6. Cierre con CTA Directo */
-    container.appendChild(k.el("cta-banner"));
+    /* 6. Cierre: cita a la izquierda + CTA Directo */
+    var close = k.el("div", "home-close");
+    close.appendChild(bridge);
+    close.appendChild(k.el("cta-banner"));
+    container.appendChild(close);
 
     section.appendChild(container);
     host.replaceChildren(section);
