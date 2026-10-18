@@ -867,17 +867,35 @@ html::-webkit-scrollbar {
   }
 }
 
-.about-dual {
+.about-split {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-areas: "aside main";
   align-items: start;
   gap: var(--space-xl);
-  margin-bottom: var(--space-xl);
 }
 
-.about-dual > .block {
+.about-split__main {
+  grid-area: main;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
   min-width: 0;
+}
+
+.about-split__main > .block {
   margin-bottom: 0;
+}
+
+.about-split__main > .stack__quote {
+  margin: 0 auto;
+}
+
+.about-split__aside {
+  grid-area: aside;
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-lg));
+  min-width: 0;
 }
 
 .commit-tabs {

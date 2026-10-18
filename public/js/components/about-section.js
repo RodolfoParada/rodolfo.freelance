@@ -201,7 +201,9 @@
       return tabsRoot;
     }
 
-    var dualBlocks = k.el("div", "about-dual");
+    var aboutSplit = k.el("div", "about-split");
+    var aboutMain = k.el("div", "about-split__main");
+    var aboutAside = k.el("div", "about-split__aside");
 
     var commit = k.el("div", "block");
     commit.appendChild(k.blockTitle("Mi Compromiso", "No Negociable"));
@@ -211,14 +213,15 @@
     stack.appendChild(k.blockTitle("Cómo abordamos tu proyecto", "Stack adaptable"));
     stack.appendChild(buildTabs(STACK, "stack", "Cómo abordamos tu proyecto"));
 
-    dualBlocks.append(commit, stack);
-    container.appendChild(dualBlocks);
-
-    container.appendChild(
+    aboutMain.append(
+      commit,
+      stack,
       k.el("p", "stack__quote", "“Las herramientas se eligen en función del problema, no de la moda.”")
     );
+    aboutAside.appendChild(k.el("cta-banner"));
 
-    container.appendChild(k.el("cta-banner"));
+    aboutSplit.append(aboutMain, aboutAside);
+    container.appendChild(aboutSplit);
 
     section.appendChild(container);
     host.replaceChildren(section);

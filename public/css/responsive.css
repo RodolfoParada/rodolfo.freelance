@@ -2,6 +2,19 @@
    Responsive — Rodolfo-Freelance
    ========================================================================== */
 
+@media (max-width: 1024px) {
+  .about-split {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "main"
+      "aside";
+  }
+
+  .about-split__aside {
+    position: static;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar__toggle {
     display: flex;
