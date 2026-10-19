@@ -49,10 +49,50 @@
     target.appendChild(el("p", "card__text", text));
   }
 
-  function createCard({ icon, badge, title, text, items, flip }) {
+  let accordionCount = 0;
+
+  function createAccordionCard({ icon, badge, title, text, items }) {
+    const article = el("article", "card card--accordion reveal");
+    const panelId = `card-panel-${(accordionCount += 1)}`;
+
+    const summary = el("div", "card__summary");
+    appendCardFront(summary, { icon, badge, title, text });
+    article.appendChild(summary);
+
+    const toggle = el("button", "card__toggle");
+    toggle.type = "button";
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-controls", panelId);
+    toggle.appendChild(el("span", "card__toggle-label", "Ver funciones"));
+    const toggleIcon = el("span", "card__toggle-icon");
+    toggleIcon.setAttribute("aria-hidden", "true");
+    toggle.appendChild(toggleIcon);
+    article.appendChild(toggle);
+
+    const panel = el("div", "card__panel");
+    panel.id = panelId;
+    panel.hidden = true;
+    panel.appendChild(buildCardList(items));
+    article.appendChild(panel);
+
+    toggle.addEventListener("click", () => {
+      const willOpen = panel.hidden;
+      panel.hidden = !willOpen;
+      article.classList.toggle("is-open", willOpen);
+      toggle.setAttribute("aria-expanded", String(willOpen));
+    });
+
+    return article;
+  }
+
+  function createCard(card) {
+    const { icon, badge, title, text, items, accordion, flip } = card;
+    if (accordion && Array.isArray(items) && items.length > 0) {
+      return createAccordionCard(card);
+    }
+
     if (flip) {
       const article = el("article", "card card--flip flip reveal");
-      article.tabIndex = 0;
       article.setAttribute("aria-label", badge ? `${badge} - ${title}` : title);
 
       const inner = el("div", "card__inner3d");
@@ -99,6 +139,35 @@
       const items = CARD_SOURCES[grid.getAttribute("data-cards")];
       if (items) renderCards(grid, items);
     });
+  }
+
+  /* Iguala la altura de las tarjetas cerradas sin estirar la fila al abrir una. */
+  function equalizeAccordionCards() {
+    document.querySelectorAll("[data-cards]").forEach((grid) => {
+      const summaries = Array.from(grid.querySelectorAll(".card__summary"));
+      if (summaries.length === 0) return;
+      summaries.forEach((summary) => (summary.style.minHeight = ""));
+
+      const columns = getComputedStyle(grid).gridTemplateColumns.split(" ").length;
+      if (columns < 2) return;
+
+      const tallest = Math.max(...summaries.map((summary) => summary.offsetHeight));
+      summaries.forEach((summary) => (summary.style.minHeight = `${tallest}px`));
+    });
+  }
+
+  function setupAccordionCards() {
+    if (!document.querySelector(".card__summary")) return;
+    equalizeAccordionCards();
+
+    let frame = 0;
+    window.addEventListener("resize", () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(equalizeAccordionCards);
+    });
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(equalizeAccordionCards);
+    }
   }
 
   /* ------------------------------------------------------------- Menú móvil */
@@ -880,7 +949,8 @@
         website: form.elements.website.value // honeypot
       };
 
-      if (!csrfToken) await loadCsrfToken();
+      // Token nuevo en cada envío: la cookie vence a la hora y el token de la carga inicial puede quedar obsoleto.
+      await loadCsrfToken();
 
       submit.disabled = true;
       submit.textContent = "Enviando…";
@@ -1038,6 +1108,7 @@
   function init() {
     setupNetlifyBadgeRemoval();
     renderAllCards();
+    setupAccordionCards();
     setupMenu();
     setupScrollSpy();
     setupForm();

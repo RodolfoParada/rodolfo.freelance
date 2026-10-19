@@ -7,7 +7,7 @@
     {
       num: "01",
       title: "Falta de tiempo",
-      text: "Atención rezagada a prospectos y clientes por atender urgencias."
+      text: "Atención rezagada a prospectos y clientes por atender urgencias diarias."
     },
     {
       num: "02",
@@ -17,7 +17,7 @@
     {
       num: "03",
       title: "Fricción digital",
-      text: "Sitios lentos, redes descuidadas o miedo a pagar desarrollos inflados que nadie sabe mantener."
+      text: "Sitios web lentos, redes desatendidas y sistemas difíciles de mantener."
     }
   ];
 
@@ -30,15 +30,15 @@
       items: [
         {
           title: "Desarrollo en WordPress & E-commerce",
-          text: "Tiendas online y sitios corporativos rápidos, seguros y mantenibles."
+          text: "Tiendas online y sitios corporativos rápidos, seguros y fáciles de mantener."
         },
         {
           title: "Landing Pages & Rediseño",
-          text: "Estructuras pensadas para convertir visitas en consultas comerciales."
+          text: "Estructuras visuales pensadas para convertir visitas en consultas comerciales."
         },
         {
           title: "Experiencia de Usuario (UX)",
-          text: "Flujos simples, navegación intuitiva y cero trampas (Dark Patterns)."
+          text: "Flujos claros, navegación intuitiva y sin patrones oscuros."
         }
       ]
     },
@@ -49,19 +49,19 @@
       items: [
         {
           title: "Prospección & Ventas (SDR)",
-          text: "Contacto con prospectos, agendamiento de reuniones y gestión en CRM."
+          text: "Contacto con prospectos calificados, agendamiento de reuniones y gestión en CRM."
         },
         {
-          title: "Atención al Cliente & Postventa",
-          text: "Respuesta oportuna en WhatsApp, correo y plataformas digitales."
+          title: "Atención al Cliente & Posventa",
+          text: "Respuesta oportuna y seguimiento en WhatsApp, correo y canales digitales."
         },
         {
           title: "Operación E-commerce & Compras",
-          text: "Carga de productos, fichas técnicas, cotizaciones y seguimiento de despachos."
+          text: "Carga de productos, fichas técnicas, cotización a proveedores y seguimiento de despachos."
         },
         {
           title: "Marketing & Redes",
-          text: "Publicaciones coordinadas, campañas y administración web continua."
+          text: "Publicaciones coordinadas, gestión de campañas y actualización continua de contenidos."
         }
       ]
     }
@@ -91,12 +91,12 @@
     /* 1. Hero Section (Captar en 5 segundos) */
     var hero = k.el("div", "hero");
     hero.appendChild(
-      k.el("p", "hero__eyebrow", k.attr(host, "eyebrow", "Desarrollador & Socio Operativo"))
+      k.el("p", "hero__eyebrow", k.attr(host, "eyebrow", "DESARROLLO WEB & GESTIÓN OPERATIVA"))
     );
 
     var title = k.el("h1", "hero__title");
     title.appendChild(document.createTextNode("Menos complejidad. "));
-    title.appendChild(k.el("span", null, "Más tecnología útil, ventas y orden operativo"));
+    title.appendChild(k.el("span", null, "Más tecnología útil, eficiencia y control"));
     title.appendChild(document.createTextNode("."));
     hero.appendChild(title);
 
@@ -104,12 +104,12 @@
       k.el(
         "p",
         "hero__text",
-        "Más que un proveedor tradicional, un socio integral: desarrollo soluciones web funcionales y me encargo de la gestión comercial y operativa para que tu negocio crezca sin inflar costes innecesarios."
+        "Desarrollo soluciones digitales a tu medida y asumo la carga operativa diaria: catálogo al día, prospectos atendidos y procesos en orden."
       )
     );
 
     var actions = k.el("div", "hero__actions");
-    var primary = k.el("a", "btn btn--primary", "Solicita diagnóstico");
+    var primary = k.el("a", "btn btn--primary", "Solicitar propuesta");
     primary.href = "#contacto";
     var secondary = k.el("a", "btn btn--ghost", "Explorar servicios");
     secondary.href = "#desarrollo";
@@ -124,14 +124,14 @@
       k.el("p", "home-pain__eyebrow", "El punto de partida")
     );
     var painHeading = k.el("h2", "home-pain__heading");
-    painHeading.appendChild(document.createTextNode("Crecer no debería "));
-    painHeading.appendChild(k.el("span", null, "sentirse tan difícil."));
+    painHeading.appendChild(document.createTextNode("Libera tiempo para hacer crecer tu empresa; "));
+    painHeading.appendChild(k.el("span", null, "delega la tecnología y la operación."));
     painIntro.appendChild(painHeading);
     painIntro.appendChild(
       k.el(
         "p",
         "home-pain__lead",
-        "“Emprender y gestionar un negocio en crecimiento no debería significar ahogarte en tareas operativas.”"
+        "“Emprender y gestionar un negocio en crecimiento no debería significar ahogarte en tareas operativas”."
       )
     );
     painBlock.appendChild(painIntro);
@@ -154,7 +154,6 @@
     HOME_PILLARS.forEach(function (pillar) {
       var pillarClass = "home-pillar flip" + (pillar.variant ? " home-pillar--" + pillar.variant : "");
       var col = k.el("article", pillarClass);
-      col.tabIndex = 0;
       col.setAttribute(
         "aria-label",
         pillar.badge + ": " + pillar.title + (pillar.subtitle ? " - " + pillar.subtitle : "")
@@ -211,7 +210,7 @@
       k.el(
         "blockquote",
         "home-bridge__quote",
-        "“No diseño sistemas inflados para cobrar más ni aplico marketing engañoso. Creo en la frugalidad tecnológica y en la honestidad de diagnóstico desde el primer minuto.”"
+        "“Desarrollo web a la medida de tu negocio y marketing con sentido estratégico. Apuesto por la frugalidad tecnológica y un diagnóstico honesto desde el primer minuto”."
       )
     );
     var bridgeLink = k.el(

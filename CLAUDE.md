@@ -91,8 +91,9 @@ npm run lint         # (si se añade linter)
     - `<contact-section>`: sección `#contacto` con layout de 2 columnas (panel de confianza `.contact-panel` + formulario `#contact-form`).
     - `<privacy-section>`: sección de Política de Privacidad con banner `.legal-hero`, índice lateral `CONTENIDO` y 8 tarjetas en acordeón (`[data-legal-accordion]`).
 - **Tarjetas 3D Flip**:
-  - Presentes en **Servicios en 2 Pilares** (`<hero-section>`), **Mis 4 Pilares de Trabajo** (`<about-section>`), y las tarjetas de **Desarrollo** y **Marketing** (`main.js` + `data.js`).
-  - Todas incluyen en su cara frontal el indicador visual `.pillar__hint` (generado con `RFKIT.flipHint()`) y soporte de teclado/táctil (`RFKIT.bindFlipCard()`).
+  - Presentes en **Servicios en 2 Pilares** (`<hero-section>`) y **Mis 4 Pilares de Trabajo** (`<about-section>`).
+  - Las tarjetas de **Desarrollo** y **Marketing** (`main.js` + `data.js`, flag `accordion: true`) usan un **acordeón** ("Ver funciones" +/×, `.card--accordion`, `aria-expanded`); `equalizeAccordionCards()` iguala la altura de las tarjetas cerradas.
+  - Todas las tarjetas flip incluyen en su cara frontal el indicador visual `.pillar__hint` (generado con `RFKIT.flipHint()`) y soporte de teclado/táctil (`RFKIT.bindFlipCard()`).
 - **CSS**:
   - Metodología BEM ligera (`bloque__elemento--modificador`).
   - Colores, espaciados y sombras en `variables.css`. El modo oscuro se declara en `:root[data-theme="dark"]` en `variables.css`.

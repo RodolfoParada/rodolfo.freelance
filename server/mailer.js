@@ -55,19 +55,44 @@ async function sendContactEmail(data) {
   const marketingOptin = data.marketingOptin ? "Sí" : "No";
   const message = data.message;
 
+  const row = (label, value) => `
+          <tr>
+            <td style="padding:10px 0;border-bottom:1px solid #e6ecf2;width:38%;font-size:14px;font-weight:700;color:#5b7b93;vertical-align:top">${label}</td>
+            <td style="padding:10px 0;border-bottom:1px solid #e6ecf2;font-size:15px;color:#1e2a36;vertical-align:top">${value}</td>
+          </tr>`;
+
   const html = `
-    <div style="font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6;color:#0f172a">
-      <h2 style="margin:0 0 16px">Nuevo mensaje desde Rodolfo-Freelance</h2>
-      <p style="margin:0 0 8px"><strong>Nombre:</strong> ${escapeHtml(name)}</p>
-      ${phone ? `<p style="margin:0 0 8px"><strong>Teléfono:</strong> ${escapeHtml(phone)}</p>` : ""}
-      <p style="margin:0 0 8px"><strong>Correo:</strong> ${escapeHtml(email)}</p>
-      <p style="margin:0 0 8px"><strong>Servicio:</strong> ${escapeHtml(subject)}</p>
-      ${attachmentName ? `<p style="margin:0 0 8px"><strong>Referencia adjunta:</strong> ${escapeHtml(attachmentName)}</p>` : ""}
-      <p style="margin:0 0 8px"><strong>Comunicaciones comerciales:</strong> ${marketingOptin}</p>
-      <hr style="border:none;border-top:1px solid #e2e8f0;margin:16px 0" />
-      <p style="white-space:pre-wrap;margin:0">${escapeHtml(message)}</p>
-    </div>
-  `;
+<!doctype html>
+<html lang="es">
+  <body style="margin:0;padding:0;background:#f2efe7;font-family:system-ui,'Segoe UI',Roboto,Arial,sans-serif">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2efe7;padding:24px 12px">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;background:#fcfbf7;border-radius:12px;overflow:hidden;border:1px solid #e2e8f0">
+            <tr>
+              <td style="background:#3368a0;padding:24px 28px">
+                <h1 style="margin:0;font-size:22px;line-height:1.3;color:#ffffff">Nuevo mensaje desde Rodolfo-Freelance</h1>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:24px 28px">
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${row("Nombre", escapeHtml(name))}${phone ? row("Teléfono", escapeHtml(phone)) : ""}${row("Correo", escapeHtml(email))}${row("Servicio", escapeHtml(subject))}${attachmentName ? row("Referencia adjunta", escapeHtml(attachmentName)) : ""}${row("Comunicaciones comerciales", marketingOptin)}
+                </table>
+                <p style="margin:24px 0 8px;font-size:13px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:#3368a0">Mensaje</p>
+                <div style="background:#ffffff;border:1px solid #e6ecf2;border-left:4px solid #3368a0;border-radius:8px;padding:16px 18px;font-size:15px;line-height:1.6;color:#1e2a36;white-space:pre-wrap">${escapeHtml(message)}</div>
+              </td>
+            </tr>
+            <tr>
+              <td style="padding:16px 28px;background:#e7f1ee;font-size:12px;line-height:1.5;color:#5b7b93">
+                Responde directamente a este correo para contactar a ${escapeHtml(name)}.
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>`;
 
   const text = [
     "Nuevo mensaje desde Rodolfo-Freelance",
@@ -95,7 +120,7 @@ async function sendContactEmail(data) {
     from: `"${sanitizeHeader(config.mail.fromName)}" <${config.mail.user}>`,
     to: config.mail.to,
     replyTo: `"${name}" <${email}>`,
-    subject: `[Contacto] ${subject}`,
+    subject: `${name} para Rodolfo - Freelance`,
     text,
     html,
     attachments: mailAttachments
