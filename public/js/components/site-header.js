@@ -43,6 +43,6 @@
   `;
 
   window.RFKIT.define("site-header", function (host) {
-    host.appendChild(window.RFKIT.fragment(TEMPLATE));
+    host.replaceChildren(window.RFKIT.fragment(TEMPLATE));
   });
 })();

@@ -91,10 +91,11 @@
     /* 1. Hero Section (Captar en 5 segundos) */
     var hero = k.el("div", "hero");
     hero.appendChild(
-      k.el("p", "hero__eyebrow", k.attr(host, "eyebrow", "DESARROLLO WEB & GESTIÓN OPERATIVA"))
+      k.el("h1", "hero__eyebrow", k.attr(host, "eyebrow", "DESARROLLO WEB & GESTIÓN OPERATIVA"))
     );
+    hero.appendChild(k.el("p", "hero__location", "Servicios 100% remoto para negocios de todo Chile"));
 
-    var title = k.el("h1", "hero__title");
+    var title = k.el("h2", "hero__title");
     title.appendChild(document.createTextNode("Menos complejidad. "));
     title.appendChild(k.el("span", null, "Más tecnología útil, eficiencia y control"));
     title.appendChild(document.createTextNode("."));

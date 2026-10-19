@@ -321,11 +321,21 @@ main {
 }
 
 .hero__eyebrow {
+  font-family: inherit;
+  line-height: inherit;
   font-size: var(--font-size-xs);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-primary);
+}
+
+.hero__location {
+  margin: 0;
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-muted);
 }
 
 .hero__title {

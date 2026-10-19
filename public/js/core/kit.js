@@ -127,7 +127,13 @@
         connectedCallback() {
           if (this.dataset.rendered === "true") return;
           this.dataset.rendered = "true";
-          render(this);
+          // Esperar al DOMContentLoaded: así el HTML estático de dentro ya está leído
+          // y el render lo reemplaza en vez de sumarse a él.
+          if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", () => render(this), { once: true });
+          } else {
+            render(this);
+          }
         }
       }
     );

@@ -18,7 +18,7 @@
           <div class="form__phone">
             <span class="form__phone-prefix" aria-hidden="true">
               <span class="form__flag">
-                <svg viewBox="0 0 24 16" width="20" height="14" role="img" focusable="false">
+                <svg viewBox="0 0 24 16" width="20" height="14" aria-hidden="true" focusable="false">
                   <rect width="24" height="8" fill="#ffffff" />
                   <rect y="8" width="24" height="8" fill="#d52b1e" />
                   <rect width="8" height="8" fill="#0039a6" />
