@@ -109,7 +109,7 @@
     );
 
     var actions = k.el("div", "hero__actions");
-    var primary = k.el("a", "btn btn--primary", "Solicitar propuesta");
+    var primary = k.el("a", "btn btn--primary", "Agenda tu reunión");
     primary.href = "#contacto";
     var secondary = k.el("a", "btn btn--ghost", "Explorar servicios");
     secondary.href = "#desarrollo";

@@ -117,7 +117,7 @@
       </div>
 
       <button class="btn btn--primary btn--block form__submit" type="submit" id="form-submit">Enviar mensaje →</button>
-      <p class="form__sla">Respondemos en menos de 24 horas hábiles.</p>
+      <p class="form__sla">Respondemos en menos de 72 horas hábiles.</p>
       <p class="form__feedback" id="form-feedback" role="status" aria-live="polite"></p>
     </form>
   `;
@@ -163,7 +163,7 @@
           <div class="contact-panel__point-body">
             <h4 class="contact-panel__point-title">Respuesta Rápida</h4>
             <p class="contact-panel__point-text">
-              Te escribo de vuelta en menos de 24 horas hábiles con una propuesta o diagnóstico inicial.
+              Te escribo de vuelta en menos de 72 horas hábiles con una propuesta o diagnóstico inicial.
             </p>
           </div>
         </li>
@@ -250,9 +250,9 @@
     var container = k.el("div", "container");
     container.appendChild(
       k.sectionHeader(
-        k.attr(host, "eyebrow", "Hablemos"),
+        k.attr(host, "eyebrow", "Hablemos de tu proyecto"),
         k.attr(host, "title", "Contáctame"),
-        k.attr(host, "lead", "Cuéntame tu idea y te responderé en la brevedad")
+        k.attr(host, "lead", "Completa tus datos para coordinar una reunión vía Google Meet. Te contactaremos por correo y teléfono para confirmar el horario.")
       )
     );
 

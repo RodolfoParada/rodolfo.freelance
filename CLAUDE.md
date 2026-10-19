@@ -78,22 +78,25 @@ npm run lint         # (si se añade linter)
     - `attr(host, name, fallback)`: lee atributos de configuración del custom element.
     - `sectionShell(id, modifiers)` y `sectionHeader(eyebrow, title, lead)`.
     - `blockTitle(title, subtitle)`: genera encabezados `<h2 class="block__title">`.
-    - `flipHint()`: genera el indicador visual de flecha `.pillar__hint` para tarjetas giratorias 3D.
-    - `bindFlipCard(card)`: enlaza eventos táctiles (`click` en dispositivos sin hover) y de teclado (`Enter`/`Space`) para girar tarjetas 3D (`.is-flipped`).
+    - `flipHint()`: genera el botón de flecha `<button class="pillar__hint">` (aria-label "Ver detalles") que gira la tarjeta.
+    - `flipBackHint()`: genera el botón de vuelta `<button class="pillar__hint pillar__hint--back">` (aria-label "Volver") para la cara trasera.
+    - `bindFlipCard(card)`: añade el botón de vuelta a la cara trasera (`[class*="__face--back"]`) y enlaza el clic de la flecha (`.pillar__hint`) y del botón de vuelta para alternar/quitar `.is-flipped`. Solo estos botones giran la tarjeta: no hay giro por hover, por foco ni por clic en el resto.
     - `renderCardsSection(host, config)` y `define(name, render)`.
   - Catálogo de componentes:
     - `<site-header>`: barra de navegación superior; detecta si está en `privacidad.html` para anteponer `index.html` a los enlaces de ancla.
     - `<site-footer>`: pie de página en 4 columnas (`Rodolfo-Freelance`, `EXPLORAR`, `CONTACTO & COBERTURA`, `SÍGUEME`) y barra legal inferior.
-    - `<cta-banner>`: banner de llamada a la acción reutilizable (usado en `<hero-section>` y `<about-section>`). Soporta los atributos `title`, `text`, `primary-text`, `primary-href`, `secondary-text`, `secondary-href` y `note` (usar `"none"` para ocultar elementos opcionales).
-    - `<hero-section>`: sección `#inicio` con hero, bloque de dolores, 2 pilares en tarjetas 3D flip, métricas, puente a filosofía y `<cta-banner>`.
-    - `<about-section>`: sección `#acerca` con intro/manifiesto, 4 pilares en tarjetas 3D flip, sistema de pestañas accesibles (`buildTabs`) y `<cta-banner>`.
-    - `<services-section>`: sección `#desarrollo` que agrupa los bloques de **Desarrollo** (`[data-cards="desarrollo"]`) y **Marketing** (`[data-cards="marketing"]`).
-    - `<contact-section>`: sección `#contacto` con layout de 2 columnas (panel de confianza `.contact-panel` + formulario `#contact-form`).
+    - `<cta-banner>`: banner de llamada a la acción reutilizable (usado en `<hero-section>` y `<about-section>`). Soporta los atributos `title`, `text`, `primary-text`, `primary-href`, `secondary-text`, `secondary-href` y `note` (usar `"none"` para ocultar elementos opcionales). Valores por defecto: título *¿Hablamos de lo que necesita resolver tu negocio?*, botón **Agenda tu reunión** (`#contacto`), secundario oculto (`secondary-text` = `"none"`) y leyenda de 72 horas hábiles.
+    - `<hero-section>`: sección `#inicio` con hero (eyebrow, título, descripción y botones **Agenda tu reunión** / **Explorar servicios**), bloque de dolores (3 tarjetas), **Servicios en 2 Pilares** (2 tarjetas giratorias), cita y `<cta-banner>`.
+    - `<about-section>`: sección `#acerca` con intro/manifiesto (incluye la pregunta *¿Cuéntame qué necesita tu negocio hoy?* y el botón **Agenda tu reunión**), 4 pilares en tarjetas giratorias, pestañas accesibles (`buildTabs`) y un diseño de 2 columnas (`.about-dual`): `<cta-banner>` a la izquierda y *Mi Compromiso* + *Cómo abordamos tu proyecto* a la derecha.
+    - `<services-section>`: sección `#desarrollo` que agrupa los bloques de **Desarrollo** (`[data-cards="desarrollo"]`, tarjetas giratorias) y **Marketing** (etiqueta *Servicios de Asistente Virtual Freelance* + `[data-cards="marketing"]`, tarjetas en acordeón).
+    - `<contact-section>`: sección `#contacto` con layout de 2 columnas (panel de confianza `.contact-panel` + formulario `#contact-form`). Eyebrow *Hablemos de tu proyecto* y texto de coordinación por Google Meet.
     - `<privacy-section>`: sección de Política de Privacidad con banner `.legal-hero`, índice lateral `CONTENIDO` y 8 tarjetas en acordeón (`[data-legal-accordion]`).
-- **Tarjetas 3D Flip**:
-  - Presentes en **Servicios en 2 Pilares** (`<hero-section>`) y **Mis 4 Pilares de Trabajo** (`<about-section>`).
-  - Las tarjetas de **Desarrollo** y **Marketing** (`main.js` + `data.js`, flag `accordion: true`) usan un **acordeón** ("Ver funciones" +/×, `.card--accordion`, `aria-expanded`); `equalizeAccordionCards()` iguala la altura de las tarjetas cerradas.
-  - Todas las tarjetas flip incluyen en su cara frontal el indicador visual `.pillar__hint` (generado con `RFKIT.flipHint()`) y soporte de teclado/táctil (`RFKIT.bindFlipCard()`).
+- **Tarjetas giratorias (flip)**:
+  - Presentes en **Servicios en 2 Pilares** (`<hero-section>`), **Mis 4 Pilares de Trabajo** (`<about-section>`) y **Desarrollo** (`main.js` + `data.js`, flag `flip: true`).
+  - Solo el botón de flecha gira la tarjeta: `RFKIT.flipHint()` (cara frontal, abajo a la derecha) y `RFKIT.flipBackHint()` (cara trasera, abajo a la izquierda, lo añade `bindFlipCard`). Ni el hover ni el clic en el resto de la tarjeta la giran, y las tarjetas no llevan `tabIndex`.
+  - En Desarrollo, `.card--flip .card__face--front` centra el título y la descripción entre la etiqueta y el borde; la altura mínima es 14rem (`.grid[data-cards="desarrollo"] .card__inner3d`).
+  - Las tarjetas de **Marketing** (`main.js` + `data.js`, flag `accordion: true`) usan un **acordeón** ("Ver funciones" con un botón **+**/×, `.card--accordion`, `aria-expanded`). `equalizeAccordionCards()` iguala la altura de los resúmenes cerrados y `.card__summary` centra el título y la descripción entre la etiqueta y la línea divisoria.
+  - El botón de flecha tiene un área táctil mínima de 44 px (`.pillar__hint`).
 - **CSS**:
   - Metodología BEM ligera (`bloque__elemento--modificador`).
   - Colores, espaciados y sombras en `variables.css`. El modo oscuro se declara en `:root[data-theme="dark"]` en `variables.css`.
@@ -105,11 +108,13 @@ npm run lint         # (si se añade linter)
 2. No usar `innerHTML` con datos del usuario. En `mailer.js` todo se escapa con `escapeHtml` y `sanitizeHeader`.
 3. Mantener en `routes/contact.js` el orden: `contactLimiter → checkOrigin → verifyToken → validators`.
 4. Todo endpoint nuevo bajo `/api` debe pasar por el `generalLimiter`.
+   - El formulario pide un token CSRF nuevo (`loadCsrfToken()`) antes de cada envío; no reutilizar el token de la carga inicial.
 5. Cualquier cambio en la CSP (`server/index.js`) debe evitar habilitar `unsafe-inline`.
 
 ## Puntos de extensión habituales
 
 - **Añadir o editar un servicio**: editar `DESARROLLO` o `MARKETING` en `public/js/data.js`.
-- **Reutilizar el banner CTA en otra sección**: insertar `<cta-banner title="..." text="..."></cta-banner>`.
+- **Reutilizar el banner CTA en otra sección**: insertar `<cta-banner title="..." text="..."></cta-banner>`. Los textos por defecto (título, botón **Agenda tu reunión**, leyenda de 72 horas hábiles) están en `DEFAULTS` de `cta-banner.js`.
+- **Correo del formulario**: el asunto y el cuerpo se construyen en `server/mailer.js` (`sendContactEmail`); el HTML usa tablas y estilos en línea.
 - **Cambiar el destinatario del correo**: variable `MAIL_TO` en `.env`.
 - **Nuevas páginas o secciones**: crear un componente en `public/js/components/<nombre>.js` usando `RFKIT.define(...)`, incluirlo con `<script>` en `<head>` y montar la etiqueta en `<main>`.

@@ -104,19 +104,22 @@ Tanto `index.html` como `privacidad.html` se construyen íntegramente mediante *
 ```
 
 ### Catálogo de componentes y reutilización
-- **`<cta-banner>` (`cta-banner.js`):** Bloque de llamada a la acción reutilizable presente al final de **Inicio** (`<hero-section>`) y **Acerca de mí** (`<about-section>`). Acepta atributos opcionales (`title`, `text`, `primary-text`, `primary-href`, `secondary-text`, `secondary-href`, `note`):
+- **`<cta-banner>` (`cta-banner.js`):** Bloque de llamada a la acción reutilizable presente en **Inicio** (`<hero-section>`) y **Acerca de mí** (`<about-section>`). Acepta atributos opcionales (`title`, `text`, `primary-text`, `primary-href`, `secondary-text`, `secondary-href`, `note`). Por defecto muestra el botón **Agenda tu reunión** (lleva a `#contacto`) y oculta el botón secundario (`secondary-text="none"`):
   ```html
   <cta-banner
-    title="¿Hablamos de lo que tu negocio necesita para crecer?"
-    primary-text="Completar formulario de cotización →"
+    title="¿Hablamos de lo que necesita resolver tu negocio?"
+    primary-text="Agenda tu reunión"
     primary-href="#contacto"></cta-banner>
   ```
-- **Tarjetas 3D Flip e indicador visual (`RFKIT.flipHint` y `RFKIT.bindFlipCard`):**
-  - Las tarjetas de **Servicios en 2 Pilares** (Inicio), **Mis 4 Pilares de Trabajo** (Acerca de mí), **Desarrollo** (6 servicios) y **Marketing** (4 servicios) giran en 3D (`rotateY(180deg)`) al pasar el cursor, tocar en pantallas táctiles o presionar `Enter`/`Espacio`.
-  - Cada tarjeta incluye en su cara frontal una flecha visual decorativa (`.pillar__hint`, no botón) que indica al usuario que hay más información al reverso.
+- **Tarjetas giratorias e indicador de giro (`RFKIT.flipHint`, `RFKIT.flipBackHint` y `RFKIT.bindFlipCard`):**
+  - Las tarjetas de **Servicios en 2 Pilares** (Inicio), **Mis 4 Pilares de Trabajo** (Acerca de mí) y **Desarrollo** (6 servicios) giran en 3D con el botón de flecha de la cara frontal; el botón de la cara trasera las devuelve a su estado inicial.
+  - Solo esos botones giran la tarjeta: no hay giro al pasar el cursor ni al hacer clic en el resto. Los botones tienen un área táctil de 44 px y funcionan con teclado (`Enter`/`Espacio`).
+- **Servicios de Marketing en acordeón:** las 4 tarjetas de **Marketing** muestran la etiqueta, el título y la descripción, con una fila *Ver funciones* y un botón **+** que despliega sus funciones (se convierte en **×** al abrir).
 - **`<contact-section>` (`contact-section.js`):**
   - **Panel izquierdo (`.contact-panel`):** Tarjeta de confianza en azul corporativo (*Llevemos tu idea al siguiente nivel*), 3 pilares de servicio y enlaces directos a Instagram (`@rodolfo.tech.soluciones`) y correo (`desarrollador.freelance7@gmail.com`).
-  - **Formulario derecho (`#contact-form`):** Nombre completo, Teléfono con bloque separado `+56 9` y bandera chilena, Correo electrónico, selector de servicio (`<select>`), detalles del proyecto con contador de 2000 caracteres, carga opcional de referencia, checkbox obligatorio de Política de Privacidad (`target="_blank"`), checkbox opcional de comunicaciones comerciales y sello de confianza con respuesta `< 24h`.
+  - **Formulario derecho (`#contact-form`):** Nombre completo (2–30 caracteres), Teléfono con bloque separado `+56 9` y bandera chilena, Correo electrónico, selector de servicio (`<select>`), detalles del proyecto con contador de 2000 caracteres, hasta 3 archivos de referencia (10 MB en total), checkbox obligatorio de Política de Privacidad (`target="_blank"`), checkbox opcional de comunicaciones comerciales y sello de confianza con respuesta en menos de 72 horas hábiles.
+  - Antes de enviar pide un token CSRF nuevo, así que el formulario funciona aunque la página lleve mucho tiempo abierta.
+- **Correo recibido:** el asunto es `<nombre> para Rodolfo - Freelance`, el cuerpo HTML muestra los datos en una tabla con el mensaje destacado y los archivos adjuntos llegan como archivos reales.
 - **`<privacy-section>` (`privacy-section.js`):**
   - Encabezado de ancho completo (`.legal-hero`) que adapta sus colores en modo claro y oscuro usando las variables del tema, seguido de un diseño en 2 columnas con índice lateral (`CONTENIDO`) sincronizado con 8 tarjetas desplegables en acordeón (adecuado a la Ley N° 19.628 y Ley N° 21.719).
 - **`<site-footer>` (`site-footer.js`):**
@@ -143,8 +146,8 @@ Se utiliza **Plus Jakarta Sans** autoalojada en `public/assets/fonts/` (woff2, p
 
 El proyecto ya incluye la configuración necesaria para desplegarse como funciones Serverless en **Netlify** sin dejar de funcionar en modo local (`npm run dev` / `npm start`):
 
-- **[netlify.toml](file:///home/trimogesimo/rodolfofreelance/netlify.toml)**: Define `publish = "public"`, `functions = "netlify/functions"` y las reglas `[[redirects]]` hacia `/.netlify/functions/server`.
-- **[netlify/functions/server.js](file:///home/trimogesimo/rodolfofreelance/netlify/functions/server.js)**: Envuelve la aplicación Express (`server/index.js`) con `serverless-http`.
+- **[netlify.toml](netlify.toml)**: Define `publish = "public"`, `functions = "netlify/functions"` y las reglas `[[redirects]]` hacia `/.netlify/functions/server`.
+- **[netlify/functions/server.js](netlify/functions/server.js)**: Envuelve la aplicación Express (`server/index.js`) con `serverless-http`.
 - En el panel de Netlify (**Site configuration → Environment variables**), configura `GMAIL_USER`, `GMAIL_APP_PASSWORD`, `MAIL_FROM_NAME`, `MAIL_TO`, `NODE_ENV=production` y `ALLOWED_ORIGINS` con la URL de tu sitio en Netlify.
 
 ## Notas de seguridad
