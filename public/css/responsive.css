@@ -88,6 +88,10 @@
     padding: var(--space-lg);
   }
 
+  .about-dual {
+    grid-template-columns: 1fr;
+  }
+
   .form,
   .contact-panel {
     padding: var(--space-md);
