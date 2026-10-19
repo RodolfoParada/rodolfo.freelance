@@ -91,7 +91,7 @@
       k.el("p", "manifesto__text", "Creo firmemente que la tecnología debe resolver problemas reales de la forma más directa, simple y limpia posible.")
     );
     manifesto.appendChild(k.el("p", "manifesto__question", "¿Cuéntame qué necesita tu negocio hoy?"));
-    var manifestoCta = k.el("a", "btn btn--primary manifesto__cta", "Ir al formulario →");
+    var manifestoCta = k.el("a", "btn btn--primary manifesto__cta", "Agenda tu reunión");
     manifestoCta.href = "#contacto";
     manifesto.appendChild(manifestoCta);
 

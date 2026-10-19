@@ -8,59 +8,76 @@
 
 ## 1. Objetivo
 
-Presentar los servicios de desarrollo web y soporte operativo/marketing de **Rodolfo-Freelance** y permitir que los visitantes soliciten un diagnóstico o cotización mediante un formulario que se envía por correo a una cuenta de Gmail, cumpliendo buenas prácticas de seguridad y la normativa chilena de protección de datos personales (Ley N° 19.628 y Ley N° 21.719).
+Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rodolfo-Freelance** y permitir que los visitantes agenden una reunión o soliciten una propuesta mediante un formulario que se envía por correo a una cuenta de Gmail, cumpliendo buenas prácticas de seguridad y la normativa chilena de protección de datos personales (Ley N° 19.628 y Ley N° 21.719).
 
 ---
 
 ## 2. Usuarios y casos de uso
 
-- **Visitante**: recorre el sitio, explora los servicios interactivos (tarjetas 3D giratorias), consulta la Política de Privacidad en vista acordeón y envía una solicitud de contacto.
-- **Rodolfo (propietario)**: recibe los mensajes estructurados en su Gmail y responde directamente desde allí.
+- **Visitante**: recorre el sitio, gira las tarjetas de Inicio y Acerca de mí con su botón de flecha, despliega los servicios de Marketing en acordeón, consulta la Política de Privacidad y envía una solicitud de contacto.
+- **Rodolfo (propietario)**: recibe los mensajes en su Gmail, con los datos en una tabla y el mensaje destacado, y responde directamente desde allí.
 
 ---
 
 ## 3. Requisitos funcionales
 
 ### 3.1 Navegación
-- Barra de navegación fija (`<site-header>`) con los enlaces: **Inicio**, **Acerca de mí**, **Servicios**, y el botón **Contáctame** (`.navbar__link--cta`).
+- Barra de navegación fija (`<site-header>`) con los enlaces: **Inicio**, **Acerca de mí**, **Servicios** y el botón **Contáctame** (`.navbar__link--cta`).
 - El enlace de la sección visible se resalta automáticamente (scroll-spy). El botón **Contáctame** conserva su contraste visual (`--color-on-primary` sobre `--color-primary`) tanto activo como en `:hover`.
 - En móvil, la navbar se colapsa en un menú hamburguesa accesible (`aria-expanded`, cierre con `Esc` y al pulsar un enlace).
 - Cuando se navega desde `privacidad.html`, los enlaces de header y footer redirigen automáticamente a `index.html#<seccion>`.
 
 ### 3.2 Secciones y páginas
 1. **`index.html` (Landing principal):**
-   - `#inicio` (`<hero-section>`): hero con propuesta de valor y CTAs, bloque de empatía/dolores (3 tarjetas), **Servicios en 2 Pilares** (2 tarjetas 3D flip con indicador visual de flecha `.pillar__hint`), métricas clave, puente a la filosofía y banner de cierre reutilizable `<cta-banner>`.
-   - `#acerca` (`<about-section>`): encabezado (filosofía y método), manifiesto, **Mis 4 Pilares de Trabajo** (4 tarjetas 3D flip con indicador `.pillar__hint`), pestañas accesibles (`role="tablist"`) para *Mi Compromiso No Negociable* y *Cómo abordamos tu proyecto (Stack adaptable)*, cita destacada y `<cta-banner>`.
-   - `#desarrollo` (`<services-section>`): bloques de **Desarrollo** (6 tarjetas 3D flip alimentadas por `DESARROLLO` en `data.js`) y **Marketing** (4 tarjetas 3D flip alimentadas por `MARKETING` en `data.js`), todas con indicador visual `.pillar__hint`.
+   - `#inicio` (`<hero-section>`):
+     - Eyebrow *DESARROLLO WEB & GESTIÓN OPERATIVA*, título *Menos complejidad. Más tecnología útil, eficiencia y control.* y descripción de servicios.
+     - Botones: **Agenda tu reunión** (lleva a `#contacto`) y **Explorar servicios** (lleva a `#desarrollo`).
+     - Bloque de puntos de partida *"Libera tiempo para hacer crecer tu empresa; delega la tecnología y la operación."* con 3 dolores (falta de tiempo, operación atascada, fricción digital), cada uno con su texto.
+     - **Servicios en 2 Pilares**: 2 tarjetas giratorias con la flecha de giro (botón `.pillar__hint`) y botón de vuelta (`.pillar__hint--back`). Cada pilar tiene 4 servicios (*Desarrollo* y *Soporte Operativo & Comercial*), con el título y la descripción de cada uno.
+     - Cita de cierre y `<cta-banner>`.
+   - `#acerca` (`<about-section>`):
+     - Encabezado *Soluciones digitales y soporte operativo para tu negocio.* con la descripción de servicios.
+     - Manifiesto con cita destacada, párrafo de método y pregunta *¿Cuéntame qué necesita tu negocio hoy?* con el botón **Agenda tu reunión** (lleva a `#contacto`).
+     - **Mis 4 Pilares de Trabajo**: 4 tarjetas giratorias con botón de flecha y de vuelta. Cada una tiene un texto *Qué significa* y *Tu beneficio*.
+     - Pestañas accesibles (`role="tablist"`) para *Mi Compromiso* (*No Negociable*) y *Cómo abordamos tu proyecto* (*Stack adaptable*). Los títulos van alineados a la izquierda.
+     - Diseño de 2 columnas (`.about-dual`): a la izquierda `<cta-banner>`, a la derecha *Mi Compromiso* arriba y *Cómo abordamos tu proyecto* debajo. En móvil se apilan en una columna.
+     - Cita *"Las herramientas se eligen en función del problema, no de la moda."* debajo de las dos columnas.
+   - `#desarrollo` (`<services-section>`):
+     - Bloque **Desarrollo**: 6 tarjetas giratorias (`flip: true` en `data.js`). Cada tarjeta centra su título y descripción; la flecha de giro está abajo a la derecha de la cara frontal y el botón de vuelta abajo a la izquierda de la cara trasera.
+     - Bloque **Marketing**: etiqueta *Servicios de Asistente Virtual Freelance* y 4 tarjetas en **acordeón** (`accordion: true` en `data.js`). Cada una muestra etiqueta, título y descripción, con una fila *Ver funciones* con un botón redondo **+** que se convierte en **×** al abrir la lista. El título y la descripción quedan centrados entre la etiqueta superior y la línea divisoria.
    - `#contacto` (`<contact-section>`): diseño en 2 columnas (`.contact-layout`):
-     - Columna izquierda (`.contact-panel`): panel de impacto y confianza en azul corporativo (*Llevemos tu idea al siguiente nivel*, 3 puntos de valor y canales directos a Instagram `@rodolfo.tech.soluciones` y correo `desarrollador.freelance7@gmail.com`).
-     - Columna derecha (`.form`): formulario de cotización y consulta.
+     - Columna izquierda (`.contact-panel`): panel de impacto y confianza en azul corporativo (*Llevemos tu idea al siguiente nivel*), 3 puntos de valor y canales directos a Instagram `@rodolfo.tech.soluciones` y correo `desarrollador.freelance7@gmail.com`.
+     - Columna derecha (`.form`): eyebrow *Hablemos de tu proyecto*, texto *Completa tus datos para coordinar una reunión vía Google Meet. Te contactaremos por correo y teléfono para confirmar el horario.* y formulario.
 2. **`privacidad.html` (Política de Privacidad v2.0):**
    - Renderizada mediante el componente `<privacy-section>`.
-   - Banner superior de ancho completo (`.legal-hero`) que adapta sus colores entre modo claro y oscuro usando tokens (`--color-primary`, `--color-secondary-strong`, `--color-on-primary`).
-   - Diseño en dos columnas (`.legal-layout`): índice lateral fijo (`CONTENIDO`) sincronizado con 8 tarjetas desplegables en acordeón (`.legal-item`), adecuado a la Ley N° 19.628 y Ley N° 21.719.
+   - Banner superior de ancho completo (`.legal-hero`) que adapta sus colores entre modo claro y oscuro usando tokens.
+   - Diseño en dos columnas (`.legal-layout`): índice lateral fijo (`CONTENIDO`) sincronizado con **8 secciones** desplegables en acordeón (`.legal-item`), adecuado a la Ley N° 19.628 y Ley N° 21.719.
 3. **Footer (`<site-footer>`):**
-   - Diseño en 4 columnas (`Rodolfo-Freelance` + estado de disponibilidad, `EXPLORAR`, `CONTACTO & COBERTURA`, `SÍGUEME` con botón de Instagram y degradado oficial en `:hover`) + barra inferior con copyright dinámico y enlace a `privacidad.html`.
+   - Diseño en 4 columnas (`Rodolfo-Freelance` + estado de disponibilidad, `EXPLORAR`, `CONTACTO & COBERTURA`, `SÍGUEME` con botón de Instagram) + barra inferior con copyright dinámico y enlace a `privacidad.html`.
 
 ### 3.3 Formulario de contacto
 - Campos:
-  - `name` (obligatorio, 2–80 caracteres).
-  - `phone` (opcional, con prefijo visual separado `+56 9` con bandera de Chile + input numérico `8765 4321`).
-  - `email` (obligatorio, formato email válido, máx. 120 caracteres).
-  - `subject` (obligatorio, selector `<select>` agrupado en *Desarrollo*, *Marketing & Operaciones* y *Otro / Consulta general*).
-  - `message` (obligatorio, 10–2000 caracteres con contador en vivo `Límite 2000 caracteres`).
-  - `attachment` (opcional, selector de archivo de referencia cuyo nombre se envía como `attachmentName`).
+  - `name` (obligatorio, 2–30 caracteres; se muestra en mayúsculas).
+  - `phone` (opcional, prefijo visual `+56 9` con bandera de Chile + input de 8 dígitos con máscara `1234 5678`; rechaza secuencias y dígitos repetidos).
+  - `email` (obligatorio, formato email válido, con corrección de dominios mal escritos como `gmial.com`).
+  - `subject` (obligatorio, `<select>` agrupado en *Desarrollo*, *Marketing & Operaciones* y *Otro / Consulta general*).
+  - `message` (obligatorio, 10–2000 caracteres con contador en vivo).
+  - `attachment` (opcional, hasta **3 archivos** y **10 MB** en total; las imágenes de más de 1,2 MB se comprimen en el navegador). Se envían en Base64 y su nombre aparece como *Referencia adjunta*.
   - `privacy` (checkbox obligatorio con enlace a `privacidad.html` en nueva pestaña `target="_blank"`).
   - `marketingOptin` (checkbox opcional para comunicaciones comerciales).
 - Campo **honeypot** invisible (`website`) como trampa anti-bots.
-- Recuadro de confianza con ícono de escudo verde y compromiso de respuesta en menos de 24 horas hábiles.
-- Envío mediante `fetch` POST a `/api/contact` con cabecera `X-CSRF-Token`.
+- Recuadro de confianza con compromiso de respuesta en **menos de 72 horas hábiles**.
+- Antes de cada envío el formulario pide un **token CSRF nuevo** (`GET /api/csrf`), para que funcione aunque la página haya estado abierta durante horas.
+- Envío mediante `fetch` POST a `/api/contact` con cabecera `X-CSRF-Token`. Al terminar, el formulario muestra un modal de confirmación.
 
 ### 3.4 Correo (Gmail)
 - El backend envía el mensaje a la cuenta configurada en `MAIL_TO`.
+- **Asunto:** `<nombre> para Rodolfo - Freelance` (por ejemplo, *RODOLFO para Rodolfo - Freelance*).
 - `Reply-To` = correo del visitante, para responder directamente.
-- Incluye: Nombre, Teléfono (si se indicó), Correo, Servicio, Referencia adjunta (si se seleccionó), preferencia de Comunicaciones comerciales (`Sí` / `No`) y el detalle del mensaje.
-- Cuerpo en texto plano y HTML con el contenido **escapado** (`escapeHtml`) y cabeceras sanitizadas (`sanitizeHeader`).
+- **Cuerpo HTML** con estilo de marca: encabezado azul *Nuevo mensaje desde Rodolfo-Freelance*, datos en tabla (Nombre, Teléfono si se indicó, Correo, Servicio, Referencia adjunta si se seleccionó, Comunicaciones comerciales `Sí`/`No`), el mensaje dentro de un recuadro y un pie con la instrucción de responder al correo. Usa tablas y estilos en línea para compatibilidad con Gmail.
+- **Cuerpo en texto plano** con los mismos datos.
+- Los archivos adjuntos se incluyen en el correo como archivos reales (no solo el nombre).
+- Todo el contenido se **escapa** (`escapeHtml`) y las cabeceras se sanitizan (`sanitizeHeader`).
 
 ### 3.5 Marca, tema y componentes
 - **Título de la pestaña**: `Rodolfo - Freelance` (y `Política de Privacidad | Rodolfo - Freelance` en `privacidad.html`).
@@ -69,13 +86,15 @@ Presentar los servicios de desarrollo web y soporte operativo/marketing de **Rod
 - **Tipografía**: Plus Jakarta Sans autoalojada (woff2, subset latin, pesos 400–800); sin fuentes ni recursos de terceros.
 - **Tema claro/oscuro**: conmutable desde la navbar, aplica `data-theme` en `<html>`, respeta `prefers-color-scheme` y persiste en `localStorage` (clave `rf-theme`).
 - **Componentes reutilizables**: Web Components nativos en light DOM en `js/components/` (`site-header`, `site-footer`, `cta-banner`, `hero-section`, `about-section`, `services-section`, `marketing-section`, `contact-section`, `privacy-section`) apoyados en el kit compartido `js/core/kit.js` (`RFKIT`).
+- **`<cta-banner>`**: título *¿Hablamos de lo que necesita resolver tu negocio?*, botón principal **Agenda tu reunión** (lleva a `#contacto`) y leyenda *Respuesta en menos de 72 horas hábiles · Atención 100% remota para todo Chile*. El botón secundario viene oculto por defecto (`secondary-text="none"`).
 
 ---
 
 ## 4. Requisitos no funcionales
 
 - **Responsive**: usable desde 320 px hasta escritorio amplio (`1650px` de contenedor máximo).
-- **Accesibilidad**: landmarks, `aria-*`, soporte de teclado en tarjetas 3D (`Enter`/`Space`), pestañas (`ArrowLeft`/`ArrowRight`) y acordeón (`aria-expanded`), skip-link y respeto a `prefers-reduced-motion`.
+- **Accesibilidad**: landmarks, `aria-*`, botones reales para girar las tarjetas (`Enter`/`Space` sobre la flecha), pestañas (`ArrowLeft`/`ArrowRight`), acordeones (`aria-expanded`), skip-link, área táctil mínima de 44 px en los botones de giro y respeto a `prefers-reduced-motion`.
+- **Giro de tarjetas**: solo el botón de flecha gira la tarjeta. No hay giro por hover ni por clic en el resto de la tarjeta, y las tarjetas no reciben foco de tabulación.
 - **Rendimiento**: sin dependencias de frontend ni bundlers.
 - **Privacidad**: tipografía y recursos autoalojados; sin rastreadores de terceros.
 - **Mantenibilidad**: datos separados (`data.js`), tokens de diseño en `variables.css`, componentes modulares en `js/components/`.
@@ -90,8 +109,8 @@ Presentar los servicios de desarrollo web y soporte operativo/marketing de **Rod
 | Envío de correo | App Password de Gmail (nunca la contraseña real) |
 | Cabeceras HTTP | `helmet` + CSP restrictiva (sin `unsafe-inline`) |
 | Rate limiting | `express-rate-limit` general (100/15 min) y de contacto (5/15 min) |
-| Validación de entrada | `express-validator` (tipo, longitud, formato email, booleanos) |
-| Anti-CSRF | Double-submit cookie (`rf_csrf`) httpOnly + SameSite=Strict |
+| Validación de entrada | `express-validator` (tipo, longitud, formato email, booleanos, adjuntos) |
+| Anti-CSRF | Double-submit cookie (`rf_csrf`) httpOnly + SameSite=Strict, válida 1 hora; token nuevo antes de cada envío |
 | Origen | Verificación de `Origin`/`Referer` contra `ALLOWED_ORIGINS` |
 | Anti-spam | Honeypot (`website`) + rate limit estricto |
 | Escape de salida | `escapeHtml` y `sanitizeHeader` en `mailer.js`; `textContent` en el DOM |
@@ -110,7 +129,7 @@ Devuelve `{ ok: true, status: "up" }`.
 
 ### `POST /api/contact`
 - Middleware: `contactLimiter → checkOrigin → verifyToken → validators`.
-- Body JSON: `{ name, phone, email, subject, message, attachmentName, marketingOptin, website }`.
+- Body JSON: `{ name, phone, email, subject, message, attachmentName, attachments, marketingOptin, website }`. `attachments` es un arreglo de hasta 3 objetos `{ filename, contentType, size, content }` (Base64).
 - Respuestas:
   - `200` `{ ok: true, message }` — enviado (o honeypot activado).
   - `422` `{ ok: false, message, errors[] }` — validación fallida.
@@ -125,12 +144,13 @@ Devuelve `{ ok: true, status: "up" }`.
 ```js
 // Tarjeta de servicio (DESARROLLO / MARKETING)
 {
-  icon: string,      // Ej: "</>", "WP", "UX", "MKT"
-  badge: string,     // Ej: "Desarrollo Web a Medida"
-  title: string,     // Título principal de la tarjeta
-  text: string,      // Bajada descriptiva (cara frontal)
-  flip: boolean,     // Habilita giro 3D e indicador de flecha .pillar__hint
-  items: string[]    // Lista de puntos "Etiqueta: descripción" (cara posterior)
+  icon: string,       // Ej: "</>", "WP", "UX", "MKT"
+  badge: string,      // Ej: "Desarrollo Web a Medida"
+  title: string,      // Título principal de la tarjeta
+  text: string,       // Bajada descriptiva (cara frontal)
+  flip: boolean,      // DESARROLLO: giro 3D con botón de flecha
+  accordion: boolean, // MARKETING: acordeón "Ver funciones"
+  items: string[]     // Lista de puntos "Etiqueta: descripción" (cara posterior o acordeón)
 }
 ```
 

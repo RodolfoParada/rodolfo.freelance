@@ -14,11 +14,11 @@
   var DEFAULTS = {
     title: "¿Hablamos de lo que necesita resolver tu negocio?",
     text: "Cuéntame en qué etapa está tu proyecto. Analizamos juntos una solución técnica y práctica, con presupuesto claro y sin sorpresas.",
-    primaryText: "Completar formulario de cotización →",
+    primaryText: "Agenda tu reunión",
     primaryHref: "#contacto",
     secondaryText: "none",
     secondaryHref: "mailto:desarrollador.freelance7@gmail.com",
-    note: "Respuesta en menos de 24 horas hábiles · Atención 100% remota para todo Chile"
+    note: "Respuesta en menos de 72 horas hábiles · Atención 100% remota para todo Chile"
   };
 
   function render(host) {
