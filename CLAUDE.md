@@ -81,12 +81,12 @@ npm run lint         # (si se añade linter)
     - `flipHint()`: genera el botón de flecha `<button class="pillar__hint">` (aria-label "Ver detalles") que gira la tarjeta.
     - `flipBackHint()`: genera el botón de vuelta `<button class="pillar__hint pillar__hint--back">` (aria-label "Volver") para la cara trasera.
     - `bindFlipCard(card)`: añade el botón de vuelta a la cara trasera (`[class*="__face--back"]`) y enlaza el clic de la flecha (`.pillar__hint`) y del botón de vuelta para alternar/quitar `.is-flipped`. Solo estos botones giran la tarjeta: no hay giro por hover, por foco ni por clic en el resto.
-    - `renderCardsSection(host, config)` y `define(name, render)`.
+    - `renderCardsSection(host, config)` y `define(name, render)`: `define` renderiza al `DOMContentLoaded` si el documento aún carga (así el HTML precargado ya está leído).
   - Catálogo de componentes:
     - `<site-header>`: barra de navegación superior; detecta si está en `privacidad.html` para anteponer `index.html` a los enlaces de ancla.
-    - `<site-footer>`: pie de página en 4 columnas (`Rodolfo-Freelance`, `EXPLORAR`, `CONTACTO & COBERTURA`, `SÍGUEME`) y barra legal inferior.
+    - `<site-footer>`: pie de página en 4 columnas (`Rodolfo-Freelance`, `EXPLORAR`, `CONTACTO & COBERTURA`, `SÍGUEME`) y barra legal inferior. Usa `replaceChildren` para no duplicar la copia estática.
     - `<cta-banner>`: banner de llamada a la acción reutilizable (usado en `<hero-section>` y `<about-section>`). Soporta los atributos `title`, `text`, `primary-text`, `primary-href`, `secondary-text`, `secondary-href` y `note` (usar `"none"` para ocultar elementos opcionales). Valores por defecto: título *¿Hablamos de lo que necesita resolver tu negocio?*, botón **Agenda tu reunión** (`#contacto`), secundario oculto (`secondary-text` = `"none"`) y leyenda de 72 horas hábiles.
-    - `<hero-section>`: sección `#inicio` con hero (eyebrow, título, descripción y botones **Agenda tu reunión** / **Explorar servicios**), bloque de dolores (3 tarjetas), **Servicios en 2 Pilares** (2 tarjetas giratorias), cita y `<cta-banner>`.
+    - `<hero-section>`: sección `#inicio` con hero (`<h1>` = etiqueta *DESARROLLO WEB & GESTIÓN OPERATIVA*, línea *Servicios 100% remoto para negocios de todo Chile*, `<h2>` con el título y la descripción, botones **Agenda tu reunión** / **Explorar servicios**), bloque de dolores (3 tarjetas), **Servicios en 2 Pilares** (2 tarjetas giratorias), cita y `<cta-banner>`.
     - `<about-section>`: sección `#acerca` con intro/manifiesto (incluye la pregunta *¿Cuéntame qué necesita tu negocio hoy?* y el botón **Agenda tu reunión**), 4 pilares en tarjetas giratorias, pestañas accesibles (`buildTabs`) y un diseño de 2 columnas (`.about-dual`): `<cta-banner>` a la izquierda y *Mi Compromiso* + *Cómo abordamos tu proyecto* a la derecha.
     - `<services-section>`: sección `#desarrollo` que agrupa los bloques de **Desarrollo** (`[data-cards="desarrollo"]`, tarjetas giratorias) y **Marketing** (etiqueta *Servicios de Asistente Virtual Freelance* + `[data-cards="marketing"]`, tarjetas en acordeón).
     - `<contact-section>`: sección `#contacto` con layout de 2 columnas (panel de confianza `.contact-panel` + formulario `#contact-form`). Eyebrow *Hablemos de tu proyecto* y texto de coordinación por Google Meet.
@@ -117,4 +117,5 @@ npm run lint         # (si se añade linter)
 - **Reutilizar el banner CTA en otra sección**: insertar `<cta-banner title="..." text="..."></cta-banner>`. Los textos por defecto (título, botón **Agenda tu reunión**, leyenda de 72 horas hábiles) están en `DEFAULTS` de `cta-banner.js`.
 - **Correo del formulario**: el asunto y el cuerpo se construyen en `server/mailer.js` (`sendContactEmail`); el HTML usa tablas y estilos en línea.
 - **Cambiar el destinatario del correo**: variable `MAIL_TO` en `.env`.
+- **Cambiar un texto de un componente**: actualizar también la copia estática en `public/index.html` (y `public/privacidad.html` si aplica), porque el HTML precargado es el que leen los buscadores.
 - **Nuevas páginas o secciones**: crear un componente en `public/js/components/<nombre>.js` usando `RFKIT.define(...)`, incluirlo con `<script>` en `<head>` y montar la etiqueta en `<main>`.

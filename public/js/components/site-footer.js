@@ -40,7 +40,7 @@
             <ul class="site-footer__contact">
               <li class="site-footer__contact-item">
                 <span class="site-footer__contact-icon site-footer__contact-icon--flag" aria-hidden="true">
-                  <svg viewBox="0 0 24 16" width="20" height="14" role="img" focusable="false">
+                  <svg viewBox="0 0 24 16" width="20" height="14" aria-hidden="true" focusable="false">
                     <rect width="24" height="8" fill="#ffffff" />
                     <rect y="8" width="24" height="8" fill="#d52b1e" />
                     <rect width="8" height="8" fill="#0039a6" />
@@ -49,7 +49,7 @@
                 </span>
                 <div class="site-footer__contact-body">
                   <strong class="site-footer__contact-title">Cobertura nacional</strong>
-                  <span class="site-footer__contact-sub">Servicio 100% remoto para todo Chile</span>
+                  <span class="site-footer__contact-sub">Servicios 100% remotos para negocios de todo Chile</span>
                 </div>
               </li>
 
@@ -115,6 +115,6 @@
   `;
 
   window.RFKIT.define("site-footer", function (host) {
-    host.appendChild(window.RFKIT.fragment(TEMPLATE));
+    host.replaceChildren(window.RFKIT.fragment(TEMPLATE));
   });
 })();

@@ -30,7 +30,9 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
 ### 3.2 Secciones y páginas
 1. **`index.html` (Landing principal):**
    - `#inicio` (`<hero-section>`):
-     - Eyebrow *DESARROLLO WEB & GESTIÓN OPERATIVA*, título *Menos complejidad. Más tecnología útil, eficiencia y control.* y descripción de servicios.
+     - `<h1>`: etiqueta *DESARROLLO WEB & GESTIÓN OPERATIVA* (es el único `<h1>` de la página).
+     - Línea de ubicación debajo de la etiqueta: *Servicios 100% remoto para negocios de todo Chile*.
+     - `<h2>` del título: *Menos complejidad. Más tecnología útil, eficiencia y control.* seguido de la descripción de servicios.
      - Botones: **Agenda tu reunión** (lleva a `#contacto`) y **Explorar servicios** (lleva a `#desarrollo`).
      - Bloque de puntos de partida *"Libera tiempo para hacer crecer tu empresa; delega la tecnología y la operación."* con 3 dolores (falta de tiempo, operación atascada, fricción digital), cada uno con su texto.
      - **Servicios en 2 Pilares**: 2 tarjetas giratorias con la flecha de giro (botón `.pillar__hint`) y botón de vuelta (`.pillar__hint--back`). Cada pilar tiene 4 servicios (*Desarrollo* y *Soporte Operativo & Comercial*), con el título y la descripción de cada uno.
@@ -53,7 +55,18 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
    - Banner superior de ancho completo (`.legal-hero`) que adapta sus colores entre modo claro y oscuro usando tokens.
    - Diseño en dos columnas (`.legal-layout`): índice lateral fijo (`CONTENIDO`) sincronizado con **8 secciones** desplegables en acordeón (`.legal-item`), adecuado a la Ley N° 19.628 y Ley N° 21.719.
 3. **Footer (`<site-footer>`):**
-   - Diseño en 4 columnas (`Rodolfo-Freelance` + estado de disponibilidad, `EXPLORAR`, `CONTACTO & COBERTURA`, `SÍGUEME` con botón de Instagram) + barra inferior con copyright dinámico y enlace a `privacidad.html`.
+   - Diseño en 4 columnas (`Rodolfo-Freelance` + estado de disponibilidad, `EXPLORAR`, `CONTACTO & COBERTURA` con la línea *Servicios 100% remotos para negocios de todo Chile*, `SÍGUEME` con botón de Instagram) + barra inferior con copyright dinámico y enlace a `privacidad.html`.
+
+### 3.2.1 Contenido estático precargado (SEO)
+- `index.html` y `privacidad.html` incluyen una **copia estática** del contenido de cada componente dentro de sus etiquetas (`<hero-section>…</hero-section>`, etc.), para que buscadores y rastreadores sin JavaScript lean el texto.
+- Al cargar, los componentes reemplazan esa copia con su render (`RFKIT.define` espera al `DOMContentLoaded`; `site-header`, `site-footer` y las grillas de `main.js` usan `replaceChildren`, sin duplicar).
+- **Regla:** si cambias un texto de un componente, actualiza también la copia en `index.html` (y `privacidad.html` si aplica). El texto visible debe coincidir en ambas.
+
+### 3.2.2 SEO y metadatos
+- `index.html`: título *Rodolfo-Freelance | Desarrollo web y WordPress en Chile*; descripción de 153 caracteres; `canonical` a `https://rodolfofreelance.cl/`; Open Graph y Twitter Card (`summary_large_image`) con imagen `assets/img/og-image.png` (1200×630); bloque JSON-LD `ProfessionalService` (nombre, URL, correo, Instagram, `areaServed` Chile).
+- `privacidad.html`: título *Política de Privacidad | Rodolfo-Freelance*; `canonical` y metadatos sociales propios.
+- `robots.txt`: permite todo, bloquea `/api/`, permite `Google-Extended`, `ClaudeBot`, `GPTBot` y `PerplexityBot`, y apunta al sitemap.
+- `sitemap.xml`: lista `/` y `/privacidad.html` con `lastmod` 2026-10-19.
 
 ### 3.3 Formulario de contacto
 - Campos:

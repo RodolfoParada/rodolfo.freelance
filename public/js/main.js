@@ -131,7 +131,8 @@
     if (!grid) return;
     const fragment = document.createDocumentFragment();
     items.forEach((item) => fragment.appendChild(createCard(item)));
-    grid.appendChild(fragment);
+    // Reemplaza el contenido: así una copia pre-renderizada en el HTML no se duplica.
+    grid.replaceChildren(fragment);
   }
 
   function renderAllCards() {
