@@ -13,6 +13,13 @@
     </svg>
   `;
 
+  var BACK_ARROW_SVG = `
+    <svg class="pillar__arrow" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="19" y1="12" x2="5" y2="12" />
+      <polyline points="12 19 5 12 12 5" />
+    </svg>
+  `;
+
   function fragment(html) {
     var template = document.createElement("template");
     template.innerHTML = html.trim();
@@ -54,29 +61,41 @@
     return heading;
   }
 
+  /* Botón reutilizable que gira la tarjeta (toque, clic o teclado). */
   function flipHint() {
-    var hint = el("span", "pillar__hint");
-    hint.setAttribute("aria-hidden", "true");
+    var hint = el("button", "pillar__hint");
+    hint.type = "button";
+    hint.setAttribute("aria-label", "Ver detalles");
     hint.appendChild(fragment(FLIP_ARROW_SVG));
     return hint;
   }
 
+  /* Botón "volver" de la cara trasera: regresa la tarjeta a su estado inicial. */
+  function flipBackHint() {
+    var back = el("button", "pillar__hint pillar__hint--back");
+    back.type = "button";
+    back.setAttribute("aria-label", "Volver");
+    back.appendChild(fragment(BACK_ARROW_SVG));
+    return back;
+  }
+
+  /* Solo los botones .pillar__hint (ida y vuelta) giran la tarjeta. */
   function bindFlipCard(card) {
-    var isTouch =
-      typeof window !== "undefined" &&
-      window.matchMedia &&
-      window.matchMedia("(hover: none)").matches;
-    if (isTouch) {
-      card.addEventListener("click", function () {
+    var hint = card.querySelector(".pillar__hint:not(.pillar__hint--back)");
+    var back = card.querySelector('[class*="__face--back"]');
+    if (hint) {
+      hint.addEventListener("click", function (e) {
+        e.stopPropagation();
         card.classList.toggle("is-flipped");
       });
     }
-    card.addEventListener("keydown", function (e) {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        card.classList.toggle("is-flipped");
-      }
-    });
+    if (back) {
+      back.appendChild(flipBackHint());
+      back.querySelector(".pillar__hint--back").addEventListener("click", function (e) {
+        e.stopPropagation();
+        card.classList.remove("is-flipped");
+      });
+    }
   }
 
   function renderCardsSection(host, config) {
@@ -122,6 +141,7 @@
     sectionHeader: sectionHeader,
     blockTitle: blockTitle,
     flipHint: flipHint,
+    flipBackHint: flipBackHint,
     bindFlipCard: bindFlipCard,
     renderCardsSection: renderCardsSection,
     define: define

@@ -30,6 +30,9 @@
         "Estrategias medibles para atraer, convertir y retener clientes."
       )
     );
+    mktBlock.appendChild(
+      k.el("p", "services-label", "Servicios de Asistente Virtual Freelance")
+    );
     var mktGrid = k.el("div", "grid");
     mktGrid.setAttribute("data-cards", "marketing");
     mktBlock.appendChild(mktGrid);
