@@ -109,7 +109,10 @@ npm run lint         # (si se añade linter)
 3. Mantener en `routes/contact.js` el orden: `contactLimiter → checkOrigin → verifyToken → validators`.
 4. Todo endpoint nuevo bajo `/api` debe pasar por el `generalLimiter`.
    - El formulario pide un token CSRF nuevo (`loadCsrfToken()`) antes de cada envío; no reutilizar el token de la carga inicial.
-5. Cualquier cambio en la CSP (`server/index.js`) debe evitar habilitar `unsafe-inline`.
+5. Cualquier cambio en la CSP (`server/index.js`) debe evitar habilitar `unsafe-inline`. La misma política está en `netlify.toml` (`[[headers]]`) para los archivos estáticos: cámbialas juntas.
+6. Trusted Types está activo: el HTML dinámico solo se inserta con `RFKIT.fragment()` (política `rf-html`) y con plantillas estáticas. No uses `innerHTML` con datos del usuario.
+7. No añadas atributos `style="..."` al HTML precargado (`index.html`, `privacidad.html`): la CSP los bloquea. Los estilos dinámicos van por JavaScript (CSSOM).
+8. La protección del texto (`user-select: none` en `body` y el bloqueo de `copy`/`cut` en `main.js`) excluye los campos del formulario. No la quites sin revisar la accesibilidad.
 
 ## Puntos de extensión habituales
 

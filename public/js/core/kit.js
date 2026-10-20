@@ -20,9 +20,20 @@
     </svg>
   `;
 
+  // Trusted Types: solo se usa con plantillas estáticas del propio código (nunca con datos del usuario).
+  var htmlPolicy =
+    window.trustedTypes && window.trustedTypes.createPolicy
+      ? window.trustedTypes.createPolicy("rf-html", {
+          createHTML: function (value) {
+            return value;
+          }
+        })
+      : null;
+
   function fragment(html) {
     var template = document.createElement("template");
-    template.innerHTML = html.trim();
+    var markup = html.trim();
+    template.innerHTML = htmlPolicy ? htmlPolicy.createHTML(markup) : markup;
     return template.content;
   }
 
