@@ -113,6 +113,7 @@ npm run lint         # (si se añade linter)
 6. Trusted Types está activo: el HTML dinámico solo se inserta con `RFKIT.fragment()` (política `rf-html`) y con plantillas estáticas. No uses `innerHTML` con datos del usuario.
 7. No añadas atributos `style="..."` al HTML precargado (`index.html`, `privacidad.html`): la CSP los bloquea. Los estilos dinámicos van por JavaScript (CSSOM).
 8. La protección del texto (`user-select: none` en `body` y el bloqueo de `copy`/`cut` en `main.js`) excluye los campos del formulario. No la quites sin revisar la accesibilidad.
+9. Accesibilidad: el `role="tablist"` va en el contenedor de los botones `role="tab"` (`.commit-tabs__list`), no en el contenedor exterior. Los paneles `role="tabpanel"` son `div`, no `article`. El texto secundario debe cumplir 4,5:1 de contraste: usa `--color-muted` de `variables.css` y no bajes su opacidad.
 
 ## Puntos de extensión habituales
 
@@ -121,4 +122,4 @@ npm run lint         # (si se añade linter)
 - **Correo del formulario**: el asunto y el cuerpo se construyen en `server/mailer.js` (`sendContactEmail`); el HTML usa tablas y estilos en línea.
 - **Cambiar el destinatario del correo**: variable `MAIL_TO` en `.env`.
 - **Cambiar un texto de un componente**: actualizar también la copia estática en `public/index.html` (y `public/privacidad.html` si aplica), porque el HTML precargado es el que leen los buscadores.
-- **Nuevas páginas o secciones**: crear un componente en `public/js/components/<nombre>.js` usando `RFKIT.define(...)`, incluirlo con `<script>` en `<head>` y montar la etiqueta en `<main>`.
+- **Nuevas páginas o secciones**: crear un componente en `public/js/components/<nombre>.js` usando `RFKIT.define(...)`, incluirlo con `<script src="..." defer>` en `<head>` (sin `defer` bloquea el render; `theme.js` es la única excepción) y montar la etiqueta en `<main>`.

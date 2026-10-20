@@ -1131,7 +1131,6 @@
     setupReveal();
     setupLegalAccordion();
     setYear();
-    loadCsrfToken();
   }
 
   if (document.readyState === "loading") {

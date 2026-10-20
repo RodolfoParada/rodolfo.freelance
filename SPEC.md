@@ -41,7 +41,7 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
      - Encabezado *Soluciones digitales y soporte operativo para tu negocio.* con la descripción de servicios.
      - Manifiesto con cita destacada, párrafo de método y pregunta *¿Cuéntame qué necesita tu negocio hoy?* con el botón **Agenda tu reunión** (lleva a `#contacto`).
      - **Mis 4 Pilares de Trabajo**: 4 tarjetas giratorias con botón de flecha y de vuelta. Cada una tiene un texto *Qué significa* y *Tu beneficio*.
-     - Pestañas accesibles (`role="tablist"`) para *Mi Compromiso* (*No Negociable*) y *Cómo abordamos tu proyecto* (*Stack adaptable*). Los títulos van alineados a la izquierda.
+     - Pestañas accesibles: el `role="tablist"` está en el contenedor de los botones (`.commit-tabs__list`), cada botón tiene `role="tab"` y cada panel es un `div` con `role="tabpanel"`. Pestañas para *Mi Compromiso* (*No Negociable*) y *Cómo abordamos tu proyecto* (*Stack adaptable*). Los títulos van alineados a la izquierda.
      - Diseño de 2 columnas (`.about-dual`): a la izquierda `<cta-banner>`, a la derecha *Mi Compromiso* arriba y *Cómo abordamos tu proyecto* debajo. En móvil se apilan en una columna.
      - Cita *"Las herramientas se eligen en función del problema, no de la moda."* debajo de las dos columnas.
    - `#desarrollo` (`<services-section>`):
@@ -108,9 +108,10 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
 ## 4. Requisitos no funcionales
 
 - **Responsive**: usable desde 320 px hasta escritorio amplio (`1650px` de contenedor máximo).
-- **Accesibilidad**: landmarks, `aria-*`, botones reales para girar las tarjetas (`Enter`/`Space` sobre la flecha), pestañas (`ArrowLeft`/`ArrowRight`), acordeones (`aria-expanded`), skip-link, área táctil mínima de 44 px en los botones de giro y respeto a `prefers-reduced-motion`.
+- **Accesibilidad**: landmarks, `aria-*` con roles válidos (paneles de pestañas en `div`, no en `article`), contraste mínimo de 4,5:1 (el texto secundario en modo claro es `#4A6679`), botones reales para girar las tarjetas (`Enter`/`Space` sobre la flecha), pestañas (`ArrowLeft`/`ArrowRight`), acordeones (`aria-expanded`), skip-link, área táctil mínima de 44 px en los botones de giro y respeto a `prefers-reduced-motion`.
 - **Giro de tarjetas**: solo el botón de flecha gira la tarjeta. No hay giro por hover ni por clic en el resto de la tarjeta, y las tarjetas no reciben foco de tabulación.
-- **Rendimiento**: sin dependencias de frontend ni bundlers.
+- **Rendimiento**: sin dependencias de frontend ni bundlers. Los scripts de componentes, `kit.js`, `data.js` y `main.js` se cargan con `defer` (no bloquean el render). Solo `theme.js` es síncrono, para evitar que el tema parpadee. Las hojas de estilo son bloqueantes, y es intencional para no mostrar la página sin estilos.
+- **Token CSRF**: no se pide al cargar la página. Solo se pide justo antes de cada envío del formulario.
 - **Privacidad**: tipografía y recursos autoalojados; sin rastreadores de terceros.
 - **Mantenibilidad**: datos separados (`data.js`), tokens de diseño en `variables.css`, componentes modulares en `js/components/`.
 
