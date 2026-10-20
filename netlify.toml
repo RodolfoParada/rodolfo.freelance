@@ -15,7 +15,7 @@
 [[headers]]
   for = "/*"
   [headers.values]
-    Content-Security-Policy = "default-src 'self'; base-uri 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; require-trusted-types-for 'script'; trusted-types rf-html; upgrade-insecure-requests"
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; script-src 'self' https://*.clarity.ms; style-src 'self'; img-src 'self' data: blob: https://*.clarity.ms; font-src 'self'; connect-src 'self' https://*.clarity.ms; object-src 'none'; frame-ancestors 'none'; form-action 'self'; require-trusted-types-for 'script'; trusted-types rf-html default; upgrade-insecure-requests"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
     Cross-Origin-Opener-Policy = "same-origin"
     Cross-Origin-Resource-Policy = "same-origin"

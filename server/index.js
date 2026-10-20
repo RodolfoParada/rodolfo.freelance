@@ -25,16 +25,16 @@ function createApp() {
         directives: {
           defaultSrc: ["'self'"],
           baseUri: ["'self'"],
-          scriptSrc: ["'self'"],
+          scriptSrc: ["'self'", "https://*.clarity.ms"],
           styleSrc: ["'self'"],
-          imgSrc: ["'self'", "data:", "blob:"],
+          imgSrc: ["'self'", "data:", "blob:", "https://*.clarity.ms"],
           fontSrc: ["'self'"],
-          connectSrc: ["'self'"],
+          connectSrc: ["'self'", "https://*.clarity.ms"],
           objectSrc: ["'none'"],
           frameAncestors: ["'none'"],
           formAction: ["'self'"],
           requireTrustedTypesFor: ["'script'"],
-          trustedTypes: ["rf-html"],
+          trustedTypes: ["rf-html", "default"],
           upgradeInsecureRequests: config.isProduction ? [] : null
         }
       },
