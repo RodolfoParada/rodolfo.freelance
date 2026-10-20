@@ -128,8 +128,6 @@
 
     function buildTabs(items, idPrefix, ariaLabel) {
       var tabsRoot = k.el("div", "commit-tabs");
-      tabsRoot.setAttribute("role", "tablist");
-      tabsRoot.setAttribute("aria-label", ariaLabel);
 
       var tabButtons = [];
       var panels = [];
@@ -147,7 +145,7 @@
         btn.setAttribute("tabindex", index === 0 ? "0" : "-1");
         tabButtons.push(btn);
 
-        var panel = k.el("article", "commit-panel");
+        var panel = k.el("div", "commit-panel");
         panel.setAttribute("role", "tabpanel");
         panel.setAttribute("aria-labelledby", tabId);
         panel.setAttribute("id", panelId);
@@ -157,6 +155,8 @@
       });
 
       var tablist = k.el("div", "commit-tabs__list");
+      tablist.setAttribute("role", "tablist");
+      tablist.setAttribute("aria-label", ariaLabel);
       tabButtons.forEach(function (b) {
         tablist.appendChild(b);
       });
