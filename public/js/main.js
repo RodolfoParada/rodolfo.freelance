@@ -734,7 +734,6 @@
       })
       .catch(() => null);
   }
-
   function setupAttachmentManager(attachmentInput) {
     const dropzone = document.getElementById("attachment-dropzone");
     const listNode = document.getElementById("attachment-list");
@@ -746,7 +745,6 @@
       if (errorNode) errorNode.textContent = msg || "";
       if (fieldNode) fieldNode.classList.toggle("is-invalid", Boolean(msg));
     }
-
     function renderList() {
       if (!dropzone || !listNode) return;
 
@@ -756,12 +754,10 @@
         listNode.replaceChildren();
         return;
       }
-
       dropzone.hidden = true;
       listNode.hidden = false;
       const isAtMax = items.length >= MAX_ATTACHMENTS;
       const frag = document.createDocumentFragment();
-
       items.forEach((item, index) => {
         const row = el("div", "form__attachment-item");
         const nameSpan = el(
@@ -770,9 +766,7 @@
           `${item.name} (${formatFileSize(item.size)})`
         );
         nameSpan.title = item.name;
-
         const actions = el("div", "form__attachment-actions");
-
         const addBtn = el(
           "button",
           "form__attachment-btn form__attachment-btn--add",
@@ -786,7 +780,6 @@
             attachmentInput.click();
           }
         });
-
         const removeBtn = el(
           "button",
           "form__attachment-btn form__attachment-btn--remove",
@@ -799,32 +792,26 @@
           if (attachmentInput) attachmentInput.value = "";
           renderList();
         });
-
         actions.appendChild(addBtn);
         actions.appendChild(removeBtn);
         row.appendChild(nameSpan);
         row.appendChild(actions);
         frag.appendChild(row);
       });
-
       listNode.replaceChildren(frag);
     }
-
     if (attachmentInput) {
       attachmentInput.addEventListener("change", async () => {
         const selectedFiles = attachmentInput.files
           ? Array.from(attachmentInput.files)
           : [];
         if (selectedFiles.length === 0) return;
-
         setAttachmentError("");
-
         for (let i = 0; i < selectedFiles.length; i += 1) {
           if (items.length >= MAX_ATTACHMENTS) {
             setAttachmentError("Solo puedes adjuntar hasta 3 archivos.");
             break;
           }
-
           const file = selectedFiles[i];
           if (file.size > MAX_ATTACHMENT_BYTES) {
             setAttachmentError(
@@ -832,7 +819,6 @@
             );
             continue;
           }
-
           const currentTotal = items.reduce((acc, it) => acc + it.size, 0);
           if (currentTotal + file.size > MAX_ATTACHMENT_BYTES) {
             setAttachmentError(
@@ -840,7 +826,6 @@
             );
             continue;
           }
-
           const processed = await compressImageIfNeeded(file);
           if (processed) {
             items.push(processed);
@@ -848,19 +833,16 @@
             setAttachmentError(`No se pudo adjuntar "${file.name}".`);
           }
         }
-
         attachmentInput.value = "";
         renderList();
       });
     }
-
     function clearAttachments() {
       items.length = 0;
       if (attachmentInput) attachmentInput.value = "";
       setAttachmentError("");
       renderList();
     }
-
     function getAttachmentsPayload() {
       return items.map((it) => ({
         filename: it.name,
@@ -869,24 +851,20 @@
         content: it.content
       }));
     }
-
     function getAttachmentNames() {
       return items.map((it) => it.name).join(", ");
     }
-
     return {
       clearAttachments,
       getAttachmentsPayload,
       getAttachmentNames
     };
   }
-
   function setupForm() {
     const form = document.getElementById("contact-form");
     const feedback = document.getElementById("form-feedback");
     const submit = document.getElementById("form-submit");
     if (!form || !feedback || !submit) return;
-
     const { openModal } = setupSuccessModal();
     const counter = document.getElementById("message-counter");
     const nameInput = form.elements.name;
@@ -894,18 +872,15 @@
     const phoneInput = form.elements.phone;
     const emailInput = form.elements.email;
     const attachmentInput = document.getElementById("attachment");
-
     setupNameInput(nameInput);
     setupPhoneInput(phoneInput);
     setupEmailInput(emailInput);
     const attachmentManager = setupAttachmentManager(attachmentInput);
-
     if (messageInput && counter) {
       messageInput.addEventListener("input", () => {
         updateMessageCounter(messageInput, counter);
       });
     }
-
     form.querySelectorAll("input, select, textarea").forEach((input) => {
       const evt =
         input.tagName === "SELECT" || input.type === "checkbox"
@@ -917,7 +892,6 @@
         }
       });
     });
-
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
@@ -927,15 +901,12 @@
       if (emailInput) {
         emailInput.value = sanitizeEmail(emailInput.value);
       }
-
       if (!validateForm(form)) {
         setFeedback(feedback, "Revisa los campos marcados en rojo.", "is-error");
         return;
       }
-
       const rawPhoneDigits = getRawPhoneDigits(phoneInput);
       const fullPhone = rawPhoneDigits ? `+56 9 ${rawPhoneDigits}` : "";
-
       const payload = {
         name: form.elements.name.value.trim().toUpperCase(),
         phone: fullPhone,
@@ -949,14 +920,11 @@
         ),
         website: form.elements.website.value // honeypot
       };
-
       // Token nuevo en cada envío: la cookie vence a la hora y el token de la carga inicial puede quedar obsoleto.
       await loadCsrfToken();
-
       submit.disabled = true;
       submit.textContent = "Enviando…";
       setFeedback(feedback, "", null);
-
       try {
         const response = await fetch(API_CONTACT, {
           method: "POST",
@@ -967,9 +935,7 @@
           },
           body: JSON.stringify(payload)
         });
-
         const data = await response.json().catch(() => ({}));
-
         if (response.ok && data.ok) {
           setFeedback(feedback, "", null);
           openModal("¡Gracias! Tu mensaje fue enviado. Te responderé muy pronto.");
@@ -1002,26 +968,20 @@
       }
     });
   }
-
   /* --------------------------------------------------- Acordeón Legal */
-
   function setupLegalAccordion() {
     const root = document.querySelector("[data-legal-accordion]");
     if (!root) return;
-
     const items = Array.from(root.querySelectorAll("[data-legal-item]"));
     const navLinks = Array.from(root.querySelectorAll("[data-legal-target]"));
-
     function activateItem(targetId, options) {
       const toggleIfOpen = options && options.toggleIfOpen;
       const scroll = options && options.scroll;
-
       items.forEach((item) => {
         const id = item.getAttribute("data-legal-item");
         const trigger = item.querySelector(".legal-item__trigger");
         const panel = item.querySelector(".legal-item__panel");
         const isCurrent = id === targetId;
-
         if (isCurrent) {
           const willOpen = toggleIfOpen ? !item.classList.contains("is-open") : true;
           item.classList.toggle("is-open", willOpen);
@@ -1033,12 +993,10 @@
           if (panel) panel.hidden = true;
         }
       });
-
-      navLinks.forEach((btn) => {
+        navLinks.forEach((btn) => {
         const isMatch = btn.getAttribute("data-legal-target") === targetId;
         btn.classList.toggle("is-active", isMatch);
       });
-
       if (scroll) {
         const targetEl = root.querySelector(`[data-legal-item="${targetId}"]`);
         if (targetEl) {
@@ -1046,7 +1004,6 @@
         }
       }
     }
-
     items.forEach((item) => {
       const trigger = item.querySelector(".legal-item__trigger");
       const id = item.getAttribute("data-legal-item");
@@ -1055,7 +1012,6 @@
         activateItem(id, { toggleIfOpen: true, scroll: false });
       });
     });
-
     navLinks.forEach((btn) => {
       const id = btn.getAttribute("data-legal-target");
       if (!id) return;
@@ -1064,16 +1020,12 @@
       });
     });
   }
-
   /* ------------------------------------------------------------------- Año */
-
   function setYear() {
     const year = document.getElementById("year");
     if (year) year.textContent = String(new Date().getFullYear());
   }
-
   /* ---------------------------------------- Eliminar badge/drawer de Netlify */
-
   const NETLIFY_WIDGET_SELECTOR = [
     "#nl-badge-frame",
     '[id*="nl-badge"]',
@@ -1085,14 +1037,12 @@
     "netlify-drawer",
     "#netlify-drawer-root"
   ].join(",");
-
   function purgeNetlifyWidgets() {
     document.querySelectorAll(NETLIFY_WIDGET_SELECTOR).forEach((node) => {
       node.remove();
     });
   }
-
-  function setupNetlifyBadgeRemoval() {
+    function setupNetlifyBadgeRemoval() {
     purgeNetlifyWidgets();
     if (!("MutationObserver" in window) || !document.body) return;
     const observer = new MutationObserver(() => {
@@ -1103,9 +1053,7 @@
       subtree: true
     });
   }
-
   /* ------------------------------------------------- Protección del contenido */
-
   /* Impide copiar el texto de la página (campos de formulario excluidos). */
   function setupContentProtection() {
     const isField = (target) =>
@@ -1117,10 +1065,8 @@
       });
     });
   }
-
   /* ------------------------------------------------------------------ Init */
-
-  function init() {
+    function init() {
     setupNetlifyBadgeRemoval();
     setupContentProtection();
     renderAllCards();
@@ -1132,7 +1078,6 @@
     setupLegalAccordion();
     setYear();
   }
-
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", init);
   } else {
