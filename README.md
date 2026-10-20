@@ -156,4 +156,4 @@ El proyecto ya incluye la configuración necesaria para desplegarse como funcion
 - El envío de correo ocurre únicamente en el backend; el frontend no maneja secretos.
 - En producción usa HTTPS y define `ALLOWED_ORIGINS` con tu dominio real.
 
-V2
+http://localhost:3000/blog/

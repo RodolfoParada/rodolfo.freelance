@@ -38,7 +38,7 @@
             <li class="legal-nav__item">
               <button type="button" class="legal-nav__link" data-legal-target="sec-5">
                 <span class="legal-nav__num">5</span>
-                <span class="legal-nav__label">Seguridad y Cookies Técnicas</span>
+                <span class="legal-nav__label">Seguridad, Cookies y Medición</span>
               </button>
             </li>
             <li class="legal-nav__item">
@@ -169,6 +169,11 @@
                 <p class="legal-item__text">
                   Únicamente se podrá revelar información cuando exista un requerimiento formal de una autoridad competente conforme a la legislación chilena vigente.
                 </p>
+
+                <h3 class="legal-item__sub">4.3. PROVEEDORES DE MEDICIÓN</h3>
+                <p class="legal-item__text">
+                  Google (Tag Manager y Analytics) y Microsoft (Clarity) procesan los datos de medición como proveedores de servicios, bajo sus propias políticas de privacidad. No les entregamos datos de contacto ni el contenido de los mensajes del formulario.
+                </p>
               </div>
             </div>
           </article>
@@ -178,7 +183,7 @@
             <h2 class="legal-item__heading">
               <button type="button" class="legal-item__trigger" aria-expanded="false" aria-controls="panel-sec-5">
                 <span class="legal-item__badge">5</span>
-                <span class="legal-item__title">Seguridad y Cookies Técnicas</span>
+                <span class="legal-item__title">Seguridad, Cookies y Medición</span>
                 <span class="legal-item__arrow" aria-hidden="true">▼</span>
               </button>
             </h2>
@@ -193,8 +198,7 @@
 
                 <h3 class="legal-item__sub">5.2. COOKIES Y ALMACENAMIENTO LOCAL</h3>
                 <p class="legal-item__text">
-                  Este sitio utiliza exclusivamente cookies técnicas necesarias para validar la seguridad del formulario (<code>rf_csrf</code>) y almacenamiento local (<code>rf-theme</code>) para recordar tu preferencia de modo visual (claro u oscuro), sin rastreadores publicitarios invasivos.
-                </p>
+                  Este sitio utiliza cookies y almacenamiento local técnicos necesarios para validar la seguridad del formulario (<code>rf_csrf</code>) y recordar tu preferencia de modo visual (<code>rf-theme</code>). Además, usamos herramientas de medición de terceros para entender cómo se usa el sitio: Google Tag Manager, Google Analytics 4 (cookies <code>_ga</code> y <code>_ga_&lt;ID de medición&gt;</code>) y Microsoft Clarity (cookies <code>_clck</code> y <code>_clsk</code>, y grabaciones de sesión con mapas de calor). Estas herramientas pueden registrar tu dirección IP, el tipo de dispositivo y navegador, las páginas visitadas y los clics o desplazamientos dentro del sitio. Puedes bloquear o eliminar estas cookies desde la configuración de tu navegador.</p>
               </div>
             </div>
           </article>

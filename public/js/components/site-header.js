@@ -7,7 +7,9 @@
     typeof window !== "undefined" &&
     window.location.pathname.indexOf("privacidad") !== -1
       ? "index.html"
-      : "";
+      : typeof window !== "undefined" && window.location.pathname.indexOf("/blog/") !== -1
+        ? "/index.html"
+        : "";
 
   var TEMPLATE = `
     <header class="site-header">

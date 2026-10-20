@@ -38,7 +38,7 @@ function extractLocalPhoneDigits(raw) {
 
 const EMAIL_LOCAL_RE = /^[a-z0-9áéíóúüñ._%+-]+$/i;
 const EMAIL_LABEL_RE = /^[a-z0-9áéíóúüñ](?:[a-z0-9áéíóúüñ-]{0,61}[a-z0-9áéíóúüñ])?$/i;
-const EMAIL_TLD_RE = /^(?:[a-z]{2,}|xn--[a-z0-9]{2,})$/i;
+const ALLOWED_EMAIL_TLDS = ["com", "cl", "net", "org"];
 
 const EMAIL_DOMAIN_TYPOS = {
   "gamil.com": "gmail.com",
@@ -113,8 +113,8 @@ function validateEmailAddress(rawValue) {
     }
   }
 
-  if (!EMAIL_TLD_RE.test(tld)) {
-    return "La extensión del dominio no es válida.";
+  if (!ALLOWED_EMAIL_TLDS.includes(tld)) {
+    return "Usa un correo con extensión .com, .cl, .net u .org.";
   }
 
   return "";
@@ -126,8 +126,18 @@ const validators = [
     .notEmpty()
     .withMessage("Ingresa tu nombre.")
     .bail()
-    .isLength({ min: 2, max: 30 })
-    .withMessage("El nombre debe tener entre 2 y 30 caracteres."),
+    .isLength({ min: 3, max: 30 })
+    .withMessage("Debe ingresar un nombre válido.")
+    .bail()
+    .matches(/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]+$/)
+    .withMessage("El nombre solo puede contener letras y espacios.")
+    .bail()
+    .custom((value) => {
+      if (value.split(/\s+/).filter(Boolean).length < 2) {
+        throw new Error("Ingrese nombre y apellidos válidos.");
+      }
+      return true;
+    }),
   body("phone")
     .optional({ checkFalsy: true })
     .trim()
@@ -161,8 +171,8 @@ const validators = [
     .trim()
     .notEmpty()
     .withMessage("El mensaje es obligatorio.")
-    .isLength({ min: 10, max: 2000 })
-    .withMessage("El mensaje debe tener entre 10 y 2000 caracteres."),
+    .isLength({ min: 30, max: 2000 })
+    .withMessage("El mensaje debe tener entre 30 y 2000 caracteres."),
   body("attachmentName")
     .optional({ checkFalsy: true })
     .trim()
