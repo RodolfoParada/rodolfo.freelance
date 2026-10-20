@@ -7,7 +7,9 @@
     typeof window !== "undefined" &&
     window.location.pathname.indexOf("privacidad") !== -1
       ? "index.html"
-      : "";
+      : typeof window !== "undefined" && window.location.pathname.indexOf("/blog/") !== -1
+        ? "/index.html"
+        : "";
 
   var TEMPLATE = `
     <footer class="site-footer">
@@ -75,7 +77,7 @@
                 </span>
                 <div class="site-footer__contact-body">
                   <strong class="site-footer__contact-title">Atención Lun a Vie</strong>
-                  <span class="site-footer__contact-sub">09:00 – 18:00 hrs · Respuesta &lt; 24h</span>
+                  <span class="site-footer__contact-sub">09:00 – 18:00 hrs · Respuesta &lt; 72h</span>
                 </div>
               </li>
             </ul>

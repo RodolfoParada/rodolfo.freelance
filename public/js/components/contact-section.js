@@ -9,7 +9,7 @@
       <div class="form__row">
         <div class="form__field">
           <label for="name">Nombre completo</label>
-          <input type="text" id="name" name="name" placeholder="Ej. Juan Pérez" required minlength="2" maxlength="30" autocomplete="name" />
+          <input type="text" id="name" name="name" placeholder="Ej. Juan Pérez" required minlength="3" maxlength="30" autocomplete="name" />
           <span class="form__error" data-error-for="name"></span>
         </div>
 
@@ -69,7 +69,7 @@
 
       <div class="form__field">
         <label for="message">Detalles del proyecto</label>
-        <textarea id="message" name="message" rows="4" placeholder="Cuéntame brevemente qué necesitas resolver, objetivos o plazos estimados..." required minlength="10" maxlength="2000"></textarea>
+        <textarea id="message" name="message" rows="4" placeholder="Cuéntame brevemente qué necesitas resolver, objetivos o plazos estimados..." required minlength="30" maxlength="2000"></textarea>
         <div class="form__field-meta">
           <span class="form__error" data-error-for="message"></span>
           <span class="form__counter" id="message-counter">Límite 2000 caracteres</span>
@@ -149,7 +149,7 @@
           <div class="contact-panel__point-body">
             <h4 class="contact-panel__point-title">Servicio 100% Remoto</h4>
             <p class="contact-panel__point-text">
-              Sin importar en qué parte de Chile estés, trabajamos codo a codo de forma digital.
+              Sin importar en qué parte de Chile estés, trabajamos de manera remota y coordinada.
             </p>
           </div>
         </li>
@@ -163,7 +163,7 @@
           <div class="contact-panel__point-body">
             <h4 class="contact-panel__point-title">Respuesta Rápida</h4>
             <p class="contact-panel__point-text">
-              Te escribo de vuelta en menos de 72 horas hábiles con una propuesta o diagnóstico inicial.
+              Completa el formulario: revisaré los antecedentes y te contactaré para agendar una reunión por Google Meet.
             </p>
           </div>
         </li>
@@ -178,7 +178,7 @@
           <div class="contact-panel__point-body">
             <h4 class="contact-panel__point-title">Experiencia y Compromiso</h4>
             <p class="contact-panel__point-text">
-              Soluciones escalables en desarrollo, WordPress y soporte operativo para tu negocio.
+              Desarrollo web escalable, WordPress y soporte operativo para tu negocio
             </p>
           </div>
         </li>
@@ -237,8 +237,10 @@
           </svg>
         </div>
         <p class="contact-modal__text" id="contact-modal-message">
-          ¡Gracias! Tu mensaje fue enviado. Te responderé muy pronto.
+          ¡Mensaje Enviado!
         </p>
+        <p class="contact-modal__note">Nos pondremos en contacto dentro de los próximos 3 días hábiles.</p>
+        <button type="button" class="btn btn--primary contact-modal__button" data-modal-close>Cerrar</button>
       </div>
     </div>
   `;

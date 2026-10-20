@@ -198,7 +198,6 @@
       dot.setAttribute("aria-hidden", "true");
       var body = k.el("div", "home-metric__body");
       body.appendChild(k.el("h3", "home-metric__title", metric.title));
-      body.appendChild(k.el("p", "home-metric__text", metric.text));
       card.append(dot, body);
       metricsGrid.appendChild(card);
     });

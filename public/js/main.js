@@ -319,7 +319,7 @@
 
   const EMAIL_LOCAL_RE = /^[a-z0-9áéíóúüñ._%+-]+$/i;
   const EMAIL_LABEL_RE = /^[a-z0-9áéíóúüñ](?:[a-z0-9áéíóúüñ-]{0,61}[a-z0-9áéíóúüñ])?$/i;
-  const EMAIL_TLD_RE = /^(?:[a-z]{2,}|xn--[a-z0-9]{2,})$/i;
+  const ALLOWED_EMAIL_TLDS = ["com", "cl", "net", "org"];
 
   const EMAIL_DOMAIN_TYPOS = {
     "gamil.com": "gmail.com",
@@ -407,12 +407,14 @@
       }
     }
 
-    if (!EMAIL_TLD_RE.test(tld)) {
-      return "La extensión del dominio no es válida (ej. .cl, .com, .gob.cl).";
+    if (!ALLOWED_EMAIL_TLDS.includes(tld)) {
+      return "Ingresa un correo con extensión .com, .cl, .net u .org.";
     }
 
     return "";
   }
+
+  const NAME_CHAR_RE = /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]$/;
 
   function setupNameInput(nameInput) {
     if (!nameInput) return;
@@ -429,7 +431,22 @@
       }
     };
 
-    nameInput.addEventListener("input", toUpperPreservingCursor);
+    /* No se permiten números en el nombre: se bloquean al escribir y se quitan si se pegan. */
+    nameInput.addEventListener("keydown", (event) => {
+      if (event.key.length === 1 && !NAME_CHAR_RE.test(event.key)) event.preventDefault();
+    });
+
+    nameInput.addEventListener("input", () => {
+      const onlyNameChars = nameInput.value.replace(/[^A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]/g, "");
+      if (nameInput.value !== onlyNameChars) {
+        const cursor = nameInput.selectionStart;
+        nameInput.value = onlyNameChars;
+        if (typeof cursor === "number") {
+          nameInput.setSelectionRange(cursor - 1, cursor - 1);
+        }
+      }
+      toUpperPreservingCursor();
+    });
     nameInput.addEventListener("blur", () => {
       nameInput.value = nameInput.value.trim().toUpperCase().slice(0, 30);
     });
@@ -438,8 +455,10 @@
   const VALIDATORS = {
     name: (value) => {
       if (!value) return "Ingresa tu nombre.";
-      if (value.length < 2) return "Ingresa tu nombre (mínimo 2 caracteres).";
+      if (value.length < 3) return "Debe ingresar un nombre válido.";
       if (value.length > 30) return "El nombre no puede superar los 30 caracteres.";
+      if (!/^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ ]+$/.test(value)) return "El nombre solo puede contener letras y espacios.";
+      if (value.split(/\s+/).filter(Boolean).length < 2) return "Ingrese nombre y apellidos válidos.";
       return "";
     },
     phone: (_value, input) => {
@@ -447,6 +466,9 @@
       if (!digits) return "";
       if (digits.length !== 8) {
         return "Ingresa los 8 dígitos de tu teléfono.";
+      }
+      if (digits[0] === "1" || digits[0] === "2") {
+        return "Ingrese un teléfono válido.";
       }
       if (REPEATED_DIGITS_RE.test(digits) || isSequentialDigits(digits)) {
         return "Ingresa un número de teléfono real (sin secuencias ni dígitos repetidos).";
@@ -457,8 +479,8 @@
     subject: (value) =>
       value.length >= 3 ? "" : "Selecciona un servicio.",
     message: (value) => {
-      if (value.length < 10) {
-        return "Cuéntame un poco más (mínimo 10 caracteres).";
+      if (value.length < 30) {
+        return "Cuéntame un poco más (mínimo 30 caracteres).";
       }
       if (value.length > 2000) {
         return "Has superado el límite máximo de 2000 caracteres.";
@@ -892,6 +914,50 @@
         }
       });
     });
+    /* Borrador del formulario: se guarda en sessionStorage (solo esta pestaña) y se restaura al recargar. */
+    const DRAFT_KEY = "rf-contact-draft";
+
+    const saveDraft = () => {
+      try {
+        sessionStorage.setItem(
+          DRAFT_KEY,
+          JSON.stringify({
+            name: nameInput ? nameInput.value : "",
+            phone: getRawPhoneDigits(phoneInput),
+            email: emailInput ? emailInput.value : "",
+            subject: form.elements.subject ? form.elements.subject.value : "",
+            message: messageInput ? messageInput.value : "",
+            marketingOptin: Boolean(form.elements.marketingOptin && form.elements.marketingOptin.checked),
+            privacy: Boolean(form.elements.privacy && form.elements.privacy.checked)
+          })
+        );
+      } catch (_err) {
+        /* almacenamiento no disponible: el formulario funciona igual */
+      }
+    };
+
+    const restoreDraft = () => {
+      try {
+        const raw = sessionStorage.getItem(DRAFT_KEY);
+        if (!raw) return;
+        const draft = JSON.parse(raw);
+        if (nameInput) nameInput.value = String(draft.name || "");
+        if (emailInput) emailInput.value = String(draft.email || "");
+        if (form.elements.subject && draft.subject) form.elements.subject.value = String(draft.subject);
+        if (messageInput) messageInput.value = String(draft.message || "");
+        if (phoneInput) applyPhoneState(phoneInput, sanitizePhoneDigits(draft.phone || "", false));
+        if (form.elements.marketingOptin) form.elements.marketingOptin.checked = Boolean(draft.marketingOptin);
+        if (form.elements.privacy) form.elements.privacy.checked = Boolean(draft.privacy);
+        if (messageInput && counter) updateMessageCounter(messageInput, counter);
+      } catch (_err) {
+        /* borrador dañado: se ignora */
+      }
+    };
+
+    restoreDraft();
+    form.addEventListener("input", saveDraft);
+    form.addEventListener("change", saveDraft);
+
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
@@ -902,7 +968,7 @@
         emailInput.value = sanitizeEmail(emailInput.value);
       }
       if (!validateForm(form)) {
-        setFeedback(feedback, "Revisa los campos marcados en rojo.", "is-error");
+        setFeedback(feedback, "", null);
         return;
       }
       const rawPhoneDigits = getRawPhoneDigits(phoneInput);
@@ -938,8 +1004,13 @@
         const data = await response.json().catch(() => ({}));
         if (response.ok && data.ok) {
           setFeedback(feedback, "", null);
-          openModal("¡Gracias! Tu mensaje fue enviado. Te responderé muy pronto.");
+          openModal("¡Mensaje Enviado!");
           form.reset();
+          try {
+            sessionStorage.removeItem(DRAFT_KEY);
+          } catch (_err) {
+            /* sin almacenamiento: nada que limpiar */
+          }
           if (phoneInput) applyPhoneState(phoneInput, "");
           if (counter) updateMessageCounter(messageInput, counter);
           attachmentManager.clearAttachments();
