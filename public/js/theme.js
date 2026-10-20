@@ -62,25 +62,31 @@
     );
   }
 
+  function syncAllButtons() {
+    document.querySelectorAll(".theme-toggle").forEach(syncButton);
+  }
+
   function setupToggle() {
-    var button = document.querySelector(".theme-toggle");
-    if (!button) return;
-
-    syncButton(button);
-
-    button.addEventListener("click", function () {
+    /* Delegación: el botón lo renderiza <site-header>, que puede montarse después de este script. */
+    document.addEventListener("click", function (event) {
+      var target = event.target;
+      var button = target && target.closest ? target.closest(".theme-toggle") : null;
+      if (!button) return;
       var next = current() === DARK ? LIGHT : DARK;
       apply(next);
       store(next);
-      syncButton(button);
+      syncAllButtons();
     });
+
+    syncAllButtons();
+    window.addEventListener("load", syncAllButtons);
 
     if (typeof window.matchMedia === "function") {
       var media = window.matchMedia("(prefers-color-scheme: dark)");
       var onChange = function (event) {
         if (getStored()) return;
         apply(event.matches ? DARK : LIGHT);
-        syncButton(button);
+        syncAllButtons();
       };
       if (typeof media.addEventListener === "function") {
         media.addEventListener("change", onChange);
@@ -90,9 +96,5 @@
     }
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", setupToggle);
-  } else {
-    setupToggle();
-  }
+  setupToggle();
 })();
