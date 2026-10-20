@@ -19,6 +19,19 @@ h4 {
   font-family: var(--font-heading);
 }
 
+/* El texto de la página no se puede seleccionar; los campos del formulario sí. */
+body {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+input,
+textarea,
+select {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
 h1 {
   font-weight: 800;
   line-height: 1.15;

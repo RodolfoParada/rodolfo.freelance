@@ -81,7 +81,8 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
 - Campo **honeypot** invisible (`website`) como trampa anti-bots.
 - Recuadro de confianza con compromiso de respuesta en **menos de 72 horas hábiles**.
 - Antes de cada envío el formulario pide un **token CSRF nuevo** (`GET /api/csrf`), para que funcione aunque la página haya estado abierta durante horas.
-- Envío mediante `fetch` POST a `/api/contact` con cabecera `X-CSRF-Token`. Al terminar, el formulario muestra un modal de confirmación.
+- Envío mediante `fetch` POST a `/api/contact` con cabecera `X-CSRF-Token`.
+- Los campos **permiten pegar**. Teléfono y correo se limpian después de pegar (solo dígitos y en minúsculas, respectivamente). Al terminar, el formulario muestra un modal de confirmación.
 
 ### 3.4 Correo (Gmail)
 - El backend envía el mensaje a la cuenta configurada en `MAIL_TO`.
@@ -98,6 +99,7 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
 - **`theme-color`**: `#3368A0`.
 - **Tipografía**: Plus Jakarta Sans autoalojada (woff2, subset latin, pesos 400–800); sin fuentes ni recursos de terceros.
 - **Tema claro/oscuro**: conmutable desde la navbar, aplica `data-theme` en `<html>`, respeta `prefers-color-scheme` y persiste en `localStorage` (clave `rf-theme`).
+- **Derechos de autor**: el pie de página indica *"© <año> Rodolfo-Freelance. Todos los derechos reservados."*
 - **Componentes reutilizables**: Web Components nativos en light DOM en `js/components/` (`site-header`, `site-footer`, `cta-banner`, `hero-section`, `about-section`, `services-section`, `marketing-section`, `contact-section`, `privacy-section`) apoyados en el kit compartido `js/core/kit.js` (`RFKIT`).
 - **`<cta-banner>`**: título *¿Hablamos de lo que necesita resolver tu negocio?*, botón principal **Agenda tu reunión** (lleva a `#contacto`) y leyenda *Respuesta en menos de 72 horas hábiles · Atención 100% remota para todo Chile*. El botón secundario viene oculto por defecto (`secondary-text="none"`).
 
@@ -128,7 +130,11 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
 | Anti-spam | Honeypot (`website`) + rate limit estricto |
 | Escape de salida | `escapeHtml` y `sanitizeHeader` en `mailer.js`; `textContent` en el DOM |
 | Fugas de información | Mensajes de error genéricos; `x-powered-by` desactivado |
-| HTTPS/HSTS | HSTS activo en producción; `trust proxy` |
+| HTTPS/HSTS | HSTS (1 año, `includeSubDomains`, `preload`) en producción (Express) y en `netlify.toml` para los archivos estáticos; `trust proxy` |
+| CSP en archivos estáticos | `netlify.toml` aplica la CSP a todas las páginas (`default-src 'self'`, sin `unsafe-inline`, `frame-ancestors 'none'`). Express la aplica a la API. Ambas deben mantenerse iguales. |
+| Trusted Types | `require-trusted-types-for 'script'` y `trusted-types rf-html`. Todo HTML dinámico pasa por la política `rf-html` de `kit.js`, usada solo con plantillas estáticas. |
+| Aislamiento y clickjacking | `Cross-Origin-Opener-Policy: same-origin`, `X-Frame-Options: DENY` y `frame-ancestors 'none'`. |
+| Protección del contenido | El texto no se puede seleccionar ni copiar (`user-select: none` en `body` y evento `copy`/`cut` cancelado), salvo en los campos del formulario. Es una dificultad, no una protección total. |
 
 ---
 

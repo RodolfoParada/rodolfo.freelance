@@ -538,13 +538,13 @@
       }
     });
 
-    phoneInput.addEventListener("paste", (event) => {
-      event.preventDefault();
-      const clipboard = event.clipboardData || window.clipboardData;
-      const pastedText = clipboard ? clipboard.getData("text") : "";
-      const digits = sanitizePhoneDigits(pastedText, true);
-      applyPhoneState(phoneInput, digits);
-      validateField(phoneInput);
+    phoneInput.addEventListener("paste", () => {
+      // Se permite pegar: el valor pegado se limpia después (maxlength se amplía solo mientras tanto).
+      phoneInput.maxLength = 40;
+      setTimeout(() => {
+        applyPhoneState(phoneInput, sanitizePhoneDigits(phoneInput.value, true));
+        validateField(phoneInput);
+      }, 0);
     });
 
     const handlePhoneChange = () => {
@@ -588,12 +588,12 @@
     emailInput.addEventListener("input", toLowerPreservingCursor);
     emailInput.addEventListener("blur", normalizeField);
     emailInput.addEventListener("change", normalizeField);
-    emailInput.addEventListener("paste", (event) => {
-      event.preventDefault();
-      const clipboard = event.clipboardData || window.clipboardData;
-      const pastedText = clipboard ? clipboard.getData("text") : "";
-      emailInput.value = sanitizeEmail(pastedText);
-      validateField(emailInput);
+    emailInput.addEventListener("paste", () => {
+      // Se permite pegar: el correo se normaliza justo después.
+      setTimeout(() => {
+        emailInput.value = sanitizeEmail(emailInput.value);
+        validateField(emailInput);
+      }, 0);
     });
   }
 
@@ -1104,10 +1104,25 @@
     });
   }
 
+  /* ------------------------------------------------- Protección del contenido */
+
+  /* Impide copiar el texto de la página (campos de formulario excluidos). */
+  function setupContentProtection() {
+    const isField = (target) =>
+      Boolean(target && target.closest && target.closest("input, textarea, select"));
+
+    ["copy", "cut"].forEach((type) => {
+      document.addEventListener(type, (event) => {
+        if (!isField(event.target)) event.preventDefault();
+      });
+    });
+  }
+
   /* ------------------------------------------------------------------ Init */
 
   function init() {
     setupNetlifyBadgeRemoval();
+    setupContentProtection();
     renderAllCards();
     setupAccordionCards();
     setupMenu();

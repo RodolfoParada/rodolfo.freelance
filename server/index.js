@@ -33,9 +33,12 @@ function createApp() {
           objectSrc: ["'none'"],
           frameAncestors: ["'none'"],
           formAction: ["'self'"],
+          requireTrustedTypesFor: ["'script'"],
+          trustedTypes: ["rf-html"],
           upgradeInsecureRequests: config.isProduction ? [] : null
         }
       },
+      crossOriginOpenerPolicy: { policy: "same-origin" },
       crossOriginEmbedderPolicy: false,
       referrerPolicy: { policy: "strict-origin-when-cross-origin" },
       hsts: config.isProduction
