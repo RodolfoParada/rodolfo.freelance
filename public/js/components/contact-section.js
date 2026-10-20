@@ -27,7 +27,7 @@
               </span>
               <span>+56 9</span>
             </span>
-            <input type="tel" id="phone" name="phone" placeholder="8765 4321" maxlength="8" inputmode="numeric" autocomplete="tel-local" />
+            <input type="tel" id="phone" name="phone" placeholder="8765 4321" maxlength="8" inputmode="numeric" autocomplete="tel" />
           </div>
           <span class="form__error" data-error-for="phone"></span>
         </div>
@@ -221,7 +221,7 @@
   `;
 
   var SUCCESS_MODAL = `
-    <div class="contact-modal" id="contact-success-modal" hidden aria-hidden="true">
+    <div class="contact-modal" id="contact-success-modal" hidden>
       <div class="contact-modal__backdrop" data-modal-close></div>
       <div class="contact-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="contact-modal-message">
         <button type="button" class="contact-modal__close" id="contact-modal-close" data-modal-close aria-label="Cerrar mensaje">
