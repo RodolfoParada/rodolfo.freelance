@@ -7,7 +7,8 @@
     typeof window !== "undefined" &&
     window.location.pathname.indexOf("privacidad") !== -1
       ? "index.html"
-      : typeof window !== "undefined" && window.location.pathname.indexOf("/blog/") !== -1
+      : typeof window !== "undefined" &&
+          (window.location.pathname.indexOf("/blog/") !== -1 || window.location.pathname.indexOf("/como-trabajo/") !== -1)
         ? "/index.html"
         : "";
 
@@ -33,6 +34,7 @@
               <li><a href="${base}#inicio">Inicio</a></li>
               <li><a href="${base}#acerca">Acerca de mí</a></li>
               <li><a href="${base}#desarrollo">Servicios</a></li>
+              <li><a href="/blog/">Blog</a></li>
               <li><a href="${base}#contacto">Contáctame</a></li>
             </ul>
           </nav>

@@ -63,7 +63,7 @@ function createApp() {
 
   // ----- Archivos estáticos (frontend) -----------------------------------------
   app.use(
-    express.static(path.join(__dirname, "..", "public"), {
+    express.static(path.join(__dirname, "..", "dist"), {
       dotfiles: "deny",
       index: "index.html",
       maxAge: config.isProduction ? "1h" : 0,

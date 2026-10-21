@@ -1,0 +1,7 @@
+[
+  { "slug": "todos", "name": "Todos", "url": "/blog/" },
+  { "slug": "wordpress", "name": "WordPress", "url": "/blog/wordpress/" },
+  { "slug": "desarrollo", "name": "Desarrollo WEB", "url": "/blog/desarrollo/" },
+  { "slug": "marketing", "name": "Marketing Digital", "url": "/blog/marketing/" },
+  { "slug": "prospeccion", "name": "Prospección Comercial", "url": "/blog/prospeccion/" }
+]

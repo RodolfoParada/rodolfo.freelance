@@ -21,3 +21,6 @@ Thumbs.db
 # Temporales
 tmp/
 temp/
+
+# Sitio generado (Eleventy + build)
+dist/

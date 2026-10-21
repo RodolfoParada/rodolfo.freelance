@@ -7,9 +7,13 @@
     typeof window !== "undefined" &&
     window.location.pathname.indexOf("privacidad") !== -1
       ? "index.html"
-      : typeof window !== "undefined" && window.location.pathname.indexOf("/blog/") !== -1
+      : typeof window !== "undefined" &&
+          (window.location.pathname.indexOf("/blog/") !== -1 || window.location.pathname.indexOf("/como-trabajo/") !== -1)
         ? "/index.html"
         : "";
+
+  var isBlog = typeof window !== "undefined" && window.location.pathname.indexOf("/blog/") !== -1;
+  var isCometrabajo = typeof window !== "undefined" && window.location.pathname.indexOf("/como-trabajo/") !== -1;
 
   var TEMPLATE = `
     <header class="site-header">
@@ -17,9 +21,10 @@
         <a class="navbar__brand" href="${base}#inicio">Rodolfo<span>-Freelance</span></a>
 
         <ul class="navbar__menu" id="menu">
-          <li><a class="navbar__link is-active" href="${base}#inicio">Inicio</a></li>
+          <li><a class="navbar__link${isBlog || isCometrabajo ? "" : " is-active"}" href="${base}#inicio">Inicio</a></li>
           <li><a class="navbar__link" href="${base}#acerca">Acerca de mí</a></li>
           <li><a class="navbar__link" href="${base}#desarrollo">Servicios</a></li>
+          <li><a class="navbar__link${isBlog ? " is-active" : ""}" href="/blog/">Blog</a></li>
           <li><a class="navbar__link navbar__link--cta" href="${base}#contacto">Contáctame</a></li>
         </ul>
 

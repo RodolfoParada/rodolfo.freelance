@@ -1,7 +1,7 @@
 [build]
   command = "npm run build"
   functions = "netlify/functions"
-  publish = "public"
+  publish = "dist"
 
 [functions]
   node_bundler = "esbuild"
@@ -23,9 +23,3 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
-
-# Página oculta del blog: no indexar ni seguir enlaces.
-[[headers]]
-  for = "/blog/*"
-  [headers.values]
-    X-Robots-Tag = "noindex, nofollow"

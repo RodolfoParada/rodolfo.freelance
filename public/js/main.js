@@ -200,7 +200,9 @@
   /* --------------------------------------------------- Enlace activo + reveal */
 
   function setupScrollSpy() {
-    const links = Array.from(document.querySelectorAll(".navbar__link"));
+    const links = Array.from(document.querySelectorAll(".navbar__link")).filter(
+      (link) => link.getAttribute("href").charAt(0) === "#"
+    );
     const sections = links
       .map((link) => document.querySelector(link.getAttribute("href")))
       .filter(Boolean);
