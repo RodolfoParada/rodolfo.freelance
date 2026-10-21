@@ -4,7 +4,7 @@ layout: base.njk
 <section class="section" data-section="blog-post">
   <div class="container blog-post-layout">
     <aside class="blog-aside blog-aside--left">
-      <a class="blog-back" href="/blog/">← Atrás</a>
+      <a class="blog-back" href="{% if tags and tags[0] %}/blog/{{ tags[0] }}/{% else %}/blog/{% endif %}" data-blog-back="{% for tab in blogTabs %}{{ tab.url }}{% if not loop.last %} {% endif %}{% endfor %}">← Atrás</a>
       <nav class="blog-toc" aria-labelledby="blog-toc-title" hidden>
         <p class="blog-toc__title" id="blog-toc-title">En este artículo</p>
         <ol class="blog-toc__list" data-toc-list></ol>
@@ -38,3 +38,4 @@ layout: base.njk
   </div>
 </section>
 <script src="/js/toc.js" defer></script>
+<script src="/js/blog-back.js" defer></script>

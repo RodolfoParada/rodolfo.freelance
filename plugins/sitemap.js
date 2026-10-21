@@ -24,7 +24,7 @@ const isoDate = (value) => {
 const priorityFor = (url) => {
   if (url === "/") return 1;
   if (url === "/como-trabajo/") return 0.9;
-  if (url === "/blog/" || /^\/blog\/(wordpress|desarrollo|marketing|prospeccion)\/(pagina\/\d+\/)?$/.test(url)) return 0.7;
+  if (url === "/blog/" || /^\/blog\/(wordpress|desarrollo|marketing|prospeccion|atencion-cliente|administracion-ecommerce)\/(pagina\/\d+\/)?$/.test(url)) return 0.7;
   if (url.startsWith("/blog/")) return 0.6;
   return 0.5;
 };

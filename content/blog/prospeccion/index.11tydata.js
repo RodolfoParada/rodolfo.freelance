@@ -5,6 +5,8 @@
 module.exports = {
   layout: "base.njk",
   activeTab: "prospeccion",
+  tabImage: "/assets/img/prospeccion-comercial.webp",
+  tabImageAlt: "Robot con audífonos haciendo varias llamadas comerciales a la vez desde un escritorio con teléfonos",
   firstUrl: "/blog/prospeccion/",
   pageBase: "/blog/prospeccion/pagina/",
   pagination: {

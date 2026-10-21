@@ -1,8 +1,8 @@
 # SPEC.md — Especificación funcional
 
 **Proyecto:** Rodolfo-Freelance
-**Tipo:** Sitio web de portafolio/servicios freelance con scroll-page, página de Política de Privacidad + API de contacto.
-**Stack:** HTML + CSS + JavaScript vanilla con Web Components nativos (frontend) · Node.js/Express (backend) · Nodemailer + Gmail (correo).
+**Tipo:** Sitio web de portafolio/servicios freelance con scroll-page, página de Política de Privacidad, página *Cómo trabajo*, blog para pymes + API de contacto.
+**Stack:** HTML + CSS + JavaScript vanilla con Web Components nativos (frontend) · Eleventy 3 con Markdown y Nunjucks (blog y *Cómo trabajo*) · Node.js/Express (backend, también como función de Netlify) · Nodemailer + Gmail (correo).
 
 ---
 
@@ -45,7 +45,7 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
      - Diseño de 2 columnas (`.about-dual`): a la izquierda `<cta-banner>`, a la derecha *Mi Compromiso* arriba y *Cómo abordamos tu proyecto* debajo. En móvil se apilan en una columna.
      - Cita *"Las herramientas se eligen en función del problema, no de la moda."* debajo de las dos columnas.
    - `#desarrollo` (`<services-section>`):
-     - Bloque **Desarrollo**: 6 tarjetas giratorias (`flip: true` en `data.js`). Cada tarjeta centra su título y descripción; la flecha de giro está abajo a la derecha de la cara frontal y el botón de vuelta abajo a la izquierda de la cara trasera.
+     - Bloque **Desarrollo**: 6 tarjetas giratorias (`flip: true` en `data.js`) **dentro de un carrusel** con flechas ← → a los costados (3 tarjetas visibles en escritorio, 2 en tablet, 1 en móvil; ver 3.7.4). Cada tarjeta centra su título y descripción; la flecha de giro está abajo a la derecha de la cara frontal y el botón de vuelta abajo a la izquierda de la cara trasera.
      - Bloque **Marketing**: etiqueta *Servicios de Asistente Virtual Freelance* y 4 tarjetas en **acordeón** (`accordion: true` en `data.js`). Cada una muestra etiqueta, título y descripción, con una fila *Ver funciones* con un botón redondo **+** que se convierte en **×** al abrir la lista. El título y la descripción quedan centrados entre la etiqueta superior y la línea divisoria.
    - `#contacto` (`<contact-section>`): diseño en 2 columnas (`.contact-layout`):
      - Columna izquierda (`.contact-panel`): panel de impacto y confianza en azul corporativo (*Llevemos tu idea al siguiente nivel*), 3 puntos de valor y canales directos a Instagram `@rodolfo.tech.soluciones` y correo `desarrollador.freelance7@gmail.com`.
@@ -66,7 +66,8 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
 - `index.html`: título *Rodolfo-Freelance | Desarrollo web y WordPress en Chile*; descripción de 153 caracteres; `canonical` a `https://rodolfofreelance.cl/`; Open Graph y Twitter Card (`summary_large_image`) con imagen `assets/img/og-image.png` (1200×630); bloque JSON-LD `ProfessionalService` (nombre, URL, correo, Instagram, `areaServed` Chile).
 - `privacidad.html`: título *Política de Privacidad | Rodolfo-Freelance*; `canonical` y metadatos sociales propios.
 - `robots.txt`: permite todo, bloquea `/api/`, permite `Google-Extended`, `ClaudeBot`, `GPTBot` y `PerplexityBot`, y apunta al sitemap.
-- `sitemap.xml`: lista `/` y `/privacidad.html` con `lastmod` 2026-10-19.
+- `sitemap.xml`: lo genera `plugins/sitemap.js` en cada build. Incluye `/`, `/privacidad.html`, `/como-trabajo/`, las pestañas del blog (con sus páginas) y todos los artículos, con la fecha de cada uno y una prioridad por tipo de página (inicio 1, Cómo trabajo 0,9, pestañas 0,7, artículos 0,6).
+- Páginas de Eleventy (blog y *Cómo trabajo*): el `<head>` lo arma `_includes/base.njk` con los datos de `content/_data/site.json`. Ver la sección 3.6.5.
 
 ### 3.3 Formulario de contacto
 - Campos:
@@ -103,17 +104,176 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
 - **Componentes reutilizables**: Web Components nativos en light DOM en `js/components/` (`site-header`, `site-footer`, `cta-banner`, `hero-section`, `about-section`, `services-section`, `marketing-section`, `contact-section`, `privacy-section`) apoyados en el kit compartido `js/core/kit.js` (`RFKIT`).
 - **`<cta-banner>`**: título *¿Hablamos de lo que necesita resolver tu negocio?*, botón principal **Agenda tu reunión** (lleva a `#contacto`) y leyenda *Respuesta en menos de 72 horas hábiles · Atención 100% remota para todo Chile*. El botón secundario viene oculto por defecto (`secondary-text="none"`).
 
+### 3.6 Blog (`/blog/`)
+
+Blog de guías prácticas para **pymes chilenas**, generado con Eleventy desde `content/blog/`. Las convenciones de implementación están en `CLAUDE.md` (sección *Blog (Eleventy)*).
+
+#### 3.6.1 Portada y pestañas
+- Encabezado común a todas las pestañas (`_includes/blog-listing.njk`):
+  - Eyebrow: *Blog*.
+  - `<h1>`: *Guías prácticas para hacer crecer tu pyme*.
+  - Bajada: *Web, marketing, ventas, atención al cliente y administración, para empresas en Chile.*
+- Pestañas (`content/_data/blogTabs.json`), en este orden:
+
+  | Pestaña | URL | `tags` de sus artículos |
+  |---|---|---|
+  | Todos | `/blog/` | (todos los artículos) |
+  | WordPress | `/blog/wordpress/` | `wordpress` |
+  | Desarrollo WEB | `/blog/desarrollo/` | `desarrollo` |
+  | Marketing Digital | `/blog/marketing/` | `marketing` |
+  | Prospección Comercial | `/blog/prospeccion/` | `prospeccion` |
+  | Atención al Cliente | `/blog/atencion-cliente/` | `atencion-cliente` |
+  | Administración & E-Commerce | `/blog/administracion-ecommerce/` | `administracion-ecommerce` |
+
+- La pestaña activa se marca con `.is-active` y `aria-current="page"`. En móvil, las pestañas pasan a varias líneas sin desbordarse.
+- Cada pestaña muestra en su primera página **1 artículo destacado** (con la imagen de portada de la pestaña) y **6 tarjetas** en dos filas de tres; las páginas siguientes (`/pagina/N/`) muestran 6 tarjetas. Paginación con *Anterior* / número / *Siguiente*.
+- Una pestaña sin artículos muestra *Próximamente.*
+- Al final de cada pestaña, bloque de cierre (`.blog-cta` en `blog-listing.njk`):
+  - Título: *¿Conversamos sobre tu negocio?*
+  - Texto: *Escríbeme y coordinemos una reunión breve para revisar qué necesita tu empresa.*
+  - Botón **Agenda tu reunión** (a `/#contacto`) debajo del texto, y botón **Conoce mis servicios** (a `/como-trabajo/`) a la derecha.
+- Los artículos se ordenan por fecha y hora (`date`), del más reciente al más antiguo.
+
+#### 3.6.2 Imágenes de portada
+- Una imagen por pestaña (`tabImage` + `tabImageAlt`), WebP de **1200 × 675 px** (16:9), menos de ~110 KB, en `public/assets/img/`, con nombre en minúsculas y guiones.
+- Se muestra completa (`object-fit: contain`) sobre fondo azul oscuro. Si el original tiene otra proporción, se ajusta completo y se rellenan los costados con la misma imagen desenfocada (sin recortar contenido).
+- Los originales en alta resolución se guardan en `originales/` y no se publican.
+
+| Pestaña | Imagen |
+|---|---|
+| Todos | `todo.webp` |
+| WordPress | `wordpress-orbita.webp` |
+| Desarrollo WEB | `desarrollo-banner.webp` |
+| Marketing Digital | `marketing-banner.webp` |
+| Prospección Comercial | `prospeccion-comercial.webp` |
+| Atención al Cliente | `atencion-cliente.webp` |
+| Administración & E-Commerce | `soporte-ecommerce.webp` |
+
+#### 3.6.3 Página de artículo (`/blog/<slug>/`, `_includes/post.njk`)
+- Diseño en 3 columnas en escritorio, 2 en tablet y 1 en móvil:
+  - **Izquierda:** botón **← Atrás** e índice *En este artículo*, generado por `toc.js` a partir de los `##`, que marca la sección que se está leyendo.
+  - **Centro:** título (`<h1>`), fecha (*21 de octubre de 2026*) y cuerpo.
+  - **Derecha:** *Sigue leyendo*, con los 4 artículos más recientes, y *Ver todos los artículos →*.
+- **Botón ← Atrás** (`blog-back.js`):
+  - Si el lector llegó desde una pestaña del blog (o una de sus páginas), vuelve exactamente a esa pestaña y página.
+  - En cualquier otro caso (Google, enlace directo u otro artículo), va a la pestaña de la categoría del artículo.
+  - Sin JavaScript, el enlace apunta a la pestaña de la categoría.
+- **Estructura del cuerpo:**
+  1. Introducción breve.
+  2. Secciones `##`.
+  3. *En resumen*.
+  4. Bloque CTA (`.blog-cta`), con título y texto propios del tema y botón **Agenda tu reunión** a `/#contacto`.
+- **Componentes disponibles:**
+  - Tablas `.blog-table`: encabezado azul y filas alternadas; en móvil cada fila pasa a tarjeta con etiquetas.
+  - Pasos numerados `.blog-steps`.
+  - Guiones sugeridos `.blog-script`.
+  - Bloques de código con desplazamiento horizontal.
+  - Diagramas SVG en línea dentro de `<figure>`, accesibles (`role="img"`, `<title>`, `<desc>`), que se adaptan al modo claro y oscuro y se leen en un celular de 390 px.
+
+#### 3.6.4 Contenido editorial
+- **Público:** dueños y equipos de pymes en Chile, sin formación técnica.
+- **Tono:** cercano, en tuteo, frases cortas, ejemplos chilenos, términos técnicos explicados; sin promesas absolutas ni cifras sin fuente.
+- **Exactitud:** la información debe ser real y vigente, en especial la normativa chilena (SII, Ley 21.131, Ley 21.719, SERNAC) y las funciones de las herramientas. Los datos de ejemplo son ficticios y evidentes.
+- **Un tema, una pestaña:** no se duplica un mismo artículo en dos pestañas.
+- **Enlaces:** cada artículo enlaza a 2 o 3 artículos relacionados del blog.
+
+#### 3.6.5 SEO del blog
+- **Pestañas:**
+  - Título propio (`seoTitle`, de 54 a 62 caracteres, por ejemplo *WordPress para pymes: guías prácticas | Rodolfo-Freelance*).
+  - Descripción propia (`description`, de 140 a 156 caracteres).
+  - Las páginas 2+ agregan *– Página N* al título.
+- **Artículos:**
+  - El título incluye « | Rodolfo-Freelance» solo si tiene 45 caracteres o menos.
+  - La descripción es la del front matter (120 a 160 caracteres).
+  - `og:type = article`.
+- **Todas las páginas de Eleventy:**
+  - `canonical` con su URL absoluta.
+  - Open Graph (`og:title`, `og:description`, `og:url`, `og:image`, `og:locale = es_CL`).
+  - Twitter Card `summary_large_image`, con la imagen `/assets/img/og-image.png` (1200 × 630).
+- Las pestañas y los artículos se publican en el `sitemap.xml` (sección 3.2.2).
+
+### 3.7 Página «Cómo trabajo» (`/como-trabajo/`)
+
+Página de servicios generada con Eleventy (`content/como-trabajo/index.njk`). Convenciones de implementación en `CLAUDE.md` (sección *Página «Cómo trabajo»*).
+
+#### 3.7.1 Hero y SEO
+- `<h1>`: *Desarrollo web a medida y soluciones WordPress para negocios en Chile*. Bajada: *Sitios web que se miden, no solo que se ven bien.* Botones **Pedir una cotización** y **Ver cómo trabajo**.
+- Título en Google: *Desarrollo web a medida y WordPress en Chile | Rodolfo-Freelance*.
+- Descripción: *Sitios web a medida, WordPress y WooCommerce, analítica y soporte operativo para pymes en Chile: marketing, prospección, atención al cliente y administración.*
+
+#### 3.7.2 Servicios
+- Eyebrow *Qué hago*, título *Servicios de desarrollo web, WordPress, marketing digital y gestión administrativa* y bajada *Para que te enfoques en lo importante.*
+- Índice con dos enlaces: **Desarrollo Web y WordPress** y **Soporte Operativo**, que llevan a cada bloque.
+- **Desarrollo Web y WordPress** (5 tarjetas, en carrusel):
+
+  | Servicio | Guía |
+  |---|---|
+  | Desarrollo web a medida & MVP | Guía de Desarrollo web |
+  | Sitios web en WordPress | Guía de WordPress |
+  | Tiendas online con WooCommerce | Guía de tiendas online |
+  | Auditoría web, optimización UX y posicionamiento SEO (mejora el sitio actual **sin rehacerlo**) | Guía de SEO y analítica |
+  | Rediseño, modernización y optimización de sitios web (cuando el sitio **ya no se puede mejorar con ajustes**) | Guía de Desarrollo web |
+
+- **Soporte operativo para tu negocio** (6 tarjetas con etiqueta de categoría, en carrusel):
+
+  | Etiqueta | Servicio | Guía |
+  |---|---|---|
+  | Marketing | Gestión de redes sociales y contenidos | Guía de marketing digital |
+  | Marketing | Marketing digital, publicidad y canales web | Guía de marketing digital |
+  | Ventas | Prospección de clientes, soporte comercial y SDR remoto | Guía de prospección comercial |
+  | Atención al cliente | Atención al cliente, soporte posventa y fidelización | Guía de atención al cliente |
+  | Administración | Asistente virtual administrativo | Guía de administración |
+  | E-commerce | Soporte para tiendas online (E-Commerce) | Guía de e-commerce |
+
+- Cada tarjeta muestra: título, para quién es y qué problema resuelve (2 párrafos), el acordeón **Alcance según requerimiento** (botón **+** que gira a **×**, con la lista de lo que incluye), el enlace **Guía de … →** a la pestaña del blog del tema y **Cotiza Aquí →** al formulario (`/#contacto`). La guía y la cotización siempre están visibles y alineadas en la fila.
+
+#### 3.7.3 Procesos («Cómo trabajo»)
+- Bajada: *Cada servicio tiene su propio proceso, con etapas claras para que siempre sepas en qué punto está tu proyecto y qué viene después.*
+- Fila de 6 botones de proceso en carrusel, cada uno con su **+**. Al presionar uno se abre debajo su flujo; se abre **un proceso a la vez**. Sin JavaScript se muestran todos.
+- Cada flujo tiene un nombre y 5 etapas, en un diagrama CSS: horizontal con flechas en escritorio y vertical en tablet y móvil.
+
+  | Proceso | Nombre del flujo |
+  |---|---|
+  | Desarrollo web y WordPress | Proceso de desarrollo web en 5 etapas: del diagnóstico al lanzamiento |
+  | Auditoría web, UX y SEO | Proceso de auditoría y optimización en 5 etapas: del análisis a la mejora medida |
+  | Marketing digital y redes sociales | Proceso de gestión de marketing en 5 etapas: de la estrategia al reporte mensual |
+  | Prospección comercial | Proceso de prospección comercial en 5 etapas: del cliente ideal a la reunión agendada |
+  | Atención al cliente | Proceso de atención al cliente en 5 etapas: de tus canales ordenados a clientes que vuelven |
+  | Soporte administrativo & e-commerce | Proceso de soporte administrativo en 5 etapas: del orden inicial al reporte de gestión |
+
+- Etapas del proceso de desarrollo web: Diagnóstico y requerimientos → Propuesta y cotización → Diseño y desarrollo funcional → Pruebas, ajustes y validación (incluye la medición de visitas y conversiones) → Lanzamiento y acompañamiento (soporte inicial; el plazo aún no está definido).
+
+#### 3.7.4 Carrusel de tarjetas (común con la portada)
+- Desplazamiento nativo con `scroll-snap`: dedo, rueda del mouse, teclado (la región recibe foco) y flechas ← → a media altura a los costados.
+- Las flechas se rellenan de azul al pasar el mouse o con foco (y crecen levemente, salvo con `prefers-reduced-motion`) y se ocultan en el extremo donde no hay más tarjetas.
+- Sin barra de desplazamiento visible y **sin avance automático**.
+- Se usa en: Desarrollo de la portada, los dos bloques de servicios y la fila de procesos de *Cómo trabajo*.
+
+#### 3.7.5 Herramientas con las que trabajo
+- Bajada: *Elijo la herramienta según tu negocio, no al revés. Estas son las que uso a diario en cada servicio.*
+- 5 grupos en columnas (una debajo de otra en móvil), cada herramienta con una frase de para qué le sirve al cliente:
+
+  | Grupo | Herramientas |
+  |---|---|
+  | Desarrollo web | WordPress, WooCommerce, Node.js |
+  | Medición y SEO | Google Analytics 4, Google Search Console, Microsoft Clarity |
+  | Marketing | Google Ads, Meta Ads |
+  | Ventas y atención | HubSpot, WhatsApp Business |
+  | Operación | Google Workspace, Webpay y Mercado Pago |
+
+- Los títulos de grupo usan el color de texto de la sección para mantener el contraste en modo claro y oscuro.
+
 ---
 
 ## 4. Requisitos no funcionales
 
 - **Responsive**: usable desde 320 px hasta escritorio amplio (`1650px` de contenedor máximo).
-- **Accesibilidad**: landmarks, `aria-*` con roles válidos (paneles de pestañas en `div`, no en `article`), contraste mínimo de 4,5:1 (el texto secundario en modo claro es `#4A6679`), botones reales para girar las tarjetas (`Enter`/`Space` sobre la flecha), pestañas (`ArrowLeft`/`ArrowRight`), acordeones (`aria-expanded`), skip-link, área táctil mínima de 44 px en los botones de giro y respeto a `prefers-reduced-motion`.
+- **Accesibilidad**: landmarks, `aria-*` con roles válidos (paneles de pestañas en `div`, no en `article`), contraste mínimo de 4,5:1 (el texto secundario en modo claro es `#4A6679`), botones reales para girar las tarjetas (`Enter`/`Space` sobre la flecha), pestañas (`ArrowLeft`/`ArrowRight`), acordeones (`aria-expanded` o `<details>` nativo), carruseles con botones con nombre y región con nombre, skip-link, área táctil mínima de 44 px en los botones de giro y respeto a `prefers-reduced-motion`.
 - **Giro de tarjetas**: solo el botón de flecha gira la tarjeta. No hay giro por hover ni por clic en el resto de la tarjeta, y las tarjetas no reciben foco de tabulación.
-- **Rendimiento**: sin dependencias de frontend ni bundlers. Los scripts de componentes, `kit.js`, `data.js` y `main.js` se cargan con `defer` (no bloquean el render). Solo `theme.js` es síncrono, para evitar que el tema parpadee. Las hojas de estilo son bloqueantes, y es intencional para no mostrar la página sin estilos.
+- **Rendimiento**: sin dependencias de frontend ni bundlers. Los scripts de componentes, `kit.js`, `data.js` y `main.js` se cargan con `defer` (no bloquean el render). Solo `theme.js` es síncrono, para evitar que el tema parpadee. Las hojas de estilo son bloqueantes, y es intencional para no mostrar la página sin estilos. El CSS se sirve en un solo archivo (`app.css`, generado por `npm run build:css`) y `main.js` minificado (`main.min.js`). Las portadas del blog pesan menos de ~110 KB cada una. Los carruseles y acordeones usan CSS nativo (`scroll-snap`, `<details>`) y scripts pequeños externos (`svc-carousel.js`, `svc-flows.js`).
 - **Token CSRF**: no se pide al cargar la página. Solo se pide justo antes de cada envío del formulario.
 - **Privacidad**: tipografía y recursos autoalojados. Medición con Google Tag Manager, Google Analytics 4 y Microsoft Clarity, declarada en la sección 5.2 de la Política de Privacidad (cookies `_ga`, `_ga_<ID>`, `_clck`, `_clsk`).
-- **Mantenibilidad**: datos separados (`data.js`), tokens de diseño en `variables.css`, componentes modulares en `js/components/`.
+- **Mantenibilidad**: datos separados (`data.js`), tokens de diseño en `variables.css`, componentes modulares en `js/components/`. En el blog, las pestañas se definen en un solo archivo (`blogTabs.json`), los datos del sitio en `site.json` y cada artículo es un `.md` independiente.
 
 ---
 
@@ -180,4 +340,4 @@ Devuelve `{ ok: true, status: "up" }`.
 
 - Panel de administración o base de datos de mensajes.
 - Autenticación de usuarios.
-- Blog/CMS, multi-idioma, captcha de terceros.
+- CMS o editor visual para el blog (los artículos se escriben en Markdown), comentarios en los artículos, buscador interno, multi-idioma, captcha de terceros.

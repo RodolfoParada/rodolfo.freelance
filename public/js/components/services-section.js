@@ -4,6 +4,27 @@
 (function () {
   "use strict";
 
+  /* Envuelve una grilla en el carrusel compartido (css: .svc-carousel; js: svc-carousel.js). */
+  function carousel(k, track) {
+    var wrapper = k.el("div", "svc-carousel");
+    wrapper.setAttribute("data-carousel", "");
+    var viewport = k.el("div", "svc-carousel__viewport");
+    [["prev", "Servicio anterior", "←"], ["next", "Servicio siguiente", "→"]].forEach(function (cfg) {
+      var button = k.el("button", "svc-carousel__btn svc-carousel__btn--" + cfg[0]);
+      button.type = "button";
+      button.setAttribute("data-carousel-" + cfg[0], "");
+      button.setAttribute("aria-controls", track.id);
+      button.setAttribute("aria-label", cfg[1]);
+      var icon = k.el("span", "", cfg[2]);
+      icon.setAttribute("aria-hidden", "true");
+      button.appendChild(icon);
+      viewport.appendChild(button);
+    });
+    viewport.appendChild(track);
+    wrapper.appendChild(viewport);
+    return wrapper;
+  }
+
   window.RFKIT.define("services-section", function (host) {
     var k = window.RFKIT;
     var id = k.attr(host, "section-id", "desarrollo");
@@ -18,9 +39,13 @@
         k.attr(host, "lead", "Construyo productos digitales rápidos, seguros y mantenibles.")
       )
     );
-    var devGrid = k.el("div", "grid");
+    var devGrid = k.el("div", "grid svc-carousel__track");
     devGrid.setAttribute("data-cards", "desarrollo");
-    devBlock.appendChild(devGrid);
+    devGrid.id = "carrusel-servicios-desarrollo";
+    devGrid.setAttribute("role", "region");
+    devGrid.setAttribute("aria-label", "Servicios de desarrollo");
+    devGrid.tabIndex = 0;
+    devBlock.appendChild(carousel(k, devGrid));
 
     var mktBlock = k.el("div", "block");
     mktBlock.appendChild(
