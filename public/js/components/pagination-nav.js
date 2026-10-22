@@ -3,6 +3,8 @@
    - current: página actual (por defecto 1)
    - total: número total de páginas (por defecto 1)
    - base: inicio de cada enlace; se le añade el número de página (por defecto "?page=")
+   - first: enlace de la primera página (si no, usa base + 1)
+   - suffix: texto final de cada enlace (por ejemplo "/")
    - label: nombre accesible de la navegación (por defecto "Paginación") */
 
 (function () {
@@ -31,11 +33,18 @@
     var total = toPositiveInt(k.attr(host, "total", "1"), 1);
     var current = Math.min(toPositiveInt(k.attr(host, "current", "1"), 1), total);
     var base = k.attr(host, "base", "?page=");
+    var first = k.attr(host, "first", "");
+    var suffix = k.attr(host, "suffix", "");
 
     var nav = k.el("nav", "pagination");
     nav.setAttribute("aria-label", k.attr(host, "label", "Paginación"));
 
     var list = k.el("ul", "pagination__list");
+
+    function hrefFor(page) {
+      if (page === 1 && first) return first;
+      return base + page + suffix;
+    }
 
     function addLink(label, page, accessibleName) {
       var item = k.el("li", "pagination__item");
@@ -50,7 +59,7 @@
         link.setAttribute("tabindex", "-1");
         link.classList.add("pagination__link--disabled");
       } else {
-        link.href = base + page;
+        link.href = hrefFor(page);
       }
       item.appendChild(link);
       list.appendChild(item);

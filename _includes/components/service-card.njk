@@ -1,0 +1,25 @@
+{#- Tarjeta de servicio (css: .svc-card). Datos en content/_data/services.json.
+    Uso: {% from "components/service-card.njk" import serviceCard %} {{ serviceCard(card, services) }}
+    card: { id?, tag?, title, titleNowrap?, texts[], scope[], guide: { href, text } }
+    settings: { scopeTitle, quote: { href, text } } (textos comunes a todas las tarjetas). -#}
+{% macro serviceCard(card, settings) %}
+<article class="svc-card"{% if card.id %} id="{{ card.id }}"{% endif %}>
+  {%- if card.tag %}
+  <p class="svc-card__tag">{{ card.tag }}</p>
+  {%- endif %}
+  <h4 class="svc-card__title">{{ card.title }}{% if card.titleNowrap %} <span class="nowrap">{{ card.titleNowrap }}</span>{% endif %}</h4>
+  {%- for text in card.texts %}
+  <p class="svc-card__text">{{ text }}</p>
+  {%- endfor %}
+  <details class="svc-scope">
+    <summary class="svc-scope__toggle">{{ settings.scopeTitle }}<span class="card__toggle-icon" aria-hidden="true"></span></summary>
+    <ul class="svc-card__list">
+      {%- for item in card.scope %}
+      <li>{{ item }}</li>
+      {%- endfor %}
+    </ul>
+  </details>
+  <a class="svc-card__link" href="{{ card.guide.href }}">{{ card.guide.text }} →</a>
+  <a class="svc-card__price svc-card__price--link" href="{{ settings.quote.href }}">{{ settings.quote.text }} →</a>
+</article>
+{% endmacro %}

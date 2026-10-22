@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#3368A0">
+  {#- SEO: seoTitle manda; si no, el título lleva la marca solo cuando es corto (Google corta cerca de 60 caracteres). -#}
+  {%- set pageTitle = seoTitle if seoTitle else (title if (title | length) > 45 else title + " | " + site.name) -%}
+  {%- if pagination and pagination.pageNumber > 0 %}{% set pageTitle = pageTitle + " – Página " + (pagination.pageNumber + 1) %}{% endif -%}
+  {%- set pageUrl = site.url + page.url %}
+  <title>{{ pageTitle }}</title>
+  {% if description %}<meta name="description" content="{{ description }}">{% endif %}
+  <link rel="canonical" href="{{ pageUrl }}">
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:site_name" content="{{ site.name }}">
+  <meta property="og:locale" content="es_CL">
+  <meta property="og:title" content="{{ pageTitle }}">
+  {% if description %}<meta property="og:description" content="{{ description }}">{% endif %}
+  <meta property="og:url" content="{{ pageUrl }}">
+  <meta property="og:image" content="{{ site.url }}{{ site.ogImage }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ pageTitle }}">
+  {% if description %}<meta name="twitter:description" content="{{ description }}">{% endif %}
+  <meta name="twitter:image" content="{{ site.url }}{{ site.ogImage }}">
+  <script src="/js/theme.js"></script>
+  <script src="/js/core/kit.js" defer></script>
+  <script src="/js/components/site-header.js" defer></script>
+  <script src="/js/components/site-footer.js" defer></script>
+  <script src="/js/components/pagination-nav.js" defer></script>
+  <script src="/js/main.min.js" defer></script>
+  <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <site-header></site-header>
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  <site-footer></site-footer>
+</body>
+</html>

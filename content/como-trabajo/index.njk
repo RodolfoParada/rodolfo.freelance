@@ -1,0 +1,86 @@
+---
+layout: base.njk
+title: Cómo trabajo
+seoTitle: "Desarrollo web a medida y WordPress en Chile | Rodolfo-Freelance"
+description: "Sitios web a medida, WordPress y WooCommerce, analítica y soporte operativo para pymes en Chile: marketing, prospección, atención al cliente y administración."
+permalink: /como-trabajo/
+---
+{#- Contenido en content/_data/services.json, processes.json y tools.json; componentes en _includes/components/. -#}
+{%- from "components/carousel.njk" import carousel -%}
+{%- from "components/service-card.njk" import serviceCard -%}
+{%- from "components/process.njk" import processToggle, processPanel -%}
+{%- from "components/tools.njk" import toolGroups -%}
+<section class="svc-hero" data-section="como-trabajo">
+  <div class="container svc-hero__inner">
+    <div>
+      <p class="svc-eyebrow">Servicios</p>
+      <h1 class="svc-hero__title">Desarrollo web a medida y soluciones WordPress para negocios en Chile</h1>
+      <p class="svc-hero__tagline">Sitios web que se miden, no solo que se ven bien.</p>
+    </div>
+    <div class="svc-hero__side">
+      <p class="svc-hero__text">Desarrollo sitios y tiendas para empresas y profesionales en Chile, con analítica configurada desde el primer día para que sepas qué funciona.</p>
+      <div class="svc-hero__actions">
+        <a class="btn btn--primary" href="/index.html#contacto">Pedir una cotización</a>
+        <a class="btn btn--ghost" href="#como-trabajo">Ver cómo trabajo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="svc-section">
+  <div class="container">
+    <p class="svc-eyebrow">Qué hago</p>
+    <h2 class="svc-section__title svc-section__title--eyebrow">Servicios de desarrollo web, WordPress, marketing digital y gestión administrativa</h2>
+    <p class="svc-section__lead">Para que te enfoques en lo importante.</p>
+
+    <nav class="blog-tabs svc-index" aria-label="Ir a un bloque de servicios">
+      <a class="blog-tab" href="#desarrollo-web">Desarrollo Web y WordPress</a>
+      <a class="blog-tab" href="#soporte-operativo">Soporte Operativo</a>
+    </nav>
+
+    {%- for group in services.groups %}
+
+    {% call carousel({ id: group.carouselId, label: group.carouselLabel, title: group.title, titleId: group.id }) %}
+      {%- for card in group.cards %}
+      {{ serviceCard(card, services) }}
+      {%- endfor %}
+    {% endcall %}
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="svc-section svc-section--alt" id="como-trabajo">
+  <div class="container">
+    <h2 class="svc-section__title">Cómo trabajo</h2>
+    <p class="svc-section__lead">Cada servicio tiene su propio proceso, con etapas claras para que siempre sepas en qué punto está tu proyecto y qué viene después.</p>
+
+    {% call carousel({ id: "carrusel-procesos", label: "Procesos por servicio", prevLabel: "Proceso anterior", nextLabel: "Proceso siguiente", trackClass: "svc-carousel__track--tabs", wrapperClass: "svc-flows", wrapperAttrs: "data-flows" }) %}
+      {%- for p in processes %}
+      {{ processToggle(p) }}
+      {%- endfor %}
+    {% endcall %}
+    {%- for p in processes %}
+    {{ processPanel(p) }}
+    {%- endfor %}
+  </div>
+</section>
+
+<section class="svc-tech">
+  <div class="container">
+    <h2 class="svc-tech__title">Herramientas con las que trabajo</h2>
+    <p class="svc-tech__text">Elijo la herramienta según tu negocio, no al revés. Estas son las que uso a diario en cada servicio.</p>
+    {{ toolGroups(tools) }}
+  </div>
+</section>
+
+<section class="svc-cta">
+  <div class="container svc-cta__inner">
+    <div>
+      <h2 class="svc-cta__title">¿Tienes un proyecto en mente?</h2>
+      <p class="svc-cta__text">Cuéntame qué necesitas y te respondo con una propuesta clara.</p>
+    </div>
+    <a class="btn btn--primary" href="/index.html#contacto">Escríbeme</a>
+  </div>
+</section>
+<script src="/js/svc-flows.js" defer></script>
+<script src="/js/svc-carousel.js" defer></script>

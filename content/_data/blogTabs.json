@@ -1,0 +1,9 @@
+[
+  { "slug": "todos", "name": "Todos", "url": "/blog/" },
+  { "slug": "wordpress", "name": "WordPress", "url": "/blog/wordpress/" },
+  { "slug": "desarrollo", "name": "Desarrollo WEB", "url": "/blog/desarrollo/" },
+  { "slug": "marketing", "name": "Marketing Digital", "url": "/blog/marketing/" },
+  { "slug": "prospeccion", "name": "Prospección Comercial", "url": "/blog/prospeccion/" },
+  { "slug": "atencion-cliente", "name": "Atención al Cliente", "url": "/blog/atencion-cliente/" },
+  { "slug": "administracion-ecommerce", "name": "Administración & E-Commerce", "url": "/blog/administracion-ecommerce/" }
+]

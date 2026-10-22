@@ -1,0 +1,41 @@
+---
+layout: base.njk
+---
+<section class="section" data-section="blog-post">
+  <div class="container blog-post-layout">
+    <aside class="blog-aside blog-aside--left">
+      <a class="blog-back" href="{% if tags and tags[0] %}/blog/{{ tags[0] }}/{% else %}/blog/{% endif %}" data-blog-back="{% for tab in blogTabs %}{{ tab.url }}{% if not loop.last %} {% endif %}{% endfor %}">← Atrás</a>
+      <nav class="blog-toc" aria-labelledby="blog-toc-title" hidden>
+        <p class="blog-toc__title" id="blog-toc-title">En este artículo</p>
+        <ol class="blog-toc__list" data-toc-list></ol>
+      </nav>
+    </aside>
+
+    <article class="blog-post">
+      <h1 class="section__title">{{ title }}</h1>
+      <p class="section__lead"><time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time></p>
+      <div class="blog-post__body">
+        {{ content | safe }}
+      </div>
+    </article>
+
+    <aside class="blog-aside blog-aside--right" aria-label="Compartir y artículos relacionados">
+      <div class="blog-related">
+        <p class="blog-related__title">Sigue leyendo</p>
+        <ul class="blog-related__list">
+          {% for post in collections.posts %}
+          {% if post.url != page.url and loop.index <= 4 %}
+          <li class="blog-related__item">
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+            <span class="blog-related__meta">{{ post.data.categoryName }}</span>
+          </li>
+          {% endif %}
+          {% endfor %}
+        </ul>
+        <a class="blog-related__more" href="/blog/">Ver todos los artículos →</a>
+      </div>
+    </aside>
+  </div>
+</section>
+<script src="/js/toc.js" defer></script>
+<script src="/js/blog-back.js" defer></script>

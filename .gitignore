@@ -21,3 +21,9 @@ Thumbs.db
 # Temporales
 tmp/
 temp/
+
+# Sitio generado (Eleventy + build)
+dist/
+
+# Imágenes originales en alta resolución (respaldo local; el sitio usa las versiones optimizadas de public/assets/img/)
+originales/

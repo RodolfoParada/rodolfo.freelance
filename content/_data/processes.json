@@ -1,0 +1,164 @@
+[
+  {
+    "id": "proceso-desarrollo",
+    "title": "Desarrollo web y WordPress",
+    "name": "Proceso de desarrollo web en 5 etapas: del diagnóstico al lanzamiento.",
+    "steps": [
+      {
+        "title": "Diagnóstico y requerimientos",
+        "text": "Reunión inicial para entender a fondo tu negocio, los problemas actuales y definir exactamente qué necesita resolver tu plataforma."
+      },
+      {
+        "title": "Propuesta y cotización",
+        "text": "Alcance claro, plazos por escrito y presupuesto cerrado antes de iniciar el trabajo, sin costos sorpresa ni cobros ocultos."
+      },
+      {
+        "title": "Diseño y desarrollo funcional",
+        "text": "Construcción de la plataforma con avances periódicos que puedes revisar en un entorno de prueba privado."
+      },
+      {
+        "title": "Pruebas, ajustes y validación",
+        "text": "Revisamos juntos los flujos, pagos, formularios y la medición de visitas y conversiones, y hago los ajustes necesarios para dejar todo a punto."
+      },
+      {
+        "title": "Lanzamiento y acompañamiento",
+        "text": "Publicamos tu sitio, te capacito para que lo administres sin depender de nadie y te acompaño con soporte inicial para tu tranquilidad."
+      }
+    ]
+  },
+  {
+    "id": "proceso-auditoria",
+    "title": "Auditoría web, UX y SEO",
+    "name": "Proceso de auditoría y optimización en 5 etapas: del análisis a la mejora medida.",
+    "steps": [
+      {
+        "title": "Accesos y punto de partida",
+        "text": "Reviso tu sitio, Google Search Console y Google Analytics para conocer tu situación actual."
+      },
+      {
+        "title": "Auditoría completa",
+        "text": "Analizo la experiencia de uso, el SEO técnico, la velocidad y la medición para detectar lo que frena tus resultados."
+      },
+      {
+        "title": "Informe y plan de acción",
+        "text": "Te entrego un informe claro con los problemas encontrados, ordenados según su impacto y esfuerzo."
+      },
+      {
+        "title": "Implementación de mejoras",
+        "text": "Aplico las correcciones acordadas en tu sitio actual, sin rehacerlo."
+      },
+      {
+        "title": "Medición y seguimiento",
+        "text": "Comparamos los resultados de antes y después, y te propongo los siguientes pasos."
+      }
+    ]
+  },
+  {
+    "id": "proceso-marketing",
+    "title": "Marketing digital y redes sociales",
+    "name": "Proceso de gestión de marketing en 5 etapas: de la estrategia al reporte mensual.",
+    "steps": [
+      {
+        "title": "Diagnóstico de tu marca",
+        "text": "Reviso tus redes, tus anuncios y tu sitio web, y entiendo a quién le vendes."
+      },
+      {
+        "title": "Plan y calendario de contenidos",
+        "text": "Definimos objetivos, temas, frecuencia de publicación y presupuesto de publicidad."
+      },
+      {
+        "title": "Producción y aprobación",
+        "text": "Preparo los textos y las piezas gráficas, y solo se publican cuando tú los apruebas."
+      },
+      {
+        "title": "Publicación y gestión diaria",
+        "text": "Publico, respondo comentarios y mensajes, y superviso tus campañas en Google Ads y Meta Ads."
+      },
+      {
+        "title": "Reporte y ajustes mensuales",
+        "text": "Te muestro resultados claros cada mes y ajustamos el plan para el mes siguiente."
+      }
+    ]
+  },
+  {
+    "id": "proceso-prospeccion",
+    "title": "Prospección comercial",
+    "name": "Proceso de prospección comercial en 5 etapas: del cliente ideal a la reunión agendada.",
+    "steps": [
+      {
+        "title": "Cliente ideal y mensaje",
+        "text": "Definimos a quién le vendes, quién toma la decisión y qué problema le resuelves."
+      },
+      {
+        "title": "Base de datos de prospectos",
+        "text": "Armo una lista de empresas y contactos que encajan con tu negocio, desde fuentes confiables."
+      },
+      {
+        "title": "Contacto y seguimiento",
+        "text": "Llamadas y correos en frío, con cada contacto registrado y seguido en tu CRM."
+      },
+      {
+        "title": "Calificación y agendamiento",
+        "text": "Confirmo necesidad, poder de decisión, presupuesto y plazos, y agendo la reunión en tu calendario."
+      },
+      {
+        "title": "Traspaso y reporte",
+        "text": "Te entrego la ficha de cada prospecto antes de la reunión y un reporte de actividad y resultados."
+      }
+    ]
+  },
+  {
+    "id": "proceso-atencion",
+    "title": "Atención al cliente",
+    "name": "Proceso de atención al cliente en 5 etapas: de tus canales ordenados a clientes que vuelven.",
+    "steps": [
+      {
+        "title": "Diagnóstico de tus canales",
+        "text": "Reviso por dónde te escriben tus clientes, qué preguntan y cuánto tardas en responder."
+      },
+      {
+        "title": "Protocolos y respuestas",
+        "text": "Definimos tiempos de respuesta, mensajes de bienvenida y respuestas rápidas para las preguntas frecuentes."
+      },
+      {
+        "title": "Configuración de herramientas",
+        "text": "Ordeno WhatsApp Business, el correo y el registro de clientes para que nada se pierda."
+      },
+      {
+        "title": "Atención diaria",
+        "text": "Respondo a tiempo, hago seguimiento y derivo cada reclamo al área que corresponde."
+      },
+      {
+        "title": "Reporte y fidelización",
+        "text": "Te muestro tiempos, consultas y reclamos de cada mes, y mantengo el contacto posventa con tus clientes."
+      }
+    ]
+  },
+  {
+    "id": "proceso-administracion",
+    "title": "Soporte administrativo & e-commerce",
+    "name": "Proceso de soporte administrativo en 5 etapas: del orden inicial al reporte de gestión.",
+    "steps": [
+      {
+        "title": "Levantamiento de tareas",
+        "text": "Identifico qué tareas te quitan más tiempo y cómo se hacen hoy en tu negocio."
+      },
+      {
+        "title": "Accesos y orden inicial",
+        "text": "Recibo accesos de forma segura y ordeno proveedores, facturas, planillas o el catálogo de tu tienda."
+      },
+      {
+        "title": "Rutina de trabajo",
+        "text": "Definimos qué hago cada día, cada semana y cada mes, y cómo te mantengo informado."
+      },
+      {
+        "title": "Ejecución y control",
+        "text": "Cotizo con proveedores, emito órdenes de compra, controlo pagos y mantengo tu tienda online al día."
+      },
+      {
+        "title": "Reporte de gestión",
+        "text": "Te entrego un reporte mensual con compras, pagos, stock e indicadores clave de tu negocio."
+      }
+    ]
+  }
+]

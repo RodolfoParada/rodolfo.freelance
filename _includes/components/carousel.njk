@@ -1,0 +1,23 @@
+{#- Carrusel de tarjetas (css: .svc-carousel; js: public/js/svc-carousel.js).
+    Uso:
+      {% from "components/carousel.njk" import carousel %}
+      {% call carousel({ id: "carrusel-x", label: "Servicios de …", title: "Título", titleId: "ancla" }) %}
+        …tarjetas…
+      {% endcall %}
+    Opciones: title/titleId (h3 sobre el carrusel, opcional), prevLabel/nextLabel (nombre accesible
+    de las flechas), trackClass (clases extra del riel), wrapperClass y wrapperAttrs (atributos extra
+    del contenedor, por ejemplo "data-flows"). La página que lo use debe cargar svc-carousel.js. -#}
+{% macro carousel(opts) %}
+<div class="svc-carousel{% if opts.wrapperClass %} {{ opts.wrapperClass }}{% endif %}" data-carousel{% if opts.wrapperAttrs %} {{ opts.wrapperAttrs }}{% endif %}>
+  {%- if opts.title %}
+  <h3 class="svc-group-title"{% if opts.titleId %} id="{{ opts.titleId }}"{% endif %}>{{ opts.title }}</h3>
+  {%- endif %}
+  <div class="svc-carousel__viewport">
+    <button class="svc-carousel__btn svc-carousel__btn--prev" type="button" data-carousel-prev aria-controls="{{ opts.id }}" aria-label="{{ opts.prevLabel or 'Servicio anterior' }}"><span aria-hidden="true">←</span></button>
+    <button class="svc-carousel__btn svc-carousel__btn--next" type="button" data-carousel-next aria-controls="{{ opts.id }}" aria-label="{{ opts.nextLabel or 'Servicio siguiente' }}"><span aria-hidden="true">→</span></button>
+    <div class="svc-grid svc-carousel__track{% if opts.trackClass %} {{ opts.trackClass }}{% endif %}" id="{{ opts.id }}" role="region" aria-label="{{ opts.label }}" tabindex="0">
+      {{ caller() }}
+    </div>
+  </div>
+</div>
+{% endmacro %}

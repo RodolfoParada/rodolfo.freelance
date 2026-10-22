@@ -18,9 +18,13 @@
         k.attr(host, "lead", "Construyo productos digitales rápidos, seguros y mantenibles.")
       )
     );
-    var devGrid = k.el("div", "grid");
+    var devGrid = k.el("div", "grid svc-carousel__track");
     devGrid.setAttribute("data-cards", "desarrollo");
-    devBlock.appendChild(devGrid);
+    devGrid.id = "carrusel-servicios-desarrollo";
+    devGrid.setAttribute("role", "region");
+    devGrid.setAttribute("aria-label", "Servicios de desarrollo");
+    devGrid.tabIndex = 0;
+    devBlock.appendChild(k.carousel(devGrid));
 
     var mktBlock = k.el("div", "block");
     mktBlock.appendChild(

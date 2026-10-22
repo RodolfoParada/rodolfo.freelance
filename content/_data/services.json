@@ -1,0 +1,229 @@
+{
+  "quote": {
+    "href": "/#contacto",
+    "text": "Cotiza Aquí"
+  },
+  "scopeTitle": "Alcance según requerimiento",
+  "groups": [
+    {
+      "id": "desarrollo-web",
+      "title": "Desarrollo Web y WordPress",
+      "carouselId": "carrusel-desarrollo",
+      "carouselLabel": "Servicios de desarrollo web y WordPress",
+      "cards": [
+        {
+          "title": "Desarrollo web a medida & MVP",
+          "texts": [
+            "Para pymes y emprendedores que necesitan salir rápido al mercado. Creo una plataforma funcional, rápida y escalable, sin código innecesario ni sobrecostos, para que valides tu idea de negocio (un producto mínimo viable o MVP) o vendas desde el primer día."
+          ],
+          "scope": [
+            "Arquitectura y desarrollo a medida",
+            "Diseño funcional y adaptado a celulares",
+            "Integración de pasarelas de pago",
+            "Integración con WhatsApp",
+            "Configuración de Google Analytics 4",
+            "Registro de visitas y conversiones"
+          ],
+          "guide": {
+            "href": "/blog/desarrollo/",
+            "text": "Guía de Desarrollo web"
+          }
+        },
+        {
+          "title": "Sitios web en WordPress",
+          "texts": [
+            "Para profesionales, pymes y empresas de servicios que necesitan mostrar lo que hacen de forma profesional, con un diseño personalizado y fácil de actualizar.",
+            "Te ayuda a aparecer cuando un cliente te busca en Google y a generar confianza frente a tu competencia, con un sitio que tú mismo puedes administrar sin depender de nadie."
+          ],
+          "scope": [
+            "Sitios autoadministrables",
+            "Landing pages",
+            "Plantillas y temas personalizados",
+            "Plugins",
+            "Formularios adaptados a la nueva ley de protección de datos"
+          ],
+          "guide": {
+            "href": "/blog/wordpress/",
+            "text": "Guía de WordPress"
+          }
+        },
+        {
+          "title": "Tiendas online con WooCommerce",
+          "texts": [
+            "Para comercios y pymes que quieren vender sus productos por internet y dejar de atender y cobrar cada pedido a mano por mensajes o transferencias.",
+            "Reúno tu catálogo, tus pagos y tus envíos en una tienda abierta 24/7, lista para vender en Chile y que tú mismo puedes actualizar."
+          ],
+          "scope": [
+            "Tienda online con WooCommerce",
+            "Integración de pasarelas de pago (Webpay, Mercado Pago y otras)",
+            "Catálogo de productos y stock",
+            "Configuración de envíos",
+            "Capacitación para administrarla"
+          ],
+          "guide": {
+            "href": "/blog/wordpress/",
+            "text": "Guía de tiendas online"
+          }
+        },
+        {
+          "title": "Auditoría web, optimización UX y posicionamiento SEO",
+          "texts": [
+            "Para negocios que ya tienen un sitio web o tienda online, pero no logran los resultados esperados: reciben pocas visitas, no aparecen en Google ni en las respuestas de la inteligencia artificial, o tienen tráfico pero la gente se va sin contactar ni comprar.",
+            "Reviso por qué pasa y lo corrijo sin rehacer tu sitio: mejoro tu presencia en buscadores, quito lo que frena a tus visitas, acelero la carga en el celular y dejo métricas claras para que decidas con datos reales."
+          ],
+          "scope": [
+            "Auditoría UX y diseño centrado en el usuario",
+            "Estrategia de SEO técnico y GEO (posicionamiento en buscadores con inteligencia artificial)",
+            "Optimización de la velocidad (Core Web Vitals)",
+            "Analítica web y medición de conversiones",
+            "Plan de acción y mejoras técnicas"
+          ],
+          "guide": {
+            "href": "/blog/marketing/",
+            "text": "Guía de SEO y analítica"
+          }
+        },
+        {
+          "title": "Rediseño, modernización y optimización de sitios web",
+          "texts": [
+            "Para empresas, negocios y profesionales que ya tienen un sitio web, pero se ve anticuado, carga lento, se desordena en el celular o dejó de generar consultas y ventas frente a competidores más modernos.",
+            "Cuando tu sitio ya no se puede mejorar con ajustes, renuevo su imagen para que genere confianza, lo hago rápido y cómodo en el celular, ordeno el camino hacia tus botones de contacto y compra, y dejo una base limpia, segura y fácil de administrar."
+          ],
+          "scope": [
+            "Auditoría y diagnóstico del sitio actual",
+            "Nuevo diseño visual centrado en el usuario",
+            "Diseño adaptado a celulares y mejora de la velocidad",
+            "Reorganización de contenidos y llamados a la acción",
+            "Migración segura, cuidando el SEO y el GEO"
+          ],
+          "guide": {
+            "href": "/blog/desarrollo/",
+            "text": "Guía de Desarrollo web"
+          }
+        }
+      ]
+    },
+    {
+      "id": "soporte-operativo",
+      "title": "Soporte operativo para tu negocio",
+      "carouselId": "carrusel-soporte",
+      "carouselLabel": "Servicios de soporte operativo",
+      "cards": [
+        {
+          "id": "marketing",
+          "tag": "Marketing",
+          "title": "Gestión de redes sociales y contenidos",
+          "texts": [
+            "Para marcas, negocios y profesionales que necesitan perfiles activos, con diseño profesional y atención constante a sus seguidores, pero no tienen tiempo para planificar publicaciones, diseñar piezas ni responder mensajes y comentarios.",
+            "Mantengo tus redes activas y con una imagen coherente, con textos que conectan y piezas gráficas a la medida de tu marca, y respondo a tiempo para que ningún mensaje se convierta en una venta perdida."
+          ],
+          "scope": [
+            "Planificación y redacción de publicaciones",
+            "Diseño gráfico y audiovisual",
+            "Gestión de comunidad: comentarios y mensajes",
+            "Mantenimiento del perfil de marca"
+          ],
+          "guide": {
+            "href": "/blog/marketing/",
+            "text": "Guía de marketing digital"
+          }
+        },
+        {
+          "tag": "Marketing",
+          "title": "Marketing digital, publicidad y canales web",
+          "texts": [
+            "Para pymes y empresas que invierten, o quieren invertir, en anuncios de Google y Meta, y tienen un sitio web que necesita mantenerse al día para captar clientes sin perderlos en el camino.",
+            "Reviso a diario el costo y los resultados de tus campañas, preparo las piezas gráficas de cada promoción y mantengo tu sitio WordPress actualizado y alineado con tus anuncios."
+          ],
+          "scope": [
+            "Supervisión de publicidad en Google Ads y Meta Ads",
+            "Material gráfico para campañas",
+            "Mantenimiento web en WordPress",
+            "Reportes de desempeño"
+          ],
+          "guide": {
+            "href": "/blog/marketing/",
+            "text": "Guía de marketing digital"
+          }
+        },
+        {
+          "id": "prospeccion",
+          "tag": "Ventas",
+          "title": "Prospección de clientes, soporte comercial y SDR remoto",
+          "texts": [
+            "Para empresas B2B, consultores, agencias y equipos de ventas que necesitan reuniones comerciales todas las semanas, pero no tienen el tiempo, el personal o la constancia para prospectar y hacer seguimiento a diario.",
+            "Busco nuevos clientes con llamadas y correos en frío, preparo y sigo tus cotizaciones para que no se enfríen, ordeno cada contacto en tu CRM y analizo a tu competencia."
+          ],
+          "scope": [
+            "Prospección activa de nuevos clientes",
+            "Coordinación y agendamiento de reuniones",
+            "Elaboración y seguimiento de propuestas",
+            "Administración de CRM (por ejemplo, HubSpot)",
+            "Benchmarking de la competencia"
+          ],
+          "guide": {
+            "href": "/blog/prospeccion/",
+            "text": "Guía de prospección comercial"
+          }
+        },
+        {
+          "id": "atencion-cliente",
+          "tag": "Atención al cliente",
+          "title": "Atención al cliente, soporte posventa y fidelización",
+          "texts": [
+            "Para empresas, comercios y pymes que no dan abasto para responder a tiempo y pierden clientes por demoras en sus canales digitales o por falta de seguimiento después de la venta.",
+            "Doy una bienvenida ordenada a tus nuevos clientes, respondo a tiempo por WhatsApp, correo y teléfono, derivo cada reclamo al área que corresponde y mantengo el contacto para que tus clientes vuelvan a comprarte."
+          ],
+          "scope": [
+            "Bienvenida y puesta en marcha de nuevos clientes",
+            "Atención y seguimiento por todos tus canales",
+            "Derivación y resolución de consultas y reclamos",
+            "Campañas de retención y fidelización"
+          ],
+          "guide": {
+            "href": "/blog/atencion-cliente/",
+            "text": "Guía de atención al cliente"
+          }
+        },
+        {
+          "id": "administracion",
+          "tag": "Administración",
+          "title": "Asistente virtual administrativo",
+          "texts": [
+            "Para dueños de pymes y gerencias que pasan demasiado tiempo en tareas administrativas manuales y repetitivas, y necesitan delegar la operación diaria para concentrarse en vender y hacer crecer su empresa.",
+            "Me encargo de cotizar con proveedores y seguir los despachos, ordenar facturas, pagos y presupuestos, y entregarte reportes claros para que sepas cómo va tu negocio."
+          ],
+          "scope": [
+            "Gestión de compras y proveedores",
+            "Control de facturas, pagos y presupuestos",
+            "Seguimiento de despachos y stock",
+            "Reportes y paneles de gestión"
+          ],
+          "guide": {
+            "href": "/blog/administracion-ecommerce/",
+            "text": "Guía de administración"
+          }
+        },
+        {
+          "tag": "E-commerce",
+          "title": "Soporte para tiendas online",
+          "texts": [
+            "Para comercios online que no tienen tiempo de mantener su tienda al día y pierden ventas por productos desactualizados, fichas con errores o pedidos sin seguimiento.",
+            "Mantengo tu catálogo, tus precios y tu stock al día, corrijo las fichas que frenan las compras y dejo funcionando los correos automáticos para que cada cliente sepa en qué va su pedido."
+          ],
+          "scope": [
+            "Carga y actualización de productos",
+            "Fichas, precios, categorías y stock al día",
+            "Correos automáticos de pedidos y bienvenida",
+            "Revisión de pedidos y del proceso de compra"
+          ],
+          "guide": {
+            "href": "/blog/administracion-ecommerce/",
+            "text": "Guía de e-commerce"
+          },
+          "titleNowrap": "(E-Commerce)"
+        }
+      ]
+    }
+  ]
+}

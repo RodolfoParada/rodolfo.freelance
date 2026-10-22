@@ -1,0 +1,68 @@
+<section class="section blog-hub" data-section="blog">
+  <div class="container">
+    <p class="blog-hub__eyebrow">Blog</p>
+    <h1 class="blog-hub__title">Guías prácticas para hacer crecer tu pyme</h1>
+    <p class="blog-hub__lead">Web, marketing, ventas, atención al cliente y administración, para empresas en Chile.</p>
+
+    <nav class="blog-tabs" aria-label="Categorías del blog">
+      {% for tab in blogTabs %}
+      <a class="blog-tab{% if tab.slug == activeTab %} is-active{% endif %}" href="{{ tab.url }}"{% if tab.slug == activeTab %} aria-current="page"{% endif %}>{{ tab.name }}</a>
+      {% endfor %}
+    </nav>
+
+    {% if pagination.pageNumber == 0 %}
+      {% set gridItems = chunk.items.slice(1) %}
+    {% else %}
+      {% set gridItems = chunk.items %}
+    {% endif %}
+
+    {% if chunk.items[0] and pagination.pageNumber == 0 %}
+    <article class="blog-featured">
+      <div class="blog-featured__media"{% if not chunk.items[0].data.image %} aria-hidden="true"{% endif %}>
+        {% if tabImage %}
+        <img class="blog-featured__image" src="{{ tabImage }}" alt="{{ tabImageAlt }}" width="1200" height="675" loading="eager">
+        {% elif chunk.items[0].data.image %}
+        <img class="blog-featured__image" src="{{ chunk.items[0].data.image }}" alt="{{ chunk.items[0].data.imageAlt }}" width="1200" height="675" loading="eager">
+        {% else %}
+        <span>{{ chunk.items[0].data.categoryName }}</span>
+        {% endif %}
+      </div>
+      <div class="blog-featured__body">
+        <p class="blog-card__category">{{ chunk.items[0].data.categoryName }}</p>
+        <h2 class="blog-featured__title"><a href="{{ chunk.items[0].url }}">{{ chunk.items[0].data.title }}</a></h2>
+        <p class="blog-card__text">{{ chunk.items[0].data.description }}</p>
+        <a class="blog-featured__link" href="{{ chunk.items[0].url }}">Leer artículo →</a>
+      </div>
+    </article>
+    {% endif %}
+
+    {% if not chunk.items[0] %}
+    <p class="section__lead">Próximamente.</p>
+    {% else %}
+    <ul class="blog-grid">
+      {% for post in gridItems %}
+      {% if post %}
+      <li class="blog-card">
+        <p class="blog-card__category">{{ post.data.categoryName }}</p>
+        <h3 class="blog-card__title"><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+        <p class="blog-card__text">{{ post.data.description }}</p>
+        <time class="blog-card__date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+        <a class="blog-card__link" href="{{ post.url }}">Leer artículo →</a>
+      </li>
+      {% endif %}
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    <pagination-nav current="{{ pagination.pageNumber + 1 }}" total="{{ pagination.pages.length }}" first="{{ firstUrl }}" base="{{ pageBase }}" suffix="/"></pagination-nav>
+
+    <div class="blog-cta">
+      <div>
+        <h2 class="blog-cta__title">¿Conversamos sobre tu negocio?</h2>
+        <p class="blog-cta__text">Escríbeme y coordinemos una reunión breve para revisar qué necesita tu empresa.</p>
+        <a class="btn btn--primary blog-cta__action" href="/#contacto">Agenda tu reunión</a>
+      </div>
+      <a class="btn btn--primary" href="/como-trabajo/">Conoce mis servicios</a>
+    </div>
+  </div>
+</section>

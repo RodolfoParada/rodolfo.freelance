@@ -1,0 +1,75 @@
+[
+  {
+    "group": "Desarrollo web",
+    "items": [
+      {
+        "name": "WordPress",
+        "text": "Sitios que tú mismo puedes administrar."
+      },
+      {
+        "name": "WooCommerce",
+        "text": "Tiendas online listas para vender en Chile."
+      },
+      {
+        "name": "Node.js",
+        "text": "Sitios y aplicaciones a medida, integraciones y APIs."
+      }
+    ]
+  },
+  {
+    "group": "Medición y SEO",
+    "items": [
+      {
+        "name": "Google Analytics 4",
+        "text": "Visitas, origen del tráfico y conversiones."
+      },
+      {
+        "name": "Google Search Console",
+        "text": "Cómo te ve Google y en qué búsquedas apareces."
+      },
+      {
+        "name": "Microsoft Clarity",
+        "text": "Mapas de calor y grabaciones de visitas."
+      }
+    ]
+  },
+  {
+    "group": "Marketing",
+    "items": [
+      {
+        "name": "Google Ads",
+        "text": "Anuncios en el buscador de Google."
+      },
+      {
+        "name": "Meta Ads",
+        "text": "Anuncios en Facebook e Instagram."
+      }
+    ]
+  },
+  {
+    "group": "Ventas y atención",
+    "items": [
+      {
+        "name": "HubSpot",
+        "text": "CRM para ordenar prospectos, clientes y seguimientos."
+      },
+      {
+        "name": "WhatsApp Business",
+        "text": "Atención rápida con horarios, etiquetas y respuestas rápidas."
+      }
+    ]
+  },
+  {
+    "group": "Operación",
+    "items": [
+      {
+        "name": "Google Workspace",
+        "text": "Correo con tu dominio, documentos y Google Meet."
+      },
+      {
+        "name": "Webpay y Mercado Pago",
+        "text": "Pagos en línea para tu sitio o tienda."
+      }
+    ]
+  }
+]
