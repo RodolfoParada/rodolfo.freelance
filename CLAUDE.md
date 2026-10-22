@@ -33,7 +33,7 @@ rodolfofreelance/
 │   ├── base.njk                   # <head> (título, descripción, canonical, Open Graph), header y footer
 │   ├── blog-listing.njk           # Portada de cada pestaña: título, pestañas, destacado, grilla, paginación
 │   └── post.njk                   # Artículo: botón Atrás, índice lateral, cuerpo y "Sigue leyendo"
-├── eleventy.config.js             # Colecciones, filtros de fecha, shortcode {% blogCta %} y copia de public/ a dist/
+├── eleventy.config.js             # Colecciones, filtros de fecha, shortcode {% blogCta %}, transform de enlaces externos y copia de public/ a dist/
 ├── plugins/sitemap.js             # Genera dist/sitemap.xml en cada build
 ├── scripts/                       # build-css.js (une el CSS en app.css) y build-js.js (minifica main.js)
 ├── netlify/functions/server.js    # La API Express como función de Netlify (/api/*)
@@ -177,7 +177,38 @@ El blog vive en `content/` y se genera en `dist/`. Está dirigido a **pymes chil
   {% blogCta "Pregunta que conecte con el problema del artículo", "Qué haces tú por el lector, en una o dos frases." %}
   ```
   Por defecto el botón es **Agenda tu reunión** a `/#contacto`. Para otro botón: `{% blogCta "Título", "Texto", "Conoce cómo trabajo", "/como-trabajo/" %}`. No uses comillas dobles dentro de los textos.
-- **Enlaces internos:** cada artículo enlaza a 2 o 3 artículos relacionados con `[texto](/blog/<slug>/)`. Verifica que el slug exista.
+- **Enlaces** (ver [Enlaces en los artículos](#enlaces-en-los-artículos)): 2 a 4 enlaces a otras guías, enlaces oficiales donde se cite una norma u organismo, y ningún artículo sin enlaces de otros.
+
+### Enlaces en los artículos
+
+**Internos (a otras guías del blog):**
+- Cada artículo enlaza **2 a 4 guías relacionadas** con `[texto descriptivo](/blog/<slug>/)`, en el lugar donde aportan o en un párrafo justo antes de `## En resumen` («en *[guía]* te explico…»). Nunca «aquí» ni «este artículo».
+- **Ningún artículo huérfano:** cada artículo debe recibir al menos un enlace desde otro artículo. Al publicar uno nuevo, agrega también un enlace hacia él desde 1 o 2 artículos del mismo tema.
+- Verifica que cada slug exista (`content/blog/posts/<slug>.md`) y, después del build, que no haya enlaces rotos.
+
+**Externos (fuentes oficiales):** solo donde respaldan una afirmación (una ley, un plazo, una obligación o una herramienta que le pides usar al lector).
+- En la **primera mención** de cada fuente en el artículo, una vez por artículo; nunca en títulos, diagramas ni en el CTA. El texto del enlace es el nombre de la fuente («Ley 21.719», «NIC Chile»).
+- Antes de agregar una dirección nueva, ábrela y confirma que existe y que apunta a lo correcto (en BCN, que el `idNorma` corresponda a la ley).
+- Direcciones verificadas en uso:
+
+  | Fuente | Dirección |
+  |---|---|
+  | Ley 21.131 (pago a 30 días) | `https://www.bcn.cl/leychile/navegar?idNorma=1127890` |
+  | Ley 21.719 (datos personales) | `https://www.bcn.cl/leychile/navegar?idNorma=1209272` |
+  | SII: plazo de 8 días para reclamar una factura | `https://www.sii.cl/preguntas_frecuentes/factura_electronica/001_003_6914.htm` |
+  | SERNAC | `https://www.sernac.cl/portal/617/w3-channel.html` |
+  | NIC Chile | `https://nic.cl/` |
+  | Previred | `https://www.previred.com/` |
+  | Google Search Console | `https://search.google.com/search-console/about` |
+  | PageSpeed Insights | `https://pagespeed.web.dev/` |
+  | Perfil de Empresa en Google | `https://business.google.com/es-all/business-profile/` |
+  | Microsoft Clarity | `https://clarity.microsoft.com/` |
+
+- El plazo para reclamar una factura es de **8 días corridos desde que la factura llega al SII** (no desde que el comprador la recibe).
+
+**Comportamiento automático (no hay que hacer nada en el `.md`):**
+- El transform `external-links` de `eleventy.config.js` agrega a todo enlace a otro dominio `target="_blank" rel="noopener noreferrer"` y un texto oculto `<span class="visually-hidden"> (se abre en una pestaña nueva)</span>`. El CSS le pone la marca **↗**. Los enlaces internos se abren en la misma pestaña.
+- Los enlaces del cuerpo (`.blog-post__body a:not(.btn)`) se ven azules, en negrita media y subrayados (`reset.css` deja los enlaces como texto normal); al pasar el mouse pasan al azul oscuro.
 
 ### Componentes para artículos (en `styles.css`)
 
@@ -225,6 +256,10 @@ Los diagramas se dibujan como SVG dentro del `.md`, envueltos en `<figure>` con 
 - Si la imagen original tiene otra proporción (por ejemplo 1536 × 1024), **no la recortes si pierde contenido**: ajústala completa al alto de 675 px, céntrala y rellena los costados con la misma imagen desenfocada y algo oscurecida.
 - Guarda el original en `originales/<nombre>-original.webp`. Esa carpeta está en `.gitignore`: no se publica ni se sube a GitHub, así que es solo un respaldo local (respáldala también fuera del proyecto si la necesitas).
 - **Nombres de archivo:** minúsculas, palabras separadas por guion, sin espacios, tildes, `ñ`, `&` ni guion bajo (`atencion-cliente.webp`). Netlify distingue mayúsculas de minúsculas.
+
+### Columna «Sigue leyendo»
+
+Cada artículo de `.blog-related__item` es un cuadro clicable completo (el enlace se extiende con `::after`). Al pasar el mouse o con foco muestra borde `--color-primary-dark` y fondo blanco (`--color-surface` en modo oscuro). Usa márgenes negativos para que el texto no se mueva.
 
 ### SEO
 

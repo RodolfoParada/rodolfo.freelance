@@ -20,6 +20,17 @@ module.exports = function (eleventyConfig) {
   );
   eleventyConfig.addFilter("htmlDateString", (date) => new Date(date).toISOString().slice(0, 10));
 
+  /* Enlaces externos (a otro dominio): se abren en una pestaña nueva, de forma segura (noopener)
+     y avisando a los lectores de pantalla. Los enlaces al propio sitio no cambian. */
+  eleventyConfig.addTransform("external-links", function (content) {
+    if (!(this.page.outputPath || "").endsWith(".html")) return content;
+    return content.replace(
+      /<a href="(https?:\/\/(?!(?:www\.)?rodolfofreelance\.cl)[^"]+)"((?:(?!target=)[^>])*)>([\s\S]*?)<\/a>/g,
+      (match, href, attrs, text) =>
+        `<a href="${href}"${attrs} target="_blank" rel="noopener noreferrer">${text}<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>`
+    );
+  });
+
   /* Bloque CTA del final de cada artículo. Uso en un .md:
        {% blogCta "Título", "Texto" %}                                     → botón "Agenda tu reunión" a /#contacto
        {% blogCta "Título", "Texto", "Conoce cómo trabajo", "/como-trabajo/" %} → botón y enlace propios */

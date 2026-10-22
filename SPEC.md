@@ -153,7 +153,7 @@ Blog de guías prácticas para **pymes chilenas**, generado con Eleventy desde `
 - Diseño en 3 columnas en escritorio, 2 en tablet y 1 en móvil:
   - **Izquierda:** botón **← Atrás** e índice *En este artículo*, generado por `toc.js` a partir de los `##`, que marca la sección que se está leyendo.
   - **Centro:** título (`<h1>`), fecha (*21 de octubre de 2026*) y cuerpo.
-  - **Derecha:** *Sigue leyendo*, con los 4 artículos más recientes, y *Ver todos los artículos →*.
+  - **Derecha:** *Sigue leyendo*, con los 4 artículos más recientes, y *Ver todos los artículos →*. Cada artículo es un cuadro clicable que, al pasar el mouse o con foco, se marca con borde azul oscuro (`--color-primary-dark`) y fondo blanco.
 - **Botón ← Atrás** (`blog-back.js`):
   - Si el lector llegó desde una pestaña del blog (o una de sus páginas), vuelve exactamente a esa pestaña y página.
   - En cualquier otro caso (Google, enlace directo u otro artículo), va a la pestaña de la categoría del artículo.
@@ -175,7 +175,10 @@ Blog de guías prácticas para **pymes chilenas**, generado con Eleventy desde `
 - **Tono:** cercano, en tuteo, frases cortas, ejemplos chilenos, términos técnicos explicados; sin promesas absolutas ni cifras sin fuente.
 - **Exactitud:** la información debe ser real y vigente, en especial la normativa chilena (SII, Ley 21.131, Ley 21.719, SERNAC) y las funciones de las herramientas. Los datos de ejemplo son ficticios y evidentes.
 - **Un tema, una pestaña:** no se duplica un mismo artículo en dos pestañas.
-- **Enlaces:** cada artículo enlaza a 2 o 3 artículos relacionados del blog.
+- **Enlaces internos:** cada artículo enlaza a 2–4 guías relacionadas con texto descriptivo, y cada artículo recibe al menos un enlace desde otro (ningún artículo huérfano). Estado actual: promedio de 2,1 enlaces internos por artículo, 0 artículos sin enlaces y 0 huérfanos.
+- **Enlaces oficiales:** donde un artículo cita una norma, un plazo legal o una herramienta, enlaza a la fuente oficial en su primera mención: Ley 21.131 y Ley 21.719 (BCN), SII (plazo de 8 días corridos desde que la factura llega al SII para reclamarla), SERNAC, NIC Chile, Previred, Google Search Console, PageSpeed Insights, Perfil de Empresa en Google y Microsoft Clarity (26 enlaces en total). Las direcciones se verifican antes de publicarlas.
+- **Aspecto de los enlaces del texto:** azules, subrayados y en negrita media; al pasar el mouse, azul oscuro con subrayado más grueso; contorno visible con el teclado.
+- **Enlaces externos:** se abren en una pestaña nueva con `rel="noopener noreferrer"`, muestran la marca **↗** y avisan a los lectores de pantalla con un texto oculto («se abre en una pestaña nueva»). Lo aplica automáticamente el transform `external-links` de Eleventy en todas las páginas. Los enlaces internos se abren en la misma pestaña.
 
 #### 3.6.5 SEO del blog
 - **Pestañas:**
@@ -271,7 +274,7 @@ Página de servicios generada con Eleventy (`content/como-trabajo/index.njk`). C
 ## 4. Requisitos no funcionales
 
 - **Responsive**: usable desde 320 px hasta escritorio amplio (`1650px` de contenedor máximo).
-- **Accesibilidad**: landmarks, `aria-*` con roles válidos (paneles de pestañas en `div`, no en `article`), contraste mínimo de 4,5:1 (el texto secundario en modo claro es `#4A6679`), botones reales para girar las tarjetas (`Enter`/`Space` sobre la flecha), pestañas (`ArrowLeft`/`ArrowRight`), acordeones (`aria-expanded` o `<details>` nativo), carruseles con botones con nombre y región con nombre, skip-link, área táctil mínima de 44 px en los botones de giro y respeto a `prefers-reduced-motion`.
+- **Accesibilidad**: landmarks, `aria-*` con roles válidos (paneles de pestañas en `div`, no en `article`), contraste mínimo de 4,5:1 (el texto secundario en modo claro es `#4A6679`), botones reales para girar las tarjetas (`Enter`/`Space` sobre la flecha), pestañas (`ArrowLeft`/`ArrowRight`), acordeones (`aria-expanded` o `<details>` nativo), carruseles con botones con nombre y región con nombre, enlaces distinguibles por algo más que el color (subrayado), aviso de pestaña nueva en enlaces externos (texto `.visually-hidden`), skip-link, área táctil mínima de 44 px en los botones de giro y respeto a `prefers-reduced-motion`.
 - **Giro de tarjetas**: solo el botón de flecha gira la tarjeta. No hay giro por hover ni por clic en el resto de la tarjeta, y las tarjetas no reciben foco de tabulación.
 - **Rendimiento**: sin dependencias de frontend ni bundlers. Los scripts de componentes, `kit.js`, `data.js` y `main.js` se cargan con `defer` (no bloquean el render). Solo `theme.js` es síncrono, para evitar que el tema parpadee. Las hojas de estilo son bloqueantes, y es intencional para no mostrar la página sin estilos. El CSS se sirve en un solo archivo (`app.css`, generado por `npm run build:css`) y `main.js` minificado (`main.min.js`). Las portadas del blog pesan menos de ~110 KB cada una. Los carruseles y acordeones usan CSS nativo (`scroll-snap`, `<details>`) y scripts pequeños externos (`svc-carousel.js`, `svc-flows.js`).
 - **Token CSRF**: no se pide al cargar la página. Solo se pide justo antes de cada envío del formulario.

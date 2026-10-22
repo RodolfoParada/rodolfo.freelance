@@ -4422,6 +4422,28 @@ netlify-drawer,
   gap: var(--space-md);
 }
 
+/* "Sigue leyendo": cada artículo es un cuadro que se marca con borde azul oscuro y fondo blanco
+   al pasar el mouse o con foco. Los márgenes negativos mantienen el texto alineado con el título. */
+.blog-related__item {
+  position: relative;
+  margin-inline: calc(-1 * var(--space-sm));
+  padding: var(--space-sm);
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  transition: border-color var(--transition), background-color var(--transition);
+}
+
+.blog-related__item:hover,
+.blog-related__item:focus-within {
+  border-color: var(--color-primary-dark);
+  background: #FFFFFF;
+}
+
+:root[data-theme="dark"] .blog-related__item:hover,
+:root[data-theme="dark"] .blog-related__item:focus-within {
+  background: var(--color-surface);
+}
+
 .blog-related__item a {
   color: var(--color-heading);
   font-size: var(--font-size-sm);
@@ -4430,8 +4452,26 @@ netlify-drawer,
   text-decoration: none;
 }
 
+/* Todo el cuadro es clicable: el enlace se extiende sobre el elemento. */
+.blog-related__item a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+}
+
 .blog-related__item a:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
+}
+
+.blog-related__item a:focus-visible {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-related__item {
+    transition: none;
+  }
 }
 
 .blog-related__meta {
@@ -4513,6 +4553,47 @@ netlify-drawer,
   font-weight: 800;
   color: var(--color-heading);
   scroll-margin-top: calc(var(--header-height) + var(--space-lg));
+}
+
+/* Enlaces dentro del texto de los artículos: azul y subrayados para que se distingan del texto
+   (reset.css los deja como texto normal). Excluye los botones, como el del bloque CTA. */
+.blog-post__body a:not(.btn) {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  transition: color var(--transition), text-decoration-thickness var(--transition);
+}
+
+.blog-post__body a:not(.btn):hover {
+  color: var(--color-primary-dark);
+  text-decoration-thickness: 2px;
+}
+
+/* Marca de enlace externo (se abre en una pestaña nueva; lo agrega eleventy.config.js). */
+.blog-post__body a[target="_blank"]::after {
+  content: "\2009\2197";
+  font-weight: 400;
+}
+
+.blog-post__body a:not(.btn):focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Texto solo para lectores de pantalla (no se ve, pero se lee). */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Bloques de código en los artículos: desplazamiento horizontal propio para no desbordar en móvil. */
