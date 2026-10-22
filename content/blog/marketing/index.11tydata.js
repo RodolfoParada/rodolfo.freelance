@@ -2,11 +2,14 @@
 
 /* Pestaña "Marketing Digital": primera página con destacado y dos filas de tres tarjetas; el resto de páginas, dos filas de tres. */
 
+const tab = require("../../_data/blogTabs.json").find((t) => t.slug === "marketing");
+
 module.exports = {
   layout: "base.njk",
   activeTab: "marketing",
-  tabImage: "/assets/img/marketing-banner.webp",
-  tabImageAlt: "Ilustración de marketing digital",
+  /* Imagen de portada: se define en content/_data/blogTabs.json. */
+  tabImage: tab.image,
+  tabImageAlt: tab.imageAlt,
   firstUrl: "/blog/marketing/",
   pageBase: "/blog/marketing/pagina/",
   pagination: {

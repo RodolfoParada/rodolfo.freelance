@@ -2,11 +2,14 @@
 
 /* Pestaña "Atención al Cliente": primera página con destacado y dos filas de tres tarjetas; el resto de páginas, dos filas de tres. */
 
+const tab = require("../../_data/blogTabs.json").find((t) => t.slug === "atencion-cliente");
+
 module.exports = {
   layout: "base.njk",
   activeTab: "atencion-cliente",
-  tabImage: "/assets/img/atencion-cliente.webp",
-  tabImageAlt: "Ejecutiva de atención al cliente con audífonos hablando por teléfono y tomando notas en su escritorio",
+  /* Imagen de portada: se define en content/_data/blogTabs.json. */
+  tabImage: tab.image,
+  tabImageAlt: tab.imageAlt,
   firstUrl: "/blog/atencion-cliente/",
   pageBase: "/blog/atencion-cliente/pagina/",
   pagination: {

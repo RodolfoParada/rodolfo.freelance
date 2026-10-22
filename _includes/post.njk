@@ -22,17 +22,19 @@ layout: base.njk
     <aside class="blog-aside blog-aside--right" aria-label="Compartir y artículos relacionados">
       <div class="blog-related">
         <p class="blog-related__title">Sigue leyendo</p>
+        {%- set topic = tags[0] if tags else "" %}
         <ul class="blog-related__list">
-          {% for post in collections.posts %}
-          {% if post.url != page.url and loop.index <= 4 %}
+          {%- for post in collections.posts | relatedPosts(page.url, topic, 4) %}
           <li class="blog-related__item">
             <a href="{{ post.url }}">{{ post.data.title }}</a>
             <span class="blog-related__meta">{{ post.data.categoryName }}</span>
           </li>
-          {% endif %}
-          {% endfor %}
+          {%- endfor %}
         </ul>
-        <a class="blog-related__more" href="/blog/">Ver todos los artículos →</a>
+        {%- if topic %}
+        <a class="blog-related__more" href="/blog/{{ topic }}/">Ver todo {{ categoryName }} →</a>
+        {%- endif %}
+        <a class="blog-related__more blog-related__more--all" href="/blog/">Ver todo el blog →</a>
       </div>
     </aside>
   </div>

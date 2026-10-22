@@ -134,8 +134,14 @@ Blog de guías prácticas para **pymes chilenas**, generado con Eleventy desde `
   - Botón **Agenda tu reunión** (a `/#contacto`) debajo del texto, y botón **Conoce mis servicios** (a `/como-trabajo/`) a la derecha.
 - Los artículos se ordenan por fecha y hora (`date`), del más reciente al más antiguo.
 
+#### 3.6.1.1 Cambio de pestaña fluido
+- El menú superior y el pie de página vienen en el HTML de cada página del blog y de *Cómo trabajo* (copias estáticas idénticas a lo que dibujan los componentes), así no hay parpadeo mientras carga el JavaScript, y Google ve esos enlaces desde el inicio.
+- Transición suave entre páginas del sitio (View Transitions): el menú y las pestañas quedan fijos y el contenido se funde. Sin efecto en navegadores sin soporte o con movimiento reducido.
+- La portada de cada pestaña se precarga con prioridad alta; las portadas de las demás pestañas se precargan cuando el navegador está libre, y la página de una pestaña al pasar el mouse sobre ella.
+- En Netlify, las imágenes se guardan en la caché del navegador 7 días y las fuentes 1 año.
+
 #### 3.6.2 Imágenes de portada
-- Una imagen por pestaña (`tabImage` + `tabImageAlt`), WebP de **1200 × 675 px** (16:9), menos de ~110 KB, en `public/assets/img/`, con nombre en minúsculas y guiones.
+- Una imagen por pestaña (`image` + `imageAlt` en `blogTabs.json`), WebP de **1200 × 675 px** (16:9), menos de ~110 KB, en `public/assets/img/`, con nombre en minúsculas y guiones.
 - Se muestra completa (`object-fit: contain`) sobre fondo azul oscuro. Si el original tiene otra proporción, se ajusta completo y se rellenan los costados con la misma imagen desenfocada (sin recortar contenido).
 - Los originales en alta resolución se guardan en `originales/` como respaldo local: la carpeta está en `.gitignore`, así que no se publica ni se sube al repositorio.
 
@@ -153,7 +159,7 @@ Blog de guías prácticas para **pymes chilenas**, generado con Eleventy desde `
 - Diseño en 3 columnas en escritorio, 2 en tablet y 1 en móvil:
   - **Izquierda:** botón **← Atrás** e índice *En este artículo*, generado por `toc.js` a partir de los `##`, que marca la sección que se está leyendo.
   - **Centro:** título (`<h1>`), fecha (*21 de octubre de 2026*) y cuerpo.
-  - **Derecha:** *Sigue leyendo*, con los 4 artículos más recientes, y *Ver todos los artículos →*. Cada artículo es un cuadro clicable que, al pasar el mouse o con foco, se marca con borde azul oscuro (`--color-primary-dark`) y fondo blanco.
+  - **Derecha:** *Sigue leyendo*, siempre con 4 artículos: los más recientes **del mismo tema** (sin el actual), completando con otros temas si faltan. Debajo, **Ver todo <tema> →** (pestaña paginada del tema) y **Ver todo el blog →**. Así el lector puede llegar a todos los artículos aunque el blog crezca. Cada artículo es un cuadro clicable que, al pasar el mouse o con foco, se marca con borde azul oscuro (`--color-primary-dark`) y fondo blanco.
 - **Botón ← Atrás** (`blog-back.js`):
   - Si el lector llegó desde una pestaña del blog (o una de sus páginas), vuelve exactamente a esa pestaña y página.
   - En cualquier otro caso (Google, enlace directo u otro artículo), va a la pestaña de la categoría del artículo.
@@ -280,7 +286,7 @@ Página de servicios generada con Eleventy (`content/como-trabajo/index.njk`). C
 - **Token CSRF**: no se pide al cargar la página. Solo se pide justo antes de cada envío del formulario.
 - **Privacidad**: tipografía y recursos autoalojados. Medición con Google Tag Manager, Google Analytics 4 y Microsoft Clarity, declarada en la sección 5.2 de la Política de Privacidad (cookies `_ga`, `_ga_<ID>`, `_clck`, `_clsk`).
 - **Mantenibilidad**: datos separados (`data.js`), tokens de diseño en `variables.css`, componentes modulares en `js/components/`. En el blog, las pestañas se definen en un solo archivo (`blogTabs.json`), los datos del sitio en `site.json` y cada artículo es un `.md` independiente con el CTA final como shortcode (`blogCta`). En *Cómo trabajo*, el contenido está en archivos de datos (`services.json`, `processes.json`, `tools.json`) y el HTML en componentes reutilizables (`_includes/components/`). En la portada, el carrusel es un helper del kit compartido (`RFKIT.carousel`).
-- **Despliegue (Netlify)**: `npm run build` (CSS + JS + Eleventy) publica `dist/`; `/api/*` se deriva a la función `netlify/functions/server.js`. Antes de publicar se verifica que no haya enlaces rotos, diferencias de mayúsculas/minúsculas en rutas (Netlify las distingue), estilos ni scripts en línea (CSP) ni `id` duplicados.
+- **Despliegue (Netlify)**: `npm run build` (CSS + JS + Eleventy) publica `dist/`; `/api/*` se deriva a la función `netlify/functions/server.js`. Todo archivo nuevo que use el sitio (componentes, partials, datos, scripts, imágenes) debe estar en git: Netlify construye desde GitHub. Antes de publicar se verifica que no haya enlaces rotos, diferencias de mayúsculas/minúsculas en rutas (Netlify las distingue), estilos ni scripts en línea (CSP) ni `id` duplicados.
 
 ---
 

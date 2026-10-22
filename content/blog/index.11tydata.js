@@ -2,11 +2,14 @@
 
 /* Pestaña "Todos": primera página con destacado y dos filas de tres tarjetas; el resto de páginas, dos filas de tres. */
 
+const tab = require("../_data/blogTabs.json").find((t) => t.slug === "todos");
+
 module.exports = {
   layout: "base.njk",
   activeTab: "todos",
-  tabImage: "/assets/img/todo.webp",
-  tabImageAlt: "Profesional trabajando frente a varias pantallas con desarrollo web, marketing digital, atención al cliente y una tienda online",
+  /* Imagen de portada: se define en content/_data/blogTabs.json. */
+  tabImage: tab.image,
+  tabImageAlt: tab.imageAlt,
   firstUrl: "/blog/",
   pageBase: "/blog/pagina/",
   pagination: {
