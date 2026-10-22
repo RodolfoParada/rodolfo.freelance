@@ -2,11 +2,14 @@
 
 /* Pestaña "Administración & E-Commerce": primera página con destacado y dos filas de tres tarjetas; el resto de páginas, dos filas de tres. */
 
+const tab = require("../../_data/blogTabs.json").find((t) => t.slug === "administracion-ecommerce");
+
 module.exports = {
   layout: "base.njk",
   activeTab: "administracion-ecommerce",
-  tabImage: "/assets/img/soporte-ecommerce.webp",
-  tabImageAlt: "Profesional revisando en su computador un panel de ventas, compras y tienda online, con cajas de despacho en el escritorio",
+  /* Imagen de portada: se define en content/_data/blogTabs.json. */
+  tabImage: tab.image,
+  tabImageAlt: tab.imageAlt,
   firstUrl: "/blog/administracion-ecommerce/",
   pageBase: "/blog/administracion-ecommerce/pagina/",
   pagination: {

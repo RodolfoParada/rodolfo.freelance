@@ -2,11 +2,14 @@
 
 /* Pestaña "WordPress": primera página con destacado y dos filas de tres tarjetas; el resto de páginas, dos filas de tres. */
 
+const tab = require("../../_data/blogTabs.json").find((t) => t.slug === "wordpress");
+
 module.exports = {
   layout: "base.njk",
   activeTab: "wordpress",
-  tabImage: "/assets/img/wordpress-orbita.webp",
-  tabImageAlt: "Logo de WordPress con planetas girando a su alrededor",
+  /* Imagen de portada: se define en content/_data/blogTabs.json. */
+  tabImage: tab.image,
+  tabImageAlt: tab.imageAlt,
   firstUrl: "/blog/wordpress/",
   pageBase: "/blog/wordpress/pagina/",
   pagination: {

@@ -2,11 +2,14 @@
 
 /* Pestaña "Desarrollo WEB": primera página con destacado y dos filas de tres tarjetas; el resto de páginas, dos filas de tres. */
 
+const tab = require("../../_data/blogTabs.json").find((t) => t.slug === "desarrollo");
+
 module.exports = {
   layout: "base.njk",
   activeTab: "desarrollo",
-  tabImage: "/assets/img/desarrollo-banner.webp",
-  tabImageAlt: "Nave espacial con el símbolo de código sobre la Tierra",
+  /* Imagen de portada: se define en content/_data/blogTabs.json. */
+  tabImage: tab.image,
+  tabImageAlt: tab.imageAlt,
   firstUrl: "/blog/desarrollo/",
   pageBase: "/blog/desarrollo/pagina/",
   pagination: {

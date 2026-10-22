@@ -4327,6 +4327,27 @@ netlify-drawer,
   }
 }
 
+/* Transición suave entre páginas del mismo sitio (View Transitions entre documentos).
+   El navegador funde la página anterior con la nueva en vez de pestañear. Navegadores sin soporte navegan igual. */
+@view-transition {
+  navigation: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition {
+    navigation: none;
+  }
+}
+
+/* El encabezado y las pestañas se quedan fijos durante la transición (solo cambia el contenido). */
+.site-header {
+  view-transition-name: site-header;
+}
+
+.blog-hub .blog-tabs {
+  view-transition-name: blog-tabs;
+}
+
 /* Imagen del artículo destacado: se muestra completa (sin recortar) */
 .blog-featured__media:has(.blog-featured__image) {
   padding: 0;
@@ -4482,12 +4503,23 @@ netlify-drawer,
 }
 
 .blog-related__more {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   margin-top: var(--space-md);
   color: var(--color-primary);
   font-size: var(--font-size-sm);
   font-weight: 700;
   text-decoration: none;
+}
+
+.blog-related__more:hover {
+  text-decoration: underline;
+}
+
+/* Enlace secundario al blog completo, debajo del enlace al tema. */
+.blog-related__more--all {
+  margin-top: var(--space-xs);
+  font-weight: 600;
 }
 
 .blog-toc {

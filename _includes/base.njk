@@ -32,16 +32,19 @@
   <script src="/js/main.min.js" defer></script>
   <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/css/app.css">
+  {%- if tabImage and pagination and pagination.pageNumber == 0 %}
+  <link rel="preload" as="image" href="{{ tabImage }}" fetchpriority="high">
+  {%- endif %}
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar al contenido</a>
 
-  <site-header></site-header>
+  <site-header>{% include "partials/site-header.njk" %}</site-header>
 
   <main id="main">
     {{ content | safe }}
   </main>
 
-  <site-footer></site-footer>
+  <site-footer>{% include "partials/site-footer.njk" %}</site-footer>
 </body>
 </html>

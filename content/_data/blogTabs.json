@@ -1,9 +1,9 @@
 [
-  { "slug": "todos", "name": "Todos", "url": "/blog/" },
-  { "slug": "wordpress", "name": "WordPress", "url": "/blog/wordpress/" },
-  { "slug": "desarrollo", "name": "Desarrollo WEB", "url": "/blog/desarrollo/" },
-  { "slug": "marketing", "name": "Marketing Digital", "url": "/blog/marketing/" },
-  { "slug": "prospeccion", "name": "Prospección Comercial", "url": "/blog/prospeccion/" },
-  { "slug": "atencion-cliente", "name": "Atención al Cliente", "url": "/blog/atencion-cliente/" },
-  { "slug": "administracion-ecommerce", "name": "Administración & E-Commerce", "url": "/blog/administracion-ecommerce/" }
+  {"slug": "todos", "name": "Todos", "url": "/blog/", "image": "/assets/img/todo.webp", "imageAlt": "Profesional trabajando frente a varias pantallas con desarrollo web, marketing digital, atención al cliente y una tienda online"},
+  {"slug": "wordpress", "name": "WordPress", "url": "/blog/wordpress/", "image": "/assets/img/wordpress-orbita.webp", "imageAlt": "Logo de WordPress con planetas girando a su alrededor"},
+  {"slug": "desarrollo", "name": "Desarrollo WEB", "url": "/blog/desarrollo/", "image": "/assets/img/desarrollo-banner.webp", "imageAlt": "Nave espacial con el símbolo de código sobre la Tierra"},
+  {"slug": "marketing", "name": "Marketing Digital", "url": "/blog/marketing/", "image": "/assets/img/marketing-banner.webp", "imageAlt": "Ilustración de marketing digital"},
+  {"slug": "prospeccion", "name": "Prospección Comercial", "url": "/blog/prospeccion/", "image": "/assets/img/prospeccion-comercial.webp", "imageAlt": "Robot con audífonos haciendo varias llamadas comerciales a la vez desde un escritorio con teléfonos"},
+  {"slug": "atencion-cliente", "name": "Atención al Cliente", "url": "/blog/atencion-cliente/", "image": "/assets/img/atencion-cliente.webp", "imageAlt": "Ejecutiva de atención al cliente con audífonos hablando por teléfono y tomando notas en su escritorio"},
+  {"slug": "administracion-ecommerce", "name": "Administración & E-Commerce", "url": "/blog/administracion-ecommerce/", "image": "/assets/img/soporte-ecommerce.webp", "imageAlt": "Profesional revisando en su computador un panel de ventas, compras y tienda online, con cajas de despacho en el escritorio"}
 ]

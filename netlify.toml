@@ -23,3 +23,16 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=()"
+
+# Caché del navegador para imágenes y fuentes: se guardan 7 días (y se pueden usar 1 día más mientras se revalidan),
+# así cambiar de pestaña en el blog no vuelve a descargar las portadas. Si reemplazas una imagen por otra con el
+# mismo nombre, algunos visitantes podrían ver la anterior hasta 7 días: usa un nombre nuevo en ese caso.
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

@@ -20,6 +20,14 @@ module.exports = function (eleventyConfig) {
   );
   eleventyConfig.addFilter("htmlDateString", (date) => new Date(date).toISOString().slice(0, 10));
 
+  /* "Sigue leyendo": artículos del mismo tema (pestaña) primero, del más reciente al más antiguo, sin el actual.
+     Si el tema no alcanza el límite, completa con artículos de otros temas. `posts` ya viene ordenado por fecha. */
+  eleventyConfig.addFilter("relatedPosts", (posts, currentUrl, tag, limit = 4) => {
+    const others = posts.filter((post) => post.url !== currentUrl);
+    const hasTag = (post) => [].concat(post.data.tags || []).includes(tag);
+    return others.filter(hasTag).concat(others.filter((post) => !hasTag(post))).slice(0, limit);
+  });
+
   /* Enlaces externos (a otro dominio): se abren en una pestaña nueva, de forma segura (noopener)
      y avisando a los lectores de pantalla. Los enlaces al propio sitio no cambian. */
   eleventyConfig.addTransform("external-links", function (content) {

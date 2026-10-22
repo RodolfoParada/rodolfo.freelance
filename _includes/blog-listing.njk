@@ -6,7 +6,7 @@
 
     <nav class="blog-tabs" aria-label="Categorías del blog">
       {% for tab in blogTabs %}
-      <a class="blog-tab{% if tab.slug == activeTab %} is-active{% endif %}" href="{{ tab.url }}"{% if tab.slug == activeTab %} aria-current="page"{% endif %}>{{ tab.name }}</a>
+      <a class="blog-tab{% if tab.slug == activeTab %} is-active{% endif %}" href="{{ tab.url }}"{% if tab.slug == activeTab %} aria-current="page"{% endif %}{% if tab.image %} data-prefetch-image="{{ tab.image }}"{% endif %}>{{ tab.name }}</a>
       {% endfor %}
     </nav>
 
@@ -20,7 +20,7 @@
     <article class="blog-featured">
       <div class="blog-featured__media"{% if not chunk.items[0].data.image %} aria-hidden="true"{% endif %}>
         {% if tabImage %}
-        <img class="blog-featured__image" src="{{ tabImage }}" alt="{{ tabImageAlt }}" width="1200" height="675" loading="eager">
+        <img class="blog-featured__image" src="{{ tabImage }}" alt="{{ tabImageAlt }}" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
         {% elif chunk.items[0].data.image %}
         <img class="blog-featured__image" src="{{ chunk.items[0].data.image }}" alt="{{ chunk.items[0].data.imageAlt }}" width="1200" height="675" loading="eager">
         {% else %}
@@ -66,3 +66,4 @@
     </div>
   </div>
 </section>
+<script src="/js/blog-prefetch.js" defer></script>

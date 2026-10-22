@@ -14,7 +14,7 @@ Además tiene un **blog para pymes** (`/blog/`) y la página **Cómo trabajo** (
 rodolfofreelance/
 ├── content/                       # Fuente de Eleventy (blog y Cómo trabajo)
 │   ├── _data/
-│   │   ├── blogTabs.json          # Pestañas del blog (slug, nombre visible, URL), en orden
+│   │   ├── blogTabs.json          # Pestañas del blog (slug, nombre, URL, imagen de portada y su alt), en orden
 │   │   ├── site.json              # URL, nombre del sitio e imagen para compartir (SEO)
 │   │   ├── services.json          # Cómo trabajo: bloques y tarjetas de servicio
 │   │   ├── processes.json         # Cómo trabajo: procesos y sus etapas
@@ -30,9 +30,12 @@ rodolfofreelance/
 │   │   ├── service-card.njk       # serviceCard(card, services): tarjeta de servicio
 │   │   ├── process.njk            # processToggle(p) y processPanel(p): botón y panel de un proceso
 │   │   └── tools.njk              # toolGroups(tools): grupos de herramientas
-│   ├── base.njk                   # <head> (título, descripción, canonical, Open Graph), header y footer
+│   ├── partials/                  # Copias estáticas de <site-header> y <site-footer> (se ven sin esperar al JS)
+│   │   ├── site-header.njk        # Igual a lo que dibuja site-header.js; marca "Blog" activo en /blog/
+│   │   └── site-footer.njk        # Igual a lo que dibuja site-footer.js
+│   ├── base.njk                   # <head> (título, descripción, canonical, Open Graph, precarga de portada), header y footer
 │   ├── blog-listing.njk           # Portada de cada pestaña: título, pestañas, destacado, grilla, paginación
-│   └── post.njk                   # Artículo: botón Atrás, índice lateral, cuerpo y "Sigue leyendo"
+│   └── post.njk                   # Artículo: botón Atrás, índice lateral, cuerpo y "Sigue leyendo" (filtro relatedPosts)
 ├── eleventy.config.js             # Colecciones, filtros de fecha, shortcode {% blogCta %}, transform de enlaces externos y copia de public/ a dist/
 ├── plugins/sitemap.js             # Genera dist/sitemap.xml en cada build
 ├── scripts/                       # build-css.js (une el CSS en app.css) y build-js.js (minifica main.js)
@@ -54,6 +57,7 @@ rodolfofreelance/
 │   │   ├── theme.js               # Modo claro/oscuro (síncrono en <head>, clave rf-theme)
 │   │   ├── toc.js                 # Índice lateral de los artículos ("En este artículo")
 │   │   ├── blog-back.js           # Botón "Atrás" del artículo: vuelve a la pestaña de origen
+│   │   ├── blog-prefetch.js       # Pestañas del blog: precarga páginas e imágenes de portada
 │   │   ├── svc-carousel.js        # Carrusel compartido ([data-carousel]): flechas ← → sobre scroll-snap
 │   │   ├── svc-flows.js           # Cómo trabajo: abre un proceso a la vez desde su botón en el carrusel
 │   │   ├── core/
@@ -155,7 +159,7 @@ El blog vive en `content/` y se genera en `dist/`. Está dirigido a **pymes chil
 - Las pestañas se definen en `content/_data/blogTabs.json` (orden = orden visible). Hoy: Todos, WordPress, Desarrollo WEB, Marketing Digital, Prospección Comercial, Atención al Cliente y Administración & E-Commerce.
 - Cada pestaña tiene una carpeta `content/blog/<slug>/` con:
   - `index.njk`: front matter con `title`, `activeTab`, `seoTitle` y `description` (para Google), e `{% include "blog-listing.njk" %}`.
-  - `index.11tydata.js`: `tabImage`, `tabImageAlt`, `firstUrl`, `pageBase`, la paginación sobre `collections.<slug>` y el `permalink`. Copia uno existente y cambia el slug.
+  - `index.11tydata.js`: lee su pestaña de `blogTabs.json` (`tabImage: tab.image`, `tabImageAlt: tab.imageAlt`) y define `firstUrl`, `pageBase`, la paginación sobre `collections.<slug>` y el `permalink`. Copia uno existente y cambia el slug (también en el `find`).
 - Cada página de pestaña muestra 1 artículo destacado + 6 tarjetas (7 en total); las páginas siguientes muestran 6 (`/blog/<slug>/pagina/N/`).
 - El título y la bajada del blog son los mismos en todas las pestañas: están en `_includes/blog-listing.njk`.
 
@@ -251,7 +255,7 @@ Los diagramas se dibujan como SVG dentro del `.md`, envueltos en `<figure>` con 
 
 ### Imágenes de portada
 
-- Una por pestaña, en `public/assets/img/`, configurada en `tabImage` y `tabImageAlt` del `index.11tydata.js` de la pestaña.
+- Una por pestaña, en `public/assets/img/`, configurada en `image` e `imageAlt` de la pestaña en `content/_data/blogTabs.json` (fuente única: la usan la portada de la pestaña y la precarga).
 - **Formato final:** WebP de **1200 × 675 px** (16:9) y menos de ~110 KB. Se muestra completa (`object-fit: contain`).
 - Si la imagen original tiene otra proporción (por ejemplo 1536 × 1024), **no la recortes si pierde contenido**: ajústala completa al alto de 675 px, céntrala y rellena los costados con la misma imagen desenfocada y algo oscurecida.
 - Guarda el original en `originales/<nombre>-original.webp`. Esa carpeta está en `.gitignore`: no se publica ni se sube a GitHub, así que es solo un respaldo local (respáldala también fuera del proyecto si la necesitas).
@@ -259,7 +263,19 @@ Los diagramas se dibujan como SVG dentro del `.md`, envueltos en `<figure>` con 
 
 ### Columna «Sigue leyendo»
 
-Cada artículo de `.blog-related__item` es un cuadro clicable completo (el enlace se extiende con `::after`). Al pasar el mouse o con foco muestra borde `--color-primary-dark` y fondo blanco (`--color-surface` en modo oscuro). Usa márgenes negativos para que el texto no se mueva.
+- Muestra **siempre 4 artículos**, elegidos por el filtro `relatedPosts` (`eleventy.config.js`): primero los más recientes **del mismo tema** (`tags[0]` del artículo), sin el actual; si el tema no alcanza, completa con los más recientes de otros temas.
+- Debajo: **«Ver todo <categoryName> →»** (a `/blog/<tag>/`, la pestaña paginada del tema) y **«Ver todo el blog →»** (a `/blog/`).
+- Cada `.blog-related__item` es un cuadro clicable completo (el enlace se extiende con `::after`). Al pasar el mouse o con foco muestra borde `--color-primary-dark` y fondo blanco (`--color-surface` en modo oscuro). Usa márgenes negativos para que el texto no se mueva.
+
+### Navegación entre pestañas sin pestañeo
+
+Para que cambiar de pestaña sea inmediato y sin parpadeo:
+
+- **Header y footer estáticos:** `base.njk` incluye `partials/site-header.njk` y `partials/site-footer.njk` dentro de `<site-header>` y `<site-footer>`. Así se ven desde el primer instante; luego el componente JS los reemplaza por **exactamente el mismo HTML**. **Si cambias `site-header.js` o `site-footer.js`, actualiza también su partial** (y compara: el DOM final debe quedar idéntico al estático).
+- **Transición entre páginas:** `@view-transition { navigation: auto; }` en `styles.css` funde una página con la siguiente; `.site-header` y `.blog-hub .blog-tabs` tienen `view-transition-name` para quedarse fijos. Se desactiva con `prefers-reduced-motion`. Navegadores sin soporte navegan normal.
+- **Imagen de portada rápida:** `base.njk` agrega `<link rel="preload" as="image" fetchpriority="high">` de `tabImage` en la primera página de cada pestaña, y la `<img>` lleva `fetchpriority="high"`.
+- **Precarga (`blog-prefetch.js`, cargado por `blog-listing.njk`):** las pestañas llevan `data-prefetch-image`; cuando el navegador está libre se precargan todas las portadas, y al pasar el mouse, enfocar o tocar una pestaña se precarga su página. No precarga imágenes con ahorro de datos.
+- **Caché en Netlify (`netlify.toml`):** `/assets/img/*` 7 días (+1 día `stale-while-revalidate`) y `/assets/fonts/*` 1 año `immutable`. **Si reemplazas una imagen, usa un nombre nuevo** (con el mismo nombre algunos visitantes verían la anterior hasta 7 días).
 
 ### SEO
 
@@ -383,13 +399,14 @@ Cada tarjeta sigue la misma estructura (ordena así el contenido que te pasen: t
 - **Nuevas páginas o secciones**: crear un componente en `public/js/components/<nombre>.js` usando `RFKIT.define(...)`, incluirlo con `<script src="..." defer>` en `<head>` (sin `defer` bloquea el render; `theme.js` es la única excepción) y montar la etiqueta en `<main>`.
 - **Nuevo artículo del blog**: crear `content/blog/posts/<slug>.md` con el front matter y la estructura de [Artículos](#artículos), correr `npx @11ty/eleventy` y revisar en `http://localhost:3000/blog/<slug>/` (celular y modo oscuro si tiene diagramas o tablas).
 - **Nueva pestaña del blog**:
-  1. Agregar `{ "slug", "name", "url" }` a `content/_data/blogTabs.json`.
+  1. Agregar `{ "slug", "name", "url", "image", "imageAlt" }` a `content/_data/blogTabs.json`.
   2. Copiar una carpeta de pestaña (`content/blog/<slug>/index.njk` + `index.11tydata.js`) y cambiar el slug en `activeTab`, `firstUrl`, `pageBase`, `collections.<slug>` y `permalink`, además de `title`, `seoTitle` y `description`.
   3. Sumar el slug a la expresión regular de `priorityFor` en `plugins/sitemap.js`.
   4. Los artículos de la pestaña usan `tags: <slug>` y `categoryName` igual al `name`.
   El botón "Atrás" (`blog-back.js`) la reconoce sola, porque lee `blogTabs.json`.
 - **Cambiar el nombre visible de una pestaña**: cambiar `name` en `blogTabs.json`, `title` en su `index.njk` y `categoryName` en sus artículos. No cambies el slug (rompe las URL).
-- **Imagen de portada de una pestaña**: seguir [Imágenes de portada](#imágenes-de-portada) y configurar `tabImage`/`tabImageAlt`.
+- **Imagen de portada de una pestaña**: seguir [Imágenes de portada](#imágenes-de-portada) y configurar `image`/`imageAlt` en `blogTabs.json`.
+- **Cambiar el menú o el pie de página**: editar el componente (`public/js/components/site-header.js` o `site-footer.js`) **y** su copia estática en `_includes/partials/` (y en `public/index.html`/`privacidad.html`, que tienen la suya). Las tres versiones deben coincidir.
 - **Nuevo servicio en «Cómo trabajo»**: agregar un objeto a `groups[].cards` en `content/_data/services.json`, siguiendo [Tarjeta de servicio](#tarjeta-de-servicio-svc-card). El componente y el carrusel lo acomodan solos.
 - **Nuevo proceso en «Cómo trabajo»**: agregar un objeto a `content/_data/processes.json` (`id` que empiece con `proceso-`, `title`, `name` y `steps`). El botón, el panel y su conexión accesible se generan solos, y `svc-flows.js` lo reconoce.
 - **Carrusel en otra página de Eleventy**: `{% from "components/carousel.njk" import carousel %}` y `{% call carousel({ id, label, title, titleId }) %}…{% endcall %}`; carga `svc-carousel.js` con `defer` en esa página.
