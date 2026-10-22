@@ -75,10 +75,4 @@ Para una pyme, la landing page es una herramienta de venta, no un folleto digita
 
 Si quieres que revisemos cómo trabajo y qué incluiría una landing para tu negocio, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tienes una campaña y no sabes dónde llevar a la gente?</p>
-    <p class="blog-cta__text">Te ayudo a diseñar una landing clara, rápida y conectada con tu seguimiento de ventas.</p>
-  </div>
-  <a class="btn btn--primary" href="/como-trabajo/">Conoce cómo trabajo</a>
-</div>
+{% blogCta "¿Tienes una campaña y no sabes dónde llevar a la gente?", "Te ayudo a diseñar una landing clara, rápida y conectada con tu seguimiento de ventas.", "Conoce cómo trabajo", "/como-trabajo/" %}

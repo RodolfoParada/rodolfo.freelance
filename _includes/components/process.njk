@@ -1,0 +1,26 @@
+{#- Proceso de trabajo (css: .svc-flow, .svc-steps; js: public/js/svc-flows.js). Datos en content/_data/processes.json.
+    processToggle(p): botón del proceso, va dentro del carrusel de procesos.
+    processPanel(p): panel con el nombre del flujo y el diagrama de etapas, va después del carrusel.
+    p: { id, title, name, steps: [{ title, text }] }. El id del botón es "<id>-boton". -#}
+{% macro processToggle(p) %}
+<h3 class="svc-flow__title">
+  <button class="svc-flow__toggle" id="{{ p.id }}-boton" type="button" aria-expanded="true" aria-controls="{{ p.id }}">{{ p.title }}<span class="card__toggle-icon" aria-hidden="true"></span></button>
+</h3>
+{% endmacro %}
+
+{% macro processPanel(p) %}
+<div class="svc-flow" id="{{ p.id }}" role="region" aria-labelledby="{{ p.id }}-boton" data-flow-panel>
+  <p class="svc-flow__name">{{ p.name }}</p>
+  <ol class="svc-steps">
+    {%- for step in p.steps %}
+    <li class="svc-step">
+      <span class="svc-step__num">{{ "0" if loop.index < 10 }}{{ loop.index }}</span>
+      <div class="svc-step__body">
+        <h4 class="svc-step__title">{{ step.title }}</h4>
+        <p class="svc-step__text">{{ step.text }}</p>
+      </div>
+    </li>
+    {%- endfor %}
+  </ol>
+</div>
+{% endmacro %}

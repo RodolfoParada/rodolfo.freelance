@@ -178,10 +178,4 @@ Si tu web está hecha en WordPress, en [cómo usar Microsoft Clarity en WordPres
 
 Mejorar tu web no se trata de rediseñarla cada seis meses según lo que a alguien le parece. Con los mapas de calor puedes basar cada cambio en cómo la usan tus clientes: quitar lo que confunde, poner los botones donde la gente los busca y despejar el camino para que más personas compren o te pidan una cotización.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Quieres ver tu web con los ojos de tus clientes?</p>
-    <p class="blog-cta__text">Instalo Microsoft Clarity en tu sitio, reviso los mapas de calor y las grabaciones, y te entrego una lista clara de cambios para que más visitas terminen escribiéndote o comprando.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Quieres ver tu web con los ojos de tus clientes?", "Instalo Microsoft Clarity en tu sitio, reviso los mapas de calor y las grabaciones, y te entrego una lista clara de cambios para que más visitas terminen escribiéndote o comprando." %}

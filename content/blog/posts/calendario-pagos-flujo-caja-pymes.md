@@ -131,10 +131,4 @@ Para que este calendario funcione, cada factura debe estar revisada antes de pag
 
 La salud financiera de tu negocio no depende solo de cuánto vendes, sino de cuándo entra y sale el dinero. Pagar en días fijos, priorizar con criterio y proyectar tus cobros le da previsibilidad a tus finanzas, fortalece la relación con tus proveedores y te deja trabajar con más tranquilidad.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Llegas justo a fin de mes aunque vendes bien?</p>
-    <p class="blog-cta__text">Armo tu calendario de pagos y una proyección de caja simple en planilla, para que sepas con semanas de anticipación si vas a llegar y qué ajustar.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Llegas justo a fin de mes aunque vendes bien?", "Armo tu calendario de pagos y una proyección de caja simple en planilla, para que sepas con semanas de anticipación si vas a llegar y qué ajustar." %}

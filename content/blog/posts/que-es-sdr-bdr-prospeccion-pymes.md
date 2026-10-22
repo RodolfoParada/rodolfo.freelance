@@ -139,10 +139,4 @@ Para hacer bien su trabajo, el SDR o BDR necesita dominar dos herramientas: [la 
 
 Separar la búsqueda de clientes del cierre es uno de los cambios más simples y efectivos que puede hacer una pyme. Las ventas dejan de depender de la suerte o de los meses buenos, y se convierten en un proceso ordenado, medible y predecible.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Quieres reuniones comerciales todas las semanas?</p>
-    <p class="blog-cta__text">Te ayudo a definir tu cliente ideal, ordenar tu proceso de prospección y dejar funcionando un sistema para que tu agenda no dependa de los meses buenos.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Quieres reuniones comerciales todas las semanas?", "Te ayudo a definir tu cliente ideal, ordenar tu proceso de prospección y dejar funcionando un sistema para que tu agenda no dependa de los meses buenos." %}

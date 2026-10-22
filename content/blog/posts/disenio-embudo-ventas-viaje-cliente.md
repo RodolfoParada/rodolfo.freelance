@@ -58,10 +58,4 @@ El embudo no sirve para presionar a nadie. Sirve para construir una secuencia l�
 
 Si quieres revisar cómo se vería un embudo para tu negocio, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Sabes en qué etapa se te pierden los clientes?</p>
-    <p class="blog-cta__text">Revisamos juntos el recorrido de tus clientes en una reunión por Google Meet: qué encuentran al descubrirte, qué les falta para confiar y qué los frena antes de escribirte. Te llevas un plan claro para cada etapa.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Sabes en qué etapa se te pierden los clientes?", "Revisamos juntos el recorrido de tus clientes en una reunión por Google Meet: qué encuentran al descubrirte, qué les falta para confiar y qué los frena antes de escribirte. Te llevas un plan claro para cada etapa." %}

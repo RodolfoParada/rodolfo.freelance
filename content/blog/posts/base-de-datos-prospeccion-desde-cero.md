@@ -207,10 +207,4 @@ Cuando tengas tu lista, el siguiente paso es contactar. Te puede servir [cómo h
 
 Una base de 100 empresas bien elegidas, con la persona correcta y un canal verificado, genera muchas más reuniones y ventas que 5.000 contactos comprados al azar. Toma más trabajo al principio, pero es la base de todo lo que viene después.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Quieres una lista de prospectos que sí encaje con tu negocio?</p>
-    <p class="blog-cta__text">Definimos juntos tu cliente ideal, armo tu base de datos con fuentes confiables y la dejo ordenada en tu CRM, lista para empezar a contactar.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Quieres una lista de prospectos que sí encaje con tu negocio?", "Definimos juntos tu cliente ideal, armo tu base de datos con fuentes confiables y la dejo ordenada en tu CRM, lista para empezar a contactar." %}

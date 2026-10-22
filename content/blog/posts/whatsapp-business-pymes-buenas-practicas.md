@@ -125,10 +125,4 @@ WhatsApp es para conversar con quien te escribe, no para enviar publicidad masiv
 
 WhatsApp es un canal muy potente por lo inmediato, pero sin reglas claras puede consumir tu tiempo y restarle profesionalismo a tu negocio. Con un número propio, mensajes automáticos honestos, un horario claro y etiquetas, puedes atender con calidez sin sacrificar tu descanso. Y si el volumen crece, [centralizar tus canales](/blog/atencion-multicanal-centralizar-canales/) es el siguiente paso.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tu WhatsApp de trabajo se volvió un caos?</p>
-    <p class="blog-cta__text">Configuro tu WhatsApp Business con mensajes automáticos, perfil completo, etiquetas y respuestas rápidas, para que atiendas mejor sin estar disponible todo el día.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Tu WhatsApp de trabajo se volvió un caos?", "Configuro tu WhatsApp Business con mensajes automáticos, perfil completo, etiquetas y respuestas rápidas, para que atiendas mejor sin estar disponible todo el día." %}

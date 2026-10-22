@@ -121,10 +121,4 @@ Si en tu empresa vende una persona y ejecuta otra, también conviene ordenar ese
 
 Una buena bienvenida no necesita plataformas caras ni manuales eternos. Necesita empatía, comunicación a tiempo y respuestas rápidas. Cuando acompañas a tu cliente desde el primer minuto con pasos claros, las dudas desaparecen y una primera compra se convierte en una relación de largo plazo.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tus clientes saben qué pasa después de pagar?</p>
-    <p class="blog-cta__text">Te ayudo a armar tu proceso de bienvenida: el correo del primer día, la pauta de la reunión de inicio y quién atiende cada mensaje, para que ningún cliente se sienta solo.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Tus clientes saben qué pasa después de pagar?", "Te ayudo a armar tu proceso de bienvenida: el correo del primer día, la pauta de la reunión de inicio y quién atiende cada mensaje, para que ningún cliente se sienta solo." %}

@@ -64,10 +64,4 @@ Muchos sitios de pymes se quedan con versiones antiguas de PHP (como 7.4 u 8.0) 
 
 Este cambio suele tomar un par de clics y puede mejorar notablemente la velocidad de procesamiento del servidor, sin costo adicional.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Quieres que tu sitio cargue rápido desde el inicio?</p>
-    <p class="blog-cta__text">Te cuento cómo trabajo, qué incluye cada etapa y cómo empezamos.</p>
-  </div>
-  <a class="btn btn--primary" href="/como-trabajo/">Conoce cómo trabajo</a>
-</div>
+{% blogCta "¿Quieres que tu sitio cargue rápido desde el inicio?", "Te cuento cómo trabajo, qué incluye cada etapa y cómo empezamos.", "Conoce cómo trabajo", "/como-trabajo/" %}

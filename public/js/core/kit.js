@@ -109,6 +109,32 @@
     }
   }
 
+  /* Envuelve una grilla en el carrusel compartido (css: .svc-carousel; js: svc-carousel.js).
+     La grilla debe tener id y la clase svc-carousel__track. labels: { prev, next } (opcional). */
+  function carousel(track, labels) {
+    var names = labels || {};
+    var wrapper = el("div", "svc-carousel");
+    wrapper.setAttribute("data-carousel", "");
+    var viewport = el("div", "svc-carousel__viewport");
+    [
+      ["prev", names.prev || "Servicio anterior", "←"],
+      ["next", names.next || "Servicio siguiente", "→"]
+    ].forEach(function (cfg) {
+      var button = el("button", "svc-carousel__btn svc-carousel__btn--" + cfg[0]);
+      button.type = "button";
+      button.setAttribute("data-carousel-" + cfg[0], "");
+      button.setAttribute("aria-controls", track.id);
+      button.setAttribute("aria-label", cfg[1]);
+      var icon = el("span", "", cfg[2]);
+      icon.setAttribute("aria-hidden", "true");
+      button.appendChild(icon);
+      viewport.appendChild(button);
+    });
+    viewport.appendChild(track);
+    wrapper.appendChild(viewport);
+    return wrapper;
+  }
+
   function renderCardsSection(host, config) {
     var id = attr(host, "section-id", config.id);
     var section = sectionShell(id, config.alt ? "section--alt" : "");
@@ -160,6 +186,7 @@
     flipHint: flipHint,
     flipBackHint: flipBackHint,
     bindFlipCard: bindFlipCard,
+    carousel: carousel,
     renderCardsSection: renderCardsSection,
     define: define
   };

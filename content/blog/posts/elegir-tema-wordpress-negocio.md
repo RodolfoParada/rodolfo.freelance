@@ -68,10 +68,4 @@ El tema es la base del sitio, no solo su apariencia. Elegir uno ligero, bien man
 
 Si quieres que revisemos juntos el tema que ya tienes, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tu sitio ya está en WordPress y no sabes si el tema le conviene?</p>
-    <p class="blog-cta__text">Lo revisamos. Te digo qué funciona, qué sobra y qué conviene cambiar.</p>
-  </div>
-  <a class="btn btn--primary" href="/como-trabajo/">Conoce cómo trabajo</a>
-</div>
+{% blogCta "¿Tu sitio ya está en WordPress y no sabes si el tema le conviene?", "Lo revisamos. Te digo qué funciona, qué sobra y qué conviene cambiar.", "Conoce cómo trabajo", "/como-trabajo/" %}

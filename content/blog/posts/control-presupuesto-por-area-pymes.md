@@ -150,10 +150,4 @@ Si un área necesita hacer un gasto fuera de presupuesto, no lo hace por su cuen
 
 Hacer crecer un negocio no es solo vender más: es cuidar que lo que ganas no se pierda en gastos que nadie revisa. Comparar cada mes tu presupuesto con lo que realmente gastaste te permite corregir a tiempo, proteger tu margen y tomar decisiones con números reales, no con suposiciones.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Vendes más, pero te queda menos?</p>
-    <p class="blog-cta__text">Armo tu presupuesto por áreas en una planilla con alertas de colores y te entrego un informe mensual simple, para que sepas dónde se va cada peso.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Vendes más, pero te queda menos?", "Armo tu presupuesto por áreas en una planilla con alertas de colores y te entrego un informe mensual simple, para que sepas dónde se va cada peso." %}

@@ -58,10 +58,4 @@ Una buena plantilla sirve para empezar sin arriesgar demasiado capital. Un desar
 
 Si dudas sobre qué camino te conviene, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿No sabes qué camino le conviene a tu negocio?</p>
-    <p class="blog-cta__text">Lo conversamos. Te digo qué opción tiene sentido según tu etapa, tu presupuesto y lo que necesitas que haga la web.</p>
-  </div>
-  <a class="btn btn--primary" href="/como-trabajo/">Conoce cómo trabajo</a>
-</div>
+{% blogCta "¿No sabes qué camino le conviene a tu negocio?", "Lo conversamos. Te digo qué opción tiene sentido según tu etapa, tu presupuesto y lo que necesitas que haga la web.", "Conoce cómo trabajo", "/como-trabajo/" %}

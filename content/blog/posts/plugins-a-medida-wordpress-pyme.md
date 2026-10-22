@@ -59,10 +59,4 @@ Para la mayoría de las pymes, lo más práctico es combinar las dos opciones: p
 
 Si tienes dudas sobre tu caso concreto, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tu sitio necesita una función que ningún plugin resuelve?</p>
-    <p class="blog-cta__text">Lo revisamos juntos y te digo si conviene desarrollarla a medida o si basta con una herramienta ya existente.</p>
-  </div>
-  <a class="btn btn--primary" href="/como-trabajo/">Conoce cómo trabajo</a>
-</div>
+{% blogCta "¿Tu sitio necesita una función que ningún plugin resuelve?", "Lo revisamos juntos y te digo si conviene desarrollarla a medida o si basta con una herramienta ya existente.", "Conoce cómo trabajo", "/como-trabajo/" %}

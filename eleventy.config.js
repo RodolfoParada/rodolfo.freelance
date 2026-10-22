@@ -20,6 +20,21 @@ module.exports = function (eleventyConfig) {
   );
   eleventyConfig.addFilter("htmlDateString", (date) => new Date(date).toISOString().slice(0, 10));
 
+  /* Bloque CTA del final de cada artículo. Uso en un .md:
+       {% blogCta "Título", "Texto" %}                                     → botón "Agenda tu reunión" a /#contacto
+       {% blogCta "Título", "Texto", "Conoce cómo trabajo", "/como-trabajo/" %} → botón y enlace propios */
+  eleventyConfig.addShortcode(
+    "blogCta",
+    (title, text, buttonText = "Agenda tu reunión", href = "/#contacto") =>
+      `<div class="blog-cta">
+  <div>
+    <p class="blog-cta__title">${title}</p>
+    <p class="blog-cta__text">${text}</p>
+  </div>
+  <a class="btn btn--primary" href="${href}">${buttonText}</a>
+</div>`
+  );
+
   eleventyConfig.addCollection("posts", (collectionApi) =>
     collectionApi
       .getFilteredByGlob("content/blog/posts/*.md")

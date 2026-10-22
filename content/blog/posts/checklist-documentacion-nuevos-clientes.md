@@ -172,10 +172,4 @@ Esta lista funciona mejor como parte de una buena bienvenida. Te explico cómo a
 
 Pedir la información de un nuevo cliente no tiene por qué ser un trámite pesado. Con una lista clara, una explicación breve de cada dato y una persona encargada de hacer el seguimiento, tu negocio se ve ordenado y el proyecto parte sin demoras.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tus proyectos se atrasan esperando datos del cliente?</p>
-    <p class="blog-cta__text">Armo tu formulario de inicio, tu lista de documentos y un proceso para pedir accesos de forma segura, para que cada proyecto parta a tiempo.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Tus proyectos se atrasan esperando datos del cliente?", "Armo tu formulario de inicio, tu lista de documentos y un proceso para pedir accesos de forma segura, para que cada proyecto parta a tiempo." %}

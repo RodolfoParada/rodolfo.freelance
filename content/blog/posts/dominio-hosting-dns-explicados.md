@@ -57,10 +57,4 @@ Entender esta separación te permite cambiar de proveedor cuando lo necesites, e
 
 Si tienes dudas sobre cómo está armado tu sitio o qué conviene cambiar, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tu dominio o tu hosting no están donde deberían?</p>
-    <p class="blog-cta__text">Lo revisamos juntos. Te digo qué está bien, qué conviene ordenar y qué cuidar para que tu negocio no dependa de nadie.</p>
-  </div>
-  <a class="btn btn--primary" href="/como-trabajo/">Conoce cómo trabajo</a>
-</div>
+{% blogCta "¿Tu dominio o tu hosting no están donde deberían?", "Lo revisamos juntos. Te digo qué está bien, qué conviene ordenar y qué cuidar para que tu negocio no dependa de nadie.", "Conoce cómo trabajo", "/como-trabajo/" %}

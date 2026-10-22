@@ -109,10 +109,4 @@ Un negocio no crece celebrando picos de visitas. Crece cuando sabe distinguir lo
 
 El verdadero cambio ocurre el día en que dejas de preguntarte «¿cuántas visitas tuvimos hoy?» y empiezas a preguntarte «¿cuántas personas llegaron hasta el final y se convirtieron en clientes?».
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Sabes cuántos clientes te trae realmente tu web?</p>
-    <p class="blog-cta__text">Configuro tus conversiones en Google Analytics, reviso qué dicen tus números y te muestro dónde se están perdiendo tus clientes, explicado en simple y sin informes llenos de cifras que no sirven.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Sabes cuántos clientes te trae realmente tu web?", "Configuro tus conversiones en Google Analytics, reviso qué dicen tus números y te muestro dónde se están perdiendo tus clientes, explicado en simple y sin informes llenos de cifras que no sirven." %}

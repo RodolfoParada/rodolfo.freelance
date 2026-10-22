@@ -158,10 +158,4 @@ Estas herramientas analizan en segundo plano cómo se usa la página y le entreg
 
 Tener una plataforma a medida, hecha con React, Node.js o Java, te da más control, mejor rendimiento y más estabilidad. Protegerla de los ataques más comunes no requiere obsesionarse con la seguridad ni llenar la web de obstáculos. Con un límite de envíos razonable, un campo trampa invisible y una buena revisión en el servidor, mantienes tu correo limpio, tu web funcionando y tus costos bajo control.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tu formulario recibe más spam que clientes?</p>
-    <p class="blog-cta__text">Reviso cómo está protegida tu web y aplico estas defensas sin que tus clientes noten la diferencia: menos basura en tu correo, una web más estable y una cuenta de servidor bajo control.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Tu formulario recibe más spam que clientes?", "Reviso cómo está protegida tu web y aplico estas defensas sin que tus clientes noten la diferencia: menos basura en tu correo, una web más estable y una cuenta de servidor bajo control." %}

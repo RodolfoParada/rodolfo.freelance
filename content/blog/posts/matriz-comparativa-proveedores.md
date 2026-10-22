@@ -182,10 +182,4 @@ Esta comparación es el paso 3 de un [proceso de compras ordenado](/blog/proceso
 
 Elegir proveedores solo por la cotización más baja es un riesgo. Con una matriz simple puedes comparar plazos, calidad y forma de pago, y trabajar con proveedores confiables que acompañen el crecimiento de tu negocio.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Eliges proveedores solo por precio?</p>
-    <p class="blog-cta__text">Armo tu matriz comparativa en una planilla lista para usar, con tus criterios y pesos, y te ayudo a evaluar a tus proveedores actuales.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Eliges proveedores solo por precio?", "Armo tu matriz comparativa en una planilla lista para usar, con tus criterios y pesos, y te ayudo a evaluar a tus proveedores actuales." %}

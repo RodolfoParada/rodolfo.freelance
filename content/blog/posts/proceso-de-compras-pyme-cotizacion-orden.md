@@ -116,10 +116,4 @@ Ordenar las compras no significa llenar tu negocio de trámites. Basta con un ca
 
 Ordenar las compras le da claridad a tus números, evita pedidos duplicados y te permite negociar con tus proveedores desde una posición más firme. Con un apoyo administrativo, ya sea alguien de tu equipo o un asistente virtual, que gestione las cotizaciones y emita las órdenes de compra, tu negocio compra a buen precio y a tiempo, sin quitarte tiempo de lo importante.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Las compras de tu negocio se hacen a la rápida?</p>
-    <p class="blog-cta__text">Te ayudo a armar tu proceso de compras: formulario de solicitud, comparación de cotizaciones y órdenes de compra listas para usar, para que compres mejor y con respaldo.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Las compras de tu negocio se hacen a la rápida?", "Te ayudo a armar tu proceso de compras: formulario de solicitud, comparación de cotizaciones y órdenes de compra listas para usar, para que compres mejor y con respaldo." %}

@@ -234,10 +234,4 @@ Quienes lean esa respuesta verán un negocio serio, que se hace cargo y busca so
 
 El SEO local es una de las herramientas más rentables para una pyme, porque te permite competir de igual a igual con empresas más grandes en el lugar donde realmente trabajas. Con una ficha completa, datos ordenados y reseñas reales, las búsquedas de vecinos y empresas de tu zona se convierten en clientes.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tu negocio aparece cuando te buscan cerca?</p>
-    <p class="blog-cta__text">Reviso y completo tu ficha de Google, ordeno tus datos en la web y los directorios, y te dejo un sistema simple para pedir y responder reseñas.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Tu negocio aparece cuando te buscan cerca?", "Reviso y completo tu ficha de Google, ordeno tus datos en la web y los directorios, y te dejo un sistema simple para pedir y responder reseñas." %}

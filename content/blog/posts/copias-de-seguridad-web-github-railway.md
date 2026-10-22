@@ -85,10 +85,4 @@ GitHub guarda tu código y Railway mantiene tu web funcionando, pero ninguno de 
 
 Con copias automáticas, guardadas en otro lugar y probadas de vez en cuando, puedes levantar tu web en otro proveedor si algo sale mal, sin perder lo que tanto te costó construir.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Sabes si tu web podría recuperarse mañana?</p>
-    <p class="blog-cta__text">Reviso cómo está armado tu sitio, qué datos están en riesgo y dejo funcionando copias automáticas fuera de tu proveedor, para que una falla no se lleve tu negocio con ella.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Sabes si tu web podría recuperarse mañana?", "Reviso cómo está armado tu sitio, qué datos están en riesgo y dejo funcionando copias automáticas fuera de tu proveedor, para que una falla no se lleve tu negocio con ella." %}

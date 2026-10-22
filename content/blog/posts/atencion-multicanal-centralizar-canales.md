@@ -159,10 +159,4 @@ Para saber en cuánto tiempo conviene responder por cada canal, te puede servir 
 
 El desorden de canales no se arregla trabajando más horas, sino con reglas claras y un solo lugar donde vive la información. Así tu pyme se ve más profesional, tu equipo trabaja con menos estrés y cada cliente recibe una respuesta a tiempo.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Los mensajes de tus clientes llegan por todas partes?</p>
-    <p class="blog-cta__text">Te ayudo a definir el uso de cada canal y a reunir tu atención en una sola bandeja, con responsables claros, para que ninguna consulta se pierda.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Los mensajes de tus clientes llegan por todas partes?", "Te ayudo a definir el uso de cada canal y a reunir tu atención en una sola bandeja, con responsables claros, para que ninguna consulta se pierda." %}

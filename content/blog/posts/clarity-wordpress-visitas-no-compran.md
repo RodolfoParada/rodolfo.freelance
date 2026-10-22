@@ -75,10 +75,4 @@ Clarity convierte las suposiciones en observaciones. Ver cómo navegan tus clien
 
 Si prefieres que alguien revise esto contigo, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Quieres saber en qué se traban tus clientes?</p>
-    <p class="blog-cta__text">Instalamos Clarity, revisamos las primeras grabaciones contigo y te digo qué ajustar primero.</p>
-  </div>
-  <a class="btn btn--primary" href="/como-trabajo/">Conoce cómo trabajo</a>
-</div>
+{% blogCta "¿Quieres saber en qué se traban tus clientes?", "Instalamos Clarity, revisamos las primeras grabaciones contigo y te digo qué ajustar primero.", "Conoce cómo trabajo", "/como-trabajo/" %}

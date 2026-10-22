@@ -81,10 +81,4 @@ El correo sigue siendo el canal formal para cotizar, negociar y cerrar acuerdos.
 
 Tener tu propio dominio .cl es un paso sencillo y económico que le muestra a tus clientes que detrás de cada mensaje hay un negocio serio.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">Tu próxima cotización puede salir desde @tuempresa.cl</p>
-    <p class="blog-cta__text">Me encargo de todo: registro tu dominio .cl, creo las casillas de tu equipo y configuro SPF, DKIM y DMARC para que tus correos lleguen a la bandeja de entrada y no al spam. Tú solo sigues atendiendo a tus clientes.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "Tu próxima cotización puede salir desde @tuempresa.cl", "Me encargo de todo: registro tu dominio .cl, creo las casillas de tu equipo y configuro SPF, DKIM y DMARC para que tus correos lleguen a la bandeja de entrada y no al spam. Tú solo sigues atendiendo a tus clientes." %}

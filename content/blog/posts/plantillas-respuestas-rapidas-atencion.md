@@ -133,10 +133,4 @@ Las respuestas rápidas también te ayudan a cumplir tus [tiempos de respuesta](
 
 Ordenar tus respuestas no significa perder cercanía. Significa ahorrar tiempo en lo repetitivo para dedicarlo a las conversaciones que de verdad lo necesitan. Con un buen conjunto de plantillas, cualquier persona de tu equipo puede responder rápido, con la información correcta y con el mismo tono amable desde el primer mensaje.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Respondes las mismas preguntas todos los días?</p>
-    <p class="blog-cta__text">Reviso las consultas que más recibes, redacto tus respuestas rápidas con el tono de tu marca y las dejo configuradas en WhatsApp Business y en tu correo.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Respondes las mismas preguntas todos los días?", "Reviso las consultas que más recibes, redacto tus respuestas rápidas con el tono de tu marca y las dejo configuradas en WhatsApp Business y en tu correo." %}

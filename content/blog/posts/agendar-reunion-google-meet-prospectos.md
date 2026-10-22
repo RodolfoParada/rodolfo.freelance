@@ -104,10 +104,4 @@ Agendar la reunión es solo la mitad del trabajo. La otra mitad es que la person
 
 Hacer fácil la coordinación no solo agenda más reuniones. También muestra, desde el primer contacto, que tu negocio es ordenado y respeta el tiempo de sus clientes.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Pierdes reuniones en la coordinación?</p>
-    <p class="blog-cta__text">Configuro tu agenda en línea con Google Calendar y Meet, preparo tus mensajes de coordinación y dejo listo un proceso para que agendar te tome un solo paso.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Pierdes reuniones en la coordinación?", "Configuro tu agenda en línea con Google Calendar y Meet, preparo tus mensajes de coordinación y dejo listo un proceso para que agendar te tome un solo paso." %}

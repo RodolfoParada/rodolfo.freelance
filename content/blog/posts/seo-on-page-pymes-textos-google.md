@@ -227,10 +227,4 @@ Antes de dar por terminada una página o un artículo, revisa estos puntos:
 
 El SEO on-page no se trata de engañar a Google con trucos. Se trata de ordenar lo que sabes y lo que ofreces de forma clara y fácil de leer. Cuando tu contenido responde bien a lo que tus clientes necesitan, Google lo nota, y las visitas empiezan a convertirse en oportunidades reales de negocio.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tus páginas le dicen a Google lo que vendes?</p>
-    <p class="blog-cta__text">Reviso los títulos, las descripciones y los textos de tu web, y te propongo cambios concretos para que Google entienda tu negocio y más clientes te encuentren.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Tus páginas le dicen a Google lo que vendes?", "Reviso los títulos, las descripciones y los textos de tu web, y te propongo cambios concretos para que Google entienda tu negocio y más clientes te encuentren." %}

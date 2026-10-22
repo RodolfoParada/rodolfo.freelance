@@ -133,10 +133,4 @@ Las visitas te muestran cuánta gente pasa por fuera de tu tienda. Los eventos c
 
 Para una pyme que cuida cada peso de su presupuesto, medir eventos clave es la forma más directa de convertir las estadísticas de la web en decisiones que dejan dinero.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Sabes qué campaña te trae clientes y cuál solo visitas?</p>
-    <p class="blog-cta__text">Configuro Google Tag Manager y Google Analytics 4 para medir tus clics en WhatsApp, tus formularios y tus ventas. Así sabrás dónde invertir tu presupuesto y dónde dejar de gastarlo.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Sabes qué campaña te trae clientes y cuál solo visitas?", "Configuro Google Tag Manager y Google Analytics 4 para medir tus clics en WhatsApp, tus formularios y tus ventas. Así sabrás dónde invertir tu presupuesto y dónde dejar de gastarlo." %}

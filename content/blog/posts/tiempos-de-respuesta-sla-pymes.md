@@ -139,10 +139,4 @@ Para responder más rápido sin perder calidez, te sirven las [plantillas y resp
 
 Competir por precio o por tamaño contra empresas más grandes es difícil. Pero en rapidez, cercanía y buena atención, una pyme puede ganarle a cualquiera. Definir tus tiempos de respuesta y cumplirlos es una de las formas más simples y rentables de conseguir y mantener clientes.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tus clientes esperan demasiado una respuesta?</p>
-    <p class="blog-cta__text">Te ayudo a definir tus tiempos de respuesta por canal, preparo los mensajes de acuse de recibo y dejo un sistema simple para cumplirlos todos los días.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Tus clientes esperan demasiado una respuesta?", "Te ayudo a definir tus tiempos de respuesta por canal, preparo los mensajes de acuse de recibo y dejo un sistema simple para cumplirlos todos los días." %}

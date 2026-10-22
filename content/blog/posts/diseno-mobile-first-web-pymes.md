@@ -85,10 +85,4 @@ Pensar primero en el celular no significa descuidar la versión de computador. S
 
 Una web clara, rápida y fácil de usar con el pulgar es una de las formas más simples de convertir visitas en conversaciones con clientes reales.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tu web se ve bien en el celular de tus clientes?</p>
-    <p class="blog-cta__text">La revisamos juntos desde un teléfono real. Te muestro qué está frenando tus contactos y qué ajustes harían que te escriban más, sin rehacer todo desde cero.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Tu web se ve bien en el celular de tus clientes?", "La revisamos juntos desde un teléfono real. Te muestro qué está frenando tus contactos y qué ajustes harían que te escriban más, sin rehacer todo desde cero." %}

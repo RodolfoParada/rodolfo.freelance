@@ -122,10 +122,4 @@ Si quieres entender cómo encaja la llamada en un proceso comercial completo, en
 
 Una buena llamada en frío no interrumpe para imponer algo. Interrumpe para ofrecer ayuda con un problema real, de forma breve, clara y respetuosa. Si la persona termina aceptando una reunión de 15 minutos, la llamada cumplió su objetivo.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Quieres un guion de llamada hecho para tu negocio?</p>
-    <p class="blog-cta__text">Preparamos juntos tu guion, las respuestas a las objeciones de tu rubro y una forma simple de registrar cada llamada, para que tus contactos se conviertan en reuniones.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Quieres un guion de llamada hecho para tu negocio?", "Preparamos juntos tu guion, las respuestas a las objeciones de tu rubro y una forma simple de registrar cada llamada, para que tus contactos se conviertan en reuniones." %}

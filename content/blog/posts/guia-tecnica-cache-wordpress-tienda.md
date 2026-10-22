@@ -75,10 +75,4 @@ Antes de dar por terminada la optimización, haz esta prueba en una ventana de i
 3. **Entra al carrito y al checkout:** confirma que los campos de envío funcionan con normalidad y que lo que escribes no aparece en otra ventana.
 4. **Haz una prueba de pago:** llega hasta la pantalla de la pasarela para comprobar que el formulario y la conexión segura responden sin errores ni pantallas en blanco.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tu tienda necesita una revisión de velocidad y pagos?</p>
-    <p class="blog-cta__text">Te cuento cómo trabajo, qué incluye cada etapa y cómo empezamos.</p>
-  </div>
-  <a class="btn btn--primary" href="/como-trabajo/">Conoce cómo trabajo</a>
-</div>
+{% blogCta "¿Tu tienda necesita una revisión de velocidad y pagos?", "Te cuento cómo trabajo, qué incluye cada etapa y cómo empezamos.", "Conoce cómo trabajo", "/como-trabajo/" %}

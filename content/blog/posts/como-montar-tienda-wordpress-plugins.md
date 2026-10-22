@@ -67,10 +67,4 @@ Las tiendas suelen recibir ataques automáticos a formularios y carritos:
 
 - **Rank Math SEO o Yoast SEO:** crean el `sitemap.xml` automáticamente, te dejan personalizar títulos y descripciones de cada producto y agregan datos estructurados (Schema Product) con precio y disponibilidad. Esto ayuda a que Google muestre mejor tus productos, aunque no garantiza un resultado especial.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Quieres una tienda así sin tener que armarla tú?</p>
-    <p class="blog-cta__text">Te cuento cómo trabajo, qué incluye cada etapa y cómo empezamos.</p>
-  </div>
-  <a class="btn btn--primary" href="/como-trabajo/">Conoce cómo trabajo</a>
-</div>
+{% blogCta "¿Quieres una tienda así sin tener que armarla tú?", "Te cuento cómo trabajo, qué incluye cada etapa y cómo empezamos.", "Conoce cómo trabajo", "/como-trabajo/" %}

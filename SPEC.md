@@ -137,7 +137,7 @@ Blog de guías prácticas para **pymes chilenas**, generado con Eleventy desde `
 #### 3.6.2 Imágenes de portada
 - Una imagen por pestaña (`tabImage` + `tabImageAlt`), WebP de **1200 × 675 px** (16:9), menos de ~110 KB, en `public/assets/img/`, con nombre en minúsculas y guiones.
 - Se muestra completa (`object-fit: contain`) sobre fondo azul oscuro. Si el original tiene otra proporción, se ajusta completo y se rellenan los costados con la misma imagen desenfocada (sin recortar contenido).
-- Los originales en alta resolución se guardan en `originales/` y no se publican.
+- Los originales en alta resolución se guardan en `originales/` como respaldo local: la carpeta está en `.gitignore`, así que no se publica ni se sube al repositorio.
 
 | Pestaña | Imagen |
 |---|---|
@@ -162,7 +162,7 @@ Blog de guías prácticas para **pymes chilenas**, generado con Eleventy desde `
   1. Introducción breve.
   2. Secciones `##`.
   3. *En resumen*.
-  4. Bloque CTA (`.blog-cta`), con título y texto propios del tema y botón **Agenda tu reunión** a `/#contacto`.
+  4. Bloque CTA (`.blog-cta`), con título y texto propios del tema y botón **Agenda tu reunión** a `/#contacto` (o, en algunos artículos, **Conoce cómo trabajo** a `/como-trabajo/`). Se genera con el shortcode `{% blogCta "Título", "Texto" %}` definido en `eleventy.config.js`, así su diseño se cambia en un solo lugar para los 42 artículos.
 - **Componentes disponibles:**
   - Tablas `.blog-table`: encabezado azul y filas alternadas; en móvil cada fila pasa a tarjeta con etiquetas.
   - Pasos numerados `.blog-steps`.
@@ -195,6 +195,9 @@ Blog de guías prácticas para **pymes chilenas**, generado con Eleventy desde `
 ### 3.7 Página «Cómo trabajo» (`/como-trabajo/`)
 
 Página de servicios generada con Eleventy (`content/como-trabajo/index.njk`). Convenciones de implementación en `CLAUDE.md` (sección *Página «Cómo trabajo»*).
+
+- **Contenido separado del diseño:** los servicios, procesos y herramientas viven en `content/_data/services.json`, `processes.json` y `tools.json`, y se pintan con componentes Nunjucks reutilizables de `_includes/components/` (`carousel`, `serviceCard`, `processToggle`/`processPanel`, `toolGroups`). Para agregar o cambiar un servicio, un proceso o una herramienta se edita el `.json`; para cambiar el diseño de todas las tarjetas o procesos se edita el componente.
+- La reorganización en componentes no cambió el HTML publicado (verificado contra el anterior), por lo que no afecta el funcionamiento ni el SEO.
 
 #### 3.7.1 Hero y SEO
 - `<h1>`: *Desarrollo web a medida y soluciones WordPress para negocios en Chile*. Bajada: *Sitios web que se miden, no solo que se ven bien.* Botones **Pedir una cotización** y **Ver cómo trabajo**.
@@ -273,7 +276,8 @@ Página de servicios generada con Eleventy (`content/como-trabajo/index.njk`). C
 - **Rendimiento**: sin dependencias de frontend ni bundlers. Los scripts de componentes, `kit.js`, `data.js` y `main.js` se cargan con `defer` (no bloquean el render). Solo `theme.js` es síncrono, para evitar que el tema parpadee. Las hojas de estilo son bloqueantes, y es intencional para no mostrar la página sin estilos. El CSS se sirve en un solo archivo (`app.css`, generado por `npm run build:css`) y `main.js` minificado (`main.min.js`). Las portadas del blog pesan menos de ~110 KB cada una. Los carruseles y acordeones usan CSS nativo (`scroll-snap`, `<details>`) y scripts pequeños externos (`svc-carousel.js`, `svc-flows.js`).
 - **Token CSRF**: no se pide al cargar la página. Solo se pide justo antes de cada envío del formulario.
 - **Privacidad**: tipografía y recursos autoalojados. Medición con Google Tag Manager, Google Analytics 4 y Microsoft Clarity, declarada en la sección 5.2 de la Política de Privacidad (cookies `_ga`, `_ga_<ID>`, `_clck`, `_clsk`).
-- **Mantenibilidad**: datos separados (`data.js`), tokens de diseño en `variables.css`, componentes modulares en `js/components/`. En el blog, las pestañas se definen en un solo archivo (`blogTabs.json`), los datos del sitio en `site.json` y cada artículo es un `.md` independiente.
+- **Mantenibilidad**: datos separados (`data.js`), tokens de diseño en `variables.css`, componentes modulares en `js/components/`. En el blog, las pestañas se definen en un solo archivo (`blogTabs.json`), los datos del sitio en `site.json` y cada artículo es un `.md` independiente con el CTA final como shortcode (`blogCta`). En *Cómo trabajo*, el contenido está en archivos de datos (`services.json`, `processes.json`, `tools.json`) y el HTML en componentes reutilizables (`_includes/components/`). En la portada, el carrusel es un helper del kit compartido (`RFKIT.carousel`).
+- **Despliegue (Netlify)**: `npm run build` (CSS + JS + Eleventy) publica `dist/`; `/api/*` se deriva a la función `netlify/functions/server.js`. Antes de publicar se verifica que no haya enlaces rotos, diferencias de mayúsculas/minúsculas en rutas (Netlify las distingue), estilos ni scripts en línea (CSP) ni `id` duplicados.
 
 ---
 

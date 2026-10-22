@@ -125,10 +125,4 @@ Un buen control de stock parte por comprar bien. Te puede servir [cómo ordenar 
 
 La logística y el control de stock están en el centro de la experiencia de compra. Pedir a tiempo, seguir cada despacho y revisar bien lo que llega evita quiebres de stock, protege tus márgenes y hace que tus clientes reciban lo que compraron, a tiempo y en buen estado.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Te quedas sin stock en el peor momento?</p>
-    <p class="blog-cta__text">Calculo tus puntos de reorden, ordeno tu planilla de inventario y hago seguimiento a los despachos de tus proveedores, para que siempre tengas lo que vendes.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Te quedas sin stock en el peor momento?", "Calculo tus puntos de reorden, ordeno tu planilla de inventario y hago seguimiento a los despachos de tus proveedores, para que siempre tengas lo que vendes." %}

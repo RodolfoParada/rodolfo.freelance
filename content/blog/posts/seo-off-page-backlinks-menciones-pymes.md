@@ -239,10 +239,4 @@ El SEO off-page es la tercera pata de una web que aparece en Google. Las otras d
 
 El SEO off-page no consiste en juntar enlaces al azar. Se trata de construir relaciones y una buena reputación en internet, igual que en el mundo físico. Cuando tu negocio hace un buen trabajo, lo muestra y participa en su comunidad, la autoridad llega como consecuencia natural.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Quieres que más sitios hablen de tu negocio?</p>
-    <p class="blog-cta__text">Reviso tu presencia fuera de tu web, ordeno tu ficha de Google y tus perfiles, y te propongo un plan realista para ganar enlaces y reseñas sin atajos riesgosos.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Quieres que más sitios hablen de tu negocio?", "Reviso tu presencia fuera de tu web, ordeno tu ficha de Google y tus perfiles, y te propongo un plan realista para ganar enlaces y reseñas sin atajos riesgosos." %}

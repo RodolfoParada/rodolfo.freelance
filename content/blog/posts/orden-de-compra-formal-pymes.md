@@ -138,10 +138,4 @@ La orden de compra es el último paso de un [proceso de compras ordenado](/blog/
 
 Pedir por chat no ahorra tiempo: expone tu negocio a cobros de más, productos equivocados y discusiones con tus proveedores. Una orden de compra simple, con los datos correctos, ordena tus compras, le pide seriedad a tus proveedores y asegura que cada peso que sale de tu empresa esté autorizado y respaldado.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Todavía haces tus pedidos por WhatsApp?</p>
-    <p class="blog-cta__text">Te preparo una plantilla de orden de compra con numeración correlativa y un proceso simple para emitirlas y revisarlas contra cada factura.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Todavía haces tus pedidos por WhatsApp?", "Te preparo una plantilla de orden de compra con numeración correlativa y un proceso simple para emitirlas y revisarlas contra cada factura." %}

@@ -160,10 +160,4 @@ Este traspaso se complementa con una buena bienvenida al cliente: te lo explico 
 
 El éxito de un servicio no depende solo de la calidad del trabajo final, sino de cómo vive el cliente todo el proceso. Un traspaso ordenado entre la venta y la ejecución evita malentendidos, alinea a tu equipo y hace que cada nuevo cliente parta con el pie derecho.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Lo que prometes en la venta se pierde al empezar el trabajo?</p>
-    <p class="blog-cta__text">Te ayudo a ordenar el paso de la venta a la ejecución: la ficha del cliente, la reunión de traspaso y reglas claras para los cambios, para que cada proyecto parta bien.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Lo que prometes en la venta se pierde al empezar el trabajo?", "Te ayudo a ordenar el paso de la venta a la ejecución: la ficha del cliente, la reunión de traspaso y reglas claras para los cambios, para que cada proyecto parta bien." %}

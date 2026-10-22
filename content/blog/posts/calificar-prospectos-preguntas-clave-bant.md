@@ -170,10 +170,4 @@ Con esta información, quien vende llega a la reunión sabiendo de qué hablar, 
 
 Calificar no es poner trabas: es cuidar el tiempo de todos. Con cuatro preguntas bien hechas, las reuniones que llegan a la agenda son menos, pero mejores, y cada una tiene muchas más posibilidades de terminar en una venta.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tu agenda está llena de reuniones que no venden?</p>
-    <p class="blog-cta__text">Te ayudo a definir tus preguntas de calificación, tus criterios de descarte y una ficha de traspaso en tu CRM, para que cada reunión valga la pena.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Tu agenda está llena de reuniones que no venden?", "Te ayudo a definir tus preguntas de calificación, tus criterios de descarte y una ficha de traspaso en tu CRM, para que cada reunión valga la pena." %}

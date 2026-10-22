@@ -15,21 +15,29 @@ rodolfofreelance/
 ├── content/                       # Fuente de Eleventy (blog y Cómo trabajo)
 │   ├── _data/
 │   │   ├── blogTabs.json          # Pestañas del blog (slug, nombre visible, URL), en orden
-│   │   └── site.json              # URL, nombre del sitio e imagen para compartir (SEO)
+│   │   ├── site.json              # URL, nombre del sitio e imagen para compartir (SEO)
+│   │   ├── services.json          # Cómo trabajo: bloques y tarjetas de servicio
+│   │   ├── processes.json         # Cómo trabajo: procesos y sus etapas
+│   │   └── tools.json             # Cómo trabajo: herramientas agrupadas por área
 │   ├── blog/
 │   │   ├── index.njk              # Pestaña "Todos" (+ index.11tydata.js: imagen y paginación)
 │   │   ├── <pestaña>/index.njk    # Una carpeta por pestaña (+ index.11tydata.js)
 │   │   └── posts/                 # Un .md por artículo (+ posts.11tydata.json: layout y URL)
 │   └── como-trabajo/index.njk     # Página de servicios: tarjetas en carrusel, procesos y herramientas
 ├── _includes/
+│   ├── components/                # Componentes Nunjucks reutilizables (macros)
+│   │   ├── carousel.njk           # carousel(opts): carrusel con flechas ← → (envuelve tarjetas con {% call %})
+│   │   ├── service-card.njk       # serviceCard(card, services): tarjeta de servicio
+│   │   ├── process.njk            # processToggle(p) y processPanel(p): botón y panel de un proceso
+│   │   └── tools.njk              # toolGroups(tools): grupos de herramientas
 │   ├── base.njk                   # <head> (título, descripción, canonical, Open Graph), header y footer
 │   ├── blog-listing.njk           # Portada de cada pestaña: título, pestañas, destacado, grilla, paginación
 │   └── post.njk                   # Artículo: botón Atrás, índice lateral, cuerpo y "Sigue leyendo"
-├── eleventy.config.js             # Colecciones, filtros de fecha y copia de public/ a dist/
+├── eleventy.config.js             # Colecciones, filtros de fecha, shortcode {% blogCta %} y copia de public/ a dist/
 ├── plugins/sitemap.js             # Genera dist/sitemap.xml en cada build
 ├── scripts/                       # build-css.js (une el CSS en app.css) y build-js.js (minifica main.js)
 ├── netlify/functions/server.js    # La API Express como función de Netlify (/api/*)
-├── originales/                    # Imágenes originales en alta resolución (no se publican)
+├── originales/                    # Imágenes originales en alta resolución: solo locales (en .gitignore, no se publican ni se suben a git)
 ├── dist/                          # Sitio generado (no editar, no se sube a git)
 ├── public/                        # Frontend estático (se copia tal cual a dist/)
 │   ├── index.html                 # Página principal (compuesta por Web Components)
@@ -97,6 +105,8 @@ npx @11ty/eleventy   # regenera solo dist/ (rápido, al editar artículos o plan
 npm run lint         # (si se añade linter)
 ```
 
+Netlify ejecuta `npm run build` y publica `dist/` desde lo que está en GitHub: todo archivo nuevo que use el sitio (componentes, datos, imágenes, scripts) debe estar en git o el build fallará.
+
 `npm run dev` no vigila los artículos: después de editar un `.md`, una plantilla o el CSS, vuelve a correr `npx @11ty/eleventy` (y `npm run build:css` si tocaste CSS) y recarga el navegador con Ctrl + Shift + R.
 
 ## Convenciones de código y componentes reutilizables
@@ -112,6 +122,7 @@ npm run lint         # (si se añade linter)
     - `blockTitle(title, subtitle)`: genera encabezados `<h2 class="block__title">`.
     - `flipHint()`: genera el botón de flecha `<button class="pillar__hint">` (aria-label "Ver detalles") que gira la tarjeta.
     - `flipBackHint()`: genera el botón de vuelta `<button class="pillar__hint pillar__hint--back">` (aria-label "Volver") para la cara trasera.
+    - `carousel(track, labels)`: envuelve una grilla (con `id` y clase `svc-carousel__track`) en el carrusel compartido con sus flechas ← →; `labels = { prev, next }` es opcional. La página debe cargar `svc-carousel.js`.
     - `bindFlipCard(card)`: añade el botón de vuelta a la cara trasera (`[class*="__face--back"]`) y enlaza el clic de la flecha (`.pillar__hint`) y del botón de vuelta para alternar/quitar `.is-flipped`. Solo estos botones giran la tarjeta: no hay giro por hover, por foco ni por clic en el resto.
     - `renderCardsSection(host, config)` y `define(name, render)`: `define` renderiza al `DOMContentLoaded` si el documento aún carga (así el HTML precargado ya está leído).
   - Catálogo de componentes:
@@ -161,16 +172,11 @@ El blog vive en `content/` y se genera en `dist/`. Está dirigido a **pymes chil
   ```
 - **Orden:** se ordena por `date`, del más nuevo al más antiguo. Si varios artículos tienen el mismo día, usa la hora (`T23:40:00Z`) para fijar cuál sale destacado.
 - **Estructura:** introducción breve → secciones `##` (alimentan el índice lateral) → `## En resumen` → bloque CTA al final. Usa `###` dentro de una sección.
-- **CTA final** (obligatorio, propio del tema del artículo):
-  ```html
-  <div class="blog-cta">
-    <div>
-      <p class="blog-cta__title">Pregunta que conecte con el problema del artículo</p>
-      <p class="blog-cta__text">Qué haces tú por el lector, en una o dos frases.</p>
-    </div>
-    <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-  </div>
+- **CTA final** (obligatorio, propio del tema del artículo), con el shortcode `blogCta` (definido en `eleventy.config.js`; genera el bloque `.blog-cta`):
+  ```njk
+  {% blogCta "Pregunta que conecte con el problema del artículo", "Qué haces tú por el lector, en una o dos frases." %}
   ```
+  Por defecto el botón es **Agenda tu reunión** a `/#contacto`. Para otro botón: `{% blogCta "Título", "Texto", "Conoce cómo trabajo", "/como-trabajo/" %}`. No uses comillas dobles dentro de los textos.
 - **Enlaces internos:** cada artículo enlaza a 2 o 3 artículos relacionados con `[texto](/blog/<slug>/)`. Verifica que el slug exista.
 
 ### Componentes para artículos (en `styles.css`)
@@ -217,7 +223,7 @@ Los diagramas se dibujan como SVG dentro del `.md`, envueltos en `<figure>` con 
 - Una por pestaña, en `public/assets/img/`, configurada en `tabImage` y `tabImageAlt` del `index.11tydata.js` de la pestaña.
 - **Formato final:** WebP de **1200 × 675 px** (16:9) y menos de ~110 KB. Se muestra completa (`object-fit: contain`).
 - Si la imagen original tiene otra proporción (por ejemplo 1536 × 1024), **no la recortes si pierde contenido**: ajústala completa al alto de 675 px, céntrala y rellena los costados con la misma imagen desenfocada y algo oscurecida.
-- Guarda el original en `originales/<nombre>-original.webp` (fuera de `public/`, no se publica).
+- Guarda el original en `originales/<nombre>-original.webp`. Esa carpeta está en `.gitignore`: no se publica ni se sube a GitHub, así que es solo un respaldo local (respáldala también fuera del proyecto si la necesitas).
 - **Nombres de archivo:** minúsculas, palabras separadas por guion, sin espacios, tildes, `ñ`, `&` ni guion bajo (`atencion-cliente.webp`). Netlify distingue mayúsculas de minúsculas.
 
 ### SEO
@@ -238,6 +244,18 @@ Los diagramas se dibujan como SVG dentro del `.md`, envueltos en `<figure>` con 
 ## Página «Cómo trabajo»
 
 `content/como-trabajo/index.njk` (Eleventy, `/como-trabajo/`). Usa estilos `svc-*` de `styles.css` y carga `svc-flows.js` y `svc-carousel.js` al final del archivo (scripts externos con `defer`, por la CSP).
+
+**El contenido no se edita en el HTML:** la página arma los bloques con los componentes de `_includes/components/` a partir de los datos de `content/_data/`:
+
+| Para cambiar… | Edita |
+|---|---|
+| Una tarjeta de servicio (título, textos, alcance, guía) o agregar/quitar una | `services.json` → `groups[].cards[]` |
+| El texto común «Alcance según requerimiento» o «Cotiza Aquí» | `services.json` → `scopeTitle` y `quote` |
+| Un proceso, su nombre de flujo o sus etapas | `processes.json` |
+| Una herramienta o un grupo | `tools.json` |
+| La estructura HTML de una tarjeta, proceso, carrusel o grupo | El componente en `_includes/components/` (cambia todas las instancias a la vez) |
+
+Campos de una tarjeta en `services.json`: `id` (opcional, ancla), `tag` (opcional, etiqueta de categoría), `title`, `titleNowrap` (opcional, parte del título que no debe cortarse, como «(E-Commerce)»), `texts` (párrafos), `scope` (lista del alcance) y `guide` (`href`, `text` sin la flecha). Los textos van como texto plano: Nunjucks escapa los caracteres especiales (`&` → `&amp;`).
 
 ### Estructura
 
@@ -337,6 +355,8 @@ Cada tarjeta sigue la misma estructura (ordena así el contenido que te pasen: t
   El botón "Atrás" (`blog-back.js`) la reconoce sola, porque lee `blogTabs.json`.
 - **Cambiar el nombre visible de una pestaña**: cambiar `name` en `blogTabs.json`, `title` en su `index.njk` y `categoryName` en sus artículos. No cambies el slug (rompe las URL).
 - **Imagen de portada de una pestaña**: seguir [Imágenes de portada](#imágenes-de-portada) y configurar `tabImage`/`tabImageAlt`.
-- **Nuevo servicio en «Cómo trabajo»**: copiar un `<article class="svc-card">` dentro del carrusel del bloque que corresponda, siguiendo [Tarjeta de servicio](#tarjeta-de-servicio-svc-card). El carrusel lo acomoda solo.
-- **Nuevo proceso en «Cómo trabajo»**: agregar su botón en `#carrusel-procesos` y su panel `.svc-flow` debajo, con `id`/`aria-controls`/`aria-labelledby` que coincidan. `svc-flows.js` lo reconoce solo.
-- **Carrusel en otra sección**: envolver la grilla con la estructura de [Carrusel](#carrusel-svc-carousel-compartido-con-la-portada), agregar `svc-carousel__track` a la grilla y cargar `svc-carousel.js` con `defer` en esa página. Si la sección es un Web Component, actualiza también su copia estática.
+- **Nuevo servicio en «Cómo trabajo»**: agregar un objeto a `groups[].cards` en `content/_data/services.json`, siguiendo [Tarjeta de servicio](#tarjeta-de-servicio-svc-card). El componente y el carrusel lo acomodan solos.
+- **Nuevo proceso en «Cómo trabajo»**: agregar un objeto a `content/_data/processes.json` (`id` que empiece con `proceso-`, `title`, `name` y `steps`). El botón, el panel y su conexión accesible se generan solos, y `svc-flows.js` lo reconoce.
+- **Carrusel en otra página de Eleventy**: `{% from "components/carousel.njk" import carousel %}` y `{% call carousel({ id, label, title, titleId }) %}…{% endcall %}`; carga `svc-carousel.js` con `defer` en esa página.
+- **Carrusel en un Web Component**: `RFKIT.carousel(grilla)` (la grilla con `id` y clase `svc-carousel__track`), cargar `svc-carousel.js` con `defer` y actualizar también la copia estática del HTML.
+- **Antes de dar por terminado un cambio de estructura**, compara el HTML generado con el anterior: si solo cambiaste cómo se arma (componentes, datos) y no el contenido, el `dist/` debe quedar idéntico (salvo espacios). Así el funcionamiento y el SEO no cambian.

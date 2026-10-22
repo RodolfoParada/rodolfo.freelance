@@ -225,10 +225,4 @@ El SEO técnico no se hace una sola vez y se olvida. Es como la mantención de u
 
 Con una web que Google puede recorrer sin bloqueos, páginas bien indexadas, una estructura clara, buena velocidad y datos estructurados, le das a tu negocio la mejor oportunidad de aparecer cuando un cliente busca lo que ofreces.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Google está viendo tu web como debería?</p>
-    <p class="blog-cta__text">Reviso las seis bases del SEO técnico de tu sitio, corrijo lo que esté bloqueando tu visibilidad y te explico en simple qué cambió y por qué.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Google está viendo tu web como debería?", "Reviso las seis bases del SEO técnico de tu sitio, corrijo lo que esté bloqueando tu visibilidad y te explico en simple qué cambió y por qué." %}

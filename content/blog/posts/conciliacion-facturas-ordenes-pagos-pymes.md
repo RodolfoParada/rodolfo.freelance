@@ -105,10 +105,4 @@ Hacer esto cada mes, y no solo cuando lo pide el contador, te permite detectar a
 
 La conciliación no es un trámite para el contador a fin de año. Es la primera defensa de la caja de tu negocio. Revisar orden de compra, guía y factura antes de pagar, y cuadrar el banco cada mes, evita cobros indebidos y pagos duplicados, y te da claridad sobre a dónde va cada peso.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿El saldo del banco nunca te calza?</p>
-    <p class="blog-cta__text">Te ayudo a ordenar tus facturas, órdenes de compra y pagos, y a dejar una rutina mensual de conciliación simple, para que siempre sepas qué pagaste y qué falta.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿El saldo del banco nunca te calza?", "Te ayudo a ordenar tus facturas, órdenes de compra y pagos, y a dejar una rutina mensual de conciliación simple, para que siempre sepas qué pagaste y qué falta." %}

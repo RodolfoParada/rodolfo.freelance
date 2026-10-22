@@ -129,10 +129,4 @@ Ten en cuenta también la ley chilena. Si escribes a personas como consumidores,
 
 Un buen correo en frío no intenta cerrar la venta en la bandeja de entrada. Busca algo más simple: empezar una conversación entre dos personas de negocios. Corto, personal, útil y fácil de responder.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tus correos comerciales no reciben respuesta?</p>
-    <p class="blog-cta__text">Reviso la configuración de tu dominio para que tus correos lleguen a la bandeja de entrada y te ayudo a escribir mensajes que tus prospectos sí quieran responder.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Tus correos comerciales no reciben respuesta?", "Reviso la configuración de tu dominio para que tus correos lleguen a la bandeja de entrada y te ayudo a escribir mensajes que tus prospectos sí quieran responder." %}

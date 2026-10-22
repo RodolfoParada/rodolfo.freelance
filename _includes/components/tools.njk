@@ -1,0 +1,20 @@
+{#- Grupos de herramientas (css: .svc-tech). Datos en content/_data/tools.json.
+    Uso: {% from "components/tools.njk" import toolGroups %} {{ toolGroups(tools) }}
+    groups: [{ group, items: [{ name, text }] }] -#}
+{% macro toolGroups(groups) %}
+<div class="svc-tech__groups">
+  {%- for g in groups %}
+  <div class="svc-tech__group">
+    <h3 class="svc-tech__group-title">{{ g.group }}</h3>
+    <dl class="svc-tech__list">
+      {%- for item in g.items %}
+      <div class="svc-tech__item">
+        <dt>{{ item.name }}</dt>
+        <dd>{{ item.text }}</dd>
+      </div>
+      {%- endfor %}
+    </dl>
+  </div>
+  {%- endfor %}
+</div>
+{% endmacro %}

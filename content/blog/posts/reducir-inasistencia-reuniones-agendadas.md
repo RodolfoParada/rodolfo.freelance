@@ -132,10 +132,4 @@ Si aun así la persona no se conecta, no lo tomes como algo personal. Envía un 
 
 Las inasistencias no se combaten insistiendo, sino cuidando cada contacto antes de la reunión. Cuando la persona entiende que esa conversación le va a servir, conectarse deja de ser un compromiso más y pasa a ser una buena inversión de su tiempo.
 
-<div class="blog-cta">
-  <div>
-    <p class="blog-cta__title">¿Tus prospectos agendan pero no se conectan?</p>
-    <p class="blog-cta__text">Te ayudo a armar tu secuencia de confirmación, con los mensajes listos y recordatorios automáticos, para que las reuniones que consigues se conviertan en conversaciones reales.</p>
-  </div>
-  <a class="btn btn--primary" href="/#contacto">Agenda tu reunión</a>
-</div>
+{% blogCta "¿Tus prospectos agendan pero no se conectan?", "Te ayudo a armar tu secuencia de confirmación, con los mensajes listos y recordatorios automáticos, para que las reuniones que consigues se conviertan en conversaciones reales." %}
