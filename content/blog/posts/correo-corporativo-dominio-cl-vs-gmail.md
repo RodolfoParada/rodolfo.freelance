@@ -18,7 +18,7 @@ Cualquier persona puede crear una cuenta gratuita en Gmail o Outlook en un par d
 
 Cuando tu negocio escribe desde un dominio .cl propio, el mensaje que transmite es otro:
 
-- **Que estás para quedarte.** Registrar un dominio en NIC Chile implica un trámite formal y una renovación anual. Es una señal de que tu negocio existe y piensa en el largo plazo.
+- **Que estás para quedarte.** Registrar un dominio en [NIC Chile](https://nic.cl/) implica un trámite formal y una renovación anual. Es una señal de que tu negocio existe y piensa en el largo plazo.
 - **Que puedes trabajar con empresas más grandes.** Varias empresas medianas, grandes e instituciones públicas revisan con más cuidado, o derechamente descartan, las propuestas que llegan desde casillas gratuitas. Un correo corporativo te ayuda a pasar ese primer filtro.
 - **Que tu marca está presente en cada mensaje.** Cada cotización, respuesta o factura que envías lleva el nombre de tu negocio, y no el de Google o Microsoft.
 

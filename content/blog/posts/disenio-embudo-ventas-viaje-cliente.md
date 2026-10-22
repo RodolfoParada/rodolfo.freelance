@@ -52,6 +52,8 @@ Ese es el recorrido completo. Cada paso necesita algo distinto, y por eso convie
 - **Medir solo el final.** Saber cuántos compraron, pero no dónde se quedaron los demás. Con eventos en Google Analytics 4 y Google Tag Manager puedes ver si la gente se cae al leer, al revisar los servicios o al completar el formulario.
 - **Responder tarde.** Una persona que pide una cotización se enfría rápido si nadie le responde en los primeros días. La rapidez en el primer contacto también es parte del embudo.
 
+En la etapa de decisión, una buena [landing page para tu pyme](/blog/landing-page-pymes-embudo-ventas/) hace gran parte del trabajo. Y para saber en qué etapa se pierden tus clientes, conviene [medir eventos clave y no solo visitas](/blog/medir-eventos-clave-no-solo-visitas/).
+
 ## En resumen
 
 El embudo no sirve para presionar a nadie. Sirve para construir una secuencia lógica: educar cuando la persona descubre, demostrar que sabes cuando está comparando y facilitar el contacto cuando ya decidió. Así tu sitio deja de ser solo una vitrina y se vuelve un sistema más predecible para conseguir clientes.

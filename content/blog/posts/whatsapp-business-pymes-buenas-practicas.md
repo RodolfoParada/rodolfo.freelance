@@ -119,7 +119,7 @@ Para responder más rápido las preguntas que se repiten, WhatsApp Business tamb
 
 ## Un cuidado importante
 
-WhatsApp es para conversar con quien te escribe, no para enviar publicidad masiva. Las listas de difusión solo llegan a personas que guardaron tu número, y si muchas personas te reportan como spam, WhatsApp puede bloquear tu cuenta. Además, la nueva Ley 21.719 de protección de datos personales, que entra en vigencia en diciembre de 2026, exige cuidar los datos de contacto de tus clientes.
+WhatsApp es para conversar con quien te escribe, no para enviar publicidad masiva. Las listas de difusión solo llegan a personas que guardaron tu número, y si muchas personas te reportan como spam, WhatsApp puede bloquear tu cuenta. Además, la nueva [Ley 21.719](https://www.bcn.cl/leychile/navegar?idNorma=1209272) de protección de datos personales, que entra en vigencia en diciembre de 2026, exige cuidar los datos de contacto de tus clientes.
 
 ## En resumen
 

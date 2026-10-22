@@ -120,7 +120,7 @@ No necesitas un sistema caro para emitirlas. Puedes partir con una plantilla en 
 <ol class="blog-steps">
 <li>
 <p class="blog-steps__title">Te protege de cobros que no acordaste</p>
-<p>Cuando llega la factura electrónica, la comparas con la orden de compra. Si trae un cobro que no estaba acordado, puedes reclamarla en el Registro de Compras y Ventas del SII dentro de los 8 días siguientes a recibirla, y pedir que la corrijan. Pasado ese plazo, la factura se da por aceptada.</p>
+<p>Cuando llega la factura electrónica, la comparas con la orden de compra. Si trae un cobro que no estaba acordado, puedes reclamarla en el Registro de Compras y Ventas del SII dentro de los <a href="https://www.sii.cl/preguntas_frecuentes/factura_electronica/001_003_6914.htm">8 días corridos desde que la factura llega al SII</a>, y pedir que la corrijan. Pasado ese plazo, la factura se da por aceptada.</p>
 </li>
 <li>
 <p class="blog-steps__title">Sabes cuánto vas a pagar</p>

@@ -66,7 +66,7 @@ Google no indexa todo lo que visita. Si una página tiene poco contenido, repite
 
 - **Etiqueta canónica:** si tienes la misma página en varias direcciones parecidas (por ejemplo, con y sin parámetros de campaña), esta etiqueta le indica a Google cuál es la versión principal. Así evitas que varias copias compitan entre sí y se repartan la visibilidad.
 - **Etiqueta noindex:** úsala en páginas que no tiene sentido mostrar en Google, como la página de agradecimiento después de enviar un formulario. Ojo: noindex no protege información privada; solo le pide a Google que no la muestre.
-- **Google Search Console:** es la herramienta gratuita de Google para revisar tu web. Con la opción «Inspeccionar URL» puedes comprobar si una página aparece como **«La URL está en Google»**.
+- **[Google Search Console](https://search.google.com/search-console/about):** es la herramienta gratuita de Google para revisar tu web. Con la opción «Inspeccionar URL» puedes comprobar si una página aparece como **«La URL está en Google»**.
 
 ## 3. El sitemap: un mapa de tu web para Google
 
@@ -208,7 +208,7 @@ Esta tabla resume las seis bases, qué resuelve cada una y cómo revisarla grati
 <tr>
 <td>Core Web Vitals</td>
 <td data-label="Qué resuelve">Que tu web cargue rápido y no salte en el celular.</td>
-<td data-label="Cómo revisarla">Google PageSpeed Insights, con la pestaña de celular.</td>
+<td data-label="Cómo revisarla"><a href="https://pagespeed.web.dev/">Google PageSpeed Insights</a>, con la pestaña de celular.</td>
 </tr>
 <tr>
 <td>Datos estructurados</td>

@@ -112,9 +112,9 @@ Los primeros segundos deciden si la persona te escucha o corta. Este guion los d
 
 Cuando llamas a empresas para ofrecer servicios a empresas, lo más importante es el respeto: si alguien te pide que no lo vuelvas a llamar, anótalo en tu registro y cumple.
 
-Si llamas a personas como consumidores, en Chile hay reglas adicionales. Las personas pueden pedir que no las contacten para fines comerciales, por ejemplo a través del registro «No Molestar» del SERNAC, y las llamadas de telemarketing a consumidores deben identificarse con el prefijo 809. Si tu negocio vende a personas, revisa las reglas vigentes en el sitio del SERNAC antes de empezar.
+Si llamas a personas como consumidores, en Chile hay reglas adicionales. Las personas pueden pedir que no las contacten para fines comerciales, por ejemplo a través del registro «No Molestar» del SERNAC, y las llamadas de telemarketing a consumidores deben identificarse con el prefijo 809. Si tu negocio vende a personas, revisa las reglas vigentes en el [sitio del SERNAC](https://www.sernac.cl/portal/617/w3-channel.html) antes de empezar.
 
-Además, la nueva Ley 21.719 de protección de datos personales entra en vigencia en diciembre de 2026. Si guardas nombres, teléfonos o correos de personas en tu base de prospección, conviene tener claro de dónde sacaste cada dato y respetar a quien pida ser eliminado.
+Además, la nueva [Ley 21.719](https://www.bcn.cl/leychile/navegar?idNorma=1209272) de protección de datos personales entra en vigencia en diciembre de 2026. Si guardas nombres, teléfonos o correos de personas en tu base de prospección, conviene tener claro de dónde sacaste cada dato y respetar a quien pida ser eliminado.
 
 Si quieres entender cómo encaja la llamada en un proceso comercial completo, en [qué es un SDR o BDR](/blog/que-es-sdr-bdr-prospeccion-pymes/) te explico cómo separar la búsqueda de clientes del cierre.
 

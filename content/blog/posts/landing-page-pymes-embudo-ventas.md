@@ -69,6 +69,8 @@ Pero tiene límites que conviene tener claros:
 - **Aporta poco al posicionamiento general.** Como tiene pocos enlaces internos y está muy enfocada en una oferta, no reemplaza a un sitio completo con contenido.
 - **Hay que mantenerla.** Si cambian tus precios o tus servicios, todas las landing pages activas deben actualizarse para que no den información contradictoria.
 
+Para ubicar tu landing dentro del recorrido completo de tu cliente, revisa [cómo diseñar tu embudo de ventas](/blog/disenio-embudo-ventas-viaje-cliente/). Y para ver qué hacen realmente las visitas en ella, te sirven los [mapas de calor](/blog/mapas-de-calor-donde-hacen-clic-tus-clientes/).
+
 ## En resumen
 
 Para una pyme, la landing page es una herramienta de venta, no un folleto digital. Si vas a lanzar una campaña o a promocionar un servicio concreto, una página clara, rápida y conectada a un proceso de seguimiento es la forma más directa de convertir visitas en conversaciones.

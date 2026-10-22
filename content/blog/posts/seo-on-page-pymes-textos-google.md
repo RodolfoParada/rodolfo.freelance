@@ -58,7 +58,7 @@ Existe un cuarto tipo, cuando alguien busca directamente el nombre de tu empresa
 
 Competir por «marketing» o «diseño web» contra grandes portales es difícil y caro. Es mejor apuntar a búsquedas más largas y específicas, como «tienda online WooCommerce para pymes en Chile». Las buscan menos personas, pero quienes lo hacen saben mejor lo que quieren y están más cerca de contratar. En SEO se les llama palabras clave *long tail* o de cola larga.
 
-Para encontrarlas no necesitas herramientas pagadas: mira las sugerencias que aparecen al escribir en Google, la sección «Otras preguntas de los usuarios» y las consultas que ya te traen visitas en Google Search Console.
+Para encontrarlas no necesitas herramientas pagadas: mira las sugerencias que aparecen al escribir en Google, la sección «Otras preguntas de los usuarios» y las consultas que ya te traen visitas en [Google Search Console](https://search.google.com/search-console/about).
 
 Si te interesa cómo llevar a esas personas desde la búsqueda hasta el contacto, en [landing page para pymes](/blog/landing-page-pymes-embudo-ventas/) te explico cómo armar una página que convierta.
 
@@ -222,6 +222,8 @@ Antes de dar por terminada una página o un artículo, revisa estos puntos:
 - **Título y descripción:** ¿tienen un largo adecuado e invitan a hacer clic?
 - **Imágenes:** ¿tienen texto alternativo y son livianas?
 - **Siguiente paso claro:** ¿el lector sabe dónde hacer clic para cotizar, agendar una reunión o contactarte?
+
+Y si tu negocio atiende en una ciudad o comuna, complementa estos ajustes con el [SEO local: tu ficha de Google y tus reseñas](/blog/seo-local-pymes-ficha-google-resenas/).
 
 ## En resumen
 

@@ -64,7 +64,7 @@ Una **matriz comparativa de proveedores** es una tabla simple, que puedes armar 
 <li>
 <p class="blog-steps__title">Forma de pago</p>
 <p>Para la caja de una pyme, cómo pagas importa tanto como cuánto pagas. ¿Te exige el 100% por adelantado? ¿Acepta pago contra entrega? ¿Ofrece pagar la factura a 30 días? Pagar a 30 días te permite vender primero y pagar el insumo con lo que vendiste.</p>
-<p>En Chile, la Ley 21.131 fija en 30 días el plazo máximo para pagar una factura, contado desde que la recibes. Solo se permiten plazos mayores en casos excepcionales, acordados por escrito.</p>
+<p>En Chile, la <a href="https://www.bcn.cl/leychile/navegar?idNorma=1127890">Ley 21.131</a> fija en 30 días el plazo máximo para pagar una factura, contado desde que la recibes. Solo se permiten plazos mayores en casos excepcionales, acordados por escrito.</p>
 </li>
 <li>
 <p class="blog-steps__title">Calidad y respuesta ante problemas</p>

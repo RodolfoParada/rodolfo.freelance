@@ -121,7 +121,7 @@ Desde 2024, Gmail y Yahoo exigen que quienes envían muchos correos tengan su do
 </table>
 </div>
 
-Ten en cuenta también la ley chilena. Si escribes a personas como consumidores, deben poder pedir que no les envíes más mensajes. Y la nueva Ley 21.719 de protección de datos personales, que entra en vigencia en diciembre de 2026, también protege los datos de contacto de las personas que trabajan en empresas. Escribe solo a contactos que encajan con tu servicio y respeta siempre a quien pida no recibir más correos.
+Ten en cuenta también la ley chilena. Si escribes a personas como consumidores, deben poder pedir que no les envíes más mensajes. Y la nueva [Ley 21.719](https://www.bcn.cl/leychile/navegar?idNorma=1209272) de protección de datos personales, que entra en vigencia en diciembre de 2026, también protege los datos de contacto de las personas que trabajan en empresas. Escribe solo a contactos que encajan con tu servicio y respeta siempre a quien pida no recibir más correos.
 
 ¿A quién escribirle? Un buen correo enviado a la persona equivocada no sirve de nada. En [cómo armar una base de datos de prospección desde cero](/blog/base-de-datos-prospeccion-desde-cero/) te explico cómo encontrar a las personas correctas.
 

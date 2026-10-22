@@ -59,7 +59,7 @@ El mismo número puede ser bueno o malo según la página:
 - **En un artículo o una guía,** un tiempo alto, de tres a cinco minutos, suele ser buena señal. Significa que la gente está leyendo con atención.
 - **En un formulario, un cotizador o una página de pago,** un tiempo alto suele ser una mala señal. Si alguien pasa ocho minutos en un pago que debería tomar menos de un minuto, no es que le encante tu web: probablemente está peleando con campos confusos, errores o una página que tarda en responder.
 
-**En resumen:** para saber qué hay detrás de esos minutos, complementa el número con herramientas que muestran cómo se mueven las personas en tu web, como los mapas de calor y las grabaciones de Microsoft Clarity. En [cómo usar Microsoft Clarity para entender por qué tus visitas no compran](/blog/clarity-wordpress-visitas-no-compran/) te explico cómo usarla paso a paso.
+**En resumen:** para saber qué hay detrás de esos minutos, complementa el número con herramientas que muestran cómo se mueven las personas en tu web, como los mapas de calor y las grabaciones de [Microsoft Clarity](https://clarity.microsoft.com/). En [cómo usar Microsoft Clarity para entender por qué tus visitas no compran](/blog/clarity-wordpress-visitas-no-compran/) te explico cómo usarla paso a paso.
 
 ## 4. Conversiones: la métrica que te dice si tu web funciona
 

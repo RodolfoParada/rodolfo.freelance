@@ -53,6 +53,8 @@ En cambio, **sí conviene** cuando:
 - Tienes reglas de precios o de reservas propias que ningún plugin resuelve sin instalar varias extensiones que terminan chocando entre sí.
 - Tienes una docena de pequeños plugins que hacen cosas simples, como códigos de seguimiento o ajustes visuales, y podrías agruparlos en uno solo, más liviano y más fácil de mantener.
 
+Antes de crear un plugin propio, revisa si ya existe uno confiable: en [cómo montar una tienda con WordPress y qué plugins usar](/blog/como-montar-tienda-wordpress-plugins/) te muestro los más usados. Y recuerda que cada plugin suma peso; en [por qué tu WordPress carga lento](/blog/por-que-wordpress-carga-lento/) te explico cómo evitar que te frenen.
+
 ## En resumen
 
 Para la mayoría de las pymes, lo más práctico es combinar las dos opciones: plugins consolidados para lo que todos los sitios necesitan, y desarrollo a medida solo para los procesos que hacen diferente a tu negocio, donde la integración directa y la velocidad se notan en las ventas.

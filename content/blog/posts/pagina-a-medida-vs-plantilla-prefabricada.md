@@ -52,6 +52,8 @@ Vale la pena pensar en un desarrollo a medida cuando:
 - Tu sitio actual carga lento o se descompone cada vez que actualizas un plugin, y ya te quita tiempo.
 - Tu marca ya tiene un nombre y necesitas diferenciarte de la competencia.
 
+Si te inclinas por una plantilla, en [cómo elegir el tema de WordPress correcto](/blog/elegir-tema-wordpress-negocio/) te explico qué revisar antes de comprarla. Y en ambos casos vas a necesitar un dominio y un hosting: te lo explico en simple en [dominio, hosting y DNS](/blog/dominio-hosting-dns-explicados/).
+
 ## En resumen
 
 Una buena plantilla sirve para empezar sin arriesgar demasiado capital. Un desarrollo a medida tiene sentido cuando el negocio crece, sus procesos se complican y la web necesita trabajar a favor de tus ventas, no ser un obstáculo técnico.

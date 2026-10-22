@@ -25,7 +25,7 @@ Lo mejor es que termina con las discusiones de gustos, del tipo «a mí me gusta
 
 ## Los tres tipos de mapas de calor
 
-Herramientas como Microsoft Clarity, que es gratuita, o Hotjar, que tiene un plan gratuito limitado, ofrecen distintos tipos de mapas. Estos son los más útiles:
+Herramientas como [Microsoft Clarity](https://clarity.microsoft.com/), que es gratuita, o Hotjar, que tiene un plan gratuito limitado, ofrecen distintos tipos de mapas. Estos son los más útiles:
 
 <figure>
 <svg viewBox="0 0 480 590" width="440" role="img" aria-labelledby="heatmap-title heatmap-desc" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -170,7 +170,7 @@ Si quieres entender mejor los números de Google Analytics, en [visitas, usuario
 Muchas pymes no usan mapas de calor porque creen que son herramientas caras para grandes empresas. Hoy no es así:
 
 - **Microsoft Clarity es gratis.** No tiene planes pagados y funciona bien con el tráfico de cualquier pyme. Se instala en pocos minutos, directamente en tu web o con Google Tag Manager. Además de los mapas, incluye grabaciones de visitas y detecta solo los momentos de frustración, como los **clics de rabia**: cuando alguien toca varias veces seguidas algo que no responde. Las grabaciones se guardan por 30 días, así que conviene marcar como favoritas las que quieras conservar.
-- **Cuida la privacidad.** Clarity oculta por defecto lo que la gente escribe en los campos de texto, como contraseñas, teléfonos o datos de tarjetas, y no identifica a las personas. Aun así, debes informarlo en la política de privacidad de tu web. Ten en cuenta que en Chile la nueva Ley 21.719 de protección de datos personales entra en vigencia en diciembre de 2026, así que es un buen momento para revisar qué datos recoge tu web y cómo lo comunicas.
+- **Cuida la privacidad.** Clarity oculta por defecto lo que la gente escribe en los campos de texto, como contraseñas, teléfonos o datos de tarjetas, y no identifica a las personas. Aun así, debes informarlo en la política de privacidad de tu web. Ten en cuenta que en Chile la nueva [Ley 21.719](https://www.bcn.cl/leychile/navegar?idNorma=1209272) de protección de datos personales entra en vigencia en diciembre de 2026, así que es un buen momento para revisar qué datos recoge tu web y cómo lo comunicas.
 
 Si tu web está hecha en WordPress, en [cómo usar Microsoft Clarity en WordPress](/blog/clarity-wordpress-visitas-no-compran/) te explico la instalación paso a paso.
 

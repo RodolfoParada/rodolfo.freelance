@@ -58,7 +58,7 @@ En administración se le llama **cruce de tres vías**. Antes de pagar una factu
 <tbody>
 <tr>
 <td>La factura cobra un precio mayor al de la orden de compra</td>
-<td data-label="Qué hacer">No la pagues todavía. Pide al proveedor una nota de crédito por la diferencia, o reclama la factura en el Registro de Compras y Ventas dentro de los 8 días siguientes a recibirla.</td>
+<td data-label="Qué hacer">No la pagues todavía. Pide al proveedor una nota de crédito por la diferencia, o reclama la factura en el Registro de Compras y Ventas dentro de los <a href="https://www.sii.cl/preguntas_frecuentes/factura_electronica/001_003_6914.htm">8 días corridos desde que la factura llega al SII</a>.</td>
 </tr>
 <tr>
 <td>Llegó menos de lo que se facturó</td>
@@ -100,6 +100,8 @@ Una vez revisadas y pagadas las facturas, el siguiente paso es comparar tus regi
 </ol>
 
 Hacer esto cada mes, y no solo cuando lo pide el contador, te permite detectar a tiempo pagos duplicados o cobros que no correspondían. Y si además quieres ordenar cuándo pagas, te puede servir [cómo armar un calendario de pagos](/blog/calendario-pagos-flujo-caja-pymes/).
+
+Una vez que tus gastos están conciliados, el siguiente paso es compararlos con lo que planificaste: te lo explico en [control de presupuesto por área](/blog/control-presupuesto-por-area-pymes/).
 
 ## En resumen
 

@@ -75,4 +75,6 @@ Antes de dar por terminada la optimización, haz esta prueba en una ventana de i
 3. **Entra al carrito y al checkout:** confirma que los campos de envío funcionan con normalidad y que lo que escribes no aparece en otra ventana.
 4. **Haz una prueba de pago:** llega hasta la pantalla de la pasarela para comprobar que el formulario y la conexión segura responden sin errores ni pantallas en blanco.
 
+La caché es solo una de las causas de una web lenta; las demás están en [por qué tu WordPress carga lento](/blog/por-que-wordpress-carga-lento/). Y para entender cómo influye la velocidad en tu posición en Google, revisa [SEO técnico para pymes](/blog/seo-tecnico-pymes-cimientos-google/).
+
 {% blogCta "¿Tu tienda necesita una revisión de velocidad y pagos?", "Te cuento cómo trabajo, qué incluye cada etapa y cómo empezamos.", "Conoce cómo trabajo", "/como-trabajo/" %}

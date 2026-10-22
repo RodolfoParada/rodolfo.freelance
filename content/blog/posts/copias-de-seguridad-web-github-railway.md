@@ -79,6 +79,8 @@ Al menos una vez cada tres o cuatro meses:
 
 Si todo funciona, sabes que puedes recuperarte. Si algo falla, lo descubres con calma y no en medio de una emergencia.
 
+Respaldar es una parte de cuidar tu web; la otra es protegerla. En [cómo proteger tu web del spam y los ataques de fuerza bruta](/blog/spam-formularios-fuerza-bruta-proteger-web-pyme/) te explico cómo hacerlo. Y si quieres entender dónde vive cada parte de tu sitio, revisa [dominio, hosting y DNS explicados en simple](/blog/dominio-hosting-dns-explicados/).
+
 ## En resumen
 
 GitHub guarda tu código y Railway mantiene tu web funcionando, pero ninguno de los dos reemplaza una copia de tu negocio guardada en otro lugar. Lo que de verdad importa respaldar son tus datos, los archivos de tus clientes y tus claves, siempre fuera del proveedor donde está tu web.

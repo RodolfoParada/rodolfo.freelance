@@ -40,7 +40,7 @@ Para la mayoría de las pymes, una base ligera o de bloques bien configurada alc
 
 Si vas a elegir uno nuevo, o quieres revisar el que ya tienes, estos son los puntos que más importan:
 
-**1. Cómo rinde sin contenido.** Prueba la demo del tema en Google PageSpeed Insights. Si la versión vacía ya tiene una puntuación baja en móvil (como referencia, bajo 70), va a cargar aún más lento cuando le agregues tus imágenes, productos y herramientas de medición como GA4 o Clarity.
+**1. Cómo rinde sin contenido.** Prueba la demo del tema en [Google PageSpeed Insights](https://pagespeed.web.dev/). Si la versión vacía ya tiene una puntuación baja en móvil (como referencia, bajo 70), va a cargar aún más lento cuando le agregues tus imágenes, productos y herramientas de medición como GA4 o Clarity.
 
 **2. Diseño y funciones separados.** El tema debería ocuparse del diseño. Si te obliga a instalar un plugin propietario para manejar testimonios, sliders o clientes, desconfía. Lo ideal es que esas funciones estén en herramientas independientes, para que no pierdas tu información si cambias de tema.
 
@@ -61,6 +61,8 @@ La solución es crear un **tema hijo** (child theme). Es una capa que hereda el 
 - Los títulos siguen un orden lógico: un solo `<h1>` por página, y después `<h2>` y `<h3>`.
 - Las fuentes se sirven desde tu propio sitio, lo que ayuda a la velocidad y a la privacidad.
 - La maquetación se apoya en el editor de bloques de WordPress o en herramientas que tengan soporte activo.
+
+Un tema liviano es la mitad de una web rápida; la otra mitad te la explico en [por qué tu WordPress carga lento y cómo acelerarlo](/blog/por-que-wordpress-carga-lento/). Y si ningún tema cubre lo que necesitas, en [¿le conviene a una pyme crear sus propios plugins?](/blog/plugins-a-medida-wordpress-pyme/) te cuento cuándo vale la pena algo a medida.
 
 ## En resumen
 

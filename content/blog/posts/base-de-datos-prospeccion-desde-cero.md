@@ -193,7 +193,7 @@ Revisa tu base cada tres a seis meses. Las personas cambian de trabajo y de carg
 
 ## Cuida los datos personales
 
-Los nombres, correos y teléfonos de las personas son datos personales, aunque sean de su trabajo. En Chile, la nueva Ley 21.719 de protección de datos personales entra en vigencia en diciembre de 2026 y pone reglas más claras para usarlos. Para tu base de prospección, esto significa:
+Los nombres, correos y teléfonos de las personas son datos personales, aunque sean de su trabajo. En Chile, la nueva [Ley 21.719](https://www.bcn.cl/leychile/navegar?idNorma=1209272) de protección de datos personales entra en vigencia en diciembre de 2026 y pone reglas más claras para usarlos. Para tu base de prospección, esto significa:
 
 - Guarda solo los datos que necesitas para contactar.
 - Anota de dónde sacaste cada dato.

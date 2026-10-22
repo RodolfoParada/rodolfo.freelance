@@ -52,7 +52,7 @@ Un error común es aplicar caché agresiva a las páginas de compra. El plugin d
 Saber qué productos miran tus clientes y en qué paso abandonan la compra es clave para vender más:
 
 - **Google Tag Manager para WordPress (GTM4WP) o el plugin oficial de GTM:** te permiten instalar el contenedor y enviar a Google Analytics 4 los eventos de comercio electrónico, como `view_item`, `add_to_cart` y `purchase`, con los montos exactos de cada venta.
-- **Microsoft Clarity:** muestra grabaciones de navegación y mapas de calor, útiles para detectar en qué se traban tus clientes, como botones que no responden, campos confusos o problemas en el celular.
+- **[Microsoft Clarity](https://clarity.microsoft.com/):** muestra grabaciones de navegación y mapas de calor, útiles para detectar en qué se traban tus clientes, como botones que no responden, campos confusos o problemas en el celular.
 
 Si prefieres que alguien deje esta medición lista desde el inicio, puedes revisar [qué incluye la configuración de analítica en cada proyecto](/como-trabajo/).
 
@@ -66,5 +66,7 @@ Las tiendas suelen recibir ataques automáticos a formularios y carritos:
 ## 7. SEO técnico y datos estructurados
 
 - **Rank Math SEO o Yoast SEO:** crean el `sitemap.xml` automáticamente, te dejan personalizar títulos y descripciones de cada producto y agregan datos estructurados (Schema Product) con precio y disponibilidad. Esto ayuda a que Google muestre mejor tus productos, aunque no garantiza un resultado especial.
+
+Para elegir la base visual de tu tienda, te puede servir [cómo elegir el tema de WordPress correcto](/blog/elegir-tema-wordpress-negocio/). Y cuando ya esté funcionando, la [guía de caché en WordPress para no romper tu tienda](/blog/guia-tecnica-cache-wordpress-tienda/) te ayuda a que cargue rápido sin afectar el carrito ni los pagos.
 
 {% blogCta "¿Quieres una tienda así sin tener que armarla tú?", "Te cuento cómo trabajo, qué incluye cada etapa y cómo empezamos.", "Conoce cómo trabajo", "/como-trabajo/" %}

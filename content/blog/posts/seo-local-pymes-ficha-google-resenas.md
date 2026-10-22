@@ -61,7 +61,7 @@ No puedes cambiar dónde está tu cliente, pero sí puedes trabajar la relevanci
 
 ## 1. Tu Perfil de Empresa en Google
 
-El **Perfil de Empresa en Google** (antes llamado Google My Business, y en inglés Google Business Profile) es la ficha que aparece en Google Maps y en la búsqueda, con tu horario, teléfono, fotos, ubicación y un enlace a tu web. Es gratis y es la base del SEO local.
+El **[Perfil de Empresa en Google](https://business.google.com/es-all/business-profile/)** (antes llamado Google My Business, y en inglés Google Business Profile) es la ficha que aparece en Google Maps y en la búsqueda, con tu horario, teléfono, fotos, ubicación y un enlace a tu web. Es gratis y es la base del SEO local.
 
 Crear la ficha no basta: Google favorece a las que están completas y al día. Para que te muestre, también tienes que **verificarla**, algo que hoy suele hacerse grabando un video corto de tu negocio.
 

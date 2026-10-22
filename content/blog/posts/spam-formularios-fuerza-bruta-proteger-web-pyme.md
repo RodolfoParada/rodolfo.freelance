@@ -154,6 +154,8 @@ Estas herramientas analizan en segundo plano cómo se usa la página y le entreg
 - **Solución:** Cloudflare Turnstile en el formulario.
 - **Efecto en tus clientes:** mínimo, la verificación casi siempre es invisible.
 
+Proteger tu web también es poder recuperarla si algo falla: en [copias de seguridad de tu web](/blog/copias-de-seguridad-web-github-railway/) te explico qué respaldar. Y si tu formulario envía correos, en [correo @tuempresa.cl o @gmail.com](/blog/correo-corporativo-dominio-cl-vs-gmail/) te cuento cómo configurarlos para que no lleguen a spam.
+
 ## En resumen
 
 Tener una plataforma a medida, hecha con React, Node.js o Java, te da más control, mejor rendimiento y más estabilidad. Protegerla de los ataques más comunes no requiere obsesionarse con la seguridad ni llenar la web de obstáculos. Con un límite de envíos razonable, un campo trampa invisible y una buena revisión en el servidor, mantienes tu correo limpio, tu web funcionando y tus costos bajo control.

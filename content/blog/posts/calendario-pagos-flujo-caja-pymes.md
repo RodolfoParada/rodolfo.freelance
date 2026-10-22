@@ -53,11 +53,11 @@ Pagar «cuando llega la factura» genera desorden y te quita tiempo todas las se
 
 Con este orden, todo proveedor que entrega una factura aprobada entre el 1 y el 15 sabe que se le paga el día 20, y las del 16 al fin de mes se pagan el día 5. Tú preparas los pagos en dos bloques, con días de anticipación, y tus proveedores saben qué esperar.
 
-Además, este calendario te mantiene dentro de la ley. En Chile, la **Ley 21.131** fija en 30 días el plazo máximo para pagar una factura desde que la recibes, salvo acuerdos excepcionales por escrito. Con pagos cada 15 días, ninguna factura aprobada se pasa de ese plazo.
+Además, este calendario te mantiene dentro de la ley. En Chile, la **[Ley 21.131](https://www.bcn.cl/leychile/navegar?idNorma=1127890)** fija en 30 días el plazo máximo para pagar una factura desde que la recibes, salvo acuerdos excepcionales por escrito. Con pagos cada 15 días, ninguna factura aprobada se pasa de ese plazo.
 
 Las fechas legales de este ejemplo:
 
-- **Cotizaciones previsionales:** se pagan hasta el día 10 del mes siguiente, o hasta el 13 si las declaras y pagas por internet, por ejemplo a través de Previred.
+- **Cotizaciones previsionales:** se pagan hasta el día 10 del mes siguiente, o hasta el 13 si las declaras y pagas por internet, por ejemplo a través de [Previred](https://www.previred.com/).
 - **IVA mensual (Formulario 29):** si emites facturas electrónicas y lo declaras por internet, el plazo suele ser hasta el día 20. Confirma tu fecha con tu contador.
 
 ## 2. Ordena tus pagos por prioridad
@@ -126,6 +126,8 @@ Si un cliente grande se atrasa y ves que no podrás pagar una factura a tiempo, 
 Avisar a tiempo muestra seriedad, cuida tu historial con el proveedor y evita que te corte el crédito o te cobre recargos.
 
 Para que este calendario funcione, cada factura debe estar revisada antes de pagarse. Te explico cómo en [conciliación básica para pymes](/blog/conciliacion-facturas-ordenes-pagos-pymes/).
+
+Para que tu calendario funcione, también conviene vigilar cuánto se gasta en cada área. Te lo explico en [control de presupuesto por área](/blog/control-presupuesto-por-area-pymes/).
 
 ## En resumen
 

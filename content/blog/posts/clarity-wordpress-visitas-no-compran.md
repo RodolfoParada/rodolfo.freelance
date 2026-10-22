@@ -10,7 +10,7 @@ Tienes visitas en tu sitio. Los anuncios traen gente, la oferta parece buena, pe
 
 Google Analytics 4 te ayuda a ver qué está pasando: cuántas personas entran, qué páginas miran y dónde se van. Lo que no te dice es por qué. Qué vio el cliente, en qué parte se confundió, qué botón no le respondió o por qué cerró la pestaña justo antes de pagar.
 
-Para eso sirve Microsoft Clarity. Es una herramienta gratuita que te muestra grabaciones anónimas de la navegación y mapas de calor, es decir, dónde hacen clic y hasta dónde bajan las personas. Te explico cómo instalarla en WordPress y qué mirar para encontrar las fallas.
+Para eso sirve [Microsoft Clarity](https://clarity.microsoft.com/). Es una herramienta gratuita que te muestra grabaciones anónimas de la navegación y mapas de calor, es decir, dónde hacen clic y hasta dónde bajan las personas. Te explico cómo instalarla en WordPress y qué mirar para encontrar las fallas.
 
 ## Clarity no reemplaza a Analytics, lo complementa
 
@@ -68,6 +68,8 @@ Lo que encuentres en las grabaciones casi siempre tiene una solución concreta:
 - Si hay clics muertos en textos o fotos, conviene quitarles el aspecto de enlace o convertirlos en un botón de verdad.
 - Si la gente se va en el checkout, aclara los costos de envío antes de llegar al formulario final.
 - Si la portada no se entiende en pocos segundos, simplifica el título y pon el botón principal más arriba.
+
+Si quieres entender mejor cada tipo de mapa, en [mapas de calor: cómo ver dónde hacen clic tus clientes](/blog/mapas-de-calor-donde-hacen-clic-tus-clientes/) te explico cómo leerlos. Y para medir las acciones que de verdad acercan una venta, revisa [por qué medir solo visitas te engaña](/blog/medir-eventos-clave-no-solo-visitas/).
 
 ## En resumen
 

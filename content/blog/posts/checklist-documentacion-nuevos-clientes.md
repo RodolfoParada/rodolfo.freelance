@@ -146,7 +146,7 @@ En una pyme pequeña, muchas veces las tres son la misma persona. Igual conviene
 </table>
 </div>
 
-Pide solo lo que de verdad necesitas para el trabajo. Además de ser más fácil para el cliente, desde diciembre de 2026 la nueva Ley 21.719 de protección de datos personales exige cuidar y limitar los datos de personas que recibes.
+Pide solo lo que de verdad necesitas para el trabajo. Además de ser más fácil para el cliente, desde diciembre de 2026 la nueva [Ley 21.719](https://www.bcn.cl/leychile/navegar?idNorma=1209272) de protección de datos personales exige cuidar y limitar los datos de personas que recibes.
 
 ## Tres reglas para recibir todo a tiempo
 

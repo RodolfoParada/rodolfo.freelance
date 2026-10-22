@@ -22,7 +22,7 @@ A continuación, analizamos las causas reales de la lentitud en WordPress y un p
 
 ## Paso 1: Medir el estado actual de tu sitio
 
-Antes de hacer cambios, necesitas una referencia objetiva. Entra a Google PageSpeed Insights (pagespeed.web.dev) o a GTmetrix, escribe la dirección de tu sitio y anota:
+Antes de hacer cambios, necesitas una referencia objetiva. Entra a [Google PageSpeed Insights](https://pagespeed.web.dev/) (pagespeed.web.dev) o a GTmetrix, escribe la dirección de tu sitio y anota:
 
 - La puntuación en móvil.
 - El tiempo del LCP (Largest Contentful Paint), que mide cuánto tarda en verse el elemento más grande de la pantalla. Lo ideal es menos de 2,5 segundos.
@@ -63,5 +63,7 @@ Muchos sitios de pymes se quedan con versiones antiguas de PHP (como 7.4 u 8.0) 
 2. Busca la sección de configuración de PHP y actualiza a PHP 8.2 o superior.
 
 Este cambio suele tomar un par de clics y puede mejorar notablemente la velocidad de procesamiento del servidor, sin costo adicional.
+
+Si la caché es tu caso, la [guía técnica de caché en WordPress](/blog/guia-tecnica-cache-wordpress-tienda/) te muestra cómo configurarla sin romper tu tienda. Y si el problema viene del diseño, revisa [cómo elegir un tema liviano](/blog/elegir-tema-wordpress-negocio/) y [cómo adaptar tu web a los celulares](/blog/diseno-mobile-first-web-pymes/).
 
 {% blogCta "¿Quieres que tu sitio cargue rápido desde el inicio?", "Te cuento cómo trabajo, qué incluye cada etapa y cómo empezamos.", "Conoce cómo trabajo", "/como-trabajo/" %}

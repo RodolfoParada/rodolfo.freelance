@@ -22,7 +22,7 @@ Imagina que quieres abrir un local para atender a tus clientes. Necesitas tres c
 
 **El dominio.** No se compra para siempre: se registra por uno, dos o cinco años y hay que renovarlo.
 
-- Los dominios .cl se gestionan a través de NIC Chile.
+- Los dominios .cl se gestionan a través de [NIC Chile](https://nic.cl/).
 - Los dominios globales (.com, .net, .org) se compran en registradores acreditados, como Namecheap o GoDaddy, entre otros.
 
 Mi recomendación más importante: registra el dominio a nombre de tu empresa, o a tu nombre, y usa un correo al que tengas acceso permanente. No dejes que un diseñador o una agencia lo inscriba a su nombre. Si la relación termina mal, recuperar tu dirección puede ser un trámite largo y complicado.
@@ -39,13 +39,15 @@ Algunos registros que vas a escuchar:
 
 - **Registro A o CNAME:** indica a qué servidor debe ir tu web cuando alguien escribe www.tuempresa.cl.
 - **Registros MX:** indican a qué plataforma deben llegar los correos de @tuempresa.cl.
-- **Registros TXT:** sirven para verificar que el sitio es tuyo en herramientas como Google Search Console, y para proteger tus correos contra el spam.
+- **Registros TXT:** sirven para verificar que el sitio es tuyo en herramientas como [Google Search Console](https://search.google.com/search-console/about), y para proteger tus correos contra el spam.
 
 ## Errores que suelen salir caros
 
 - **Dejar vencer el dominio.** Si no renuevas a tiempo, puede quedar disponible para cualquiera. Activa la renovación automática o pon un recordatorio.
 - **Elegir el hosting más barato para una tienda.** Ahorrar un poco al mes puede costar bastante en ventas si el carrito de compras se queda pegado en el peor momento.
 - **Usar el correo del mismo hosting del sitio.** Muchos planes económicos incluyen correos gratis, pero si el servidor se cae o termina en listas de spam, tu empresa puede quedarse sin recibir presupuestos. Conviene tener el correo en una plataforma profesional e independiente, como Google Workspace.
+
+Si vas a tener correos con tu propio dominio, en [correo @tuempresa.cl o @gmail.com](/blog/correo-corporativo-dominio-cl-vs-gmail/) te explico por qué conviene. Y para no depender de un solo proveedor, revisa [cómo respaldar tu web fuera del servidor](/blog/copias-de-seguridad-web-github-railway/).
 
 ## En resumen
 

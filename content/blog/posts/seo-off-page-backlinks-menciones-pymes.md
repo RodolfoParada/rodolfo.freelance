@@ -125,7 +125,7 @@ Una pyme no necesita una agencia de relaciones públicas para empezar. Estas acc
 
 ### 1. Tu ficha en Google
 
-Si atiendes clientes en una zona, el primer paso es crear y completar tu **Perfil de Empresa en Google**, la ficha que aparece en Google Maps y en la búsqueda. Es gratis. Agrega tu web, tus servicios, tus horarios y fotos reales, y pide a tus clientes que te dejen una reseña. Para un negocio local, pocas cosas pesan tanto.
+Si atiendes clientes en una zona, el primer paso es crear y completar tu **[Perfil de Empresa en Google](https://business.google.com/es-all/business-profile/)**, la ficha que aparece en Google Maps y en la búsqueda. Es gratis. Agrega tu web, tus servicios, tus horarios y fotos reales, y pide a tus clientes que te dejen una reseña. Para un negocio local, pocas cosas pesan tanto.
 
 ### 2. Directorios y perfiles confiables
 
@@ -234,6 +234,8 @@ Si encuentras enlaces raros hacia tu web que no pediste, no te preocupes: Google
 </div>
 
 El SEO off-page es la tercera pata de una web que aparece en Google. Las otras dos son [ordenar bien tus textos](/blog/seo-on-page-pymes-textos-google/) y [cuidar la base técnica de tu sitio](/blog/seo-tecnico-pymes-cimientos-google/).
+
+Si tu negocio atiende clientes en una zona, la reputación local pesa todavía más: en [SEO local para pymes](/blog/seo-local-pymes-ficha-google-resenas/) te explico cómo trabajar tu ficha de Google y tus reseñas.
 
 ## En resumen
 

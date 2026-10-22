@@ -79,6 +79,8 @@ Toma tu celular, abre tu sitio y responde con honestidad:
 
 Si respondiste «no» a alguna, ahí tienes un buen punto de partida.
 
+Si estás decidiendo cómo construir tu web desde cero, en [página a medida o plantilla prefabricada](/blog/pagina-a-medida-vs-plantilla-prefabricada/) te ayudo a elegir la opción que mejor calza con tu etapa.
+
 ## En resumen
 
 Pensar primero en el celular no significa descuidar la versión de computador. Significa darle prioridad al lugar donde la mayoría de tus clientes te encuentra, te compara con otros y decide si contactarte.
