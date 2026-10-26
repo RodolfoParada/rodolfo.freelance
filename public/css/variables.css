@@ -47,14 +47,15 @@
   --font-heading: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
 
   /* Escala tipográfica (Desktop 1rem = 16px) */
-  --font-size-xs: 0.78125rem;                      /* 12.5px — Eyebrow / Badges / Microcopia */
-  --font-size-sm: 0.875rem;                        /* 14px   — Botones, enlaces, textos secundarios */
-  --font-size-btn: 0.90625rem;                     /* 14.5px — Botones y enlaces principales */
-  --font-size-base: 0.96875rem;                    /* 15.5px — Cuerpo de texto (Cards / Párrafos) */
-  --font-size-lead: 1.1875rem;                     /* 19px   — Subtítulo Hero / Citas */
-  --font-size-lg: 1.3125rem;                       /* 21px   — H3 / Títulos de Tarjetas */
-  --font-size-xl: clamp(2rem, 3vw, 2.375rem);      /* 32–38px — H2 (Secciones) */
-  --font-size-2xl: clamp(2.75rem, 4.2vw, 3.25rem); /* 44–52px — H1 (Hero Principal) */
+  /* Escala de texto — celular y tablet (< 1025px). La de escritorio está al final del archivo. */
+  --font-size-xs: 12px;      /* Eyebrow / Badges / Microcopia */
+  --font-size-sm: 14px;      /* Párrafo S: textos secundarios, enlaces */
+  --font-size-btn: 16px;     /* Botones */
+  --font-size-base: 16px;    /* Párrafo estándar */
+  --font-size-lead: 18px;    /* Bajada / Citas */
+  --font-size-lg: 16px;      /* Título M (tarjetas, H3) */
+  --font-size-xl: 20px;      /* Título L (secciones, H2) */
+  --font-size-2xl: 24px;     /* Título XL (H1) */
 
   --space-xs: 0.25rem;
   --space-sm: 0.5rem;
@@ -145,4 +146,16 @@ netlify-drawer,
   border: 0 !important;
 }
 
-
+/* Escala de texto — escritorio (>= 1025px). En px: no la afecta el html { font-size: 80% } de styles.css. */
+@media (min-width: 1025px) {
+  :root {
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;    /* Párrafo S */
+    --font-size-btn: 16px;   /* Párrafo M */
+    --font-size-base: 16px;  /* Párrafo M */
+    --font-size-lead: 18px;  /* Párrafo L */
+    --font-size-lg: 20px;    /* Título S */
+    --font-size-xl: 30px;    /* Título M */
+    --font-size-2xl: 48px;   /* Título XL */
+  }
+}

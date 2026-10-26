@@ -631,6 +631,40 @@ main {
   border-color: var(--color-accent);
 }
 
+/* Modo oscuro: el Pilar 1 deja el relleno celeste y usa el fondo de la tarjeta vecina con un degradado
+   (esquina superior izquierda más clara, inferior derecha más oscura) y el borde en el azul principal. */
+:root[data-theme="dark"] .home-pillar--primary .home-pillar__face {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-primary) 22%, var(--color-surface)) 0%,
+    var(--color-surface) 50%,
+    color-mix(in srgb, #000000 45%, var(--color-surface)) 100%
+  );
+  border-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+:root[data-theme="dark"] .home-pillar--primary .home-pillar__badge {
+  background: rgba(102, 163, 191, 0.18);
+  color: var(--color-primary);
+}
+
+:root[data-theme="dark"] .home-pillar--primary .home-pillar__title,
+:root[data-theme="dark"] .home-pillar--primary .home-pillar__item-title {
+  color: var(--color-heading);
+}
+
+:root[data-theme="dark"] .home-pillar--primary .home-pillar__title span,
+:root[data-theme="dark"] .home-pillar--primary .home-pillar__item-text {
+  color: var(--color-text);
+  opacity: 1;
+}
+
+:root[data-theme="dark"] .home-pillar--primary .pillar__hint {
+  color: var(--color-primary);
+  opacity: 1;
+}
+
 .home-pillar__list {
   display: flex;
   flex-direction: column;
@@ -731,6 +765,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-self: center; /* alto de su contenido, centrada respecto al CTA de al lado */
   min-width: 0;
   margin: 0;
   padding: var(--space-lg);
@@ -1088,47 +1123,33 @@ main {
   }
 }
 
-.about-dual {
+/* "Mi Compromiso" + "Cómo abordamos tu proyecto": una tarjeta con los dos bloques lado a lado (en móvil, uno bajo otro).
+   El fondo es el de la página, distinto al de las pestañas y paneles, para que estos se sigan viendo igual. */
+.about-commitments {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: stretch;
+  align-items: start;
   gap: var(--space-xl);
   margin-bottom: var(--space-xl);
+  padding: var(--space-lg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
 }
 
-.about-dual__col {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xl);
-  min-width: 0;
-}
-
-.about-dual__col > .block {
+.about-commitments > .block {
   min-width: 0;
   margin-bottom: 0;
 }
 
-.about-dual__col .block__title {
+.about-commitments .block__title {
   text-align: left;
 }
 
-.about-dual__cta {
-  display: flex;
-  min-width: 0;
-}
-
-.about-dual__cta > cta-banner {
-  display: flex;
-  flex: 1;
-}
-
-.about-dual__cta .about-cta {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: none;
-  margin: 0;
+/* CTA debajo de la tarjeta: ancho de contenido y centrado (estilo base de .about-cta). */
+.about-cta-slot {
+  margin-bottom: var(--space-xl);
 }
 
 .commit-tabs {
@@ -1193,8 +1214,9 @@ main {
   line-height: 1.58;
 }
 
+/* Sin ancho máximo: en escritorio y tablet la cita cabe en una sola línea; en celular se reparte en varias. */
 .stack__quote {
-  max-width: 40rem;
+  max-width: none;
   margin: 0 auto var(--space-lg);
   text-align: center;
   font-size: var(--font-size-lead);
@@ -1303,6 +1325,49 @@ cta-banner {
   letter-spacing: 0.04em;
   color: var(--color-on-primary);
   opacity: 0.88;
+}
+
+/* Modo oscuro: mismo estilo que el Pilar 1 (fondo de tarjeta con degradado claro arriba a la izquierda
+   y oscuro abajo a la derecha, borde azul principal y textos claros). */
+:root[data-theme="dark"] .about-cta {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--color-primary) 22%, var(--color-surface)) 0%,
+    var(--color-surface) 50%,
+    color-mix(in srgb, #000000 45%, var(--color-surface)) 100%
+  );
+  border: 1px solid var(--color-primary);
+  color: var(--color-text);
+}
+
+:root[data-theme="dark"] .about-cta__title {
+  color: var(--color-heading);
+}
+
+:root[data-theme="dark"] .about-cta__text,
+:root[data-theme="dark"] .about-cta__note {
+  color: var(--color-text);
+  opacity: 1;
+}
+
+:root[data-theme="dark"] .about-cta .btn--primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+:root[data-theme="dark"] .about-cta .btn--primary:hover {
+  background-color: var(--color-primary-dark);
+}
+
+:root[data-theme="dark"] .about-cta .btn--ghost {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+:root[data-theme="dark"] .about-cta .btn--ghost:hover {
+  background: rgba(107, 166, 214, 0.14);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 /* ==========================================================================

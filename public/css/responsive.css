@@ -88,8 +88,9 @@
     padding: var(--space-lg);
   }
 
-  .about-dual {
+  .about-commitments {
     grid-template-columns: 1fr;
+    padding: var(--space-md);
   }
 
   .form,

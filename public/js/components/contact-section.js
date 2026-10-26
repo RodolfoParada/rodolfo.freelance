@@ -5,7 +5,7 @@
   "use strict";
 
   var FORM = `
-    <form class="form" id="contact-form" novalidate>
+    <form class="form" id="contact-form" novalidate data-clarity-mask="true">
       <div class="form__row">
         <div class="form__field">
           <label for="name">Nombre completo</label>
