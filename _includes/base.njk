@@ -24,19 +24,25 @@
   <meta name="twitter:title" content="{{ pageTitle }}">
   {% if description %}<meta name="twitter:description" content="{{ description }}">{% endif %}
   <meta name="twitter:image" content="{{ site.url }}{{ site.ogImage }}">
+  {#- Medición obligatoria en todas las páginas (SPEC.md §4): GTM (y GA4 dentro de GTM) y Microsoft Clarity. Mismo orden que index.html. #}
+  <script src="/js/trusted-types.js"></script>
+  <script src="/js/gtm.js"></script>
   <script src="/js/theme.js"></script>
+  <script src="/js/clarity.js" defer></script>
   <script src="/js/core/kit.js" defer></script>
   <script src="/js/components/site-header.js" defer></script>
   <script src="/js/components/site-footer.js" defer></script>
   <script src="/js/components/pagination-nav.js" defer></script>
   <script src="/js/main.min.js" defer></script>
   <link rel="icon" href="/assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/app.css">
   {%- if tabImage and pagination and pagination.pageNumber == 0 %}
   <link rel="preload" as="image" href="{{ tabImage }}" fetchpriority="high">
   {%- endif %}
 </head>
 <body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WLCDS32G" height="0" width="0" hidden></iframe></noscript>
   <a class="skip-link" href="#main">Saltar al contenido</a>
 
   <site-header>{% include "partials/site-header.njk" %}</site-header>

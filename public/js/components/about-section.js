@@ -202,11 +202,8 @@
       return tabsRoot;
     }
 
-    var dualBlocks = k.el("div", "about-dual");
-
-    var ctaSlot = k.el("div", "about-dual__cta");
-    ctaSlot.appendChild(k.el("cta-banner"));
-
+    /* "Mi Compromiso" y "Cómo abordamos tu proyecto": una tarjeta con los dos bloques lado a lado,
+       justo debajo de los 4 pilares. El CTA va a continuación, a todo el ancho. */
     var commit = k.el("div", "block");
     commit.appendChild(k.blockTitle("Mi Compromiso", "No Negociable"));
     commit.appendChild(buildTabs(COMMITMENTS, "commit", "Mis compromisos"));
@@ -215,11 +212,13 @@
     stack.appendChild(k.blockTitle("Cómo abordamos tu proyecto", "Stack adaptable"));
     stack.appendChild(buildTabs(STACK, "stack", "Cómo abordamos tu proyecto"));
 
-    var dualRight = k.el("div", "about-dual__col");
-    dualRight.append(commit, stack);
+    var commitments = k.el("div", "about-commitments");
+    commitments.append(commit, stack);
+    container.appendChild(commitments);
 
-    dualBlocks.append(ctaSlot, dualRight);
-    container.appendChild(dualBlocks);
+    var ctaSlot = k.el("div", "about-cta-slot");
+    ctaSlot.appendChild(k.el("cta-banner"));
+    container.appendChild(ctaSlot);
 
     container.appendChild(
       k.el("p", "stack__quote", "“Las herramientas se eligen en función del problema, no de la moda”.")

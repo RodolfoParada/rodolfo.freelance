@@ -285,6 +285,20 @@ Página de servicios generada con Eleventy (`content/como-trabajo/index.njk`). C
 - **Rendimiento**: sin dependencias de frontend ni bundlers. Los scripts de componentes, `kit.js`, `data.js` y `main.js` se cargan con `defer` (no bloquean el render). Solo `theme.js` es síncrono, para evitar que el tema parpadee. Las hojas de estilo son bloqueantes, y es intencional para no mostrar la página sin estilos. El CSS se sirve en un solo archivo (`app.css`, generado por `npm run build:css`) y `main.js` minificado (`main.min.js`). Las portadas del blog pesan menos de ~110 KB cada una. Los carruseles y acordeones usan CSS nativo (`scroll-snap`, `<details>`) y scripts pequeños externos (`svc-carousel.js`, `svc-flows.js`).
 - **Token CSRF**: no se pide al cargar la página. Solo se pide justo antes de cada envío del formulario.
 - **Privacidad**: tipografía y recursos autoalojados. Medición con Google Tag Manager, Google Analytics 4 y Microsoft Clarity, declarada en la sección 5.2 de la Política de Privacidad (cookies `_ga`, `_ga_<ID>`, `_clck`, `_clsk`).
+- **Regla de medición — obligatoria en TODAS las páginas del sitio** (portada, privacidad, *Cómo trabajo*, pestañas del blog, artículos y cualquier página nueva):
+
+  | Herramienta | Cómo se instala | Requisito por página |
+  |---|---|---|
+  | **Google Tag Manager** (`GTM-WLCDS32G`) | `public/js/trusted-types.js` + `public/js/gtm.js` en el `<head>` (sin `defer`, en ese orden) y el `<noscript>` con el iframe de GTM al inicio del `<body>` | Debe cargarse |
+  | **Google Analytics 4** | Se configura **dentro de GTM** (etiqueta de GA4), no con un script propio | Llega con GTM: si GTM está, GA4 mide la página |
+  | **Microsoft Clarity** (`ywukiqkuzd`) | `public/js/clarity.js` con `defer` en el `<head>` | Debe cargarse |
+  | **Google Search Console** | Se verifica **una vez para el dominio** (no se instala por página) | La página debe ser indexable: estar en `sitemap.xml`, tener `canonical` propio y no llevar `noindex` |
+
+  - Las páginas HTML de `public/` incluyen los scripts a mano; las páginas de Eleventy los heredan de `_includes/base.njk`. **Una página nueva con otra plantilla debe incluirlos también.**
+  - **Privacidad en Clarity:** todo formulario lleva `data-clarity-mask="true"` (hoy `#contact-form`, en `contact-section.js` y en su copia estática de `index.html`), para que las grabaciones y mapas de calor nunca muestren lo que escribe el visitante.
+  - Los scripts van en archivos externos (nunca en línea) para cumplir la CSP; los dominios de Clarity y Google ya están permitidos en `netlify.toml` y `server/index.js`.
+  - Antes de publicar se verifica que **todas** las páginas de `dist/` carguen `gtm.js` y `clarity.js` y figuren en el sitemap (por ejemplo, contando las páginas que los contienen frente al total de páginas).
+  - **Estado actual:** se cumple en las 58 páginas (`index.html` y `privacidad.html` a mano; las 56 páginas de Eleventy desde `_includes/base.njk`).
 - **Mantenibilidad**: datos separados (`data.js`), tokens de diseño en `variables.css`, componentes modulares en `js/components/`. En el blog, las pestañas se definen en un solo archivo (`blogTabs.json`), los datos del sitio en `site.json` y cada artículo es un `.md` independiente con el CTA final como shortcode (`blogCta`). En *Cómo trabajo*, el contenido está en archivos de datos (`services.json`, `processes.json`, `tools.json`) y el HTML en componentes reutilizables (`_includes/components/`). En la portada, el carrusel es un helper del kit compartido (`RFKIT.carousel`).
 - **Despliegue (Netlify)**: `npm run build` (CSS + JS + Eleventy) publica `dist/`; `/api/*` se deriva a la función `netlify/functions/server.js`. Todo archivo nuevo que use el sitio (componentes, partials, datos, scripts, imágenes) debe estar en git: Netlify construye desde GitHub. Antes de publicar se verifica que no haya enlaces rotos, diferencias de mayúsculas/minúsculas en rutas (Netlify las distingue), estilos ni scripts en línea (CSP) ni `id` duplicados.
 
