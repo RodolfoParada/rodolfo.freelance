@@ -2,46 +2,78 @@
   color-scheme: light;
 
   /* =========================================================================
-     Paleta 60-30-10
+     Paleta del sitio (marca naranja)
      =========================================================================
-     60% Base visual ....... #F2EFE7  Blanco lino / arena suave (fondo general)
-     30% Estructura/Texto .. #3368A0  Azul corporativo
-                             #66A3BF  Azul acero (secundario)
-     10% Transición ........ #C8DFDB  Menta pálido / salvia (acentos y hover)
+     Los valores base están en "Tokens de la paleta" (más abajo). Estas
+     variables semánticas son las que usan los componentes: cambia aquí
+     qué tono cumple cada rol, no en styles.css.
+     Modo claro: fondos mist, texto ink, naranja profundo (brand-700) en
+     botones y enlaces (el brand-500 no da contraste como texto sobre claro).
      ========================================================================= */
 
-  /* --- 60% : fondo y base visual --- */
-  --color-bg: #F2EFE7;
-  --color-surface: #FCFBF7;
-  --color-bg-alt: #E7F1EE;
+  /* --- Fondos --- */
+  --color-bg: var(--color-mist-50);
+  --color-surface: #FFFFFF;
+  --color-bg-alt: var(--color-mist-100);
 
-  /* --- 30% : estructura, textos y contraste --- */
-  --color-primary: #3368A0;
-  --color-primary-dark: #274E77;
-  --color-secondary: #66A3BF;
-  --color-secondary-strong: #3D7CA8;
+  /* --- Marca: botones, enlaces y acentos --- */
+  --color-primary: var(--color-brand-700);
+  --color-primary-dark: color-mix(in srgb, var(--color-brand-700) 80%, #000000);
+  --color-secondary: var(--color-brand-500);
+  --color-secondary-strong: var(--color-brand-700);
   --color-on-primary: #FFFFFF;
-
-  /* --- 10% : transición y equilibrio --- */
-  --color-accent: #C8DFDB;
+  /* Bordes de hover y foco del teclado: naranja un poco más profundo para llegar a 3:1 sobre claro */
+  --color-accent: color-mix(in srgb, var(--color-brand-500) 85%, var(--color-brand-700));
 
   /* --- Texto y bordes --- */
-  --color-text: #3368A0;
-  --color-heading: #3368A0;
-  --color-muted: #4A6679;
-  --color-border: #DDE6E1;
+  --color-text: var(--color-ink-900);
+  --color-heading: var(--color-ink-900);
+  --color-muted: var(--color-ink-600);
+  --color-border: var(--color-mist-200);
 
   /* --- Estados --- */
   --color-danger: #B4443A;
-  --color-success: #2F8B6D;
+  --color-success: #2A7A5F;   /* success-500 no se lee sobre claro: versión oscura para texto */
 
   /* --- Estructura (navbar y footer) --- */
-  --color-header-bg: rgba(242, 239, 231, 0.85);
-  --color-footer-bg: #274E77;
-  --color-footer-text: rgba(242, 239, 231, 0.9);
-  --color-footer-muted: rgba(200, 223, 219, 0.85);
-  --color-footer-strong: #FFFFFF;
-  --color-footer-border: rgba(200, 223, 219, 0.25);
+  --color-header-bg: rgba(250, 249, 255, 0.88);   /* mist-50 translúcido */
+  --color-footer-bg: var(--color-mist-100);
+  --color-footer-text: var(--color-ink-900);
+  --color-footer-muted: var(--color-ink-600);
+  --color-footer-strong: var(--color-ink-900);
+  --color-footer-border: var(--color-mist-200);
+
+  /* =========================================================================
+     Tokens de la paleta (valores fijos, iguales en modo claro y oscuro)
+     ========================================================================= */
+
+  /* --- Marca --- */
+  --color-brand-500: #FF5F01;                    /* Naranja de marca: CTA y acentos */
+  --color-brand-700: #A93A02;                    /* Naranja profundo: avatar, "TECH" sobre fondo claro */
+  --color-brand-tint: rgba(255, 95, 1, 0.20);    /* Fondo de etiquetas naranjas (#FF5F01 al 20 %) */
+
+  /* --- Superficies oscuras --- */
+  --color-surface-deep: #1A1B1F;                 /* Tarjetas y formulario */
+  --color-surface-base: #2A303C;                 /* Fondo de página y campos */
+  --color-surface-raised: #3D4351;               /* Barras y chips elevados */
+  --color-surface-control: #515561;              /* Botón secundario */
+
+  /* --- Navbar y footer --- */
+  --color-mist-50: #FAF9FF;
+  --color-mist-100: #EFF3FF;
+  --color-mist-200: #E2E8F8;
+
+  /* --- Texto sobre superficies oscuras --- */
+  --color-text-primary: #FFFFFF;
+  --color-text-body: #D1D7E3;
+  --color-text-muted: #8B919D;
+
+  /* --- Texto sobre fondos claros --- */
+  --color-ink-900: #161C28;
+  --color-ink-600: #5B565C;
+
+  /* --- Estados --- */
+  --color-success-500: #00D892;                  /* Estado operativo */
 
   --font-base: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-heading: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -65,8 +97,8 @@
 
   --radius: 0.625rem;
   --radius-lg: 1rem;
-  --shadow: 0 6px 24px rgba(51, 104, 160, 0.10);
-  --shadow-lg: 0 18px 48px rgba(51, 104, 160, 0.16);
+  --shadow: 0 6px 24px rgba(22, 28, 40, 0.08);
+  --shadow-lg: 0 18px 48px rgba(22, 28, 40, 0.14);
   --container-width: 103.125rem;
   --header-height: 7.25rem;
   --section-space: 5rem;
@@ -86,38 +118,37 @@
 :root[data-theme="dark"] {
   color-scheme: dark;
 
-  /* --- 60% : fondo y base visual --- */
-  --color-bg: #131A23;
-  --color-surface: #1B2531;
-  --color-bg-alt: #172230;
+  /* --- Fondos --- */
+  --color-bg: var(--color-surface-base);
+  --color-surface: var(--color-surface-deep);
+  --color-bg-alt: var(--color-surface-deep);
 
-  /* --- 30% : estructura, textos y contraste --- */
-  --color-primary: #6BA6D6;
-  --color-primary-dark: #4E8FC0;
-  --color-secondary: #66A3BF;
-  --color-secondary-strong: #4E8FC0;
-  --color-on-primary: #0F1720;
-
-  /* --- 10% : transición y equilibrio --- */
-  --color-accent: #C8DFDB;
+  /* --- Marca: botones, enlaces y acentos (texto oscuro sobre naranja) --- */
+  --color-primary: var(--color-brand-500);
+  --color-primary-dark: color-mix(in srgb, var(--color-brand-500) 80%, #FFFFFF);
+  --color-secondary: var(--color-brand-500);
+  --color-secondary-strong: var(--color-brand-700);
+  --color-on-primary: var(--color-ink-900);
+  --color-accent: var(--color-brand-500);
 
   /* --- Texto y bordes --- */
-  --color-text: #D6E2EE;
-  --color-heading: #EAF2FA;
-  --color-muted: #93A6B8;
-  --color-border: #2A3646;
+  --color-text: var(--color-text-body);
+  --color-heading: var(--color-text-primary);
+  /* text-muted (#8B919D) da 4,18:1 sobre surface-base: se aclara un poco para llegar a 4,5:1 */
+  --color-muted: color-mix(in srgb, var(--color-text-muted) 70%, var(--color-text-body));
+  --color-border: var(--color-surface-raised);
 
   /* --- Estados --- */
   --color-danger: #E08A80;
-  --color-success: #6FCBA6;
+  --color-success: var(--color-success-500);
 
   /* --- Estructura (navbar y footer) --- */
-  --color-header-bg: rgba(19, 26, 35, 0.85);
-  --color-footer-bg: #0E141B;
-  --color-footer-text: #C7D5E3;
-  --color-footer-muted: #8296A8;
-  --color-footer-strong: #EAF2FA;
-  --color-footer-border: rgba(200, 223, 219, 0.15);
+  --color-header-bg: rgba(26, 27, 31, 0.88);   /* surface-deep translúcido */
+  --color-footer-bg: var(--color-surface-deep);
+  --color-footer-text: var(--color-text-body);
+  --color-footer-muted: var(--color-muted);
+  --color-footer-strong: var(--color-text-primary);
+  --color-footer-border: var(--color-surface-raised);
 
   --shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
   --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.55);

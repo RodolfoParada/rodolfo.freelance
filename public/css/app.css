@@ -103,46 +103,78 @@ ol {
   color-scheme: light;
 
   /* =========================================================================
-     Paleta 60-30-10
+     Paleta del sitio (marca naranja)
      =========================================================================
-     60% Base visual ....... #F2EFE7  Blanco lino / arena suave (fondo general)
-     30% Estructura/Texto .. #3368A0  Azul corporativo
-                             #66A3BF  Azul acero (secundario)
-     10% Transición ........ #C8DFDB  Menta pálido / salvia (acentos y hover)
+     Los valores base están en "Tokens de la paleta" (más abajo). Estas
+     variables semánticas son las que usan los componentes: cambia aquí
+     qué tono cumple cada rol, no en styles.css.
+     Modo claro: fondos mist, texto ink, naranja profundo (brand-700) en
+     botones y enlaces (el brand-500 no da contraste como texto sobre claro).
      ========================================================================= */
 
-  /* --- 60% : fondo y base visual --- */
-  --color-bg: #F2EFE7;
-  --color-surface: #FCFBF7;
-  --color-bg-alt: #E7F1EE;
+  /* --- Fondos --- */
+  --color-bg: var(--color-mist-50);
+  --color-surface: #FFFFFF;
+  --color-bg-alt: var(--color-mist-100);
 
-  /* --- 30% : estructura, textos y contraste --- */
-  --color-primary: #3368A0;
-  --color-primary-dark: #274E77;
-  --color-secondary: #66A3BF;
-  --color-secondary-strong: #3D7CA8;
+  /* --- Marca: botones, enlaces y acentos --- */
+  --color-primary: var(--color-brand-700);
+  --color-primary-dark: color-mix(in srgb, var(--color-brand-700) 80%, #000000);
+  --color-secondary: var(--color-brand-500);
+  --color-secondary-strong: var(--color-brand-700);
   --color-on-primary: #FFFFFF;
-
-  /* --- 10% : transición y equilibrio --- */
-  --color-accent: #C8DFDB;
+  /* Bordes de hover y foco del teclado: naranja un poco más profundo para llegar a 3:1 sobre claro */
+  --color-accent: color-mix(in srgb, var(--color-brand-500) 85%, var(--color-brand-700));
 
   /* --- Texto y bordes --- */
-  --color-text: #3368A0;
-  --color-heading: #3368A0;
-  --color-muted: #4A6679;
-  --color-border: #DDE6E1;
+  --color-text: var(--color-ink-900);
+  --color-heading: var(--color-ink-900);
+  --color-muted: var(--color-ink-600);
+  --color-border: var(--color-mist-200);
 
   /* --- Estados --- */
   --color-danger: #B4443A;
-  --color-success: #2F8B6D;
+  --color-success: #2A7A5F;   /* success-500 no se lee sobre claro: versión oscura para texto */
 
   /* --- Estructura (navbar y footer) --- */
-  --color-header-bg: rgba(242, 239, 231, 0.85);
-  --color-footer-bg: #274E77;
-  --color-footer-text: rgba(242, 239, 231, 0.9);
-  --color-footer-muted: rgba(200, 223, 219, 0.85);
-  --color-footer-strong: #FFFFFF;
-  --color-footer-border: rgba(200, 223, 219, 0.25);
+  --color-header-bg: rgba(250, 249, 255, 0.88);   /* mist-50 translúcido */
+  --color-footer-bg: var(--color-mist-100);
+  --color-footer-text: var(--color-ink-900);
+  --color-footer-muted: var(--color-ink-600);
+  --color-footer-strong: var(--color-ink-900);
+  --color-footer-border: var(--color-mist-200);
+
+  /* =========================================================================
+     Tokens de la paleta (valores fijos, iguales en modo claro y oscuro)
+     ========================================================================= */
+
+  /* --- Marca --- */
+  --color-brand-500: #FF5F01;                    /* Naranja de marca: CTA y acentos */
+  --color-brand-700: #A93A02;                    /* Naranja profundo: avatar, "TECH" sobre fondo claro */
+  --color-brand-tint: rgba(255, 95, 1, 0.20);    /* Fondo de etiquetas naranjas (#FF5F01 al 20 %) */
+
+  /* --- Superficies oscuras --- */
+  --color-surface-deep: #1A1B1F;                 /* Tarjetas y formulario */
+  --color-surface-base: #2A303C;                 /* Fondo de página y campos */
+  --color-surface-raised: #3D4351;               /* Barras y chips elevados */
+  --color-surface-control: #515561;              /* Botón secundario */
+
+  /* --- Navbar y footer --- */
+  --color-mist-50: #FAF9FF;
+  --color-mist-100: #EFF3FF;
+  --color-mist-200: #E2E8F8;
+
+  /* --- Texto sobre superficies oscuras --- */
+  --color-text-primary: #FFFFFF;
+  --color-text-body: #D1D7E3;
+  --color-text-muted: #8B919D;
+
+  /* --- Texto sobre fondos claros --- */
+  --color-ink-900: #161C28;
+  --color-ink-600: #5B565C;
+
+  /* --- Estados --- */
+  --color-success-500: #00D892;                  /* Estado operativo */
 
   --font-base: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --font-heading: "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -166,8 +198,8 @@ ol {
 
   --radius: 0.625rem;
   --radius-lg: 1rem;
-  --shadow: 0 6px 24px rgba(51, 104, 160, 0.10);
-  --shadow-lg: 0 18px 48px rgba(51, 104, 160, 0.16);
+  --shadow: 0 6px 24px rgba(22, 28, 40, 0.08);
+  --shadow-lg: 0 18px 48px rgba(22, 28, 40, 0.14);
   --container-width: 103.125rem;
   --header-height: 7.25rem;
   --section-space: 5rem;
@@ -187,38 +219,37 @@ ol {
 :root[data-theme="dark"] {
   color-scheme: dark;
 
-  /* --- 60% : fondo y base visual --- */
-  --color-bg: #131A23;
-  --color-surface: #1B2531;
-  --color-bg-alt: #172230;
+  /* --- Fondos --- */
+  --color-bg: var(--color-surface-base);
+  --color-surface: var(--color-surface-deep);
+  --color-bg-alt: var(--color-surface-deep);
 
-  /* --- 30% : estructura, textos y contraste --- */
-  --color-primary: #6BA6D6;
-  --color-primary-dark: #4E8FC0;
-  --color-secondary: #66A3BF;
-  --color-secondary-strong: #4E8FC0;
-  --color-on-primary: #0F1720;
-
-  /* --- 10% : transición y equilibrio --- */
-  --color-accent: #C8DFDB;
+  /* --- Marca: botones, enlaces y acentos (texto oscuro sobre naranja) --- */
+  --color-primary: var(--color-brand-500);
+  --color-primary-dark: color-mix(in srgb, var(--color-brand-500) 80%, #FFFFFF);
+  --color-secondary: var(--color-brand-500);
+  --color-secondary-strong: var(--color-brand-700);
+  --color-on-primary: var(--color-ink-900);
+  --color-accent: var(--color-brand-500);
 
   /* --- Texto y bordes --- */
-  --color-text: #D6E2EE;
-  --color-heading: #EAF2FA;
-  --color-muted: #93A6B8;
-  --color-border: #2A3646;
+  --color-text: var(--color-text-body);
+  --color-heading: var(--color-text-primary);
+  /* text-muted (#8B919D) da 4,18:1 sobre surface-base: se aclara un poco para llegar a 4,5:1 */
+  --color-muted: color-mix(in srgb, var(--color-text-muted) 70%, var(--color-text-body));
+  --color-border: var(--color-surface-raised);
 
   /* --- Estados --- */
   --color-danger: #E08A80;
-  --color-success: #6FCBA6;
+  --color-success: var(--color-success-500);
 
   /* --- Estructura (navbar y footer) --- */
-  --color-header-bg: rgba(19, 26, 35, 0.85);
-  --color-footer-bg: #0E141B;
-  --color-footer-text: #C7D5E3;
-  --color-footer-muted: #8296A8;
-  --color-footer-strong: #EAF2FA;
-  --color-footer-border: rgba(200, 223, 219, 0.15);
+  --color-header-bg: rgba(26, 27, 31, 0.88);   /* surface-deep translúcido */
+  --color-footer-bg: var(--color-surface-deep);
+  --color-footer-text: var(--color-text-body);
+  --color-footer-muted: var(--color-muted);
+  --color-footer-strong: var(--color-text-primary);
+  --color-footer-border: var(--color-surface-raised);
 
   --shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
   --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.55);
@@ -584,8 +615,8 @@ main {
 .section--hero {
   position: relative;
   background:
-    radial-gradient(circle at 20% 10%, rgba(51, 104, 160, 0.12), transparent 45%),
-    radial-gradient(circle at 80% 0%, rgba(102, 163, 191, 0.16), transparent 40%);
+    radial-gradient(circle at 20% 10%, rgba(255, 95, 1, 0.10), transparent 45%),
+    radial-gradient(circle at 80% 0%, rgba(169, 58, 2, 0.08), transparent 40%);
 }
 
 .hero {
@@ -838,7 +869,7 @@ main {
   margin-bottom: var(--space-xs);
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius);
-  background: rgba(102, 163, 191, 0.18);
+  background: var(--color-brand-tint);
   color: var(--color-primary);
   font-size: var(--font-size-xs);
   font-weight: 700;
@@ -909,7 +940,7 @@ main {
 }
 
 :root[data-theme="dark"] .home-pillar--primary .home-pillar__badge {
-  background: rgba(102, 163, 191, 0.18);
+  background: var(--color-brand-tint);
   color: var(--color-primary);
 }
 
@@ -981,7 +1012,7 @@ main {
   width: 2.5rem;
   height: 2.5rem;
   border-radius: var(--radius);
-  background: rgba(102, 163, 191, 0.18);
+  background: var(--color-brand-tint);
   color: var(--color-primary);
   font-weight: 800;
 }
@@ -1288,7 +1319,7 @@ main {
   height: 56px;
   padding-inline: var(--space-sm);
   border-radius: var(--radius);
-  background: rgba(102, 163, 191, 0.18);
+  background: var(--color-brand-tint);
   color: var(--color-primary);
   font-size: var(--font-size-xs);
   font-weight: 700;
@@ -1834,7 +1865,7 @@ cta-banner {
 }
 
 .card__toggle:hover .card__toggle-icon {
-  background-color: rgba(102, 163, 191, 0.18);
+  background-color: var(--color-brand-tint);
 }
 
 .card--accordion.is-open .card__toggle-icon {
@@ -1894,7 +1925,7 @@ cta-banner {
   height: 3rem;
   margin-bottom: var(--space-md);
   border-radius: var(--radius);
-  background: rgba(102, 163, 191, 0.18);
+  background: var(--color-brand-tint);
   color: var(--color-primary);
   font-size: var(--font-size-xs);
   font-weight: 700;
@@ -1905,7 +1936,7 @@ cta-banner {
   display: inline-block;
   padding: 0.25rem 0.65rem;
   border-radius: var(--radius);
-  background: rgba(102, 163, 191, 0.18);
+  background: var(--color-brand-tint);
   color: var(--color-primary);
   font-size: var(--font-size-xs);
   font-weight: 700;
@@ -2058,19 +2089,19 @@ cta-banner {
   padding: var(--space-lg);
   border-radius: var(--radius-lg);
   background:
-    radial-gradient(circle at 92% 8%, rgba(200, 223, 219, 0.22), transparent 42%),
-    radial-gradient(circle at 8% 92%, rgba(102, 163, 191, 0.24), transparent 45%),
-    linear-gradient(155deg, #274e77 0%, #1d3d5f 55%, #162f4a 100%);
-  border: 1px solid rgba(200, 223, 219, 0.25);
+    radial-gradient(circle at 92% 8%, rgba(255, 95, 1, 0.18), transparent 42%),
+    radial-gradient(circle at 8% 92%, rgba(169, 58, 2, 0.22), transparent 45%),
+    linear-gradient(155deg, var(--color-surface-raised) 0%, var(--color-surface-base) 55%, var(--color-surface-deep) 100%);
+  border: 1px solid rgba(209, 215, 227, 0.25);
   color: #ffffff;
   box-shadow: var(--shadow-lg);
 }
 
 :root[data-theme="dark"] .contact-panel {
   background:
-    radial-gradient(circle at 92% 8%, rgba(200, 223, 219, 0.14), transparent 42%),
+    radial-gradient(circle at 92% 8%, rgba(255, 95, 1, 0.14), transparent 42%),
     radial-gradient(circle at 8% 92%, rgba(107, 166, 214, 0.18), transparent 45%),
-    linear-gradient(155deg, #1e2d3d 0%, #162230 60%, #111a25 100%);
+    linear-gradient(155deg, var(--color-surface-base) 0%, var(--color-surface-deep) 60%, #121317 100%);
   border-color: var(--color-border);
 }
 
@@ -2087,9 +2118,9 @@ cta-banner {
   gap: 0.5rem;
   padding: 0.35rem 0.85rem;
   border-radius: 999px;
-  background: rgba(200, 223, 219, 0.14);
-  border: 1px solid rgba(200, 223, 219, 0.3);
-  color: var(--color-accent);
+  background: rgba(209, 215, 227, 0.14);
+  border: 1px solid rgba(209, 215, 227, 0.3);
+  color: color-mix(in srgb, var(--color-brand-500) 65%, #FFFFFF);   /* naranja claro: legible sobre el panel oscuro */
   font-size: var(--font-size-xs);
   font-weight: 700;
   text-transform: uppercase;
@@ -2100,8 +2131,8 @@ cta-banner {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #34d399;
-  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.22);
+  background: var(--color-success-500);
+  box-shadow: 0 0 0 3px rgba(0, 216, 146, 0.22);
 }
 
 .contact-panel__title {
@@ -2114,14 +2145,14 @@ cta-banner {
 }
 
 .contact-panel__title span {
-  background: linear-gradient(90deg, #c8dfdb 0%, #7cc4e8 100%);
+  background: linear-gradient(90deg, var(--color-brand-500) 0%, color-mix(in srgb, var(--color-brand-500) 55%, #FFFFFF) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
 
 .contact-panel__lead {
-  color: rgba(234, 242, 250, 0.84);
+  color: rgba(209, 215, 227, 0.84);
   font-size: var(--font-size-lead);
   font-weight: 400;
   line-height: 1.6;
@@ -2140,7 +2171,7 @@ cta-banner {
   padding: 1rem 1.1rem;
   border-radius: var(--radius);
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(200, 223, 219, 0.16);
+  border: 1px solid rgba(209, 215, 227, 0.16);
   backdrop-filter: blur(6px);
   transition: transform var(--transition), background-color var(--transition),
     border-color var(--transition);
@@ -2149,7 +2180,7 @@ cta-banner {
 .contact-panel__point:hover {
   transform: translateX(4px);
   background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(200, 223, 219, 0.4);
+  border-color: rgba(209, 215, 227, 0.4);
 }
 
 .contact-panel__point-icon {
@@ -2160,8 +2191,8 @@ cta-banner {
   width: 42px;
   height: 42px;
   border-radius: var(--radius);
-  background: rgba(200, 223, 219, 0.16);
-  color: var(--color-accent);
+  background: rgba(209, 215, 227, 0.16);
+  color: color-mix(in srgb, var(--color-brand-500) 65%, #FFFFFF);   /* naranja claro: legible sobre el panel oscuro */
 }
 
 .contact-panel__point-body {
@@ -2179,13 +2210,13 @@ cta-banner {
 .contact-panel__point-text {
   font-size: var(--font-size-base);
   font-weight: 400;
-  color: rgba(226, 236, 248, 0.8);
+  color: rgba(209, 215, 227, 0.8);
   line-height: 1.58;
 }
 
 .contact-panel__direct {
   padding-top: var(--space-md);
-  border-top: 1px solid rgba(200, 223, 219, 0.18);
+  border-top: 1px solid rgba(209, 215, 227, 0.18);
 }
 
 .contact-panel__direct-label {
@@ -2193,7 +2224,7 @@ cta-banner {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-accent);
+  color: color-mix(in srgb, var(--color-brand-500) 65%, #FFFFFF);   /* naranja claro: legible sobre el panel oscuro */
   margin-bottom: var(--space-sm);
 }
 
@@ -2210,7 +2241,7 @@ cta-banner {
   padding: 0.75rem 1rem;
   border-radius: var(--radius);
   background: rgba(15, 23, 32, 0.28);
-  border: 1px solid rgba(200, 223, 219, 0.18);
+  border: 1px solid rgba(209, 215, 227, 0.18);
   color: #ffffff;
   transition: transform var(--transition), border-color var(--transition),
     background-color var(--transition);
@@ -2269,7 +2300,7 @@ cta-banner {
   font-size: var(--font-size-xs);
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: rgba(203, 218, 236, 0.75);
+  color: rgba(209, 215, 227, 0.75);
 }
 
 .contact-panel__channel-value {
@@ -2282,7 +2313,7 @@ cta-banner {
 
 .contact-panel__channel-arrow {
   font-weight: 700;
-  color: var(--color-accent);
+  color: color-mix(in srgb, var(--color-brand-500) 65%, #FFFFFF);   /* naranja claro: legible sobre el panel oscuro */
   transition: transform var(--transition);
 }
 
@@ -2365,7 +2396,7 @@ cta-banner {
 .form__field textarea:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(51, 104, 160, 0.18);
+  box-shadow: 0 0 0 3px var(--color-brand-tint);
 }
 
 .form__phone {
@@ -2847,11 +2878,11 @@ cta-banner {
 }
 
 .site-footer__name span {
-  color: #5CA8FF;
+  color: var(--color-primary);
 }
 
 .site-footer__desc {
-  color: rgba(226, 236, 248, 0.78);
+  color: var(--color-footer-text);
   font-size: var(--font-size-base);
   font-weight: 400;
   line-height: 1.6;
@@ -2865,9 +2896,9 @@ cta-banner {
   gap: 0.5rem;
   padding: 0.38rem 0.85rem;
   border-radius: 999px;
-  background: rgba(16, 185, 129, 0.14);
-  border: 1px solid rgba(52, 211, 153, 0.28);
-  color: #34D399;
+  background: rgba(0, 216, 146, 0.14);
+  border: 1px solid rgba(0, 216, 146, 0.35);
+  color: var(--color-success);
   font-size: var(--font-size-xs);
   font-weight: 600;
   letter-spacing: 0.04em;
@@ -2877,7 +2908,7 @@ cta-banner {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #34D399;
+  background: var(--color-success-500);
   flex-shrink: 0;
 }
 
@@ -2886,7 +2917,7 @@ cta-banner {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: rgba(203, 218, 236, 0.7);
+  color: var(--color-footer-muted);
   margin-bottom: var(--space-md);
 }
 
@@ -2898,7 +2929,7 @@ cta-banner {
 
 .site-footer__links a {
   display: inline-block;
-  color: rgba(242, 246, 252, 0.9);
+  color: var(--color-footer-text);
   font-size: var(--font-size-btn);
   font-weight: 600;
   letter-spacing: -0.01em;
@@ -2928,12 +2959,12 @@ cta-banner {
   justify-content: center;
   flex-shrink: 0;
   margin-top: 2px;
-  color: #5CA8FF;
+  color: var(--color-primary);
 }
 
 .site-footer__contact-icon--flag svg {
   border-radius: 2px;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 1px var(--color-footer-border);
 }
 
 .site-footer__contact-body {
@@ -2954,7 +2985,7 @@ cta-banner {
   font-size: var(--font-size-xs);
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: rgba(203, 218, 236, 0.72);
+  color: var(--color-footer-muted);
 }
 
 .site-footer__contact-mail {
@@ -2969,13 +3000,13 @@ cta-banner {
 }
 
 .site-footer__contact-mail:hover {
-  color: #5CA8FF;
+  color: var(--color-primary);
 }
 
 .site-footer__social-text {
   font-size: var(--font-size-base);
   font-weight: 400;
-  color: rgba(203, 218, 236, 0.78);
+  color: var(--color-footer-muted);
   line-height: 1.58;
   max-width: 26ch;
   margin-bottom: var(--space-md);
@@ -2989,8 +3020,8 @@ cta-banner {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: var(--color-surface);
+  border: 1px solid var(--color-footer-border);
   color: var(--color-footer-strong);
   overflow: hidden;
   z-index: 1;
@@ -3038,18 +3069,18 @@ cta-banner {
   gap: var(--space-md);
   margin-top: var(--space-xl);
   padding-top: var(--space-lg);
-  border-top: 1px solid rgba(200, 223, 219, 0.16);
+  border-top: 1px solid var(--color-footer-border);
   font-size: var(--font-size-xs);
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: rgba(203, 218, 236, 0.72);
+  color: var(--color-footer-muted);
 }
 
 .site-footer__copy {
   font-size: var(--font-size-xs);
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: rgba(203, 218, 236, 0.72);
+  color: var(--color-footer-muted);
 }
 
 .site-footer__meta {
@@ -3063,7 +3094,7 @@ cta-banner {
   font-size: var(--font-size-btn);
   font-weight: 600;
   letter-spacing: -0.01em;
-  color: rgba(203, 218, 236, 0.82);
+  color: var(--color-footer-muted);
   transition: color var(--transition);
 }
 
@@ -3074,7 +3105,7 @@ cta-banner {
 }
 
 .site-footer__meta-sep {
-  color: rgba(203, 218, 236, 0.4);
+  color: var(--color-footer-border);
 }
 
 .site-footer__usability {
@@ -3084,14 +3115,14 @@ cta-banner {
   font-size: var(--font-size-xs);
   font-weight: 600;
   letter-spacing: 0.04em;
-  color: #5CA8FF;
+  color: var(--color-primary);
 }
 
 .site-footer__usability-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #5CA8FF;
+  background: var(--color-primary);
   flex-shrink: 0;
 }
 
@@ -3250,7 +3281,7 @@ cta-banner {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: 0 2px 10px rgba(51, 104, 160, 0.05);
+  box-shadow: 0 2px 10px rgba(22, 28, 40, 0.05);
   overflow: hidden;
   transition: border-color var(--transition), box-shadow var(--transition);
 }
@@ -4097,7 +4128,7 @@ netlify-drawer,
 }
 
 .svc-scope__toggle:hover .card__toggle-icon {
-  background-color: rgba(102, 163, 191, 0.18);
+  background-color: var(--color-brand-tint);
 }
 
 .svc-scope[open] .card__toggle-icon {
@@ -4182,7 +4213,7 @@ netlify-drawer,
 }
 
 .svc-flow__toggle:hover .card__toggle-icon {
-  background-color: rgba(102, 163, 191, 0.18);
+  background-color: var(--color-brand-tint);
 }
 
 .svc-flow__toggle:focus-visible {
