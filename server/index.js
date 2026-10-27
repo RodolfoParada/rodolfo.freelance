@@ -27,7 +27,7 @@ function createApp() {
           baseUri: ["'self'"],
           scriptSrc: ["'self'", "https://*.clarity.ms", "https://*.googletagmanager.com", "https://*.google-analytics.com", "https://*.analytics.google.com"],
           styleSrc: ["'self'"],
-          imgSrc: ["'self'", "data:", "blob:", "https://*.clarity.ms", "https://*.googletagmanager.com", "https://*.google-analytics.com", "https://*.analytics.google.com"],
+          imgSrc: ["'self'", "data:", "blob:", "https://c.bing.com", "https://*.clarity.ms", "https://*.googletagmanager.com", "https://*.google-analytics.com", "https://*.analytics.google.com"],
           fontSrc: ["'self'"],
           connectSrc: ["'self'", "https://*.clarity.ms", "https://*.googletagmanager.com", "https://*.google-analytics.com", "https://*.analytics.google.com"],
           frameSrc: ["'self'", "https://*.googletagmanager.com"],
