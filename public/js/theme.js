@@ -28,13 +28,6 @@
     }
   }
 
-  function prefersDark() {
-    return (
-      typeof window.matchMedia === "function" &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-    );
-  }
-
   function updateMetaColor(theme) {
     var meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute("content", theme === DARK ? "#131A23" : "#F2EFE7");
@@ -49,8 +42,8 @@
     return root.getAttribute("data-theme") === DARK ? DARK : LIGHT;
   }
 
-  /* Aplicar tema lo antes posible (antes del primer render). */
-  apply(getStored() || (prefersDark() ? DARK : LIGHT));
+  /* Aplicar tema lo antes posible (antes del primer render). Por defecto: oscuro. */
+  apply(getStored() || DARK);
 
   function syncButton(button) {
     if (!button) return;
@@ -80,20 +73,6 @@
 
     syncAllButtons();
     window.addEventListener("load", syncAllButtons);
-
-    if (typeof window.matchMedia === "function") {
-      var media = window.matchMedia("(prefers-color-scheme: dark)");
-      var onChange = function (event) {
-        if (getStored()) return;
-        apply(event.matches ? DARK : LIGHT);
-        syncAllButtons();
-      };
-      if (typeof media.addEventListener === "function") {
-        media.addEventListener("change", onChange);
-      } else if (typeof media.addListener === "function") {
-        media.addListener(onChange);
-      }
-    }
   }
 
   setupToggle();

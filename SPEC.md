@@ -101,7 +101,7 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
 - **Favicon**: `assets/icons/favicon.svg`, cuadrado azul `#3368A0` con estrella blanca de 8 puntas.
 - **`theme-color`**: `#3368A0`.
 - **Tipografía**: Plus Jakarta Sans autoalojada (woff2, subset latin, pesos 400–800); sin fuentes ni recursos de terceros.
-- **Tema claro/oscuro**: conmutable desde la navbar, aplica `data-theme` en `<html>`, respeta `prefers-color-scheme` y persiste en `localStorage` (clave `rf-theme`).
+- **Tema claro/oscuro**: conmutable desde la navbar, aplica `data-theme` en `<html>`. Por defecto arranca en **oscuro** (no sigue `prefers-color-scheme`). La elección del visitante se persiste en `localStorage` (clave `rf-theme`) y tiene prioridad sobre el valor por defecto.
 - **Derechos de autor**: el pie de página indica *"© <año> Rodolfo-Freelance. Todos los derechos reservados."*
 - **Componentes reutilizables**: Web Components nativos en light DOM en `js/components/` (`site-header`, `site-footer`, `cta-banner`, `hero-section`, `about-section`, `services-section`, `marketing-section`, `contact-section`, `privacy-section`) apoyados en el kit compartido `js/core/kit.js` (`RFKIT`).
 - **`<cta-banner>`** (en modo claro, fondo oscuro con resplandores naranja igual que `.contact-panel`; en modo oscuro, degradado propio): título *¿Hablamos de lo que necesita resolver tu negocio?*, botón principal **Agenda tu reunión** (lleva a `#contacto`) y leyenda *Respuesta en menos de 72 horas hábiles · Atención 100% remota para todo Chile*. El botón secundario viene oculto por defecto (`secondary-text="none"`).
@@ -124,7 +124,7 @@ Reglas comunes:
 | Tarjetas de *Marketing* (acordeón) | Borde gris | Igual que las de Desarrollo, en su icono y etiqueta |
 | Tarjetas de servicio de *Cómo trabajo* | Borde gris | Borde naranja |
 
-- **Contraste pendiente:** el enlace de la cita puente en reposo usa naranja oscuro (`#A93A02`) sobre la tarjeta oscura y da unos 2,7:1, por debajo del mínimo de 4,5:1 de la sección 4. Está aceptado por diseño; si se corrige, usar un tono más claro para el texto y dejar el borde en naranja oscuro.
+- **Contraste:** las correcciones de contraste (tokens de acento y tinte) se aplican solo al modo claro. El modo oscuro queda como en la rama `feature/naranja-oscuro`: el texto naranja usa `#FF8A4C`, y el enlace de la cita puente en naranja oscuro queda por debajo de 4,5:1 en ese modo por decisión de diseño.
 
 ### 3.6 Blog (`/blog/`)
 
@@ -264,7 +264,7 @@ Página de servicios generada con Eleventy (`content/como-trabajo/index.njk`). C
 #### 3.7.3 Procesos («Cómo trabajo»)
 - Bajada: *Cada servicio tiene su propio proceso, con etapas claras para que siempre sepas en qué punto está tu proyecto y qué viene después.*
 - Fila de 6 botones de proceso en carrusel, cada uno con su **+**. Al presionar uno se abre debajo su flujo; se abre **un proceso a la vez**. Sin JavaScript se muestran todos.
-- Cada flujo tiene un nombre y 5 etapas, en un diagrama CSS: horizontal con flechas en escritorio y vertical en tablet y móvil.
+- Cada flujo tiene un nombre y 5 etapas, en un diagrama CSS: horizontal con flechas en escritorio y vertical en tablet y móvil. Al pasar el mouse sobre la caja de una etapa, su borde y su título se vuelven naranja de marca; el círculo numerado no cambia.
 
   | Proceso | Nombre del flujo |
   |---|---|
@@ -302,11 +302,11 @@ Página de servicios generada con Eleventy (`content/como-trabajo/index.njk`). C
 ## 4. Requisitos no funcionales
 
 - **Responsive**: usable desde 320 px hasta escritorio amplio (`1650px` de contenedor máximo).
-- **Accesibilidad**: landmarks, `aria-*` con roles válidos (paneles de pestañas en `div`, no en `article`), contraste mínimo de 4,5:1 (el texto secundario en modo claro es `#4A6679`), botones reales para girar las tarjetas (`Enter`/`Space` sobre la flecha), pestañas (`ArrowLeft`/`ArrowRight`), acordeones (`aria-expanded` o `<details>` nativo), carruseles con botones con nombre y región con nombre, enlaces distinguibles por algo más que el color (subrayado), aviso de pestaña nueva en enlaces externos (texto `.visually-hidden`), skip-link, área táctil mínima de 44 px en los botones de giro y respeto a `prefers-reduced-motion`.
+- **Accesibilidad**: landmarks, `aria-*` con roles válidos (paneles de pestañas en `div`, no en `article`), contraste mínimo de 4,5:1 en todo el texto. En modo claro, el naranja de texto y el fondo de botones usan tokens de acento (`--color-text-accent` y `--color-action`, `#A93A02`, 6,4:1 con blanco); el modo oscuro conserva sus colores originales. El naranja brillante `--color-primary` queda para bordes, resplandores y franjas, no para texto, botones reales para girar las tarjetas (`Enter`/`Space` sobre la flecha), pestañas (`ArrowLeft`/`ArrowRight`), acordeones (`aria-expanded` o `<details>` nativo), carruseles con botones con nombre y región con nombre, enlaces distinguibles por algo más que el color (subrayado), aviso de pestaña nueva en enlaces externos (texto `.visually-hidden`), skip-link, área táctil mínima de 44 px en los botones de giro y respeto a `prefers-reduced-motion`.
 - **Giro de tarjetas**: solo el botón de flecha gira la tarjeta. No hay giro por hover ni por clic en el resto de la tarjeta, y las tarjetas no reciben foco de tabulación. El hover de las tarjetas solo cambia el borde, el brillo o la elevación (ver 3.5.1).
-- **Rendimiento**: sin dependencias de frontend ni bundlers. Los scripts de componentes, `kit.js`, `data.js` y `main.js` se cargan con `defer` (no bloquean el render). Solo `theme.js` es síncrono, para evitar que el tema parpadee. Las hojas de estilo son bloqueantes, y es intencional para no mostrar la página sin estilos. El CSS se sirve en un solo archivo (`app.css`, generado por `npm run build:css`) y `main.js` minificado (`main.min.js`). Las portadas del blog pesan menos de ~110 KB cada una. Los carruseles y acordeones usan CSS nativo (`scroll-snap`, `<details>`) y scripts pequeños externos (`svc-carousel.js`, `svc-flows.js`).
+- **Rendimiento**: sin dependencias de frontend ni bundlers. `app.css` se genera minificado (`clean-css`, nivel 1, sin reescribir reglas) y su versión comprimida pesa unos 13,6 KB. La cursiva de la fuente se precarga en `index.html` porque se usa en la primera pantalla. Medido con Lighthouse en móvil (4G lenta): FCP 0,9 s, LCP 3,3 s, TBT 90 ms, CLS 0. Los scripts de componentes, `kit.js`, `data.js` y `main.js` se cargan con `defer` (no bloquean el render). Solo `theme.js` es síncrono, para evitar que el tema parpadee. Las hojas de estilo son bloqueantes, y es intencional para no mostrar la página sin estilos. El CSS se sirve en un solo archivo (`app.css`, generado por `npm run build:css`) y `main.js` minificado (`main.min.js`). Las portadas del blog pesan menos de ~110 KB cada una. Los carruseles y acordeones usan CSS nativo (`scroll-snap`, `<details>`) y scripts pequeños externos (`svc-carousel.js`, `svc-flows.js`).
 - **Token CSRF**: no se pide al cargar la página. Solo se pide justo antes de cada envío del formulario.
-- **Privacidad**: tipografía y recursos autoalojados. Medición con Google Tag Manager, Google Analytics 4 y Microsoft Clarity, declarada en la sección 5.2 de la Política de Privacidad (cookies `_ga`, `_ga_<ID>`, `_clck`, `_clsk`).
+- **Privacidad**: tipografía y recursos autoalojados. Medición con Google Tag Manager, Google Analytics 4 y Microsoft Clarity, declarada en la sección 5.2 de la Política de Privacidad (cookies `_ga`, `_ga_<ID>`, `_clck`, `_clsk`). Clarity carga su píxel desde `c.bing.com`, único dominio añadido a `img-src` en la CSP de `server/index.js` y `netlify.toml`.
 - **Regla de medición — obligatoria en TODAS las páginas del sitio** (portada, privacidad, *Cómo trabajo*, pestañas del blog, artículos y cualquier página nueva):
 
   | Herramienta | Cómo se instala | Requisito por página |
