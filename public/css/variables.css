@@ -38,14 +38,14 @@
 
   /* --- Estructura (navbar y footer) --- */
   --color-header-bg: rgba(250, 249, 255, 0.88);   /* mist-50 translúcido */
-  /* Footer naranja en modo claro (en oscuro se redefine abajo): fondo brand-700, franja superior brand-500,
+  /* Footer en modo claro (en oscuro se redefine abajo): fondo gris #5F6570, franja superior brand-500,
      texto blanco y detalles en durazno claro (todos sobre 4,5:1). */
-  --color-footer-bg: var(--color-brand-700);
+  --color-footer-bg: #5F6570;
   --color-footer-stripe: var(--color-brand-500);
   --color-footer-text: #FFFFFF;
   --color-footer-muted: color-mix(in srgb, #FFFFFF 85%, var(--color-brand-700));
   --color-footer-strong: #FFFFFF;
-  --color-footer-accent: color-mix(in srgb, var(--color-brand-500) 30%, #FFFFFF);
+  --color-footer-accent: color-mix(in srgb, var(--color-brand-500) 20%, #FFFFFF);
   --color-footer-border: rgba(255, 255, 255, 0.25);
 
   /* =========================================================================
