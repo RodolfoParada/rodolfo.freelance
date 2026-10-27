@@ -139,9 +139,9 @@ ol {
 
   /* --- Estructura (navbar y footer) --- */
   --color-header-bg: rgba(250, 249, 255, 0.88);   /* mist-50 translúcido */
-  /* Footer en modo claro (en oscuro se redefine abajo): fondo gris #5F6570, franja superior brand-500,
+  /* Footer en modo claro (en oscuro se redefine abajo): fondo gris #1D2026, franja superior brand-500,
      texto blanco y detalles en durazno claro (todos sobre 4,5:1). */
-  --color-footer-bg: #5F6570;
+  --color-footer-bg: #1D2026;
   --color-footer-stripe: var(--color-brand-500);
   --color-footer-text: #FFFFFF;
   --color-footer-muted: color-mix(in srgb, #FFFFFF 85%, var(--color-brand-700));
