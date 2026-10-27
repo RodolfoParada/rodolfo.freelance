@@ -7,8 +7,8 @@
      Los valores base están en "Tokens de la paleta" (más abajo). Estas
      variables semánticas son las que usan los componentes: cambia aquí
      qué tono cumple cada rol, no en styles.css.
-     Modo claro: fondos mist, texto ink, naranja profundo (brand-700) en
-     botones y enlaces (el brand-500 no da contraste como texto sobre claro).
+     Modo claro: fondos mist, texto ink y naranja de marca (brand-500) en
+     botones y enlaces; brand-700 en el hover.
      ========================================================================= */
 
   /* --- Fondos --- */
@@ -17,10 +17,11 @@
   --color-bg-alt: var(--color-mist-100);
 
   /* --- Marca: botones, enlaces y acentos --- */
-  --color-primary: var(--color-brand-700);
-  --color-primary-dark: color-mix(in srgb, var(--color-brand-700) 80%, #000000);
+  --color-primary: var(--color-brand-500);
+  --color-primary-dark: var(--color-brand-700);   /* hover de botones y enlaces */
   --color-secondary: var(--color-brand-500);
-  --color-secondary-strong: var(--color-brand-700);
+  /* Final de los degradados (títulos, banner CTA): apenas más profundo para que siga viéndose naranja */
+  --color-secondary-strong: color-mix(in srgb, var(--color-brand-500) 75%, var(--color-brand-700));
   --color-on-primary: #FFFFFF;
   /* Bordes de hover y foco del teclado: naranja un poco más profundo para llegar a 3:1 sobre claro */
   --color-accent: color-mix(in srgb, var(--color-brand-500) 85%, var(--color-brand-700));
@@ -37,11 +38,15 @@
 
   /* --- Estructura (navbar y footer) --- */
   --color-header-bg: rgba(250, 249, 255, 0.88);   /* mist-50 translúcido */
-  --color-footer-bg: var(--color-mist-100);
-  --color-footer-text: var(--color-ink-900);
-  --color-footer-muted: var(--color-ink-600);
-  --color-footer-strong: var(--color-ink-900);
-  --color-footer-border: var(--color-mist-200);
+  /* Footer naranja (igual en claro y oscuro): fondo brand-700, franja superior brand-500,
+     texto blanco y detalles en durazno claro (todos sobre 4,5:1). */
+  --color-footer-bg: var(--color-brand-700);
+  --color-footer-stripe: var(--color-brand-500);
+  --color-footer-text: #FFFFFF;
+  --color-footer-muted: color-mix(in srgb, #FFFFFF 85%, var(--color-brand-700));
+  --color-footer-strong: #FFFFFF;
+  --color-footer-accent: color-mix(in srgb, var(--color-brand-500) 30%, #FFFFFF);
+  --color-footer-border: rgba(255, 255, 255, 0.25);
 
   /* =========================================================================
      Tokens de la paleta (valores fijos, iguales en modo claro y oscuro)
@@ -144,11 +149,6 @@
 
   /* --- Estructura (navbar y footer) --- */
   --color-header-bg: rgba(26, 27, 31, 0.88);   /* surface-deep translúcido */
-  --color-footer-bg: var(--color-surface-deep);
-  --color-footer-text: var(--color-text-body);
-  --color-footer-muted: var(--color-muted);
-  --color-footer-strong: var(--color-text-primary);
-  --color-footer-border: var(--color-surface-raised);
 
   --shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
   --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.55);
