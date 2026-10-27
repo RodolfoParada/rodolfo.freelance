@@ -41,14 +41,14 @@
 
   .navbar__link.is-active {
     background: var(--color-bg-alt);
-    color: var(--color-primary);
+    color: var(--color-text-accent);
   }
 
   .navbar__link--cta,
   .navbar__link--cta.is-active {
     margin-top: var(--space-sm);
     text-align: center;
-    background: var(--color-primary);
+    background: var(--color-action);
     color: var(--color-on-primary);
   }
 
