@@ -83,19 +83,23 @@
       k.el("p", "about-hero__text", "Ayudo a startups y negocios en crecimiento a construir activos digitales sólidos: desde desarrollo web funcional y UX intuitivo, hasta la gestión operativa y comercial de cada día.")
     );
 
-    var manifesto = k.el("div", "manifesto");
-    manifesto.appendChild(
-      k.el("blockquote", "manifesto__quote", "“El mundo digital está lleno de sistemas sobredimensionados para alimentar egos técnicos y campañas basadas en trucos de urgencia falsa”.")
+    var bridge = k.el("div", "about-bridge");
+    bridge.appendChild(
+      k.el(
+        "blockquote",
+        "about-bridge__quote",
+        "“Desarrollo web a la medida de tu negocio y marketing con sentido estratégico. Apuesto por la frugalidad tecnológica y un diagnóstico honesto desde el primer minuto”."
+      )
     );
-    manifesto.appendChild(
-      k.el("p", "manifesto__text", "Creo firmemente que la tecnología debe resolver problemas reales de la forma más directa, simple y limpia posible.")
+    var bridgeLink = k.el(
+      "a",
+      "about-bridge__link",
+      "Conoce mi filosofía y principios no negociables →"
     );
-    manifesto.appendChild(k.el("p", "manifesto__question", "¿Cuéntame qué necesita tu negocio hoy?"));
-    var manifestoCta = k.el("a", "btn btn--primary manifesto__cta", "Agenda tu reunión");
-    manifestoCta.href = "#contacto";
-    manifesto.appendChild(manifestoCta);
+    bridgeLink.href = "#acerca";
+    bridge.appendChild(bridgeLink);
 
-    intro.append(hero, manifesto);
+    intro.append(hero, bridge);
     container.appendChild(intro);
 
     var pillarsBlock = k.el("div", "block");

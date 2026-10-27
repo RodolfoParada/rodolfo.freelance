@@ -34,20 +34,21 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
      - Línea de ubicación debajo de la etiqueta: *Servicios 100% remoto para negocios de todo Chile*.
      - `<h2>` del título: *Menos complejidad. Más tecnología útil, eficiencia y control.* seguido de la descripción de servicios.
      - Botones: **Agenda tu reunión** (lleva a `#contacto`) y **Explorar servicios** (lleva a `#desarrollo`).
-     - Bloque de puntos de partida *"Libera tiempo para hacer crecer tu empresa; delega la tecnología y la operación."* con 3 dolores (falta de tiempo, operación atascada, fricción digital), cada uno con su texto.
-     - **Servicios en 2 Pilares**: 2 tarjetas giratorias con la flecha de giro (botón `.pillar__hint`) y botón de vuelta (`.pillar__hint--back`). Cada pilar tiene 4 servicios (*Desarrollo* y *Soporte Operativo & Comercial*), con el título y la descripción de cada uno.
-     - Cita de cierre y `<cta-banner>`.
+     - Bloque de puntos de partida *"Libera tiempo para hacer crecer tu empresa; delega la tecnología y la operación."* con 3 dolores (falta de tiempo, operación atascada, fricción digital), cada uno con su texto. Al pasar el mouse, cada dolor sube, muestra un resplandor naranja y su número se separa y brilla (ver 3.5.1).
+     - **Servicios en 2 Pilares**: 2 tarjetas giratorias con la flecha de giro (botón `.pillar__hint`) y botón de vuelta (`.pillar__hint--back`). Cada pilar tiene 4 servicios (*Desarrollo* y *Soporte Operativo & Comercial*), con el título y la descripción de cada uno. El pilar principal (*Presencia & Conversión*) tiene en modo claro el mismo fondo oscuro y borde translúcido que el panel de contacto (`.contact-panel`); en modo oscuro conserva su estilo propio.
+     - Tres métricas (*100% Código Escalable*, *Optimización Real*, *Acompañamiento Directo*), con borde naranja y check que se enciende al pasar el mouse (ver 3.5.1).
+     - `<cta-banner class="hero-cta">`, con margen superior (`--space-xl`) bajo las métricas.
    - `#acerca` (`<about-section>`):
-     - Encabezado *Soluciones digitales y soporte operativo para tu negocio.* con la descripción de servicios.
-     - Manifiesto con cita destacada, párrafo de método y pregunta *¿Cuéntame qué necesita tu negocio hoy?* con el botón **Agenda tu reunión** (lleva a `#contacto`).
+     - Encabezado *Soluciones digitales y soporte operativo para tu negocio.* con la descripción de servicios, seguido de la cita puente *"Desarrollo web a la medida de tu negocio…"* con el enlace *Conoce mi filosofía y principios no negociables →*.
      - **Mis 4 Pilares de Trabajo**: 4 tarjetas giratorias con botón de flecha y de vuelta. Cada una tiene un texto *Qué significa* y *Tu beneficio*.
      - Pestañas accesibles: el `role="tablist"` está en el contenedor de los botones (`.commit-tabs__list`), cada botón tiene `role="tab"` y cada panel es un `div` con `role="tabpanel"`. Pestañas para *Mi Compromiso* (*No Negociable*) y *Cómo abordamos tu proyecto* (*Stack adaptable*). Los títulos van alineados a la izquierda.
+     - Cita puente (`.about-bridge`) debajo del encabezado: *"Desarrollo web a la medida de tu negocio…"* con el enlace *Conoce mi filosofía y principios no negociables →* (lleva a `#acerca`). Su borde y su enlace están en naranja oscuro y pasan a naranja de marca al pasar el mouse (ver 3.5.1).
      - Diseño de 2 columnas (`.about-dual`): a la izquierda `<cta-banner>`, a la derecha *Mi Compromiso* arriba y *Cómo abordamos tu proyecto* debajo. En móvil se apilan en una columna.
      - Cita *"Las herramientas se eligen en función del problema, no de la moda."* debajo de las dos columnas.
    - `#desarrollo` (`<services-section>`):
      - Bloque **Desarrollo**: 6 tarjetas giratorias (`flip: true` en `data.js`) **dentro de un carrusel** con flechas ← → a los costados (3 tarjetas visibles en escritorio, 2 en tablet, 1 en móvil; ver 3.7.4). Cada tarjeta centra su título y descripción; la flecha de giro está abajo a la derecha de la cara frontal y el botón de vuelta abajo a la izquierda de la cara trasera.
-     - Bloque **Marketing**: etiqueta *Servicios de Asistente Virtual Freelance* y 4 tarjetas en **acordeón** (`accordion: true` en `data.js`). Cada una muestra etiqueta, título y descripción, con una fila *Ver funciones* con un botón redondo **+** que se convierte en **×** al abrir la lista. El título y la descripción quedan centrados entre la etiqueta superior y la línea divisoria.
-   - `#contacto` (`<contact-section>`): diseño en 2 columnas (`.contact-layout`):
+     - Bloque **Marketing**: etiqueta *Servicios de Asistente Virtual Freelance* y 4 tarjetas en **acordeón** (`accordion: true` en `data.js`). Cada una muestra etiqueta, título y descripción, con una fila *Ver funciones* con un botón redondo **+** que se convierte en **×** al abrir la lista. El título y la descripción quedan centrados entre la etiqueta superior y la línea divisoria. Al abrir o cerrar una tarjeta, la página no se desplaza: la tarjeta se expande en su lugar.
+   - `#contacto` (`<contact-section>`): diseño en 2 columnas (`.contact-layout`) que ocupa todo el ancho del contenedor, igual que las tarjetas de las secciones anteriores:
      - Columna izquierda (`.contact-panel`): panel de impacto y confianza en azul corporativo (*Llevemos tu idea al siguiente nivel*), 3 puntos de valor y canales directos a Instagram `@rodolfo.tech.soluciones` y correo `desarrollador.freelance7@gmail.com`.
      - Columna derecha (`.form`): eyebrow *Hablemos de tu proyecto*, texto *Completa tus datos para coordinar una reunión vía Google Meet. Te contactaremos por correo y teléfono para confirmar el horario.* y formulario.
 2. **`privacidad.html` (Política de Privacidad v2.0):**
@@ -55,6 +56,7 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
    - Banner superior de ancho completo (`.legal-hero`) que adapta sus colores entre modo claro y oscuro usando tokens.
    - Diseño en dos columnas (`.legal-layout`): índice lateral fijo (`CONTENIDO`) sincronizado con **8 secciones** desplegables en acordeón (`.legal-item`), adecuado a la Ley N° 19.628 y Ley N° 21.719.
 3. **Footer (`<site-footer>`):**
+   - Modo claro: fondo naranja profundo (`brand-700`) con franja superior naranja. Modo oscuro: fondo oscuro (`--color-surface-deep`, igual que las tarjetas) y franja superior del mismo color que la línea inferior del nav (`--color-border`).
    - Diseño en 4 columnas (`Rodolfo-Freelance` + estado de disponibilidad, `EXPLORAR`, `CONTACTO & COBERTURA` con la línea *Servicios 100% remotos para negocios de todo Chile*, `SÍGUEME` con botón de Instagram) + barra inferior con copyright dinámico y enlace a `privacidad.html`.
 
 ### 3.2.1 Contenido estático precargado (SEO)
@@ -102,7 +104,27 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
 - **Tema claro/oscuro**: conmutable desde la navbar, aplica `data-theme` en `<html>`, respeta `prefers-color-scheme` y persiste en `localStorage` (clave `rf-theme`).
 - **Derechos de autor**: el pie de página indica *"© <año> Rodolfo-Freelance. Todos los derechos reservados."*
 - **Componentes reutilizables**: Web Components nativos en light DOM en `js/components/` (`site-header`, `site-footer`, `cta-banner`, `hero-section`, `about-section`, `services-section`, `marketing-section`, `contact-section`, `privacy-section`) apoyados en el kit compartido `js/core/kit.js` (`RFKIT`).
-- **`<cta-banner>`**: título *¿Hablamos de lo que necesita resolver tu negocio?*, botón principal **Agenda tu reunión** (lleva a `#contacto`) y leyenda *Respuesta en menos de 72 horas hábiles · Atención 100% remota para todo Chile*. El botón secundario viene oculto por defecto (`secondary-text="none"`).
+- **`<cta-banner>`** (en modo claro, fondo oscuro con resplandores naranja igual que `.contact-panel`; en modo oscuro, degradado propio): título *¿Hablamos de lo que necesita resolver tu negocio?*, botón principal **Agenda tu reunión** (lleva a `#contacto`) y leyenda *Respuesta en menos de 72 horas hábiles · Atención 100% remota para todo Chile*. El botón secundario viene oculto por defecto (`secondary-text="none"`).
+
+### 3.5.1 Interacciones al pasar el mouse (hover)
+
+Reglas comunes:
+- El color de acento al pasar el mouse es el naranja de marca (`--color-primary`). En reposo, los bordes usan `--color-border`, salvo donde se indica lo contrario.
+- Ninguna tarjeta gira por hover (ver 4, *Giro de tarjetas*).
+- Todas las animaciones respetan `prefers-reduced-motion`: sin transición, sin giro ni elevación; solo cambian los colores.
+
+| Elemento | Reposo | Al pasar el mouse |
+|---|---|---|
+| Cita puente de *Acerca de mí* | Borde izquierdo y enlace en naranja oscuro | Todos los bordes y el enlace en naranja de marca |
+| Dolores de la portada | Sin cambio | Sube 6 px, resplandor naranja detrás, número que se separa y brilla, título en naranja (modo oscuro) |
+| Tarjetas *Servicios en 2 Pilares* | Borde gris | Borde naranja |
+| Métricas de la portada | Borde gris; check naranja tenue | Borde naranja; el check se llena de naranja, gira y brilla |
+| Pilares de *Mis 4 Pilares de Trabajo* | Borde gris, número en caja tenue | Borde naranja; el número se llena de naranja, gira y brilla |
+| Tarjetas de *Desarrollo* (carrusel) | Borde gris | Borde de la cara naranja; el icono se llena de naranja, gira y brilla; la etiqueta se llena de naranja |
+| Tarjetas de *Marketing* (acordeón) | Borde gris | Igual que las de Desarrollo, en su icono y etiqueta |
+| Tarjetas de servicio de *Cómo trabajo* | Borde gris | Borde naranja |
+
+- **Contraste pendiente:** el enlace de la cita puente en reposo usa naranja oscuro (`#A93A02`) sobre la tarjeta oscura y da unos 2,7:1, por debajo del mínimo de 4,5:1 de la sección 4. Está aceptado por diseño; si se corrige, usar un tono más claro para el texto y dejar el borde en naranja oscuro.
 
 ### 3.6 Blog (`/blog/`)
 
@@ -281,7 +303,7 @@ Página de servicios generada con Eleventy (`content/como-trabajo/index.njk`). C
 
 - **Responsive**: usable desde 320 px hasta escritorio amplio (`1650px` de contenedor máximo).
 - **Accesibilidad**: landmarks, `aria-*` con roles válidos (paneles de pestañas en `div`, no en `article`), contraste mínimo de 4,5:1 (el texto secundario en modo claro es `#4A6679`), botones reales para girar las tarjetas (`Enter`/`Space` sobre la flecha), pestañas (`ArrowLeft`/`ArrowRight`), acordeones (`aria-expanded` o `<details>` nativo), carruseles con botones con nombre y región con nombre, enlaces distinguibles por algo más que el color (subrayado), aviso de pestaña nueva en enlaces externos (texto `.visually-hidden`), skip-link, área táctil mínima de 44 px en los botones de giro y respeto a `prefers-reduced-motion`.
-- **Giro de tarjetas**: solo el botón de flecha gira la tarjeta. No hay giro por hover ni por clic en el resto de la tarjeta, y las tarjetas no reciben foco de tabulación.
+- **Giro de tarjetas**: solo el botón de flecha gira la tarjeta. No hay giro por hover ni por clic en el resto de la tarjeta, y las tarjetas no reciben foco de tabulación. El hover de las tarjetas solo cambia el borde, el brillo o la elevación (ver 3.5.1).
 - **Rendimiento**: sin dependencias de frontend ni bundlers. Los scripts de componentes, `kit.js`, `data.js` y `main.js` se cargan con `defer` (no bloquean el render). Solo `theme.js` es síncrono, para evitar que el tema parpadee. Las hojas de estilo son bloqueantes, y es intencional para no mostrar la página sin estilos. El CSS se sirve en un solo archivo (`app.css`, generado por `npm run build:css`) y `main.js` minificado (`main.min.js`). Las portadas del blog pesan menos de ~110 KB cada una. Los carruseles y acordeones usan CSS nativo (`scroll-snap`, `<details>`) y scripts pequeños externos (`svc-carousel.js`, `svc-flows.js`).
 - **Token CSRF**: no se pide al cargar la página. Solo se pide justo antes de cada envío del formulario.
 - **Privacidad**: tipografía y recursos autoalojados. Medición con Google Tag Manager, Google Analytics 4 y Microsoft Clarity, declarada en la sección 5.2 de la Política de Privacidad (cookies `_ga`, `_ga_<ID>`, `_clck`, `_clsk`).

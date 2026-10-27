@@ -111,6 +111,8 @@ npm run lint         # (si se añade linter)
 
 Netlify ejecuta `npm run build` y publica `dist/` desde lo que está en GitHub: todo archivo nuevo que use el sitio (componentes, datos, imágenes, scripts) debe estar en git o el build fallará.
 
+**Importante:** el servidor (`server/index.js`) sirve `dist/`, no `public/`. Después de editar `public/` (HTML, CSS, JS, componentes) corre `npm run build` antes de probar; si no, el cambio no se ve aunque el archivo fuente esté bien.
+
 `npm run dev` no vigila los artículos: después de editar un `.md`, una plantilla o el CSS, vuelve a correr `npx @11ty/eleventy` (y `npm run build:css` si tocaste CSS) y recarga el navegador con Ctrl + Shift + R.
 
 ## Convenciones de código y componentes reutilizables
@@ -131,18 +133,18 @@ Netlify ejecuta `npm run build` y publica `dist/` desde lo que está en GitHub: 
     - `renderCardsSection(host, config)` y `define(name, render)`: `define` renderiza al `DOMContentLoaded` si el documento aún carga (así el HTML precargado ya está leído).
   - Catálogo de componentes:
     - `<site-header>`: barra de navegación superior; detecta si está en `privacidad.html` para anteponer `index.html` a los enlaces de ancla.
-    - `<site-footer>`: pie de página en 4 columnas (`Rodolfo-Freelance`, `EXPLORAR`, `CONTACTO & COBERTURA`, `SÍGUEME`) y barra legal inferior. Usa `replaceChildren` para no duplicar la copia estática.
-    - `<cta-banner>`: banner de llamada a la acción reutilizable (usado en `<hero-section>` y `<about-section>`). Soporta los atributos `title`, `text`, `primary-text`, `primary-href`, `secondary-text`, `secondary-href` y `note` (usar `"none"` para ocultar elementos opcionales). Valores por defecto: título *¿Hablamos de lo que necesita resolver tu negocio?*, botón **Agenda tu reunión** (`#contacto`), secundario oculto (`secondary-text` = `"none"`) y leyenda de 72 horas hábiles.
-    - `<hero-section>`: sección `#inicio` con hero (`<h1>` = etiqueta *DESARROLLO WEB & GESTIÓN OPERATIVA*, línea *Servicios 100% remoto para negocios de todo Chile*, `<h2>` con el título y la descripción, botones **Agenda tu reunión** / **Explorar servicios**), bloque de dolores (3 tarjetas), **Servicios en 2 Pilares** (2 tarjetas giratorias), cita y `<cta-banner>`.
-    - `<about-section>`: sección `#acerca` con intro/manifiesto (incluye la pregunta *¿Cuéntame qué necesita tu negocio hoy?* y el botón **Agenda tu reunión**), 4 pilares en tarjetas giratorias, pestañas accesibles (`buildTabs`) y un diseño de 2 columnas (`.about-dual`): `<cta-banner>` a la izquierda y *Mi Compromiso* + *Cómo abordamos tu proyecto* a la derecha.
+    - `<site-footer>`: pie de página en 4 columnas (`Rodolfo-Freelance`, `EXPLORAR`, `CONTACTO & COBERTURA`, `SÍGUEME`) y barra legal inferior. Usa `replaceChildren` para no duplicar la copia estática. Colores en `variables.css`: en modo claro el fondo es naranja (`--color-footer-bg` = `brand-700`); en modo oscuro se redefine como `--color-surface-deep`, con franja `--color-border` (igual que el borde del nav).
+    - `<cta-banner>`: banner de llamada a la acción reutilizable (usado en `<hero-section>`, con la clase `hero-cta` que le da margen superior, y en `<about-section>`). Su estilo (`.about-cta`) en modo claro copia el de `.contact-panel`: fondo oscuro con resplandores naranja y borde translúcido. Cambiar uno implica cambiar el otro. Soporta los atributos `title`, `text`, `primary-text`, `primary-href`, `secondary-text`, `secondary-href` y `note` (usar `"none"` para ocultar elementos opcionales). Valores por defecto: título *¿Hablamos de lo que necesita resolver tu negocio?*, botón **Agenda tu reunión** (`#contacto`), secundario oculto (`secondary-text` = `"none"`) y leyenda de 72 horas hábiles.
+    - `<hero-section>`: sección `#inicio` con hero (`<h1>` = etiqueta *DESARROLLO WEB & GESTIÓN OPERATIVA*, línea *Servicios 100% remoto para negocios de todo Chile*, `<h2>` con el título y la descripción, botones **Agenda tu reunión** / **Explorar servicios**), bloque de dolores (3 tarjetas), **Servicios en 2 Pilares** (2 tarjetas giratorias; el pilar principal copia en modo claro el fondo de `.contact-panel`), 3 métricas (`.home-metric`) y `<cta-banner class="hero-cta">`. La cita puente ya no está aquí: vive en `<about-section>`.
+    - `<about-section>`: sección `#acerca` con intro (`about-hero`) y cita puente (`about-bridge`, con enlace a `#acerca`; no hay bloque de manifiesto ni pregunta de contacto), 4 pilares en tarjetas giratorias, pestañas accesibles (`buildTabs`) y un diseño de 2 columnas (`.about-dual`): `<cta-banner>` a la izquierda y *Mi Compromiso* + *Cómo abordamos tu proyecto* a la derecha.
     - `<services-section>`: sección `#desarrollo` que agrupa los bloques de **Desarrollo** (`[data-cards="desarrollo"]`, tarjetas giratorias **dentro de un carrusel**: la grilla lleva `.svc-carousel__track` y el componente la envuelve con `carousel()` y sus flechas) y **Marketing** (etiqueta *Servicios de Asistente Virtual Freelance* + `[data-cards="marketing"]`, tarjetas en acordeón, sin carrusel). La copia estática de `index.html` repite la estructura del carrusel.
-    - `<contact-section>`: sección `#contacto` con layout de 2 columnas (panel de confianza `.contact-panel` + formulario `#contact-form`). Eyebrow *Hablemos de tu proyecto* y texto de coordinación por Google Meet.
+    - `<contact-section>`: sección `#contacto` con layout de 2 columnas (panel de confianza `.contact-panel` + formulario `#contact-form`). `.contact-layout` no tiene `max-width`: ocupa el mismo ancho que `.container`. Eyebrow *Hablemos de tu proyecto* y texto de coordinación por Google Meet.
     - `<privacy-section>`: sección de Política de Privacidad con banner `.legal-hero`, índice lateral `CONTENIDO` y 8 tarjetas en acordeón (`[data-legal-accordion]`).
 - **Tarjetas giratorias (flip)**:
   - Presentes en **Servicios en 2 Pilares** (`<hero-section>`), **Mis 4 Pilares de Trabajo** (`<about-section>`) y **Desarrollo** (`main.js` + `data.js`, flag `flip: true`).
-  - Solo el botón de flecha gira la tarjeta: `RFKIT.flipHint()` (cara frontal, abajo a la derecha) y `RFKIT.flipBackHint()` (cara trasera, abajo a la izquierda, lo añade `bindFlipCard`). Ni el hover ni el clic en el resto de la tarjeta la giran, y las tarjetas no llevan `tabIndex`.
+  - Solo el botón de flecha gira la tarjeta: `RFKIT.flipHint()` (cara frontal, abajo a la derecha) y `RFKIT.flipBackHint()` (cara trasera, abajo a la izquierda, lo añade `bindFlipCard`). Ni el hover ni el clic en el resto de la tarjeta la giran, y las tarjetas no llevan `tabIndex`. El hover sí puede cambiar el borde o el brillo (ver *Efectos de hover*).
   - En Desarrollo, `.card--flip .card__face--front` centra el título y la descripción entre la etiqueta y el borde; la altura mínima es 14rem (`.grid[data-cards="desarrollo"] .card__inner3d`).
-  - Las tarjetas de **Marketing** (`main.js` + `data.js`, flag `accordion: true`) usan un **acordeón** ("Ver funciones" con un botón **+**/×, `.card--accordion`, `aria-expanded`). `equalizeAccordionCards()` iguala la altura de los resúmenes cerrados y `.card__summary` centra el título y la descripción entre la etiqueta y la línea divisoria.
+  - Las tarjetas de **Marketing** (`main.js` + `data.js`, flag `accordion: true`) usan un **acordeón** ("Ver funciones" con un botón **+**/×, `.card--accordion`, `aria-expanded`). `equalizeAccordionCards()` iguala la altura de los resúmenes cerrados y `.card__summary` centra el título y la descripción entre la etiqueta y la línea divisoria. Abrir o cerrar no llama a `scrollIntoView`: la tarjeta se expande en su lugar (ver *Scroll snap* abajo).
   - El botón de flecha tiene un área táctil mínima de 44 px (`.pillar__hint`).
 - **CSS**:
   - Metodología BEM ligera (`bloque__elemento--modificador`).
@@ -375,6 +377,19 @@ Cada tarjeta sigue la misma estructura (ordena así el contenido que te pasen: t
 - Cada panel: `<p class="svc-flow__name">` con el **nombre del flujo** («Proceso de … en 5 etapas: de … a …») y un `<ol class="svc-steps">` de 5 `<li class="svc-step">` (número `.svc-step__num` + `.svc-step__body` con `<h4>` y texto).
 - El diagrama es solo CSS: horizontal con flechas en escritorio y línea de tiempo vertical en tablet y móvil (`@media (max-width: 1024px)`). La última etapa lleva un anillo.
 - Procesos actuales: Desarrollo web y WordPress, Auditoría web UX y SEO, Marketing digital y redes sociales, Prospección comercial, Atención al cliente, Soporte administrativo & e-commerce.
+
+## Efectos de hover
+
+Convenciones (detalle por elemento en `SPEC.md`, 3.5.1):
+- Acento: `--color-primary` (naranja de marca). Reposo: `--color-border`, salvo la cita puente (`.about-bridge`), que tiene borde `--color-brand-700`.
+- Selectores que ya existen y conviene reutilizar: `.pillar.flip:hover .pillar__face` y `.pillar__num`; `.home-pillar.flip:hover .home-pillar__face`; `.home-metric:hover` y `.home-metric:hover .home-metric__icon`; `.home-pain__card:hover` (+ `::before` para el resplandor); `.card--flip:hover .card__face`; `.card--flip:hover .card__icon` / `.card__badge`, con la misma regla para `.card--accordion`; `.svc-card:hover`; `.about-bridge:hover` y `.about-bridge__link`.
+- Al añadir un hover nuevo: que sea solo color, borde o brillo (las tarjetas de giro no giran por hover), con `transition` en el estado de reposo, y una regla `@media (prefers-reduced-motion: reduce)` que quite transiciones y transformaciones.
+- Cuidado con los selectores: un `.card--flip:hover` sin `.card__icon` o `.card__face` detrás hace que toda la tarjeta cambie.
+
+Scroll snap:
+- En escritorio (`min-width: 769px`), `html` usa `scroll-snap-type: y proximity` y cada `.section` es un punto de ajuste (`scroll-snap-align: start`).
+- La sección que contiene acordeones (`.section:has(.card--accordion)`) tiene `scroll-snap-align: none`. Sin eso, al colapsar una tarjeta el navegador se ajustaba a la sección anterior y la página saltaba.
+- Al probar esto con Playwright, dispara el clic con `element.click()` vía `evaluate`, no con `locator.click()`: el segundo desplaza el elemento a la vista antes de hacer clic y falsea el resultado.
 
 ## Seguridad — reglas que NO se deben romper
 

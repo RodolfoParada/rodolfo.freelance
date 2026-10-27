@@ -38,7 +38,7 @@
 
   /* --- Estructura (navbar y footer) --- */
   --color-header-bg: rgba(250, 249, 255, 0.88);   /* mist-50 translúcido */
-  /* Footer naranja (igual en claro y oscuro): fondo brand-700, franja superior brand-500,
+  /* Footer naranja en modo claro (en oscuro se redefine abajo): fondo brand-700, franja superior brand-500,
      texto blanco y detalles en durazno claro (todos sobre 4,5:1). */
   --color-footer-bg: var(--color-brand-700);
   --color-footer-stripe: var(--color-brand-500);
@@ -149,6 +149,14 @@
 
   /* --- Estructura (navbar y footer) --- */
   --color-header-bg: rgba(26, 27, 31, 0.88);   /* surface-deep translúcido */
+  /* Footer oscuro (como el resto de la página) y franja superior del mismo color que el borde del nav */
+  --color-footer-bg: var(--color-surface-deep);
+  --color-footer-stripe: var(--color-border);
+  --color-footer-text: var(--color-text-body);
+  --color-footer-muted: var(--color-text-muted);
+  --color-footer-strong: var(--color-text-primary);
+  --color-footer-accent: var(--color-brand-500);
+  --color-footer-border: var(--color-surface-raised);
 
   --shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
   --shadow-lg: 0 18px 48px rgba(0, 0, 0, 0.55);
