@@ -204,28 +204,8 @@
     metricsBlock.appendChild(metricsGrid);
     container.appendChild(metricsBlock);
 
-    /* 5. Puente hacia tu Filosofía (Mini About) */
-    var bridge = k.el("div", "home-bridge");
-    bridge.appendChild(
-      k.el(
-        "blockquote",
-        "home-bridge__quote",
-        "“Desarrollo web a la medida de tu negocio y marketing con sentido estratégico. Apuesto por la frugalidad tecnológica y un diagnóstico honesto desde el primer minuto”."
-      )
-    );
-    var bridgeLink = k.el(
-      "a",
-      "home-bridge__link",
-      "Conoce mi filosofía y principios no negociables →"
-    );
-    bridgeLink.href = "#acerca";
-    bridge.appendChild(bridgeLink);
-
-    /* 6. Cierre: cita a la izquierda + CTA Directo */
-    var close = k.el("div", "home-close");
-    close.appendChild(bridge);
-    close.appendChild(k.el("cta-banner"));
-    container.appendChild(close);
+    /* 5. Cierre: CTA Directo */
+    container.appendChild(k.el("cta-banner", "hero-cta"));
 
     section.appendChild(container);
     host.replaceChildren(section);
