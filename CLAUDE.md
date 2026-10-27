@@ -111,6 +111,8 @@ npm run lint         # (si se añade linter)
 
 Netlify ejecuta `npm run build` y publica `dist/` desde lo que está en GitHub: todo archivo nuevo que use el sitio (componentes, datos, imágenes, scripts) debe estar en git o el build fallará.
 
+**Netlify instala con `NODE_ENV=production`, que omite `devDependencies`.** Todo lo que `npm run build` necesite (hoy `clean-css`, usado por `scripts/build-css.js`; y `terser`, `@11ty/eleventy`) debe estar en `dependencies`. Antes de subir un cambio de dependencias, prueba el build como lo hace Netlify: `NODE_ENV=production npm ci && npm run build`.
+
 **Importante:** el servidor (`server/index.js`) sirve `dist/`, no `public/`. Después de editar `public/` (HTML, CSS, JS, componentes) corre `npm run build` antes de probar; si no, el cambio no se ve aunque el archivo fuente esté bien.
 
 `npm run dev` no vigila los artículos: después de editar un `.md`, una plantilla o el CSS, vuelve a correr `npx @11ty/eleventy` (y `npm run build:css` si tocaste CSS) y recarga el navegador con Ctrl + Shift + R.
@@ -150,8 +152,14 @@ Netlify ejecuta `npm run build` y publica `dist/` desde lo que está en GitHub: 
 - **CSS**:
   - Metodología BEM ligera (`bloque__elemento--modificador`).
   - Colores, espaciados y sombras en `variables.css`. El modo oscuro se declara en `:root[data-theme="dark"]` en `variables.css`.
+  - Tokens de color por uso (contraste AA, 4,5:1):
+    - `--color-text-accent`: texto naranja (eyebrows, enlaces, «Ver funciones», números e iconos de texto). Claro `#A93A02`; oscuro `#FF8A4C`, tal como está en `feature/naranja-oscuro`. Los ajustes de contraste son solo para modo claro.
+    - `--color-action` y `--color-action-hover`: fondo de botones y del menú «Contáctame». Claro `#A93A02` y `#7A2A00` al pasar el mouse; oscuro `--color-brand-500` y `--color-primary-dark` (sin cambios).
+    - `--color-primary` (`#FF5F01`): bordes, resplandores, franjas y hovers de borde. **No usarlo para texto.**
+    - `--color-brand-tint`: fondo de etiquetas. Claro 12 % (el texto naranja oscuro necesita ese fondo claro); oscuro 20 % (sin cambios).
+    - El footer en modo claro usa `--color-footer-bg` = `#1D2026`, y su acento `--color-footer-accent` es naranja mezclado con blanco al 20 %.
   - Nunca usar atributos `style="..."` en HTML ni scripts inline: la CSP de `server/index.js` bloquea `unsafe-inline`.
-  - Edita los archivos fuente (`styles.css`, etc.) y luego corre `npm run build:css`: el sitio carga `app.css`, que se genera.
+  - Edita los archivos fuente (`styles.css`, etc.) y luego corre `npm run build:css`: el sitio carga `app.css`, que se genera minificado con `clean-css` (nivel 1). No edites `app.css` a mano: en git aparece como una sola línea.
 
 ## Blog (Eleventy)
 
@@ -377,12 +385,14 @@ Cada tarjeta sigue la misma estructura (ordena así el contenido que te pasen: t
 - `svc-flows.js` cierra todos al cargar y abre **uno a la vez** (el botón abierto se pinta de azul y su **+** gira a **×**). Sin JavaScript se ven todos abiertos. Un enlace a `#proceso-x` abre ese proceso.
 - Cada panel: `<p class="svc-flow__name">` con el **nombre del flujo** («Proceso de … en 5 etapas: de … a …») y un `<ol class="svc-steps">` de 5 `<li class="svc-step">` (número `.svc-step__num` + `.svc-step__body` con `<h4>` y texto).
 - El diagrama es solo CSS: horizontal con flechas en escritorio y línea de tiempo vertical en tablet y móvil (`@media (max-width: 1024px)`). La última etapa lleva un anillo.
+- Al pasar el mouse sobre la caja de una etapa (`.svc-step__body`), su borde y su título (`.svc-step__title`) se vuelven naranja de marca; el círculo `.svc-step__num` no cambia.
 - Procesos actuales: Desarrollo web y WordPress, Auditoría web UX y SEO, Marketing digital y redes sociales, Prospección comercial, Atención al cliente, Soporte administrativo & e-commerce.
 
 ## Efectos de hover
 
 Convenciones (detalle por elemento en `SPEC.md`, 3.5.1):
-- Acento: `--color-primary` (naranja de marca). Reposo: `--color-border`, salvo la cita puente (`.about-bridge`), que tiene borde `--color-brand-700`.
+- Acento: `--color-primary` (naranja de marca) para bordes y resplandores; para texto y fondos de botones usa `--color-text-accent` y `--color-action` (ver *Tokens de color por uso*). Reposo: `--color-border`, salvo la cita puente (`.about-bridge`), que tiene borde `--color-brand-700`.
+- Caja de cada etapa de los procesos (`.svc-step__body:hover`): borde y título naranja de marca.
 - Selectores que ya existen y conviene reutilizar: `.pillar.flip:hover .pillar__face` y `.pillar__num`; `.home-pillar.flip:hover .home-pillar__face`; `.home-metric:hover` y `.home-metric:hover .home-metric__icon`; `.home-pain__card:hover` (+ `::before` para el resplandor); `.card--flip:hover .card__face`; `.card--flip:hover .card__icon` / `.card__badge`, con la misma regla para `.card--accordion`; `.svc-card:hover`; `.about-bridge:hover` y `.about-bridge__link`.
 - Al añadir un hover nuevo: que sea solo color, borde o brillo (las tarjetas de giro no giran por hover), con `transition` en el estado de reposo, y una regla `@media (prefers-reduced-motion: reduce)` que quite transiciones y transformaciones.
 - Cuidado con los selectores: un `.card--flip:hover` sin `.card__icon` o `.card__face` detrás hace que toda la tarjeta cambie.
