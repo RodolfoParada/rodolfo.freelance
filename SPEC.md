@@ -56,7 +56,7 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
    - Banner superior de ancho completo (`.legal-hero`) que adapta sus colores entre modo claro y oscuro usando tokens.
    - Diseño en dos columnas (`.legal-layout`): índice lateral fijo (`CONTENIDO`) sincronizado con **8 secciones** desplegables en acordeón (`.legal-item`), adecuado a la Ley N° 19.628 y Ley N° 21.719.
 3. **Footer (`<site-footer>`):**
-   - Modo claro: fondo gris (`#5F6570`) con franja superior naranja de marca. Los textos de acento tienen un naranja más claro (20 % de naranja mezclado con blanco) para llegar a 4,5:1 sobre el gris. Modo oscuro: fondo oscuro (`--color-surface-deep`, igual que las tarjetas) y franja superior del mismo color que la línea inferior del nav (`--color-border`).
+   - Modo claro: fondo gris muy oscuro (`#1D2026`) con franja superior naranja de marca. Los textos de acento usan un naranja más claro (20 % de naranja mezclado con blanco). Modo oscuro: fondo oscuro (`--color-surface-deep`, igual que las tarjetas) y franja superior del mismo color que la línea inferior del nav (`--color-border`).
    - Diseño en 4 columnas (`Rodolfo-Freelance` + estado de disponibilidad, `EXPLORAR`, `CONTACTO & COBERTURA` con la línea *Servicios 100% remotos para negocios de todo Chile*, `SÍGUEME` con botón de Instagram) + barra inferior con copyright dinámico y enlace a `privacidad.html`.
 
 ### 3.2.1 Contenido estático precargado (SEO)
