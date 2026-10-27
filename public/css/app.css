@@ -139,14 +139,14 @@ ol {
 
   /* --- Estructura (navbar y footer) --- */
   --color-header-bg: rgba(250, 249, 255, 0.88);   /* mist-50 translúcido */
-  /* Footer naranja en modo claro (en oscuro se redefine abajo): fondo brand-700, franja superior brand-500,
+  /* Footer en modo claro (en oscuro se redefine abajo): fondo gris #5F6570, franja superior brand-500,
      texto blanco y detalles en durazno claro (todos sobre 4,5:1). */
-  --color-footer-bg: var(--color-brand-700);
+  --color-footer-bg: #5F6570;
   --color-footer-stripe: var(--color-brand-500);
   --color-footer-text: #FFFFFF;
   --color-footer-muted: color-mix(in srgb, #FFFFFF 85%, var(--color-brand-700));
   --color-footer-strong: #FFFFFF;
-  --color-footer-accent: color-mix(in srgb, var(--color-brand-500) 30%, #FFFFFF);
+  --color-footer-accent: color-mix(in srgb, var(--color-brand-500) 20%, #FFFFFF);
   --color-footer-border: rgba(255, 255, 255, 0.25);
 
   /* =========================================================================
@@ -981,15 +981,22 @@ main {
   color: var(--color-on-primary);
 }
 
-.home-pillar--primary .home-pillar__title,
+.home-pillar--primary .home-pillar__title {
+  color: var(--color-primary);
+}
+
 .home-pillar--primary .home-pillar__item-title {
   color: var(--color-on-primary);
 }
 
 .home-pillar--primary .home-pillar__title span,
-.home-pillar--primary .home-pillar__item-text,
-.home-pillar--primary .pillar__hint {
+.home-pillar--primary .home-pillar__item-text {
   color: var(--color-on-primary);
+  opacity: 0.92;
+}
+
+.home-pillar--primary .pillar__hint {
+  color: var(--color-primary);
   opacity: 0.92;
 }
 
@@ -1422,6 +1429,12 @@ main {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: transform var(--transition), opacity var(--transition);
+}
+
+/* Icono de giro: mismo tamaño en todas las tarjetas */
+.pillar__arrow {
+  width: 26px;
+  height: 26px;
 }
 
 .pillar__hint:focus-visible {
@@ -4428,12 +4441,23 @@ netlify-drawer,
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
+  transition: border-color var(--transition);
 }
 
 .svc-step__title {
   font-size: var(--font-size-base);
   font-weight: 700;
   color: var(--color-heading);
+  transition: color var(--transition);
+}
+
+/* Hover en la caja del paso: borde y título en naranja de marca */
+.svc-step__body:hover {
+  border-color: var(--color-primary);
+}
+
+.svc-step__body:hover .svc-step__title {
+  color: var(--color-primary);
 }
 
 .svc-step__text {

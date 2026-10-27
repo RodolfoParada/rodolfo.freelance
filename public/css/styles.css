@@ -678,15 +678,22 @@ main {
   color: var(--color-on-primary);
 }
 
-.home-pillar--primary .home-pillar__title,
+.home-pillar--primary .home-pillar__title {
+  color: var(--color-primary);
+}
+
 .home-pillar--primary .home-pillar__item-title {
   color: var(--color-on-primary);
 }
 
 .home-pillar--primary .home-pillar__title span,
-.home-pillar--primary .home-pillar__item-text,
-.home-pillar--primary .pillar__hint {
+.home-pillar--primary .home-pillar__item-text {
   color: var(--color-on-primary);
+  opacity: 0.92;
+}
+
+.home-pillar--primary .pillar__hint {
+  color: var(--color-primary);
   opacity: 0.92;
 }
 
@@ -1119,6 +1126,12 @@ main {
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   transition: transform var(--transition), opacity var(--transition);
+}
+
+/* Icono de giro: mismo tamaño en todas las tarjetas */
+.pillar__arrow {
+  width: 26px;
+  height: 26px;
 }
 
 .pillar__hint:focus-visible {
@@ -4125,12 +4138,23 @@ netlify-drawer,
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   background: var(--color-surface);
+  transition: border-color var(--transition);
 }
 
 .svc-step__title {
   font-size: var(--font-size-base);
   font-weight: 700;
   color: var(--color-heading);
+  transition: color var(--transition);
+}
+
+/* Hover en la caja del paso: borde y título en naranja de marca */
+.svc-step__body:hover {
+  border-color: var(--color-primary);
+}
+
+.svc-step__body:hover .svc-step__title {
+  color: var(--color-primary);
 }
 
 .svc-step__text {

@@ -35,7 +35,7 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
      - `<h2>` del título: *Menos complejidad. Más tecnología útil, eficiencia y control.* seguido de la descripción de servicios.
      - Botones: **Agenda tu reunión** (lleva a `#contacto`) y **Explorar servicios** (lleva a `#desarrollo`).
      - Bloque de puntos de partida *"Libera tiempo para hacer crecer tu empresa; delega la tecnología y la operación."* con 3 dolores (falta de tiempo, operación atascada, fricción digital), cada uno con su texto. Al pasar el mouse, cada dolor sube, muestra un resplandor naranja y su número se separa y brilla (ver 3.5.1).
-     - **Servicios en 2 Pilares**: 2 tarjetas giratorias con la flecha de giro (botón `.pillar__hint`) y botón de vuelta (`.pillar__hint--back`). Cada pilar tiene 4 servicios (*Desarrollo* y *Soporte Operativo & Comercial*), con el título y la descripción de cada uno. El pilar principal (*Presencia & Conversión*) tiene en modo claro el mismo fondo oscuro y borde translúcido que el panel de contacto (`.contact-panel`); en modo oscuro conserva su estilo propio.
+     - **Servicios en 2 Pilares**: 2 tarjetas giratorias con el icono de giro (botón `.pillar__hint`) y botón de vuelta (`.pillar__hint--back`). Cada pilar tiene 4 servicios (*Desarrollo* y *Soporte Operativo & Comercial*), con el título y la descripción de cada uno. El pilar principal (*Presencia & Conversión*) tiene en modo claro el mismo fondo oscuro y borde translúcido que el panel de contacto (`.contact-panel`), con el título y el icono de giro en naranja de marca, y el subtítulo en blanco; en modo oscuro conserva su estilo propio.
      - Tres métricas (*100% Código Escalable*, *Optimización Real*, *Acompañamiento Directo*), con borde naranja y check que se enciende al pasar el mouse (ver 3.5.1).
      - `<cta-banner class="hero-cta">`, con margen superior (`--space-xl`) bajo las métricas.
    - `#acerca` (`<about-section>`):
@@ -56,7 +56,7 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
    - Banner superior de ancho completo (`.legal-hero`) que adapta sus colores entre modo claro y oscuro usando tokens.
    - Diseño en dos columnas (`.legal-layout`): índice lateral fijo (`CONTENIDO`) sincronizado con **8 secciones** desplegables en acordeón (`.legal-item`), adecuado a la Ley N° 19.628 y Ley N° 21.719.
 3. **Footer (`<site-footer>`):**
-   - Modo claro: fondo naranja profundo (`brand-700`) con franja superior naranja. Modo oscuro: fondo oscuro (`--color-surface-deep`, igual que las tarjetas) y franja superior del mismo color que la línea inferior del nav (`--color-border`).
+   - Modo claro: fondo gris (`#5F6570`) con franja superior naranja de marca. Los textos de acento tienen un naranja más claro (20 % de naranja mezclado con blanco) para llegar a 4,5:1 sobre el gris. Modo oscuro: fondo oscuro (`--color-surface-deep`, igual que las tarjetas) y franja superior del mismo color que la línea inferior del nav (`--color-border`).
    - Diseño en 4 columnas (`Rodolfo-Freelance` + estado de disponibilidad, `EXPLORAR`, `CONTACTO & COBERTURA` con la línea *Servicios 100% remotos para negocios de todo Chile*, `SÍGUEME` con botón de Instagram) + barra inferior con copyright dinámico y enlace a `privacidad.html`.
 
 ### 3.2.1 Contenido estático precargado (SEO)
@@ -231,7 +231,7 @@ Página de servicios generada con Eleventy (`content/como-trabajo/index.njk`). C
 - La reorganización en componentes no cambió el HTML publicado (verificado contra el anterior), por lo que no afecta el funcionamiento ni el SEO.
 
 #### 3.7.1 Hero y SEO
-- `<h1>`: *Desarrollo web a medida y soluciones WordPress para negocios en Chile*. Bajada: *Sitios web que se miden, no solo que se ven bien.* Botones **Pedir una cotización** y **Ver cómo trabajo**.
+- `<h1>`: *Desarrollo web a medida y soluciones WordPress para negocios en Chile*. Bajada: *Sitios web que se miden, no solo que se ven bien.* Botones **Solicitar una cotización** y **Ver cómo trabajo**.
 - Título en Google: *Desarrollo web a medida y WordPress en Chile | Rodolfo-Freelance*.
 - Descripción: *Sitios web a medida, WordPress y WooCommerce, analítica y soporte operativo para pymes en Chile: marketing, prospección, atención al cliente y administración.*
 
