@@ -22,7 +22,7 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
 ## 3. Requisitos funcionales
 
 ### 3.1 Navegación
-- Barra de navegación fija (`<site-header>`) con los enlaces: **Inicio**, **Acerca de mí**, **Servicios** y el botón **Contáctame** (`.navbar__link--cta`).
+- Barra de navegación fija (`<site-header>`) con el logo de la marca a la izquierda: `logo-rodolfo-freelance.svg` en modo claro y `logo-rodolfo-freelance-negativo.svg` en modo oscuro (ambos en `/assets/img/`, con `alt` *Rodolfo-Freelance*). Luego los enlaces: **Inicio**, **Acerca de mí**, **Servicios** y el botón **Contáctame** (`.navbar__link--cta`).
 - El enlace de la sección visible se resalta automáticamente (scroll-spy). El botón **Contáctame** conserva su contraste visual (`--color-on-primary` sobre `--color-primary`) tanto activo como en `:hover`.
 - En móvil, la navbar se colapsa en un menú hamburguesa accesible (`aria-expanded`, cierre con `Esc` y al pulsar un enlace).
 - Cuando se navega desde `privacidad.html`, los enlaces de header y footer redirigen automáticamente a `index.html#<seccion>`.
@@ -51,10 +51,19 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
    - `#contacto` (`<contact-section>`): diseño en 2 columnas (`.contact-layout`) que ocupa todo el ancho del contenedor, igual que las tarjetas de las secciones anteriores:
      - Columna izquierda (`.contact-panel`): panel de impacto y confianza en azul corporativo (*Llevemos tu idea al siguiente nivel*), 3 puntos de valor y canales directos a Instagram `@rodolfo.tech.soluciones` y correo `desarrollador.freelance7@gmail.com`.
      - Columna derecha (`.form`): eyebrow *Hablemos de tu proyecto*, texto *Completa tus datos para coordinar una reunión vía Google Meet. Te contactaremos por correo y teléfono para confirmar el horario.* y formulario.
-2. **`privacidad.html` (Política de Privacidad v2.0):**
+2. **`privacidad.html` (Política de Privacidad v3.0, vigente desde el 4 de noviembre de 2026):**
    - Renderizada mediante el componente `<privacy-section>`.
    - Banner superior de ancho completo (`.legal-hero`) que adapta sus colores entre modo claro y oscuro usando tokens.
    - Diseño en dos columnas (`.legal-layout`): índice lateral fijo (`CONTENIDO`) sincronizado con **8 secciones** desplegables en acordeón (`.legal-item`), adecuado a la Ley N° 19.628 y Ley N° 21.719.
+   - Contenido, redactado en lenguaje claro y descriptivo, sin detalles técnicos:
+     1. **Responsable y canal de contacto:** Rodolfo Parada, persona natural que opera bajo la marca Rodolfo-Freelance, sin encargado de prevención ni representante legal. Canal: correo electrónico y formulario del sitio.
+     2. **Datos que se recopilan:** los datos del formulario (nombre, correo, teléfono opcional, servicio de interés, detalles del proyecto y adjuntos opcionales), las personas afectadas, el origen de los datos y la advertencia sobre datos sensibles.
+     3. **Finalidades y bases de licitud:** gestión de cotizaciones (medidas precontractuales y contrato), publicidad solo con consentimiento (casilla opcional), medición de uso con consentimiento, y encargado de tratamiento cuando se accede a bases de clientes.
+     4. **Destinatarios y transferencias:** Netlify, Google (correo, Meet, Calendar y Analytics) y Microsoft (Clarity), con sus ubicaciones y la aceptación de sus términos de protección de datos.
+     5. **Seguridad, cookies y medición:** medidas de seguridad, cookies de medición con su consentimiento previo, plazos de cada herramienta, datos de ubicación aproximada (país y ciudad), y procedimiento de vulneraciones.
+     6. **Plazos de conservación:** solicitudes sin contrato (60 días), trabajos con orden (datos de la boleta 6 años, resto 60 días), eventos de Calendar (según la solicitud o el trabajo al que pertenecen), publicidad (24 meses sin interacción) y medición (2 meses para eventos y 14 meses para datos de usuario en Analytics).
+     7. **Derechos del titular:** acceso, rectificación, supresión, oposición, bloqueo temporal y portabilidad; plazo de respuesta de 30 días corridos prorrogable una vez por 30 días corridos; reclamo ante la Agencia de Protección de Datos Personales dentro de 30 días hábiles.
+     8. **Decisiones automatizadas y vigencia:** no se adoptan decisiones con efectos jurídicos sobre las personas; se usan audiencias predeterminadas de Analytics de forma agregada. La Ley 21.719 entra en vigencia el 1 de diciembre de 2026.
 3. **Footer (`<site-footer>`):**
    - Modo claro: fondo gris muy oscuro (`#1D2026`) con franja superior naranja de marca. Los textos de acento usan un naranja más claro (20 % de naranja mezclado con blanco). Modo oscuro: fondo oscuro (`--color-surface-deep`, igual que las tarjetas) y franja superior del mismo color que la línea inferior del nav (`--color-border`).
    - Diseño en 4 columnas (`Rodolfo-Freelance` + estado de disponibilidad, `EXPLORAR`, `CONTACTO & COBERTURA` con la línea *Servicios 100% remotos para negocios de todo Chile*, `SÍGUEME` con botón de Instagram) + barra inferior con copyright dinámico y enlace a `privacidad.html`.
@@ -77,12 +86,12 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
   - `phone` (opcional, prefijo visual `+56 9` con bandera de Chile + input de 8 dígitos con máscara `1234 5678`; rechaza secuencias y dígitos repetidos).
   - `email` (obligatorio, formato email válido, con corrección de dominios mal escritos como `gmial.com`).
   - `subject` (obligatorio, `<select>` agrupado en *Desarrollo*, *Marketing & Operaciones* y *Otro / Consulta general*).
-  - `message` (obligatorio, 10–2000 caracteres con contador en vivo).
-  - `attachment` (opcional, hasta **3 archivos** y **10 MB** en total; las imágenes de más de 1,2 MB se comprimen en el navegador). Se envían en Base64 y su nombre aparece como *Referencia adjunta*.
+  - `message` (obligatorio, 10–2000 caracteres con contador en vivo). Campo de texto libre donde la persona describe su proyecto; el formulario advierte que no se deben incluir datos sensibles.
+  - `attachment` (opcional, hasta **3 archivos** y **10 MB** cada uno; las imágenes de más de 1,2 MB se comprimen en el navegador). Se envían al servidor y su nombre aparece como *Referencia adjunta*. Junto al botón de adjuntar hay un popover **Formatos permitidos** (componente `<info-popover>`) que indica los formatos (PNG, JPG, JPEG, WEBP, PDF, DOC, DOCX, ZIP) y que solo se deben subir capturas técnicas o referencias visuales, sin datos sensibles ni imágenes de terceros.
   - `privacy` (checkbox obligatorio con enlace a `privacidad.html` en nueva pestaña `target="_blank"`).
-  - `marketingOptin` (checkbox opcional para comunicaciones comerciales).
+  - `marketingOptin` (casilla opcional, *«Acepto recibir ofertas y comunicaciones comerciales»*: consentimiento para publicidad, ver política 3.2).
 - Campo **honeypot** invisible (`website`) como trampa anti-bots.
-- Recuadro de confianza con compromiso de respuesta en **menos de 72 horas hábiles**.
+- Recuadro de confianza con el compromiso de respuesta en **menos de 72 horas hábiles** y el texto: *«Tus datos se tratarán de forma confidencial y exclusivamente para los fines que autorices.»*
 - Antes de cada envío el formulario pide un **token CSRF nuevo** (`GET /api/csrf`), para que funcione aunque la página haya estado abierta durante horas.
 - Envío mediante `fetch` POST a `/api/contact` con cabecera `X-CSRF-Token`.
 - Los campos **permiten pegar**. Teléfono y correo se limpian después de pegar (solo dígitos y en minúsculas, respectivamente). Al terminar, el formulario muestra un modal de confirmación.
@@ -103,7 +112,7 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
 - **Tipografía**: Plus Jakarta Sans autoalojada (woff2, subset latin, pesos 400–800); sin fuentes ni recursos de terceros.
 - **Tema claro/oscuro**: conmutable desde la navbar, aplica `data-theme` en `<html>`. Por defecto arranca en **oscuro** (no sigue `prefers-color-scheme`). La elección del visitante se persiste en `localStorage` (clave `rf-theme`) y tiene prioridad sobre el valor por defecto.
 - **Derechos de autor**: el pie de página indica *"© <año> Rodolfo-Freelance. Todos los derechos reservados."*
-- **Componentes reutilizables**: Web Components nativos en light DOM en `js/components/` (`site-header`, `site-footer`, `cta-banner`, `hero-section`, `about-section`, `services-section`, `marketing-section`, `contact-section`, `privacy-section`) apoyados en el kit compartido `js/core/kit.js` (`RFKIT`).
+- **Componentes reutilizables**: Web Components nativos en light DOM en `js/components/` (`site-header`, `site-footer`, `cta-banner`, `hero-section`, `about-section`, `services-section`, `marketing-section`, `contact-section`, `privacy-section`, `info-popover`) apoyados en el kit compartido `js/core/kit.js` (`RFKIT`).
 - **`<cta-banner>`** (en modo claro, fondo oscuro con resplandores naranja igual que `.contact-panel`; en modo oscuro, degradado propio): título *¿Hablamos de lo que necesita resolver tu negocio?*, botón principal **Agenda tu reunión** (lleva a `#contacto`) y leyenda *Respuesta en menos de 72 horas hábiles · Atención 100% remota para todo Chile*. El botón secundario viene oculto por defecto (`secondary-text="none"`).
 
 ### 3.5.1 Interacciones al pasar el mouse (hover)
@@ -306,18 +315,20 @@ Página de servicios generada con Eleventy (`content/como-trabajo/index.njk`). C
 - **Giro de tarjetas**: solo el botón de flecha gira la tarjeta. No hay giro por hover ni por clic en el resto de la tarjeta, y las tarjetas no reciben foco de tabulación. El hover de las tarjetas solo cambia el borde, el brillo o la elevación (ver 3.5.1).
 - **Rendimiento**: sin dependencias de frontend ni bundlers. `app.css` se genera minificado (`clean-css`, nivel 1, sin reescribir reglas) y su versión comprimida pesa unos 13,6 KB. La cursiva de la fuente se precarga en `index.html` porque se usa en la primera pantalla. Medido con Lighthouse en móvil (4G lenta): FCP 0,9 s, LCP 3,3 s, TBT 90 ms, CLS 0. Los scripts de componentes, `kit.js`, `data.js` y `main.js` se cargan con `defer` (no bloquean el render). Solo `theme.js` es síncrono, para evitar que el tema parpadee. Las hojas de estilo son bloqueantes, y es intencional para no mostrar la página sin estilos. El CSS se sirve en un solo archivo (`app.css`, generado por `npm run build:css`) y `main.js` minificado (`main.min.js`). Las portadas del blog pesan menos de ~110 KB cada una. Los carruseles y acordeones usan CSS nativo (`scroll-snap`, `<details>`) y scripts pequeños externos (`svc-carousel.js`, `svc-flows.js`).
 - **Token CSRF**: no se pide al cargar la página. Solo se pide justo antes de cada envío del formulario.
-- **Privacidad**: tipografía y recursos autoalojados. Medición con Google Tag Manager, Google Analytics 4 y Microsoft Clarity, declarada en la sección 5.2 de la Política de Privacidad (cookies `_ga`, `_ga_<ID>`, `_clck`, `_clsk`). Clarity carga su píxel desde `c.bing.com`, único dominio añadido a `img-src` en la CSP de `server/index.js` y `netlify.toml`.
+- **Privacidad**: tipografía y recursos autoalojados. Medición con Google Tag Manager, Google Analytics 4 y Microsoft Clarity, declarada en la sección 5.2 de la Política de Privacidad (cookies `_ga`, `_ga_<ID>`, `_clck`, `_clsk`).
+- **Consentimiento de cookies (Ley 21.719, art. 12):** un banner en todas las páginas (`public/js/consent.js`) con **Aceptar** y **Rechazar** de igual peso visual. Aparece en cada nueva visita; la elección dura mientras la pestaña esté abierta, así que al cerrar y volver a entrar el banner vuelve a aparecer. El footer tiene el enlace **Configurar cookies**, que vuelve a mostrar el banner. Si se rechaza después de aceptar, la página se recarga para que Clarity deje de cargarse. Al aceptar, se notifica a GTM el evento `rf_consent_granted`. Sin elección no se instala ninguna cookie de medición: GTM arranca con Consent Mode v2 en denegado (`gtm.js`) y Clarity no se carga (`clarity.js` espera el evento `rf-consent`). No hay enlace para reconfigurar en el footer.
 - **Regla de medición — obligatoria en TODAS las páginas del sitio** (portada, privacidad, *Cómo trabajo*, pestañas del blog, artículos y cualquier página nueva):
 
   | Herramienta | Cómo se instala | Requisito por página |
   |---|---|---|
-  | **Google Tag Manager** (`GTM-WLCDS32G`) | `public/js/trusted-types.js` + `public/js/gtm.js` en el `<head>` (sin `defer`, en ese orden) y el `<noscript>` con el iframe de GTM al inicio del `<body>` | Debe cargarse |
-  | **Google Analytics 4** | Se configura **dentro de GTM** (etiqueta de GA4), no con un script propio | Llega con GTM: si GTM está, GA4 mide la página |
-  | **Microsoft Clarity** (`ywukiqkuzd`) | `public/js/clarity.js` con `defer` en el `<head>` | Debe cargarse |
+  | **Google Tag Manager** (`GTM-WLCDS32G`) | `public/js/trusted-types.js` + `public/js/gtm.js` en el `<head>` (sin `defer`, en ese orden) y el `<noscript>` con el iframe de GTM al inicio del `<body>`. `gtm.js` activa Consent Mode v2 en denegado antes de cargar GTM | Debe cargarse |
+  | **Google Analytics 4** | Se configura **dentro de GTM** (etiquetas «Google Analytics G-B8ZG85LJFW» y «Google Analytics evento de GA4»). Ambas requieren el consentimiento `analytics_storage` y se disparan con el activador **Consentimiento aceptado** (evento `rf_consent_granted`) además de Initialization. Sin consentimiento no sale ninguna medición | Llega con GTM, según el consentimiento |
+  | **Microsoft Clarity** (`ywukiqkuzd`) | `public/js/clarity.js` con `defer` en el `<head>`; el script de Clarity solo se inserta con consentimiento (ver *Consentimiento de cookies*) | Debe cargarse el loader |
   | **Google Search Console** | Se verifica **una vez para el dominio** (no se instala por página) | La página debe ser indexable: estar en `sitemap.xml`, tener `canonical` propio y no llevar `noindex` |
 
   - Las páginas HTML de `public/` incluyen los scripts a mano; las páginas de Eleventy los heredan de `_includes/base.njk`. **Una página nueva con otra plantilla debe incluirlos también.**
   - **Privacidad en Clarity:** todo formulario lleva `data-clarity-mask="true"` (hoy `#contact-form`, en `contact-section.js` y en su copia estática de `index.html`), para que las grabaciones y mapas de calor nunca muestren lo que escribe el visitante.
+  - **Cambios de la versión 4 de GTM (5 de noviembre de 2026):** requisito `analytics_storage` en las dos etiquetas de GA4 y activador personalizado **Consentimiento aceptado**. Verificado en el navegador: sin aceptar, 0 mediciones; al aceptar, aparecen.
   - Los scripts van en archivos externos (nunca en línea) para cumplir la CSP; los dominios de Clarity y Google ya están permitidos en `netlify.toml` y `server/index.js`.
   - Antes de publicar se verifica que **todas** las páginas de `dist/` carguen `gtm.js` y `clarity.js` y figuren en el sitemap (por ejemplo, contando las páginas que los contienen frente al total de páginas).
   - **Estado actual:** se cumple en las 58 páginas (`index.html` y `privacidad.html` a mano; las 56 páginas de Eleventy desde `_includes/base.njk`).

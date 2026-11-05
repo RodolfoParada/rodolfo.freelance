@@ -106,7 +106,9 @@
           </p>
 
           <div class="site-footer__meta">
-            <a class="site-footer__legal-link" href="privacidad.html">Política de privacidad</a>
+            <a class="site-footer__legal-link" href="/privacidad.html">Política de privacidad</a>
+            <span class="site-footer__meta-sep" aria-hidden="true">&middot;</span>
+            <a class="site-footer__legal-link" href="#cookies">Configurar cookies</a>
             <span class="site-footer__meta-sep" aria-hidden="true">&middot;</span>
             <span class="site-footer__usability">
               <span class="site-footer__usability-dot" aria-hidden="true"></span>
