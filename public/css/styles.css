@@ -128,13 +128,30 @@ html::-webkit-scrollbar {
 }
 
 .navbar__brand {
+  display: inline-flex;
+  align-items: center;
   font-size: var(--font-size-lg);
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
-.navbar__brand span {
-  color: var(--color-text-accent);
+/* Logo de la marca: el claro en modo claro y el negativo en modo oscuro */
+.navbar__logo {
+  display: block;
+  width: auto;
+  height: 3.2175rem;
+}
+
+.navbar__logo--dark {
+  display: none;
+}
+
+:root[data-theme="dark"] .navbar__logo--light {
+  display: none;
+}
+
+:root[data-theme="dark"] .navbar__logo--dark {
+  display: block;
 }
 
 .navbar__menu {
@@ -884,6 +901,63 @@ main {
 
 .about-bridge__link:hover {
   transform: translateX(4px);
+}
+
+/* Banner de cookies (consent.js) */
+.cookie-banner {
+  position: fixed;
+  left: 50%;
+  bottom: var(--space-md);
+  z-index: 70;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  width: min(calc(100% - 2rem), 42rem);
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+  color: var(--color-text);
+}
+
+.cookie-banner[hidden] {
+  display: none;
+}
+
+.cookie-banner__text {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.cookie-banner__text a {
+  color: var(--color-text-accent);
+  text-decoration: underline;
+}
+
+.cookie-banner__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  justify-content: flex-end;
+}
+
+.cookie-banner__actions .btn {
+  min-width: 9rem;
+}
+
+@media (min-width: 640px) {
+  .cookie-banner {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .cookie-banner__actions {
+    flex-shrink: 0;
+  }
 }
 
 /* ==========================================================================
@@ -2359,6 +2433,54 @@ cta-banner {
 .form__upload[hidden],
 .form__attachment-list[hidden] {
   display: none;
+}
+
+/* Popover informativo (<info-popover>): aparece al pasar el mouse o enfocar el botón */
+.info-popover {
+  position: relative;
+  display: inline-block;
+}
+
+.info-popover__trigger {
+  padding: 0;
+  border: none;
+  background: none;
+  font: inherit;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--color-text-accent);
+  text-decoration: underline;
+  cursor: help;
+}
+
+.info-popover__trigger:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  border-radius: var(--radius);
+}
+
+.info-popover__panel {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 0.5rem);
+  z-index: 20;
+  width: min(90vw, 26rem);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-lg);
+  color: var(--color-muted);
+  font-size: var(--font-size-sm);
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.info-popover:hover .info-popover__panel,
+.info-popover:focus-within .info-popover__panel {
+  display: block;
 }
 
 .form__attachment-list {

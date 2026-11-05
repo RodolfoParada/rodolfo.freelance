@@ -18,7 +18,7 @@
   var TEMPLATE = `
     <header class="site-header">
       <nav class="navbar" aria-label="Navegación principal">
-        <a class="navbar__brand" href="${base}#inicio">Rodolfo<span>-Freelance</span></a>
+        <a class="navbar__brand" href="${base}#inicio"><img class="navbar__logo navbar__logo--light" src="/assets/img/logo-rodolfo-freelance.svg" alt="Rodolfo-Freelance" width="716" height="144"><img class="navbar__logo navbar__logo--dark" src="/assets/img/logo-rodolfo-freelance-negativo.svg" alt="Rodolfo-Freelance" width="716" height="144"></a>
 
         <ul class="navbar__menu" id="menu">
           <li><a class="navbar__link${isBlog || isCometrabajo ? "" : " is-active"}" href="${base}#inicio">Inicio</a></li>

@@ -84,14 +84,14 @@
           </svg>
           <span class="form__upload-text" id="attachment-label">Adjuntar archivo o referencia (opcional)</span>
         </label>
-        <div class="form__attachment-list" id="attachment-list" hidden></div>
+        <info-popover label="Formatos permitidos" text="Puedes subir hasta 3 archivos de 10 MB cada uno: imágenes (PNG, JPG, JPEG, WEBP), PDF, DOC, DOCX o ZIP. Sube solo capturas técnicas o referencias visuales de tu proyecto, evitando datos personales sensibles o imágenes de terceros."><span class="info-popover"><button class="info-popover__trigger" type="button" aria-describedby="info-popover-1">Formatos permitidos</button><span class="info-popover__panel" id="info-popover-1" role="tooltip">Puedes subir hasta 3 archivos de 10 MB cada uno: imágenes (PNG, JPG, JPEG, WEBP), PDF, DOC, DOCX o ZIP. Sube solo capturas técnicas o referencias visuales de tu proyecto, evitando datos personales sensibles o imágenes de terceros.</span></span></info-popover><div class="form__attachment-list" id="attachment-list" hidden></div>
         <span class="form__error" id="attachment-error" data-error-for="attachment"></span>
       </div>
 
       <div class="form__field form__field--checkbox">
         <label class="form__checkbox" for="privacy">
           <input type="checkbox" id="privacy" name="privacy" required />
-          <span>He leído y acepto la <a class="form__legal-link" href="privacidad.html" target="_blank" rel="noopener noreferrer">Política de Privacidad</a></span>
+          <span>He leído y acepto la <a class="form__legal-link" href="/privacidad.html" target="_blank" rel="noopener noreferrer">Política de Privacidad</a></span>
         </label>
         <span class="form__error" data-error-for="privacy"></span>
       </div>
@@ -107,7 +107,7 @@
         <svg class="form__trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
         </svg>
-        <p class="form__trust-text">Tus datos están protegidos y solo se utilizarán para responder a tu cotización o consulta.</p>
+        <p class="form__trust-text">Tus datos se tratarán de forma confidencial y exclusivamente para los fines que autorices.</p>
       </div>
 
       <!-- Honeypot anti-bots: invisible para humanos -->
