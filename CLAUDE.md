@@ -171,7 +171,7 @@ El blog vive en `content/` y se genera en `dist/`. Está dirigido a **pymes chil
 - Cada pestaña tiene una carpeta `content/blog/<slug>/` con:
   - `index.njk`: front matter con `title`, `activeTab`, `seoTitle` y `description` (para Google), e `{% include "blog-listing.njk" %}`.
   - `index.11tydata.js`: lee su pestaña de `blogTabs.json` (`tabImage: tab.image`, `tabImageAlt: tab.imageAlt`) y define `firstUrl`, `pageBase`, la paginación sobre `collections.<slug>` y el `permalink`. Copia uno existente y cambia el slug (también en el `find`).
-- Cada página de pestaña muestra 1 artículo destacado + 6 tarjetas (7 en total); las páginas siguientes muestran 6 (`/blog/<slug>/pagina/N/`).
+- Cada página de pestaña muestra 1 artículo destacado + 6 tarjetas (7 en total); las páginas siguientes muestran 6 (`/blog/<slug>/pagina/N/`). La imagen de portada de la pestaña (`tabImage`) aparece en **todas** las páginas: en la primera dentro del destacado, y en las siguientes como una tarjeta `.blog-featured` (imagen a la izquierda, nombre y descripción de la pestaña a la derecha) antes de la grilla (`_includes/blog-listing.njk`).
 - El título y la bajada del blog son los mismos en todas las pestañas: están en `_includes/blog-listing.njk`.
 
 ### Artículos
@@ -185,7 +185,7 @@ El blog vive en `content/` y se genera en `dist/`. Está dirigido a **pymes chil
   tags: <slug de la pestaña>      # wordpress, desarrollo, marketing, prospeccion, atencion-cliente, administracion-ecommerce
   categoryName: <nombre visible>  # igual al "name" de blogTabs.json
   ```
-- **Orden:** se ordena por `date`, del más nuevo al más antiguo. Si varios artículos tienen el mismo día, usa la hora (`T23:40:00Z`) para fijar cuál sale destacado.
+- **Orden:** se ordena por `date`, del más nuevo al más antiguo. Si varios artículos tienen el mismo día, usa la hora (`T23:40:00Z`) para fijar cuál sale destacado. El artículo más reciente es el destacado, junto a la imagen de la pestaña: al publicar uno nuevo, dale la fecha y hora más recientes de todo el blog.
 - **Estructura:** introducción breve → secciones `##` (alimentan el índice lateral) → `## En resumen` → bloque CTA al final. Usa `###` dentro de una sección.
 - **CTA final** (obligatorio, propio del tema del artículo), con el shortcode `blogCta` (definido en `eleventy.config.js`; genera el bloque `.blog-cta`):
   ```njk
@@ -287,6 +287,7 @@ Para que cambiar de pestaña sea inmediato y sin parpadeo:
 - **Transición entre páginas:** `@view-transition { navigation: auto; }` en `styles.css` funde una página con la siguiente; `.site-header` y `.blog-hub .blog-tabs` tienen `view-transition-name` para quedarse fijos. Se desactiva con `prefers-reduced-motion`. Navegadores sin soporte navegan normal.
 - **Imagen de portada rápida:** `base.njk` agrega `<link rel="preload" as="image" fetchpriority="high">` de `tabImage` en la primera página de cada pestaña, y la `<img>` lleva `fetchpriority="high"`.
 - **Precarga (`blog-prefetch.js`, cargado por `blog-listing.njk`):** las pestañas llevan `data-prefetch-image`; cuando el navegador está libre se precargan todas las portadas, y al pasar el mouse, enfocar o tocar una pestaña se precarga su página. No precarga imágenes con ahorro de datos.
+- **Redirección de la portada (`netlify.toml`):** `/index.html` → `/` con 301. Solo aplica en Netlify; el servidor local de Express sigue respondiendo en las dos rutas.
 - **Caché en Netlify (`netlify.toml`):** `/assets/img/*` 7 días (+1 día `stale-while-revalidate`) y `/assets/fonts/*` 1 año `immutable`. **Si reemplazas una imagen, usa un nombre nuevo** (con el mismo nombre algunos visitantes verían la anterior hasta 7 días).
 
 ### SEO

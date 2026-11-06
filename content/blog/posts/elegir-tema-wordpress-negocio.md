@@ -68,6 +68,6 @@ Un tema liviano es la mitad de una web rápida; la otra mitad te la explico en [
 
 El tema es la base del sitio, no solo su apariencia. Elegir uno ligero, bien mantenido y con un tema hijo para tus cambios evita caídas, mejora el posicionamiento y hace que tus clientes tengan una experiencia rápida desde el primer clic.
 
-Si quieres que revisemos juntos el tema que ya tienes, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
+Si te preguntas si conviene usar un maquetador visual o el editor de bloques, en [Elementor o bloques en WordPress: cuál conviene a tu negocio](/blog/elementor-o-bloques-wordpress/) comparamos ambas opciones. Si quieres que revisemos juntos el tema que ya tienes, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
 
 {% blogCta "¿Tu sitio ya está en WordPress y no sabes si el tema le conviene?", "Lo revisamos. Te digo qué funciona, qué sobra y qué conviene cambiar.", "Conoce cómo trabajo", "/como-trabajo/" %}

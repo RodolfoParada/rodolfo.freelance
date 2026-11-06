@@ -10,6 +10,18 @@
       {% endfor %}
     </nav>
 
+    {% if pagination.pageNumber > 0 and tabImage %}
+    <article class="blog-featured blog-hub__cover">
+      <div class="blog-featured__media">
+        <img class="blog-featured__image" src="{{ tabImage }}" alt="{{ tabImageAlt }}" width="1200" height="675" loading="eager" decoding="async">
+      </div>
+      <div class="blog-featured__body">
+        <h2 class="blog-featured__title">{{ title }}</h2>
+        <p class="blog-card__text">{{ description }}</p>
+      </div>
+    </article>
+    {% endif %}
+
     {% if pagination.pageNumber == 0 %}
       {% set gridItems = chunk.items.slice(1) %}
     {% else %}

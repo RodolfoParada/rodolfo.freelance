@@ -121,6 +121,10 @@ Cuando llega la mercadería, revísala antes de firmar la guía como recibida:
 
 Un buen control de stock parte por comprar bien. Te puede servir [cómo ordenar las compras de tu pyme](/blog/proceso-de-compras-pyme-cotizacion-orden/) y [cómo elegir proveedores más allá del precio](/blog/matriz-comparativa-proveedores/), donde el plazo de entrega es uno de los criterios clave.
 
+Si además vendes por varios canales a la vez, en [sincronizar stock entre tu tienda y tu bodega](/blog/sincronizar-stock-tienda-bodega/) explicamos cómo evitar vender productos que no tienes.
+
+Si quieres saber qué tan rápido se mueve tu inventario y cuánto dinero le queda a cada venta, en [cuatro indicadores para saber si tu tienda online es rentable](/blog/kpis-ecommerce-margen-ticket-conversion/) explicamos cómo calcularlo.
+
 ## En resumen
 
 La logística y el control de stock están en el centro de la experiencia de compra. Pedir a tiempo, seguir cada despacho y revisar bien lo que llega evita quiebres de stock, protege tus márgenes y hace que tus clientes reciban lo que compraron, a tiempo y en buen estado.

@@ -112,7 +112,7 @@ Un mito común es que los enlaces nofollow no sirven. Sí sirven: traen personas
 
 ## Las menciones de tu marca también cuentan
 
-Con la llegada de buscadores y asistentes con inteligencia artificial, como Gemini, ChatGPT o Perplexity, la reputación ya no depende solo de los enlaces. A preparar tu negocio para estas herramientas se le empieza a llamar **GEO**, por *Generative Engine Optimization*.
+Con la llegada de buscadores y asistentes con inteligencia artificial, como Gemini, ChatGPT o Perplexity, la reputación ya no depende solo de los enlaces. A preparar tu negocio para estas herramientas se le empieza a llamar **GEO**, por *Generative Engine Optimization*. En [GEO: cómo lograr que la IA recomiende tu negocio](/blog/geo-ia-recomiende-tu-negocio/) explicamos qué hacer.
 
 - **Menciones sin enlace:** si tu marca aparece en artículos, foros o reseñas junto a temas como «desarrollo web en Chile» o «soporte WordPress», estas herramientas pueden aprender a relacionar tu negocio con esos temas, aunque no haya un enlace.
 - **Aparecer en el contexto correcto:** mientras más veces se mencione tu negocio junto a tus servicios y tu ciudad o país, más claro queda a qué te dedicas y dónde atiendes.

@@ -133,4 +133,6 @@ Las visitas te muestran cuánta gente pasa por fuera de tu tienda. Los eventos c
 
 Para una pyme que cuida cada peso de su presupuesto, medir eventos clave es la forma más directa de convertir las estadísticas de la web en decisiones que dejan dinero.
 
+Si quieres ver qué nombres tienen esos eventos en GA4 y cuáles conviene configurar en una tienda o en una web de servicios, en [eventos clave en GA4 para tu web y tienda en WordPress](/blog/eventos-clave-ga4-web-tienda-wordpress/) los revisamos uno por uno. Si inviertes en anuncios, en [Google Ads para pymes](/blog/google-ads-pymes-busquedas/) y en [publicidad en redes sociales](/blog/publicidad-redes-sociales-pymes/) explicamos cómo medir el resultado de cada peso invertido.
+
 {% blogCta "¿Sabes qué campaña te trae clientes y cuál solo visitas?", "Configuro Google Tag Manager y Google Analytics 4 para medir tus clics en WhatsApp, tus formularios y tus ventas. Así sabrás dónde invertir tu presupuesto y dónde dejar de gastarlo." %}

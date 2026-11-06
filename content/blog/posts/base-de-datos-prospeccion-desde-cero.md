@@ -203,6 +203,8 @@ Con una base hecha por ti, a partir de fuentes públicas y con contactos que enc
 
 Cuando tengas tu lista, el siguiente paso es contactar. Te puede servir [cómo hacer llamadas en frío](/blog/llamadas-en-frio-efectivas-chile/) y [cómo escribir un correo en frío](/blog/correo-en-frio-b2b-pymes/).
 
+Y cuando ya tienes cotizaciones enviadas que nadie respondió, en [cómo reactivar cotizaciones que quedaron sin respuesta](/blog/reactivar-cotizaciones-sin-respuesta/) explicamos cómo retomarlas.
+
 ## En resumen
 
 Una base de 100 empresas bien elegidas, con la persona correcta y un canal verificado, genera muchas más reuniones y ventas que 5.000 contactos comprados al azar. Toma más trabajo al principio, pero es la base de todo lo que viene después.

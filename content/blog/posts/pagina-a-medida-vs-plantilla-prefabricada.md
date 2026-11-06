@@ -58,6 +58,6 @@ Si te inclinas por una plantilla, en [cómo elegir el tema de WordPress correcto
 
 Una buena plantilla sirve para empezar sin arriesgar demasiado capital. Un desarrollo a medida tiene sentido cuando el negocio crece, sus procesos se complican y la web necesita trabajar a favor de tus ventas, no ser un obstáculo técnico.
 
-Si dudas sobre qué camino te conviene, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
+Si además dudas sobre qué formato necesita tu negocio (landing, sitio corporativo o tienda), en [¿landing page, sitio corporativo o tienda? Elige según tu etapa](/blog/landing-sitio-corporativo-tienda-online/) lo comparamos. Si dudas sobre qué camino te conviene, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
 
 {% blogCta "¿No sabes qué camino le conviene a tu negocio?", "Lo conversamos. Te digo qué opción tiene sentido según tu etapa, tu presupuesto y lo que necesitas que haga la web.", "Conoce cómo trabajo", "/como-trabajo/" %}

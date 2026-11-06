@@ -67,6 +67,6 @@ Las tiendas suelen recibir ataques automáticos a formularios y carritos:
 
 - **Rank Math SEO o Yoast SEO:** crean el `sitemap.xml` automáticamente, te dejan personalizar títulos y descripciones de cada producto y agregan datos estructurados (Schema Product) con precio y disponibilidad. Esto ayuda a que Google muestre mejor tus productos, aunque no garantiza un resultado especial.
 
-Para elegir la base visual de tu tienda, te puede servir [cómo elegir el tema de WordPress correcto](/blog/elegir-tema-wordpress-negocio/). Y cuando ya esté funcionando, la [guía de caché en WordPress para no romper tu tienda](/blog/guia-tecnica-cache-wordpress-tienda/) te ayuda a que cargue rápido sin afectar el carrito ni los pagos.
+Para elegir la base visual de tu tienda, te puede servir [cómo elegir el tema de WordPress correcto](/blog/elegir-tema-wordpress-negocio/). Y cuando ya esté funcionando, la [guía de caché en WordPress para no romper tu tienda](/blog/guia-tecnica-cache-wordpress-tienda/) te ayuda a que cargue rápido sin afectar el carrito ni los pagos. Antes de llenar la tienda con productos, conviene cuidar cómo se presentan: en [ficha de producto que vende](/blog/ficha-producto-ecommerce/) y en [errores comunes en el catálogo de tu tienda online](/blog/errores-catalogo-ecommerce/) explicamos qué revisar.
 
 {% blogCta "¿Quieres una tienda así sin tener que armarla tú?", "Te cuento cómo trabajo, qué incluye cada etapa y cómo empezamos.", "Conoce cómo trabajo", "/como-trabajo/" %}

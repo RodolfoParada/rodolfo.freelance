@@ -125,6 +125,8 @@ Ten en cuenta también la ley chilena. Si escribes a personas como consumidores,
 
 ¿A quién escribirle? Un buen correo enviado a la persona equivocada no sirve de nada. En [cómo armar una base de datos de prospección desde cero](/blog/base-de-datos-prospeccion-desde-cero/) te explico cómo encontrar a las personas correctas.
 
+Si la persona responde y luego no contesta más, en [seguimiento comercial: cómo insistir sin molestar al cliente](/blog/seguimiento-comercial-sin-molestar/) explicamos cómo seguir la conversación.
+
 ## En resumen
 
 Un buen correo en frío no intenta cerrar la venta en la bandeja de entrada. Busca algo más simple: empezar una conversación entre dos personas de negocios. Corto, personal, útil y fácil de responder.

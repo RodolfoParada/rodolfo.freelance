@@ -129,6 +129,8 @@ Para que este calendario funcione, cada factura debe estar revisada antes de pag
 
 Para que tu calendario funcione, también conviene vigilar cuánto se gasta en cada área. Te lo explico en [control de presupuesto por área](/blog/control-presupuesto-por-area-pymes/).
 
+Si además quieres mostrar estos números a la gerencia en un formato simple, en [tablero ejecutivo: métricas claras para decidir en 5 minutos](/blog/tablero-ejecutivo-decisiones-5-minutos/) revisamos cómo armarlo.
+
 ## En resumen
 
 La salud financiera de tu negocio no depende solo de cuánto vendes, sino de cuándo entra y sale el dinero. Pagar en días fijos, priorizar con criterio y proyectar tus cobros le da previsibilidad a tus finanzas, fortalece la relación con tus proveedores y te deja trabajar con más tranquilidad.
