@@ -4441,6 +4441,12 @@ netlify-drawer,
   object-fit: contain;
 }
 
+/* Bloque superior de las páginas 2 en adelante (_includes/blog-listing.njk):
+   usa la misma tarjeta .blog-featured que la página 1. */
+.blog-hub__cover {
+  margin-bottom: var(--space-xl);
+}
+
 /* ==========================================================================
    Artículo con índice lateral (_includes/post.njk + public/js/toc.js)
    ========================================================================== */

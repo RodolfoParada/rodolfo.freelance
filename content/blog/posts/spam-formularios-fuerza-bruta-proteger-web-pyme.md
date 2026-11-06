@@ -160,4 +160,6 @@ Proteger tu web también es poder recuperarla si algo falla: en [copias de segur
 
 Tener una plataforma a medida, hecha con React, Node.js o Java, te da más control, mejor rendimiento y más estabilidad. Protegerla de los ataques más comunes no requiere obsesionarse con la seguridad ni llenar la web de obstáculos. Con un límite de envíos razonable, un campo trampa invisible y una buena revisión en el servidor, mantienes tu correo limpio, tu web funcionando y tus costos bajo control.
 
+Si además tu formulario guarda datos de personas, revisa también lo que exige la nueva ley. En [ley de datos personales: qué debe tener tu sitio web](/blog/ley-datos-personales-sitio-web-formularios/) explicamos qué informar y qué pedir en cada campo.
+
 {% blogCta "¿Tu formulario recibe más spam que clientes?", "Reviso cómo está protegida tu web y aplico estas defensas sin que tus clientes noten la diferencia: menos basura en tu correo, una web más estable y una cuenta de servidor bajo control." %}

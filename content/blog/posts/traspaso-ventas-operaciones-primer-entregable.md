@@ -156,6 +156,8 @@ Para evitar malentendidos durante el proyecto, deja claro desde el principio qui
 
 Este traspaso se complementa con una buena bienvenida al cliente: te lo explico en [cómo dar la bienvenida a un nuevo cliente](/blog/onboarding-bienvenida-nuevos-clientes/).
 
+Cuando el problema llega al equipo técnico, en [cómo pasar un problema técnico al equipo sin perder tiempo](/blog/problema-tecnico-equipo-sin-perder-tiempo/) explicamos qué información incluir en el traspaso.
+
 ## En resumen
 
 El éxito de un servicio no depende solo de la calidad del trabajo final, sino de cómo vive el cliente todo el proceso. Un traspaso ordenado entre la venta y la ejecución evita malentendidos, alinea a tu equipo y hace que cada nuevo cliente parta con el pie derecho.

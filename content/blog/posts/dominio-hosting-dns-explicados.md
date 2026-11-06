@@ -57,6 +57,6 @@ Si vas a tener correos con tu propio dominio, en [correo @tuempresa.cl o @gmail.
 
 Entender esta separación te permite cambiar de proveedor cuando lo necesites, elegir la mejor opción para tus correos y mantener el control de la identidad digital de tu negocio.
 
-Si tienes dudas sobre cómo está armado tu sitio o qué conviene cambiar, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
+Si quieres calcular cuánto te costará todo esto cada año, en [cuánto cuesta mantener una web en WordPress para tu pyme](/blog/costo-mantener-web-wordpress-pyme/) revisamos los costos uno por uno. Si tienes dudas sobre cómo está armado tu sitio o qué conviene cambiar, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
 
 {% blogCta "¿Tu dominio o tu hosting no están donde deberían?", "Lo revisamos juntos. Te digo qué está bien, qué conviene ordenar y qué cuidar para que tu negocio no dependa de nadie.", "Conoce cómo trabajo", "/como-trabajo/" %}

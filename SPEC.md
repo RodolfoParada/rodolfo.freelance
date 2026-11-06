@@ -77,6 +77,7 @@ Presentar los servicios de desarrollo web y soporte operativo/comercial de **Rod
 - `index.html`: título *Rodolfo-Freelance | Desarrollo web y WordPress en Chile*; descripción de 153 caracteres; `canonical` a `https://rodolfofreelance.cl/`; Open Graph y Twitter Card (`summary_large_image`) con imagen `assets/img/og-image.png` (1200×630); bloque JSON-LD `ProfessionalService` (nombre, URL, correo, Instagram, `areaServed` Chile).
 - `privacidad.html`: título *Política de Privacidad | Rodolfo-Freelance*; `canonical` y metadatos sociales propios.
 - `robots.txt`: permite todo, bloquea `/api/`, permite `Google-Extended`, `ClaudeBot`, `GPTBot` y `PerplexityBot`, y apunta al sitemap.
+- `/index.html` redirige a `/` con un 301 (regla en `netlify.toml`), para que la portada tenga una sola dirección y no haya contenido duplicado.
 - `sitemap.xml`: lo genera `plugins/sitemap.js` en cada build. Incluye `/`, `/privacidad.html`, `/como-trabajo/`, las pestañas del blog (con sus páginas) y todos los artículos, con la fecha de cada uno y una prioridad por tipo de página (inicio 1, Cómo trabajo 0,9, pestañas 0,7, artículos 0,6).
 - Páginas de Eleventy (blog y *Cómo trabajo*): el `<head>` lo arma `_includes/base.njk` con los datos de `content/_data/site.json`. Ver la sección 3.6.5.
 
@@ -157,7 +158,7 @@ Blog de guías prácticas para **pymes chilenas**, generado con Eleventy desde `
   | Administración & E-Commerce | `/blog/administracion-ecommerce/` | `administracion-ecommerce` |
 
 - La pestaña activa se marca con `.is-active` y `aria-current="page"`. En móvil, las pestañas pasan a varias líneas sin desbordarse.
-- Cada pestaña muestra en su primera página **1 artículo destacado** (con la imagen de portada de la pestaña) y **6 tarjetas** en dos filas de tres; las páginas siguientes (`/pagina/N/`) muestran 6 tarjetas. Paginación con *Anterior* / número / *Siguiente*.
+- Cada pestaña muestra en su primera página **1 artículo destacado** (con la imagen de portada de la pestaña) y **6 tarjetas** en dos filas de tres; las páginas siguientes (`/pagina/N/`) muestran la misma portada de la pestaña en una tarjeta igual al destacado (imagen a la izquierda, nombre y descripción de la pestaña a la derecha) y luego 6 tarjetas. Paginación con *Anterior* / número / *Siguiente*.
 - Una pestaña sin artículos muestra *Próximamente.*
 - Al final de cada pestaña, bloque de cierre (`.blog-cta` en `blog-listing.njk`):
   - Título: *¿Conversamos sobre tu negocio?*

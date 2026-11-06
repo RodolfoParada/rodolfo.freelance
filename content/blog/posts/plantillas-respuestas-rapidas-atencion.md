@@ -129,6 +129,8 @@ Un consejo de seguridad: avisa a tus clientes que tus datos bancarios no cambian
 
 Las respuestas rápidas también te ayudan a cumplir tus [tiempos de respuesta](/blog/tiempos-de-respuesta-sla-pymes/), y funcionan muy bien junto a un [WhatsApp Business bien configurado](/blog/whatsapp-business-pymes-buenas-practicas/).
 
+Cuando el mensaje llega con molestia, las plantillas no bastan: en [cómo atender a un cliente molesto en 4 pasos](/blog/cliente-molesto-4-pasos/) revisamos cómo responder con calma.
+
 ## En resumen
 
 Ordenar tus respuestas no significa perder cercanía. Significa ahorrar tiempo en lo repetitivo para dedicarlo a las conversaciones que de verdad lo necesitan. Con un buen conjunto de plantillas, cualquier persona de tu equipo puede responder rápido, con la información correcta y con el mismo tono amable desde el primer mensaje.

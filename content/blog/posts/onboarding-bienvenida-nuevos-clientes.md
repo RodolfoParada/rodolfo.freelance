@@ -117,6 +117,8 @@ Ese silencio genera ansiedad y dudas sobre si tomó la decisión correcta. Para 
 
 Si en tu empresa vende una persona y ejecuta otra, también conviene ordenar ese traspaso. Te lo explico en [de la firma del contrato al primer entregable](/blog/traspaso-ventas-operaciones-primer-entregable/).
 
+Después de esa primera semana, en [llamadas postventa: cómo preguntar sin sonar a venta](/blog/llamadas-postventa-sin-sonar-venta/) revisamos cómo hacer seguimiento, y en [vender más a tus clientes actuales](/blog/vender-mas-clientes-actuales/) cómo ofrecer nuevos servicios sin presionar.
+
 ## En resumen
 
 Una buena bienvenida no necesita plataformas caras ni manuales eternos. Necesita empatía, comunicación a tiempo y respuestas rápidas. Cuando acompañas a tu cliente desde el primer minuto con pasos claros, las dudas desaparecen y una primera compra se convierte en una relación de largo plazo.

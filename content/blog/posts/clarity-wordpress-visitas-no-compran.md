@@ -75,6 +75,6 @@ Si quieres entender mejor cada tipo de mapa, en [mapas de calor: cómo ver dónd
 
 Clarity convierte las suposiciones en observaciones. Ver cómo navegan tus clientes reales te permite encontrar exactamente dónde se traban y corregirlo, muchas veces sin gastar más en publicidad.
 
-Si prefieres que alguien revise esto contigo, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
+Si quieres un método concreto para revisar el formulario, la página de servicio y el celular, en [auditar tu WordPress con Clarity para saber por qué no te compran](/blog/auditar-clarity-wordpress-conversiones/) lo explicamos paso a paso. Si prefieres que alguien revise esto contigo, puedes ver [cómo trabajo y qué incluye cada etapa](/como-trabajo/).
 
 {% blogCta "¿Quieres saber en qué se traban tus clientes?", "Instalamos Clarity, revisamos las primeras grabaciones contigo y te digo qué ajustar primero.", "Conoce cómo trabajo", "/como-trabajo/" %}

@@ -229,4 +229,6 @@ Y si tu negocio atiende en una ciudad o comuna, complementa estos ajustes con el
 
 El SEO on-page no se trata de engañar a Google con trucos. Se trata de ordenar lo que sabes y lo que ofreces de forma clara y fácil de leer. Cuando tu contenido responde bien a lo que tus clientes necesitan, Google lo nota, y las visitas empiezan a convertirse en oportunidades reales de negocio.
 
+Si quieres ideas de temas para escribir, en [blog para pymes: artículos que traen clientes, no solo visitas](/blog/blog-especializado-pymes-clientes/) explicamos qué tipos de artículos ayudan a vender.
+
 {% blogCta "¿Tus páginas le dicen a Google lo que vendes?", "Reviso los títulos, las descripciones y los textos de tu web, y te propongo cambios concretos para que Google entienda tu negocio y más clientes te encuentren." %}

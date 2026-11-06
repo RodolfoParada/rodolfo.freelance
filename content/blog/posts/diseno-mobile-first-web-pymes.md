@@ -85,6 +85,6 @@ Si estás decidiendo cómo construir tu web desde cero, en [página a medida o p
 
 Pensar primero en el celular no significa descuidar la versión de computador. Significa darle prioridad al lugar donde la mayoría de tus clientes te encuentra, te compara con otros y decide si contactarte.
 
-Una web clara, rápida y fácil de usar con el pulgar es una de las formas más simples de convertir visitas en conversaciones con clientes reales.
+Una web clara, rápida y fácil de usar con el pulgar es una de las formas más simples de convertir visitas en conversaciones con clientes reales. Para que el visitante encuentre lo que busca en el menú, en [cómo ordenar los menús de tu web para que no se pierdan](/blog/arquitectura-informacion-menus-web/) revisamos los puntos clave.
 
 {% blogCta "¿Tu web se ve bien en el celular de tus clientes?", "La revisamos juntos desde un teléfono real. Te muestro qué está frenando tus contactos y qué ajustes harían que te escriban más, sin rehacer todo desde cero." %}

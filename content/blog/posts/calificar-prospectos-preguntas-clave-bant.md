@@ -166,6 +166,8 @@ Cuando un prospecto cumple los criterios, quien prospecta no debería limitarse 
 
 Con esta información, quien vende llega a la reunión sabiendo de qué hablar, y la conversación empieza en el punto correcto. Si quieres entender cómo se reparten estos roles, en [qué es un SDR o BDR](/blog/que-es-sdr-bdr-prospeccion-pymes/) te lo explico. Y para coordinar la reunión sin vueltas, te sirve [cómo agendar reuniones por Google Meet](/blog/agendar-reunion-google-meet-prospectos/).
 
+Si después de calificar tienes una propuesta lista, en [cómo armar una propuesta comercial que valoren](/blog/propuesta-comercial-que-convence/) revisamos qué incluir.
+
 ## En resumen
 
 Calificar no es poner trabas: es cuidar el tiempo de todos. Con cuatro preguntas bien hechas, las reuniones que llegan a la agenda son menos, pero mejores, y cada una tiene muchas más posibilidades de terminar en una venta.

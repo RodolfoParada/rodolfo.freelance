@@ -135,6 +135,8 @@ No necesitas un departamento de ventas grande. En una pyme, esta función la pue
 
 Para hacer bien su trabajo, el SDR o BDR necesita dominar dos herramientas: [la llamada en frío](/blog/llamadas-en-frio-efectivas-chile/) y [el correo en frío](/blog/correo-en-frio-b2b-pymes/).
 
+Si estás pensando en delegar parte de este trabajo, en [cómo delegar la prospección sin perder el control](/blog/delegar-prospeccion-soporte-operativo/) explicamos cómo hacerlo. Y si evalúas si conviene contratar o usar un asistente, en [asistente virtual o contratar interno](/blog/asistente-virtual-o-contratar-interno/) comparamos ambas opciones.
+
 ## En resumen
 
 Separar la búsqueda de clientes del cierre es uno de los cambios más simples y efectivos que puede hacer una pyme. Las ventas dejan de depender de la suerte o de los meses buenos, y se convierten en un proceso ordenado, medible y predecible.

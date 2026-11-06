@@ -155,6 +155,8 @@ Que tus técnicos, diseñadores o programadores contesten el teléfono les corta
 
 Para saber en cuánto tiempo conviene responder por cada canal, te puede servir [tiempos de respuesta para pymes](/blog/tiempos-de-respuesta-sla-pymes/).
 
+Cuando los reclamos se repiten, vale la pena mirarlos en conjunto. En [qué te enseñan los reclamos repetidos](/blog/reclamos-repetidos-mejoras-negocio/) explicamos cómo hacerlo.
+
 ## En resumen
 
 El desorden de canales no se arregla trabajando más horas, sino con reglas claras y un solo lugar donde vive la información. Así tu pyme se ve más profesional, tu equipo trabaja con menos estrés y cada cliente recibe una respuesta a tiempo.

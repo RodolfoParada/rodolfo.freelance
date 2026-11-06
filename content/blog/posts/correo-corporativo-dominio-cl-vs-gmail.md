@@ -36,6 +36,8 @@ Con un dominio propio puedes configurar tres registros que ayudan a demostrar qu
 
 No necesitas entender cómo funcionan por dentro. Lo importante es que, bien configurados, hacen que tus presupuestos tengan muchas más posibilidades de llegar a quien corresponde.
 
+Si además tu web envía correos, por ejemplo el formulario de contacto, en [correos de WordPress en spam y cómo enviarlos bien con SMTP](/blog/smtp-wordpress-correos-spam/) explicamos cómo conectar ese envío con el mismo dominio.
+
 ## La información de tu negocio es tuya
 
 Este es un riesgo que pocas pymes ven hasta que les pasa.

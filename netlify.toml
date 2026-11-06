@@ -6,6 +6,12 @@
 [functions]
   node_bundler = "esbuild"
 
+# La portada tiene una sola dirección: /index.html redirige a / para evitar contenido duplicado.
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/server/:splat"
