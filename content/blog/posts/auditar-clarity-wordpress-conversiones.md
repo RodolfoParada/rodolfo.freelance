@@ -1,6 +1,6 @@
 ---
 title: "Auditar tu WordPress con Clarity: por qué no te compran"
-description: "Tres revisiones simples con Microsoft Clarity para encontrar dónde se traban tus clientes en formularios, páginas de servicio y celulares, y qué arreglar primero."
+description: "Tres revisiones con Microsoft Clarity para encontrar dónde se traban tus clientes en formularios, servicios y celulares, y qué arreglar primero."
 date: 2026-11-06T23:30:00Z
 tags: wordpress
 categoryName: WordPress

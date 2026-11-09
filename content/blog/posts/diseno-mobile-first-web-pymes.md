@@ -1,6 +1,6 @@
 ---
 title: "Diseño mobile-first: cómo adaptar la web de tu pyme a los celulares"
-description: "La mayoría de tus clientes te visita desde el celular. Te explico qué es el diseño mobile-first, cómo influye en Google y qué revisar hoy en la web de tu negocio."
+description: "La mayoría de tus clientes te visita desde el celular. Qué es el diseño mobile-first, cómo influye en Google y qué revisar en tu web."
 date: 2026-10-21
 tags: desarrollo
 categoryName: Desarrollo WEB

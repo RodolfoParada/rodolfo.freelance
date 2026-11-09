@@ -1,6 +1,6 @@
 ---
 title: "Errores comunes en el catálogo de tu tienda online"
-description: "Los errores más frecuentes en los catálogos de tiendas online: productos duplicados, variaciones mal configuradas, fotos que no corresponden y SKU repetidos. Cómo detectarlos y corregirlos."
+description: "Errores frecuentes en catálogos de tiendas online: productos duplicados, variaciones mal configuradas, fotos equivocadas y SKU repetidos."
 date: 2026-11-06T23:59:55Z
 tags: administracion-ecommerce
 categoryName: Administración & E-Commerce

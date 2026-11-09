@@ -168,6 +168,8 @@ Pide solo lo que de verdad necesitas para el trabajo. Además de ser más fácil
 
 Esta lista funciona mejor como parte de una buena bienvenida. Te explico cómo armarla en [cómo dar la bienvenida a un nuevo cliente](/blog/onboarding-bienvenida-nuevos-clientes/).
 
+**Nota sobre la ley:** a la fecha, la Ley 21.719 rige desde el 1 de diciembre de 2026. Hay un proyecto en el Congreso que propone postergar su entrada en vigencia al 15 de octubre de 2027. Revisaremos este texto si el proyecto se aprueba.
+
 ## En resumen
 
 Pedir la información de un nuevo cliente no tiene por qué ser un trámite pesado. Con una lista clara, una explicación breve de cada dato y una persona encargada de hacer el seguimiento, tu negocio se ve ordenado y el proyecto parte sin demoras.

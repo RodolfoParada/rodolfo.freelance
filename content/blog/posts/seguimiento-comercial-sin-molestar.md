@@ -1,6 +1,6 @@
 ---
-title: "Seguimiento comercial: cómo insistir sin molestar al cliente"
-description: "Cómo hacer seguimiento a un prospecto sin resultar pesado: cada contacto debe aportar algo nuevo, con una secuencia simple de días, mensajes y canales."
+title: "Seguimiento después de enviar una propuesta, sin molestar"
+description: "Cómo hacer seguimiento a una propuesta enviada durante 14 días: cada contacto debe aportar algo nuevo, sin resultar pesado."
 date: 2026-11-06T23:59:43Z
 tags: prospeccion
 categoryName: Prospección Comercial

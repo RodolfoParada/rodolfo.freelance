@@ -1,6 +1,6 @@
 ---
-title: "Cómo reactivar cotizaciones que quedaron sin respuesta"
-description: "Cómo volver a contactar a clientes que recibieron una cotización y no respondieron: mensajes breves, motivos válidos y cuándo cerrar el caso con respeto."
+title: "Cotizaciones de hace meses: cómo retomarlas sin presionar"
+description: "Cómo volver a contactar a quienes recibieron una cotización hace tiempo y no respondieron: mensajes breves y cuándo cerrar el caso."
 date: 2026-11-06T23:59:44Z
 tags: prospeccion
 categoryName: Prospección Comercial

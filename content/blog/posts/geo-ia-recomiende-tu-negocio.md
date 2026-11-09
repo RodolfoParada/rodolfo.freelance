@@ -1,6 +1,6 @@
 ---
 title: "GEO: cómo lograr que la IA recomiende tu negocio"
-description: "Qué es GEO, la optimización para buscadores con inteligencia artificial como ChatGPT, Perplexity o Gemini, y cómo hacer que tu negocio sea claro, confiable y fácil de reconocer."
+description: "Qué es GEO, la optimización para asistentes con IA como ChatGPT, Perplexity o Gemini, y cómo hacer que tu negocio sea claro y confiable."
 date: 2026-11-06T23:59:36Z
 tags: marketing
 categoryName: Marketing Digital

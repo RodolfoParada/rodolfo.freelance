@@ -1,6 +1,6 @@
 ---
 title: "Correos de WordPress en spam: cómo enviarlos bien con SMTP"
-description: "Por qué tu formulario o los correos de WordPress no llegan, qué es SMTP y cómo configurar el envío con SPF, DKIM y DMARC para que lleguen a la bandeja de entrada."
+description: "Por qué los correos de tu web no llegan, qué es SMTP y cómo configurar el envío con SPF, DKIM y DMARC para llegar a la bandeja de entrada."
 date: 2026-11-06T23:40:00Z
 tags: wordpress
 categoryName: WordPress

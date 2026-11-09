@@ -1,6 +1,6 @@
 ---
 title: "WhatsApp Business para pymes: atiende mejor sin mezclar tu vida personal"
-description: "Cómo usar WhatsApp Business en tu pyme: un número solo para el negocio, mensajes automáticos útiles, horario de atención y etiquetas para no perder cotizaciones."
+description: "Cómo usar WhatsApp Business en tu pyme: un número para el negocio, mensajes automáticos útiles, horario y etiquetas para no perder cotizaciones."
 date: 2026-10-21T23:49:00Z
 tags: atencion-cliente
 categoryName: Atención al Cliente
@@ -120,6 +120,8 @@ Para responder más rápido las preguntas que se repiten, WhatsApp Business tamb
 ## Un cuidado importante
 
 WhatsApp es para conversar con quien te escribe, no para enviar publicidad masiva. Las listas de difusión solo llegan a personas que guardaron tu número, y si muchas personas te reportan como spam, WhatsApp puede bloquear tu cuenta. Además, la nueva [Ley 21.719](https://www.bcn.cl/leychile/navegar?idNorma=1209272) de protección de datos personales, que entra en vigencia en diciembre de 2026, exige cuidar los datos de contacto de tus clientes.
+
+**Nota sobre la ley:** a la fecha, la Ley 21.719 rige desde el 1 de diciembre de 2026. Hay un proyecto en el Congreso que propone postergar su entrada en vigencia al 15 de octubre de 2027. Revisaremos este texto si el proyecto se aprueba.
 
 ## En resumen
 

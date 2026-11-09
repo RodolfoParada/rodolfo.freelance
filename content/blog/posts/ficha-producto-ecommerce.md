@@ -1,6 +1,6 @@
 ---
 title: "Ficha de producto que vende: qué debe tener tu tienda online"
-description: "Cómo armar una ficha de producto que responda las dudas del cliente antes de comprar: título claro, precio y envío visibles, fotos útiles y especificaciones ordenadas."
+description: "Cómo armar una ficha de producto que responda las dudas antes de comprar: título claro, precio y envío visibles, fotos útiles y especificaciones."
 date: 2026-11-06T23:59:54Z
 tags: administracion-ecommerce
 categoryName: Administración & E-Commerce

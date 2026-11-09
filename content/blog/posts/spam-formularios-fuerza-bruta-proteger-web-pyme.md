@@ -1,6 +1,6 @@
 ---
 title: "Spam en formularios y ataques de fuerza bruta: cómo proteger la web de tu pyme"
-description: "Los bots atacan cualquier formulario o login desprotegido, no solo WordPress. Te explico cómo funcionan estos ataques y cómo frenarlos sin complicar a tus clientes."
+description: "Los bots atacan cualquier formulario o login desprotegido. Cómo funcionan estos ataques y cómo frenarlos sin complicar a tus clientes."
 date: 2026-10-21T18:00:00Z
 tags: desarrollo
 categoryName: Desarrollo WEB

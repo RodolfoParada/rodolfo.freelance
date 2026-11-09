@@ -118,6 +118,8 @@ Además, la nueva [Ley 21.719](https://www.bcn.cl/leychile/navegar?idNorma=12092
 
 Si quieres entender cómo encaja la llamada en un proceso comercial completo, en [qué es un SDR o BDR](/blog/que-es-sdr-bdr-prospeccion-pymes/) te explico cómo separar la búsqueda de clientes del cierre.
 
+**Nota sobre la ley:** a la fecha, la Ley 21.719 rige desde el 1 de diciembre de 2026. Hay un proyecto en el Congreso que propone postergar su entrada en vigencia al 15 de octubre de 2027. Revisaremos este texto si el proyecto se aprueba.
+
 ## En resumen
 
 Una buena llamada en frío no interrumpe para imponer algo. Interrumpe para ofrecer ayuda con un problema real, de forma breve, clara y respetuosa. Si la persona termina aceptando una reunión de 15 minutos, la llamada cumplió su objetivo.

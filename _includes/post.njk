@@ -13,7 +13,7 @@ layout: base.njk
 
     <article class="blog-post">
       <h1 class="section__title">{{ title }}</h1>
-      <p class="section__lead"><time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time></p>
+      <p class="section__lead"><time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time> · Por <a href="/#acerca">Rodolfo Parada</a></p>
       <div class="blog-post__body">
         {{ content | safe }}
       </div>

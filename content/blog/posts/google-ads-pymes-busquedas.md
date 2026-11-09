@@ -1,6 +1,6 @@
 ---
 title: "Google Ads para pymes: cómo llegar a quien ya busca lo que vendes"
-description: "Cómo usar los anuncios de búsqueda de Google para llegar a personas que quieren contratar o comprar: palabras clave de intención, negativas, anuncios y páginas de destino."
+description: "Cómo usar los anuncios de búsqueda de Google para llegar a quienes quieren contratar: palabras clave de intención, negativas y páginas de destino."
 date: 2026-11-06T23:59:37Z
 tags: marketing
 categoryName: Marketing Digital

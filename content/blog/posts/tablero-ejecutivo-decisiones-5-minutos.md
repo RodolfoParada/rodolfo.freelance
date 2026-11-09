@@ -1,6 +1,6 @@
 ---
 title: "Tablero ejecutivo: métricas claras para decidir en 5 minutos"
-description: "Cómo presentar tus resultados en un tablero simple que la gerencia entienda en cinco minutos: tres niveles de información, cifras con contexto y preguntas que cada gráfico debe responder."
+description: "Cómo presentar resultados en un tablero que la gerencia entienda en cinco minutos: tres niveles de información y cifras con contexto."
 date: 2026-11-06T23:59:58Z
 tags: administracion-ecommerce
 categoryName: Administración & E-Commerce

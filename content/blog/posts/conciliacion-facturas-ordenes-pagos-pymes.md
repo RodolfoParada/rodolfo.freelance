@@ -1,6 +1,6 @@
 ---
 title: "Conciliación básica para pymes: cómo cruzar facturas, órdenes de compra y pagos"
-description: "Cómo revisar que cada factura coincida con lo que pediste y recibiste antes de pagarla, y cómo cuadrar tu cartola bancaria con tus registros cada mes, paso a paso."
+description: "Cómo revisar que cada factura coincida con lo pedido y recibido antes de pagarla, y cómo cuadrar tu cartola bancaria cada mes."
 date: 2026-10-21T23:40:00Z
 tags: administracion-ecommerce
 categoryName: Administración & E-Commerce

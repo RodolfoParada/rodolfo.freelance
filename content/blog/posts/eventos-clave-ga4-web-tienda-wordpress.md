@@ -1,6 +1,6 @@
 ---
-title: "Eventos clave en GA4 para tu web y tienda en WordPress"
-description: "Qué eventos registra Google Analytics 4 en tu WordPress, cuáles conviene configurar para captar clientes y vender, y cómo leer el embudo de compra sin enviar datos personales."
+title: "Lista de eventos de GA4 para tu web y tu tienda"
+description: "Nombres de los eventos que GA4 registra en WordPress, cuáles configurar para captar clientes y cómo leer el embudo de una tienda."
 date: 2026-11-06T23:59:28Z
 tags: wordpress
 categoryName: WordPress
@@ -52,6 +52,8 @@ Tener los eventos activos sirve si comparas unos con otros. Tres relaciones ayud
 ## Un cuidado antes de empezar
 
 Los eventos no deben enviar datos personales, como correos, teléfonos o nombres de quienes llenan un formulario. Esa información debe quedar fuera de la medición. Además, la medición con cookies debe respetar el consentimiento de la persona. La [Ley 21.719](https://www.bcn.cl/leychile/navegar?idNorma=1209272) sobre datos personales empieza a regir el 1 de diciembre de 2026, así que conviene revisar esto antes de esa fecha.
+
+**Nota sobre la ley:** a la fecha, la Ley 21.719 rige desde el 1 de diciembre de 2026. Hay un proyecto en el Congreso que propone postergar su entrada en vigencia al 15 de octubre de 2027. Revisaremos este texto si el proyecto se aprueba.
 
 ## En resumen
 

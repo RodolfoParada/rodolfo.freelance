@@ -1,6 +1,6 @@
 ---
 title: "Cómo reactivar clientes que dejaron de comprar"
-description: "Cómo recuperar a clientes que dejaron de comprar hace meses: priorizar por valor, preguntar con sinceridad, dar un motivo nuevo y ofrecer una condición sin riesgo."
+description: "Cómo recuperar clientes que dejaron de comprar hace meses: priorizar por valor, preguntar con sinceridad y ofrecer una condición sin riesgo."
 date: 2026-11-06T23:59:50Z
 tags: atencion-cliente
 categoryName: Atención al Cliente

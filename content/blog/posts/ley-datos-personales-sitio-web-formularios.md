@@ -1,6 +1,6 @@
 ---
 title: "Ley de datos personales: qué debe tener tu sitio web"
-description: "Qué pide la Ley 21.719 a tu sitio: formularios claros, consentimiento, política de privacidad completa y plazos para responder. Explicado en simple, con el texto de la ley."
+description: "Qué pide la Ley 21.719 a tu sitio: formularios claros, consentimiento, política de privacidad completa y plazos para responder, en simple."
 date: 2026-11-06T23:59:30Z
 tags: desarrollo
 categoryName: Desarrollo WEB
@@ -73,6 +73,8 @@ La ley clasifica las infracciones en leves, graves y gravísimas, con multas má
 - **Gravísimas:** por ejemplo, usar datos a sabiendas para un fin distinto del autorizado. Multa de hasta 20.000 UTM.
 
 En el caso de empresas que no son de menor tamaño y reinciden en infracciones graves o gravísimas, la multa puede llegar a un porcentaje de sus ingresos anuales.
+
+**Nota sobre la ley:** a la fecha, la Ley 21.719 rige desde el 1 de diciembre de 2026. Hay un proyecto en el Congreso que propone postergar su entrada en vigencia al 15 de octubre de 2027. Revisaremos este texto si el proyecto se aprueba.
 
 ## En resumen
 

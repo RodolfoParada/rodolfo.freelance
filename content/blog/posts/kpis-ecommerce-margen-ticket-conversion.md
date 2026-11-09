@@ -1,6 +1,6 @@
 ---
 title: "Cuatro indicadores para saber si tu tienda online es rentable"
-description: "Cómo calcular y leer el margen bruto, el ticket promedio, la tasa de conversión y la rotación de inventario, para detectar dónde se pierde dinero en tu tienda online."
+description: "Cómo calcular el margen bruto, el ticket promedio, la tasa de conversión y la rotación de inventario para saber dónde se pierde dinero."
 date: 2026-11-06T23:59:59Z
 tags: administracion-ecommerce
 categoryName: Administración & E-Commerce
@@ -59,6 +59,20 @@ Los cuatro indicadores se explican entre sí:
 | Ticket promedio | ¿Cuánto gasta cada cliente? | Si sube con combos o envío desde cierto monto |
 | Conversión | ¿Cuántas visitas compran? | Si cae, revisar la tienda antes que la publicidad |
 | Rotación | ¿Qué tan rápido vendo lo que tengo? | Productos parados que consumen caja |
+
+## Preguntas frecuentes
+
+### ¿Qué margen bruto es razonable?
+
+Depende del rubro y de cuánto gastas en publicidad, envío y comisiones. Lo práctico es que el margen bruto alcance para pagar esos gastos y deje ganancia. Compara siempre con tu propio historial.
+
+### ¿Los montos deben incluir IVA?
+
+Conviene calcular los márgenes sin IVA, porque ese impuesto no es un ingreso propio de la empresa. Confirma el tratamiento con tu contador, porque depende de tu régimen tributario.
+
+### ¿Qué hago si la tasa de conversión baja?
+
+Revisa primero la tienda: fotos, precio final, costo de envío y el formulario de pago. Si la tienda está bien, revisa de dónde llegan las visitas, porque un canal puede traer personas poco interesadas en comprar.
 
 ## En resumen
 

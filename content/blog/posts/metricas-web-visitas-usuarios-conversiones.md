@@ -1,6 +1,6 @@
 ---
 title: "Visitas, usuarios, tiempo en página y conversiones: qué métricas mirar en tu web"
-description: "Muchas visitas no significan más ventas. Te explico en simple qué mide cada métrica de tu web, cómo leerlas juntas y cuál te dice si tu negocio realmente avanza."
+description: "Muchas visitas no significan más ventas. Qué mide cada métrica de tu web, cómo leerlas juntas y cuál te dice si tu negocio avanza."
 date: 2026-10-21T19:00:00Z
 tags: marketing
 categoryName: Marketing Digital
