@@ -1,6 +1,6 @@
 ---
 title: "Tu web necesita mantención: por qué no basta con publicarla"
-description: "Por qué una web cambia con el tiempo aunque no la toques: navegadores, seguridad, plugins, base de datos y copias de respaldo. Qué es la mantención preventiva y por qué conviene."
+description: "Por qué una web cambia con el tiempo aunque no la toques: navegadores, seguridad, plugins y copias de respaldo. Qué es la mantención preventiva."
 date: 2026-11-06T23:59:35Z
 tags: desarrollo
 categoryName: Desarrollo WEB

@@ -1,6 +1,6 @@
 ---
 title: "Qué es un SDR o BDR y por qué tu pyme debería separar prospección y cierre"
-description: "Cómo funciona el rol de SDR o BDR, en qué se diferencia del vendedor que cierra y cómo implementarlo en una pyme para tener reuniones comerciales todas las semanas."
+description: "Qué hace un SDR o BDR, en qué se diferencia del vendedor que cierra y cómo implementar este rol en una pyme para tener más reuniones."
 date: 2026-10-21T23:59:00Z
 tags: prospeccion
 categoryName: Prospección Comercial

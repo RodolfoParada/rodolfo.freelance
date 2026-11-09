@@ -1,6 +1,6 @@
 ---
 title: "Cómo armar una base de datos de prospección desde cero"
-description: "Cómo definir tu cliente ideal, encontrar a quien toma las decisiones y ordenar tus contactos en un CRM, sin comprar listas y respetando la ley de datos personales."
+description: "Cómo definir tu cliente ideal, encontrar a quien decide y ordenar tus contactos en un CRM, sin comprar listas y respetando la ley."
 date: 2026-10-21T23:56:00Z
 tags: prospeccion
 categoryName: Prospección Comercial
@@ -204,6 +204,8 @@ Con una base hecha por ti, a partir de fuentes públicas y con contactos que enc
 Cuando tengas tu lista, el siguiente paso es contactar. Te puede servir [cómo hacer llamadas en frío](/blog/llamadas-en-frio-efectivas-chile/) y [cómo escribir un correo en frío](/blog/correo-en-frio-b2b-pymes/).
 
 Y cuando ya tienes cotizaciones enviadas que nadie respondió, en [cómo reactivar cotizaciones que quedaron sin respuesta](/blog/reactivar-cotizaciones-sin-respuesta/) explicamos cómo retomarlas.
+
+**Nota sobre la ley:** a la fecha, la Ley 21.719 rige desde el 1 de diciembre de 2026. Hay un proyecto en el Congreso que propone postergar su entrada en vigencia al 15 de octubre de 2027. Revisaremos este texto si el proyecto se aprueba.
 
 ## En resumen
 

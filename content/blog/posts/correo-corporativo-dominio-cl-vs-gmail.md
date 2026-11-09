@@ -1,6 +1,6 @@
 ---
 title: "Correo @tuempresa.cl o @gmail.com: por qué tu pyme necesita un dominio propio"
-description: "Qué cambia cuando tu negocio escribe desde un correo con dominio .cl propio: más confianza, menos spam, control de la información y un costo menor de lo que crees."
+description: "Qué cambia cuando tu negocio escribe desde un correo con dominio .cl propio: más confianza, menos spam y control de la información."
 date: 2026-10-21
 tags: desarrollo
 categoryName: Desarrollo WEB

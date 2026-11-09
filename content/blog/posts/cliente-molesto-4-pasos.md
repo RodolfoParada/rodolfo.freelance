@@ -1,6 +1,6 @@
 ---
 title: "Cómo atender a un cliente molesto en 4 pasos"
-description: "Un método simple para atender reclamos difíciles: escuchar sin interrumpir, reconocer el problema, dar un plan con plazos y cerrar con un gesto que repare la confianza."
+description: "Un método simple para atender reclamos difíciles: escuchar sin interrumpir, reconocer el problema, dar un plan con plazos y cerrar con un gesto."
 date: 2026-11-06T23:59:45Z
 tags: atencion-cliente
 categoryName: Atención al Cliente

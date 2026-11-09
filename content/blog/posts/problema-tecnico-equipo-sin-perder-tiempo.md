@@ -1,6 +1,6 @@
 ---
 title: "Cómo pasar un problema técnico al equipo sin perder tiempo"
-description: "Cómo describir un problema técnico para que el equipo lo resuelva a la primera: hechos concretos, pasos para reproducirlo, evidencia y una ficha de traspaso simple."
+description: "Cómo describir un problema técnico para resolverlo a la primera: hechos concretos, pasos para reproducirlo, evidencia y una ficha de traspaso."
 date: 2026-11-06T23:59:46Z
 tags: atencion-cliente
 categoryName: Atención al Cliente

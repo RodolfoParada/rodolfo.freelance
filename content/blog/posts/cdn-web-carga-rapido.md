@@ -1,6 +1,6 @@
 ---
 title: "Qué es una CDN y cómo hace que tu web cargue rápido"
-description: "Qué es una red de distribución de contenido (CDN), cómo acerca tu web a cada visitante y cuándo conviene usarla en una pyme con clientes en Chile y fuera del país."
+description: "Qué es una red de distribución de contenido (CDN), cómo acerca tu web a cada visitante y cuándo conviene usarla en una pyme."
 date: 2026-11-06T23:59:33Z
 tags: desarrollo
 categoryName: Desarrollo WEB

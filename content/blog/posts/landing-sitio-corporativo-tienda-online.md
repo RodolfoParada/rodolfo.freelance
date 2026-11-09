@@ -1,6 +1,6 @@
 ---
 title: "¿Landing page, sitio corporativo o tienda? Elige según tu etapa"
-description: "Cómo saber si tu empresa necesita una landing page, un sitio corporativo o una tienda online, según su etapa, su forma de vender y su capacidad para atender pedidos."
+description: "Cómo saber si tu empresa necesita una landing page, un sitio corporativo o una tienda online, según su etapa y su forma de vender."
 date: 2026-11-06T23:59:34Z
 tags: desarrollo
 categoryName: Desarrollo WEB

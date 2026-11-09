@@ -1,6 +1,6 @@
 ---
 title: "Cómo dar la bienvenida a un nuevo cliente para que no se sienta abandonado"
-description: "Un proceso de bienvenida simple para tu pyme: el correo del primer día, la reunión de inicio y un responsable claro, para que tu cliente sepa qué viene después de pagar."
+description: "Un proceso de bienvenida simple: el correo del primer día, la reunión de inicio y un responsable claro, para que tu cliente sepa qué viene."
 date: 2026-10-21T23:52:00Z
 tags: atencion-cliente
 categoryName: Atención al Cliente

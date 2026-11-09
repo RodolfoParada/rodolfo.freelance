@@ -1,6 +1,6 @@
 ---
 title: "Competir sin guerra de precios: cómo defender tu margen"
-description: "Por qué bajar precios para ganar una venta puede destruir tu ganancia, y cómo responder a la competencia con valor: garantías, alcance claro, paquetes y rapidez."
+description: "Por qué bajar precios para ganar una venta puede destruir tu ganancia, y cómo responder a la competencia con garantías, alcance y valor."
 date: 2026-11-06T23:59:53Z
 tags: prospeccion
 categoryName: Prospección Comercial
@@ -14,7 +14,7 @@ Muchos clientes, sobre todo en servicios, no compran solo por precio. Buscan tra
 
 Un descuento parece pequeño, pero su efecto en la ganancia es grande. Veamos un ejemplo con un margen de 30 %:
 
-- Si bajas el precio 10 %, tu margen pasa de 30 % a 20 %.
+- Si bajas el precio 10 %, ganas 20 de cada 100 pesos de precio original, en vez de 30. Sobre el nuevo precio, el margen queda en un 22 % aproximadamente.
 - Tu ganancia por venta baja alrededor de un tercio.
 - Para ganar lo mismo que antes, tendrías que vender cerca de un 50 % más.
 
@@ -40,6 +40,20 @@ Hay dos estrategias muy distintas:
 - **Valor y solvencia:** atiendes a clientes que buscan resultados y tranquilidad. Se transforman en socios más difíciles de reemplazar, y el margen permite reinvertir en tu equipo.
 
 No se trata de que una sea siempre mejor. Pero es importante saber cuál estás usando, para que tus decisiones de precio sean coherentes.
+
+## Preguntas frecuentes
+
+### ¿Debo igualar un precio más bajo?
+
+Solo si puedes hacerlo sin perder margen. Antes de bajar, calcula cuántas ventas adicionales necesitas para compensar. Si no las tienes, es mejor ajustar el alcance o agregar valor.
+
+### ¿Cómo respondo si el cliente dice que el otro cobra menos?
+
+Pregunta qué incluye la otra propuesta. Luego muestra tus garantías, tus plazos y lo que incluye la tuya. Si el cliente sigue prefiriendo solo lo más barato, puede que no sea tu cliente ideal.
+
+### ¿Cuánto debo subir el precio?
+
+No hay una cifra única. Sube cuando agregas valor visible y tu margen no cubre tus costos. Hazlo de forma gradual y revisa las ventas después del cambio.
 
 ## En resumen
 

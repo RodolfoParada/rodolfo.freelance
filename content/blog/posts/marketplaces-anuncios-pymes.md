@@ -1,6 +1,6 @@
 ---
 title: "Vender en marketplaces: cómo usar anuncios sin perder dinero"
-description: "Cómo funcionan los anuncios patrocinados en Mercado Libre, Amazon y otros marketplaces, qué revisar antes de invertir y cómo medir si tus campañas son rentables."
+description: "Cómo funcionan los anuncios en Mercado Libre, Amazon y otros marketplaces, qué revisar antes de invertir y cómo medir si conviene."
 date: 2026-11-06T23:59:40Z
 tags: marketing
 categoryName: Marketing Digital

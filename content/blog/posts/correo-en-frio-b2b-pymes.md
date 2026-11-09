@@ -127,6 +127,8 @@ Ten en cuenta también la ley chilena. Si escribes a personas como consumidores,
 
 Si la persona responde y luego no contesta más, en [seguimiento comercial: cómo insistir sin molestar al cliente](/blog/seguimiento-comercial-sin-molestar/) explicamos cómo seguir la conversación.
 
+**Nota sobre la ley:** a la fecha, la Ley 21.719 rige desde el 1 de diciembre de 2026. Hay un proyecto en el Congreso que propone postergar su entrada en vigencia al 15 de octubre de 2027. Revisaremos este texto si el proyecto se aprueba.
+
 ## En resumen
 
 Un buen correo en frío no intenta cerrar la venta en la bandeja de entrada. Busca algo más simple: empezar una conversación entre dos personas de negocios. Corto, personal, útil y fácil de responder.

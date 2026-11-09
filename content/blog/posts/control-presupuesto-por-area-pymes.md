@@ -12,6 +12,8 @@ Casi nunca es un solo gasto grande. Es la suma silenciosa de pequeños aumentos:
 
 El **control de presupuesto por área** es una forma simple de evitarlo: le asignas un límite de gasto a cada área de tu negocio y, cada mes, comparas lo que se gastó con lo que se había planificado.
 
+*Las cifras de este artículo son ejemplos para explicar el método, no datos de una empresa real.*
+
 ## 1. Divide tu presupuesto por áreas
 
 No pongas todos los gastos en un solo saco de «gastos generales». Divídelos en áreas, que en contabilidad se llaman **centros de costo**:

@@ -1,6 +1,6 @@
 ---
 title: "Elementor o bloques en WordPress: cuál conviene a tu negocio"
-description: "Comparamos los maquetadores visuales como Elementor con el editor nativo de bloques de WordPress: velocidad, libertad de diseño, costos y facilidad de cambiar después."
+description: "Comparamos maquetadores como Elementor con el editor de bloques de WordPress: velocidad, libertad de diseño, costos y facilidad de cambio."
 date: 2026-11-06T23:50:00Z
 tags: wordpress
 categoryName: WordPress

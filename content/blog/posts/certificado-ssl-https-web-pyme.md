@@ -1,6 +1,6 @@
 ---
 title: "Certificado SSL y HTTPS: por qué tu web necesita el candado"
-description: "Qué es el certificado SSL, qué significa HTTPS y por qué los navegadores advierten cuando un sitio no es seguro. Cómo afecta la confianza de tus clientes y tus contactos."
+description: "Qué es el certificado SSL y qué significa HTTPS. Por qué los navegadores advierten de sitios inseguros y cómo afecta la confianza de tus clientes."
 date: 2026-11-06T23:59:32Z
 tags: desarrollo
 categoryName: Desarrollo WEB
@@ -46,6 +46,8 @@ La Ley 21.719 sobre datos personales también exige adoptar medidas de seguridad
 ## Cómo activarlo
 
 En muchos casos, el certificado viene incluido con el hosting o se puede activar desde el panel del proveedor. Antes de contratar, pregunta si lo incluye y si se renueva automáticamente. Una vez activo, asegúrate de que todas las páginas carguen con HTTPS y de que las versiones antiguas redirijan a la nueva dirección. En [dominio, hosting y DNS explicados](/blog/dominio-hosting-dns-explicados/) revisamos qué es cada parte. Si tu sitio además usa una red de distribución de contenido, en [qué es una CDN y cómo hace que tu web cargue rápido](/blog/cdn-web-carga-rapido/) explicamos cómo funciona.
+
+**Nota sobre la ley:** a la fecha, la Ley 21.719 rige desde el 1 de diciembre de 2026. Hay un proyecto en el Congreso que propone postergar su entrada en vigencia al 15 de octubre de 2027. Revisaremos este texto si el proyecto se aprueba.
 
 ## En resumen
 

@@ -1,6 +1,6 @@
 ---
-title: "Cómo usar Microsoft Clarity en WordPress para entender por qué tus visitas no compran"
-description: "Cómo instalar Microsoft Clarity en WordPress y usar sus grabaciones y mapas de calor para encontrar en qué se traban tus clientes."
+title: "Cómo instalar Microsoft Clarity en WordPress paso a paso"
+description: "Cómo instalar Microsoft Clarity en tu WordPress, qué configurar y cómo evitar que se registren datos personales de tus clientes."
 date: 2026-10-21
 tags: wordpress
 categoryName: WordPress

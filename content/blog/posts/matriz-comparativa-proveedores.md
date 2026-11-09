@@ -12,6 +12,8 @@ Pero en el día a día, elegir solo por precio puede salir muy caro. Un proveedo
 
 Una **matriz comparativa de proveedores** es una tabla simple, que puedes armar en una planilla, para evaluar a cada proveedor con una mirada completa antes de comprar.
 
+*Las cifras de este artículo son ejemplos para explicar el método, no datos de una empresa real.*
+
 ## Los cuatro criterios que conviene comparar
 
 <figure>

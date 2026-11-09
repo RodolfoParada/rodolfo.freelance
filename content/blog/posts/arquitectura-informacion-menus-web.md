@@ -1,6 +1,6 @@
 ---
 title: "Cómo ordenar los menús de tu web para que no se pierdan"
-description: "Qué hacer con los menús y las páginas de tu sitio para que el visitante encuentre lo que busca: pocas opciones, nombres claros, niveles simples y un menú que funcione en el celular."
+description: "Cómo ordenar menús y páginas para que el visitante encuentre lo que busca: pocas opciones, nombres claros y un menú que funcione en el celular."
 date: 2026-11-06T23:59:31Z
 tags: desarrollo
 categoryName: Desarrollo WEB

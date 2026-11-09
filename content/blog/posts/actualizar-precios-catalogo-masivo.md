@@ -1,6 +1,6 @@
 ---
 title: "Actualizar muchos precios a la vez, sin errores"
-description: "Cómo cambiar precios o stock de cientos de productos sin editar uno por uno: el código SKU como llave, un archivo de respaldo, cambios en planilla y una importación de prueba."
+description: "Cómo cambiar precios o stock de muchos productos a la vez: SKU como llave, respaldo, cambios en planilla e importación de prueba."
 date: 2026-11-06T23:59:57Z
 tags: administracion-ecommerce
 categoryName: Administración & E-Commerce

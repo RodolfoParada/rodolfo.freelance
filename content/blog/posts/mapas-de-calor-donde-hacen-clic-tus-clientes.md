@@ -12,6 +12,8 @@ Para responder esa pregunta existen los **mapas de calor**. Son una imagen de tu
 
 En vez de adivinar por qué la gente no compra ni cotiza, puedes ver cómo usan tu web personas reales, sin saber quiénes son. En este artículo te explico cómo funcionan, qué tipos existen y cómo usarlos para mejorar tus ventas.
 
+*Las cifras de este artículo son ejemplos para explicar el método, no datos de una empresa real.*
+
 ## Cómo funciona un mapa de calor
 
 Imagina una cámara térmica en el pasillo de una tienda. Los lugares por donde más pasa la gente y los productos que más tocan se ven en rojo. Los rincones a los que nadie va quedan en azul.
@@ -173,6 +175,8 @@ Muchas pymes no usan mapas de calor porque creen que son herramientas caras para
 - **Cuida la privacidad.** Clarity oculta por defecto lo que la gente escribe en los campos de texto, como contraseñas, teléfonos o datos de tarjetas, y no identifica a las personas. Aun así, debes informarlo en la política de privacidad de tu web. Ten en cuenta que en Chile la nueva [Ley 21.719](https://www.bcn.cl/leychile/navegar?idNorma=1209272) de protección de datos personales entra en vigencia en diciembre de 2026, así que es un buen momento para revisar qué datos recoge tu web y cómo lo comunicas.
 
 Si tu web está hecha en WordPress, en [cómo usar Microsoft Clarity en WordPress](/blog/clarity-wordpress-visitas-no-compran/) te explico la instalación paso a paso.
+
+**Nota sobre la ley:** a la fecha, la Ley 21.719 rige desde el 1 de diciembre de 2026. Hay un proyecto en el Congreso que propone postergar su entrada en vigencia al 15 de octubre de 2027. Revisaremos este texto si el proyecto se aprueba.
 
 ## En resumen
 

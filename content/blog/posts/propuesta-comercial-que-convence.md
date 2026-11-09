@@ -1,6 +1,6 @@
 ---
 title: "Cómo armar una propuesta comercial que valoren"
-description: "Qué incluir en una propuesta comercial para que el cliente entienda el valor de tu trabajo y no solo compare precios: diagnóstico, resultados, alcance y próximos pasos."
+description: "Qué incluir en una propuesta comercial para que el cliente entienda el valor de tu trabajo: diagnóstico, resultados, alcance y próximos pasos."
 date: 2026-11-06T23:59:42Z
 tags: prospeccion
 categoryName: Prospección Comercial

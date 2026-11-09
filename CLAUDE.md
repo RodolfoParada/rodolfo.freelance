@@ -186,6 +186,8 @@ El blog vive en `content/` y se genera en `dist/`. Está dirigido a **pymes chil
   categoryName: <nombre visible>  # igual al "name" de blogTabs.json
   ```
 - **Orden:** se ordena por `date`, del más nuevo al más antiguo. Si varios artículos tienen el mismo día, usa la hora (`T23:40:00Z`) para fijar cuál sale destacado. El artículo más reciente es el destacado, junto a la imagen de la pestaña: al publicar uno nuevo, dale la fecha y hora más recientes de todo el blog.
+- **Firma:** `_includes/post.njk` muestra debajo del título la fecha y «Por Rodolfo Parada», con enlace a `/#acerca`. No hace falta escribirla en el `.md`.
+- **Descripción:** máximo 160 caracteres. Si el artículo cita la Ley 21.719, incluye la nota sobre el proyecto que posterga su entrada en vigencia.
 - **Estructura:** introducción breve → secciones `##` (alimentan el índice lateral) → `## En resumen` → bloque CTA al final. Usa `###` dentro de una sección.
 - **CTA final** (obligatorio, propio del tema del artículo), con el shortcode `blogCta` (definido en `eleventy.config.js`; genera el bloque `.blog-cta`):
   ```njk

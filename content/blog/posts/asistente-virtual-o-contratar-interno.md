@@ -1,6 +1,6 @@
 ---
 title: "Asistente virtual o contratar interno: cuál conviene a tu pyme"
-description: "Comparamos contratar a alguien en planilla con apoyarte en un asistente virtual comercial: costos reales, flexibilidad, tiempo de partida y cuándo conviene cada opción."
+description: "Comparamos contratar en planilla o usar un asistente virtual comercial: costos, flexibilidad, tiempo de partida y cuándo conviene cada opción."
 date: 2026-11-06T23:59:51Z
 tags: prospeccion
 categoryName: Prospección Comercial
@@ -45,6 +45,20 @@ Algunas ventajas:
 **Contratar interno** tiene sentido si tu venta es muy compleja y confidencial, si manejas información estratégica que no debe salir de la empresa o si tu volumen justifica un equipo permanente.
 
 **Un asistente virtual** conviene si estás creciendo y necesitas ayuda para filtrar prospectos, confirmar reuniones, cargar datos en tu sistema o hacer seguimiento a cotizaciones, sin comprometer tu capital en costos fijos.
+
+## Preguntas frecuentes
+
+### ¿Un asistente virtual reemplaza a un vendedor?
+
+No necesariamente. Sirve para tareas de apoyo, como filtrar prospectos, confirmar reuniones y cargar datos. Una venta compleja sigue necesitando a alguien con criterio comercial.
+
+### ¿Cómo evito que la relación se vuelva laboral?
+
+Acuerda tareas y resultados, no un horario fijo ni una supervisión diaria. Antes de firmar, revisa con un abogado o contador qué tipo de contrato conviene, porque la forma de trabajar es lo que define la relación.
+
+### ¿Cuánto tiempo toma empezar?
+
+Depende de la inducción: hay que documentar procesos, accesos y límites. Por eso conviene preparar las instrucciones antes de contratar.
 
 ## En resumen
 

@@ -1,6 +1,6 @@
 ---
 title: "Tiempos de respuesta en pymes: por qué contestar rápido te hace ganar clientes"
-description: "Qué es un compromiso de tiempos de respuesta (SLA), qué plazos son realistas para una pyme según el canal y cómo responder a tiempo aunque no tengas la solución."
+description: "Qué es un compromiso de tiempos de respuesta (SLA), qué plazos son realistas para una pyme según el canal y cómo cumplirlos."
 date: 2026-10-21T23:47:00Z
 tags: atencion-cliente
 categoryName: Atención al Cliente
@@ -8,7 +8,7 @@ categoryName: Atención al Cliente
 
 Cuando una empresa busca un proveedor, casi nunca cotiza en un solo lugar. Llena dos o tres formularios o escribe a varios proveedores a la vez para comparar.
 
-En ese momento, la rapidez de tu primera respuesta pesa muchísimo. Quien responde primero tiene la oportunidad de entender la necesidad, generar confianza y presentar su propuesta antes que el resto. Un estudio publicado en *Harvard Business Review* encontró que las empresas que contactaban a un interesado dentro de la primera hora tenían muchas más probabilidades de concretar una conversación de venta que las que tardaban más.
+En ese momento, la rapidez de tu primera respuesta pesa muchísimo. Quien responde primero tiene la oportunidad de entender la necesidad, generar confianza y presentar su propuesta antes que el resto.
 
 Para responder rápido de forma constante, y no solo cuando hay tiempo, sirve definir un **SLA**: un compromiso de tiempos de respuesta.
 
@@ -38,36 +38,36 @@ No todas las consultas se resuelven igual de rápido, pero todas merecen una **p
 <thead>
 <tr>
 <th scope="col">Canal o tipo de consulta</th>
-<th scope="col">Primera respuesta</th>
-<th scope="col">Solución estimada</th>
+<th scope="col">Acuse de recibo</th>
+<th scope="col">Respuesta completa</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>WhatsApp o chat</td>
-<td data-label="Primera respuesta">15 a 30 minutos.</td>
-<td data-label="Solución estimada">En la misma conversación, o derivado al responsable en menos de 2 horas.</td>
+<td data-label="Acuse de recibo">El mismo día hábil, lo antes posible dentro del horario de atención.</td>
+<td data-label="Respuesta completa">Dentro de 72 horas hábiles.</td>
 </tr>
 <tr>
 <td>Formulario web o correo de cotización</td>
-<td data-label="Primera respuesta">Menos de 2 horas.</td>
-<td data-label="Solución estimada">Llamada o reunión agendada el mismo día.</td>
+<td data-label="Acuse de recibo">El mismo día hábil.</td>
+<td data-label="Respuesta completa">Dentro de 72 horas hábiles, con llamada o reunión si corresponde.</td>
 </tr>
 <tr>
 <td>Consulta de soporte habitual</td>
-<td data-label="Primera respuesta">Menos de 4 horas.</td>
-<td data-label="Solución estimada">Entre 1 y 2 días hábiles, según la complejidad.</td>
+<td data-label="Acuse de recibo">El mismo día hábil.</td>
+<td data-label="Respuesta completa">Dentro de 72 horas hábiles, según la complejidad.</td>
 </tr>
 <tr>
 <td>Urgencia crítica (por ejemplo, la web caída)</td>
-<td data-label="Primera respuesta">Menos de 30 minutos.</td>
-<td data-label="Solución estimada">Acción inmediata para contener el problema y luego solución definitiva.</td>
+<td data-label="Acuse de recibo">Lo antes posible dentro del horario de atención.</td>
+<td data-label="Respuesta completa">Acción inmediata para contener el problema, y solución definitiva en el plazo que acuerdes con el cliente.</td>
 </tr>
 </tbody>
 </table>
 </div>
 
-Lo importante no es copiar estos números, sino elegir plazos que **de verdad puedas cumplir** y cumplirlos siempre.
+Lo importante no es copiar estos números, sino elegir plazos que **de verdad puedas cumplir**. Si tu compromiso público es responder en un máximo de 72 horas hábiles, cúmplelo siempre y avisa antes si necesitas más tiempo.
 
 ## La regla de oro: avisa que recibiste, aunque no tengas la solución
 
@@ -108,7 +108,7 @@ Si una consulta necesita un día de trabajo, no dejes al cliente en silencio has
 <figcaption><p>El paso 2 es el que más cambia la experiencia del cliente: saber que alguien está a cargo baja la ansiedad, aunque la solución tome tiempo.</p></figcaption>
 </figure>
 
-<p class="blog-script">«Hola, [nombre]. Recibimos tu consulta sobre [tema]. Ya lo estamos revisando y te enviaremos una respuesta completa hoy antes de las 17:00.»</p>
+<p class="blog-script">«Hola, [nombre]. Recibimos tu consulta sobre [tema]. Ya la estamos revisando y te enviaremos una respuesta completa en un plazo de hasta 72 horas hábiles. Si necesitamos más tiempo, te avisaremos antes.»</p>
 
 El cliente no espera que todo se resuelva en cinco minutos. Lo que necesita es saber que hay alguien a cargo de su caso.
 

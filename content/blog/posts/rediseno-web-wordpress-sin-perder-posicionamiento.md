@@ -1,6 +1,6 @@
 ---
 title: "Rediseño web en WordPress sin perder tu posicionamiento"
-description: "Cómo renovar tu web en WordPress sin perder visitas desde Google: auditar antes, mantener las direcciones, redirigir bien, probar en privado y revisar después del lanzamiento."
+description: "Cómo renovar tu web en WordPress sin perder visitas desde Google: auditar antes, mantener direcciones, redirigir bien y revisar el lanzamiento."
 date: 2026-11-06T23:59:27Z
 tags: wordpress
 categoryName: WordPress
