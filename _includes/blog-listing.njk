@@ -68,6 +68,10 @@
 
     <pagination-nav current="{{ pagination.pageNumber + 1 }}" total="{{ pagination.pages.length }}" first="{{ firstUrl }}" base="{{ pageBase }}" suffix="/"></pagination-nav>
 
+    <div class="blog-listing-ad">
+      {% include "partials/odoo-ad.njk" %}
+    </div>
+
     <div class="blog-cta">
       <div>
         <h2 class="blog-cta__title">¿Conversamos sobre tu negocio?</h2>
