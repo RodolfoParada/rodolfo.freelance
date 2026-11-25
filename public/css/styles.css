@@ -4914,3 +4914,129 @@ netlify-drawer,
     position: static;
   }
 }
+
+/* ==========================================================================
+   Anuncio de afiliado (columna lateral de artículos de administración, e-commerce y prospección)
+   Ver _includes/partials/odoo-ad.njk y post.njk
+   ========================================================================== */
+
+.ad-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow);
+}
+
+.ad-card__label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs);
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+}
+
+.ad-card__badge {
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--color-brand-tint);
+  color: var(--color-text-accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.ad-card__brand {
+  font-weight: 600;
+}
+
+.ad-card__title {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+.ad-card__text {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-muted);
+}
+
+.ad-card__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius);
+  background: var(--color-action);
+  color: #FFFFFF;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color var(--transition);
+}
+
+.ad-card__button:hover {
+  background: var(--color-action-hover);
+}
+
+.ad-card__button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ad-card__button {
+    transition: none;
+  }
+}
+
+/* En móvil la columna izquierda queda antes del artículo: el anuncio se oculta ahí para no tapar el título */
+@media (max-width: 900px) {
+  .blog-aside--left .ad-card {
+    display: none;
+  }
+}
+
+/* Anuncio de afiliado entre la paginación y el CTA, a todo el ancho (_includes/blog-listing.njk) */
+.blog-listing-ad {
+  margin-block: var(--space-xl);
+}
+
+.blog-listing-ad .ad-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--space-xs) var(--space-xl);
+}
+
+.blog-listing-ad .ad-card__label,
+.blog-listing-ad .ad-card__title,
+.blog-listing-ad .ad-card__text {
+  grid-column: 1;
+}
+
+.blog-listing-ad .ad-card__button {
+  grid-column: 2;
+  grid-row: 2 / span 2;
+  min-width: 12rem;
+}
+
+@media (max-width: 768px) {
+  .blog-listing-ad .ad-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .blog-listing-ad .ad-card__button {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}
