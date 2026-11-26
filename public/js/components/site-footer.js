@@ -66,7 +66,7 @@
                 </span>
                 <div class="site-footer__contact-body">
                   <span class="site-footer__contact-sub">Correo electrónico</span>
-                  <a class="site-footer__contact-mail" href="mailto:desarrollador.freelance7@gmail.com">desarrollador.freelance7@gmail.com</a>
+                  <a class="site-footer__contact-mail" href="mailto:rodolfo@rodolfofreelance.cl">rodolfo@rodolfofreelance.cl</a>
                 </div>
               </li>
 

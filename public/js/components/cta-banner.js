@@ -17,7 +17,7 @@
     primaryText: "Agenda tu reunión",
     primaryHref: "#contacto",
     secondaryText: "none",
-    secondaryHref: "mailto:desarrollador.freelance7@gmail.com",
+    secondaryHref: "mailto:rodolfo@rodolfofreelance.cl",
     note: "Respuesta en menos de 72 horas hábiles · Atención 100% remota para todo Chile"
   };
 

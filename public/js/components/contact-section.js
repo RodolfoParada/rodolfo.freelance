@@ -202,7 +202,7 @@
             <span class="contact-panel__channel-arrow" aria-hidden="true">↗</span>
           </a>
 
-          <a class="contact-panel__channel" href="mailto:desarrollador.freelance7@gmail.com">
+          <a class="contact-panel__channel" href="mailto:rodolfo@rodolfofreelance.cl">
             <span class="contact-panel__channel-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -211,7 +211,7 @@
             </span>
             <span class="contact-panel__channel-info">
               <span class="contact-panel__channel-name">Correo</span>
-              <strong class="contact-panel__channel-value">desarrollador.freelance7@gmail.com</strong>
+              <strong class="contact-panel__channel-value">rodolfo@rodolfofreelance.cl</strong>
             </span>
             <span class="contact-panel__channel-arrow" aria-hidden="true">→</span>
           </a>
