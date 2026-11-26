@@ -146,6 +146,9 @@ const validators = [
       if (digits.length !== 8) {
         throw new Error("El teléfono debe tener 8 dígitos.");
       }
+      if (digits[0] === "1" || digits[0] === "2") {
+        throw new Error("Ingrese un teléfono válido.");
+      }
       if (REPEATED_DIGITS_RE.test(digits) || isSequentialDigits(digits)) {
         throw new Error("Ingresa un número de teléfono válido.");
       }

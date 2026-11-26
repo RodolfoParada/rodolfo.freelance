@@ -78,7 +78,7 @@
                 <h3 class="legal-item__sub">1.1. IDENTIFICACIÓN DEL RESPONSABLE</h3>
                 <ul class="legal-item__list">
                   <li class="legal-item__bullet">Responsable del tratamiento: <strong>Rodolfo Parada</strong>, persona natural que actúa como responsable directo bajo la marca de servicios profesionales Rodolfo-Freelance. No ha designado encargado de prevención ni representante legal externo.</li>
-                  <li class="legal-item__bullet">Correo electrónico oficial: <a class="legal__link" href="mailto:desarrollador.freelance7@gmail.com">desarrollador.freelance7@gmail.com</a>.</li>
+                  <li class="legal-item__bullet">Correo electrónico oficial: <a class="legal__link" href="mailto:rodolfo@rodolfofreelance.cl">rodolfo@rodolfofreelance.cl</a>.</li>
                   <li class="legal-item__bullet">Modalidad: Prestación remota de servicios de desarrollo de software y marketing desde Chile.</li>
                   <li class="legal-item__bullet">Versión de la política: v3.0 (Vigente desde: 4 de noviembre de 2026).</li>
                 </ul>
@@ -90,7 +90,7 @@
                 <h3 class="legal-item__sub">1.3. CANAL PARA SOLICITUDES Y EJERCICIO DE DERECHOS</h3>
                 <p class="legal-item__text">Para cualquier solicitud, comunicación o ejercicio de los derechos reconocidos por la ley, el titular puede dirigirse a los siguientes canales electrónicos permanentes y gratuitos:</p>
                 <ul class="legal-item__list">
-                  <li class="legal-item__bullet"><strong>Correo electrónico:</strong> <a class="legal__link" href="mailto:desarrollador.freelance7@gmail.com">desarrollador.freelance7@gmail.com</a>.</li>
+                  <li class="legal-item__bullet"><strong>Correo electrónico:</strong> <a class="legal__link" href="mailto:rodolfo@rodolfofreelance.cl">rodolfo@rodolfofreelance.cl</a>.</li>
                   <li class="legal-item__bullet"><strong>Formulario web:</strong> el formulario de contacto disponible en este sitio (<a class="legal__link" href="index.html#contacto">ir al formulario</a>).</li>
                 </ul>
               </div>
